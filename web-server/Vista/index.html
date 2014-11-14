@@ -1,10 +1,28 @@
-<html>
+<!doctype html>
+<html lang="en">
     <head>
     	<title>SUBJECT</title>
-    	<link href="/static/css/style.css" rel="stylesheet">
+    	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    	<link href="/static/css/style.css" rel="stylesheet"/>
+    	<link href="/static/css/normalize.css" rel="stylesheet"/>	
+    	<link href="/static/img/logonegro.png" rel="shortcut icon" type="image/x-icon"/>
     </head>
         <body>
-        	<h1>Subject</h1>
-        	<p> Building subject.com.mx </p>
+        <header>
+        	<svg class="logo">
+        		<defs>
+   					<filter id="f1" x="0" y="0" width="150%" height="150%">
+      					<feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+      					<feColorMatrix result = "matrixOut" in = "offOut" type = "matrix" values = "0.01 0 0 0 0 0 0.1 0 0 0.6 0.9 0.5 0.8 0.9 0 0 0 0 1 0"/>
+      					<feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="6" />
+      					<feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    				</filter>
+  				</defs>
+        		<text x="0" y="115" fill="white" filter="url(#f1)">Subject</text>
+        		<ellipse cx="28" cy="87" rx="7" ry="6" fill="black"/>
+        		<ellipse cx="28" cy="87" rx="6" ry="5" fill="#47C4FF" filter="url(#f1)"/>
+        	</svg>
+        </header>
         </body>
 </html>

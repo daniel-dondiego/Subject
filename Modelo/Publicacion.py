@@ -1,23 +1,32 @@
+
 class Publicacion(object):
-	def __init__(self,id,id_usuario,texto,visto,fecha):
-		self.__id=id
+
+	def __init__(self,id,id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad):
+		self.__id = id
 		self.__id_usuario = id_usuario
-		self.__texto = texto
-		self.__visto = visto
+		self.__id_grupo = id_grupo
+		self.__id_archivo = id_archivo
+		self.__id_materia = id_materia
 		self.__fecha = fecha
-		self.__website = website
-	
+		self.__visibilidad = visibilidad
+
 	def get_id(self):
-		return self.id
-	
+		return self.__id
+
 	def get_id_usuario(self):
-		return self.id_usuario
+		return self.__id_usuario
 
-	def get_texto(self):
-		return self.texto
+	def get_id_grupo(self):
+		return self.__id_grupo
 
-	def get_visto(self):
-		return self.visto
+	def get_id_archivo(self):
+		return self.__id_archivo
+
+	def get_id_materia(self):
+		return self.__id_materia
 
 	def get_fecha(self):
-		return self.fecha
+		return self.__fecha
+
+	def get_visibilidad(self):
+		return self.__visibilidad	

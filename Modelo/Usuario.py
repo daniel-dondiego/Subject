@@ -1,7 +1,8 @@
 #Clase que abstrae la informacion de un usuario
 class Usuario(object):
 	#constructor 
-	def __init__(self,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
+	def __init__(self,id,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
+		self.__id=id
 		self.__nombre = nombre
 		self.__apellido = apellido
 		self.__genero = genero
@@ -12,6 +13,9 @@ class Usuario(object):
 		self.__nacionalidad = nacionalidad
 		self.__f_nacimiento = f_nacimiento
 		self.__rating = rating
+	
+	def get_id(self):
+		return self.id
 	
 	def get_nombre(self):
 		return self.nombre

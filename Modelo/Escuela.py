@@ -1,7 +1,7 @@
 
 class Escuela(object):
 
-	def __init__(self,id,nombre,imagen,id_archivo,id_materia,fecha,visibilidad):
+	def __init__(self,id,nombre,imagen):
 		self.__id = id
 		self.__nombre = nombre
 		self.__imagen = imagen

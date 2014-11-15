@@ -2,7 +2,7 @@
 class Mensaje(object):
 	#constructor 
 	def __init__(self,id,id_remitente,id_destinatario,mensaje,fecha):
-		self.id = id
+		self.__id = id
 		self.__id_remitente = id_remitente
 		self.__id_destinatario = id_destinatario
 		self.__mensaje = mensaje

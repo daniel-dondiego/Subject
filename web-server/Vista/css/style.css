@@ -8,34 +8,74 @@ Description: css styles
 header{
 	background-color: black;
 	width: auto;
-	height: 200px;
-}
+	height: 170px;
+}	
 
-@media screen and (min-width: 10px){
+@media screen and (min-width: 100px){
 	body{
 		background-color: black;
 	}
 
 	svg.logo{
-		width: 470px;
+		width: 300px;
 		height: 200px;
-		margin-left: 17%;
+		margin-left: 12%;		
 	}
-	
+
 	svg.logo text{
-		font-family: "Arial";
-		font-size: 80px;
+   		font-family: "Arial";
+    	font-size: 85px;    	
+  	}
+}
+
+@media screen and (min-width: 480px){
+	body{
+		background-color: black;
 	}
+
+	svg.logo{
+		width: 360px;
+		height: 200px;
+		margin-left: 14%;		
+	}
+
+	svg.logo text{
+   		font-family: "Arial";
+    	font-size: 105px;    	
+  	}
+
+
 }
 
 @media screen and (min-width: 767px){
 	body {
 		background-color: #DFDCDC;
 	}
+
+	svg.logo{
+		width: 400px;
+		height: 200px;
+		margin-left: 6%;
+	}
+
+	svg.logo text{
+   		font-family: "Arial";
+    	font-size: 110px;    	
+  	}
 }
 
 @media screen and (min-width: 950px){
 	body {
 		background-color: #DFDCDC;
 	}
+	svg.logo{
+		width: 500px;
+		height: 200px;
+		margin-left: 6%;			
+	}
+
+	svg.logo text{
+   		font-family: "Arial";
+    	font-size: 140px;    	
+  	}
 }

@@ -8,10 +8,10 @@ class Archivo(object):
         id_grupo: el id del grupo al que pertenece el archivo o 0 si no 
                   pertenece a ningun grupo
         '''
-        self.id = id
-        self.url = url
-        self.id_usuario = id_usuario
-        self.id_grupo = id_grupo
+        self.__id = id
+        self.__url = url
+        self.__id_usuario = id_usuario
+        self.__id_grupo = id_grupo
     
     def get_id(self):
         '''

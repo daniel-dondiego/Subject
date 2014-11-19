@@ -42,4 +42,7 @@ function colocaElipses() {
 	}
 }
 
+/* Se recarga la página para chrome y chromium */
 window.onresize = function(){ location.reload(); }
+/* Se recarga la página para firefox */
+window.onresize = function(){ window.location.href = window.location.href }

@@ -1,6 +1,10 @@
+/**
+ * @fileoverview Contiene las funciones necesarias para el archivo index.html .
+ */
+
 
 /**
- *
+ * Reacomoda el elipse del logo cuando el ancho de la ventana del navegador es modificado.
  */
 window.onresize = function reacomodaElipses() {
 					if ((window.innerWidth >= 100) && (window.innerWidth < 480)) {		
@@ -43,7 +47,8 @@ window.onresize = function reacomodaElipses() {
 				}
 
 /**
- *
+ * Coloca los elipses del logo dependiendo del tamaño de la ventana del navegador al 
+ * cargar por primera vez la página.
  */
 function colocaElipses() {
 	if ((window.innerWidth >= 100) && (window.innerWidth < 480)) {		

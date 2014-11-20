@@ -1,15 +1,33 @@
 /*
-Document   : style.css
-Created on : 12/11/2014
-Author     : Miguel,Daniel,Victor,Luis,Claudia
-Description: css styles
-*/
+ * Document   : style.css
+ * Created on : 12/11/2014
+ * Author     : Miguel,Daniel,Victor,Luis,Claudia
+ * Description: css styles
+ */
 
 header{
 	background-color: black;
 	width: auto;
 	height: 170px;
-}	
+}
+
+input[type="text"]:focus{
+	outline: none;
+    border-color: #47C4FF;
+    box-shadow: 0 0 10px #47C4FF;
+}
+
+input[type="submit"]:hover  {
+	outline: none;
+    border-color: #036CA1;
+    background-color: #138BC7;
+}
+
+input[type="submit"]:active {
+	outline: none;
+    border-color: #036CA1;
+    background-color: #06567D;	
+}
 
 @media screen and (min-width: 100px){
 	body{
@@ -19,13 +37,79 @@ header{
 	svg.logo{
 		width: 300px;
 		height: 200px;
-		margin-left: 12%;		
+		margin-left: 16%;
+		margin-top: 20px;		
 	}
 
 	svg.logo text{
    		font-family: "Arial";
     	font-size: 85px;    	
   	}
+
+  	.text_fields input{
+  		border-radius: 8px;
+  		border-color: #47C4FF;
+  		margin-left: -11px;
+  		margin-top: 3%;
+  		width: 200px;
+  		height: 15px;
+  		font-family: "Arial";
+  		font-size: 13px;
+  	}
+
+  	.login input{
+  		margin-top: 8%;
+  		margin-left: 35%;
+  		border-radius: 8px;
+  		background-color: #47C4FF;
+  		font-family: "Arial";
+  		font-size: 15px;
+  		font-weight: bold;
+  		border-style: none;
+  		color: white;
+
+  	}
+
+  	.fondo_azul{
+  		margin-top: -10px;
+  		margin-left: 19%;
+  		width: 180px;
+  		height: 90px;
+  		background-color: #4B4B4B;
+  		padding: 10px 40px;
+  		border-radius: 25px;
+  	}
+
+  	.extras {
+  		width: 180px;
+  		height: 90px;
+  		margin-top: 1px;
+  		margin-left: 19%;
+  		text-align: center;
+  		padding: 10px 40px;
+  	}
+
+	.extras a.forgot_pass:link {
+		text-decoration:none; 
+    	color: white;
+    	font-size: 11px;
+    	font-family: "Arial";     	   	
+	}
+
+	.extras a.forgot_pass:visited {
+		text-decoration:none; 
+    	color: white;
+    	font-size: 11px;
+    	font-family: "Arial";    	
+	}
+
+	.extras a.forgot_pass:hover {
+		text-decoration:none; 
+    	color: #47C4FF;
+    	font-size: 11.5px;
+    	font-family: "Arial";    	
+	}
+
 }
 
 @media screen and (min-width: 480px){

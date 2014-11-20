@@ -58,8 +58,7 @@ input[type="submit"]:active {
   	}
 
   	.login input{
-  		margin-top: 8%;
-  		margin-left: 35%;
+  		margin-top: 8%;  		
   		border-radius: 8px;
   		background-color: #47C4FF;
   		font-family: "Arial";
@@ -70,20 +69,21 @@ input[type="submit"]:active {
 
   	}
 
-  	.fondo_azul{
-  		margin-top: -10px;
+  	.fondo_gris{
+  		margin-top: -25px;
   		margin-left: 19%;
   		width: 180px;
   		height: 90px;
   		background-color: #4B4B4B;
   		padding: 10px 40px;
   		border-radius: 25px;
+  		text-align: center;
   	}
 
   	.extras {
   		width: 180px;
-  		height: 90px;
-  		margin-top: 1px;
+  		height: 25px;
+  		margin-top: -5px;
   		margin-left: 19%;
   		text-align: center;
   		padding: 10px 40px;
@@ -105,9 +105,44 @@ input[type="submit"]:active {
 
 	.extras a.forgot_pass:hover {
 		text-decoration:none; 
-    	color: #47C4FF;
+    	color: #138BC7;
     	font-size: 11.5px;
     	font-family: "Arial";    	
+	}
+
+	.extras a.forgot_pass:active {
+		text-decoration:none; 
+    	color: #06567D;
+    	font-size: 11.5px;
+    	font-family: "Arial";    	
+	}
+
+	.registrar {
+		margin-top: 170px;
+  		margin-left: 19%;
+  		width: 180px;
+  		height: 90px;
+  		background-color: #4B4B4B;
+  		padding: 10px 40px;
+  		border-radius: 25px;
+  		text-align: center;
+	}	
+
+	.registrar input {	
+  		border-radius: 8px;
+  		background-color: #47C4FF;
+  		font-family: "Arial";
+  		font-size: 18px;
+  		font-weight: bold;
+  		border-style: none;
+  		color: white;
+	}
+
+	.registrar p {
+		color: white;
+		font-family: "Arial";
+		font-size: 15px;
+		font-weight: bold;		
 	}
 
 }

@@ -1,121 +1,121 @@
 CREATE TABLE usuario(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	nombre TEXT NOT NULL,
 	apellido TEXT NOT NULL,
 	genero CHARACTER(1),
 	nick_name TEXT,
-	foto BLOB,
-	escuela INTEGER FOREIGN KEY,
-	password PASSWORD NOT NULL,
-	nacionalidad INTEGER FOREIGN KEY,
+	foto BYTEA,
+	escuela INTEGER references escuela(id),
+	password VARCHAR NOT NULL,
+	nacionalidad INTEGER references paises(id),
 	f_nacimiento DATE NOT NULL,
 	rating REAL NOT NULL
 );
 
 CREATE TABLE paises(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	pais TEXT NOT NULL,
 	nacionalidad TEXT NOT NULL
 );
 
 CREATE TABLE escuela(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	nombre TEXT NOT NULL,
-	imagen BLOB
+	imagen BYTEA
 );
 
 CREATE TABLE publicaciones(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_usuario INTEGER FOREIGN KEY NOT NULL,
-	id_grupo INTEGER FOREIGN KEY NOT NULL,
-	id_archivo INTEGER FOREIGN KEY,
-	id_materia INTEGER FOREIGN KEY NOT NULL,
+	id SERIAL PRIMARY KEY,
+	id_usuario INTEGER references usuario(id),
+	id_grupo INTEGER references grupos(id),
+	id_archivo INTEGER references archivos(id),
+	id_materia INTEGER references materias(id),
 	fecha DATE NOT NULL,
 	visibilidad INTEGER
 );
 
 CREATE TABLE carrera(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	nombre TEXT NOT NULL
 );
 
 CREATE TABLE institucion(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	nombre TEXT NOT NULL,
-	id_pais INTEGER FOREIGN KEY NOT NULL,
-	id_ciudad INTEGER FOREIGN KEY NOT NULL,
-	imagen BLOB,
+	id_pais INTEGER references paises(id),
+	id_ciudad INTEGER references ciudad(id),
+	imagen BYTEA,
 	web_site TEXT
 );
 
 CREATE TABLE ciudad(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	nombre TEXT NOT NULL,
-	pais INTEGER FOREIGN KEY NOT NULL
+	pais INTEGER references paises(id)
 );
 
 CREATE TABLE notificaciones(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_usuario INTEGER FOREIGN KEY NOT NULL,
+	id SERIAL PRIMARY KEY,
+	id_usuario INTEGER references usuario(id),
 	texto TEXT NOT NULL,
 	visto INTEGER NULL,
 	fecha DATE NOT NULL
 );
 
 CREATE TABLE mensajes(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_remitente INTEGER FOREIGN KEY NOT NULL,
-	id_destinatario INTEGER FOREIGN KEY NOT NULL,
+	id SERIAL PRIMARY KEY,
+	id_remitente INTEGER references usuario(id),
+	id_destinatario INTEGER references usuario(id),
 	mensaje TEXT NOT NULL,
 	fecha DATE NOT NULL
 );
 
 CREATE TABLE grupos(
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
+       id SERIAL PRIMARY KEY,
        nombre TEXT NOT NULL,
-       imagen BLOB,
+       imagen BYTEA,
        visibilidad INTEGER NOT NULL,
-       id_usuario INTEGER FOREIGN KEY NOT NULL
+       id_usuario INTEGER references usuario(id)
 );
 
 CREATE TABLE grupo_usuario(
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       id_grupo INTEGER FOREIGN KEY NOT NULL,
-       id_usuario INTEGER FOREIGN KEY NOT NULL
+   id SERIAL PRIMARY KEY,
+   id_grupo INTEGER references grupos(id),
+   id_usuario INTEGER references usuario(id)
 );     
 
 CREATE TABLE carrera_escuela(
-       id INTEGER PRIMARY KEY AUTOINCREMENT,
-       id_carrera INTEGER FOREIGN KEY NOT NULL,
-       id_escuela INTEGER FOREIGN KEY NOT NULL,
+   id SERIAL PRIMARY KEY,
+   id_carrera INTEGER references carrera(id),
+   id_escuela INTEGER references escuela(id)
 );
 
 CREATE TABLE rating(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_usuario INTEGER FOREIGN KEY,
+	id SERIAL PRIMARY KEY,
+	id_usuario INTEGER references usuario(id),
 	calificacion Real NOT NULL
 );
 
 CREATE TABLE materias(
-	id INTEGER PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
 	materia TEXT NOT NULL,
-	id_categoria INTEGER FOREIGN KEY NOT NULL
+	id_categoria INTEGER references categoria(id)
 );
 
 CREATE TABLE categoria(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	id SERIAL PRIMARY KEY,
 	nombre TEXT NOT NULL
 );
 
 CREATE TABLE archivos(
-       id INTEGER PRIMARY KEY AUTOINCREMENT,	
+       id SERIAL PRIMARY KEY,	
        url_archivo TEXT NOT NULL,		
-       id_usuario INTEGER FOREIGN KEY NOT NULL,		
-       id_grupo INTEGER FOREIGN KEY NOT NULL
+       id_usuario INTEGER references usuario(id),		
+       id_grupo INTEGER references grupos(id)
 );
 
 CREATE TABLE persona_carrera(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	id_usuario INTEGER FOREIGN KEY NOT NULL,
-	id_carrera_titulo INTEGER FOREIGN KEY NOT NULL
+	id SERIAL PRIMARY KEY,
+	id_usuario INTEGER references usuario(id),
+	id_carrera_titulo INTEGER references carrera(id)
 );

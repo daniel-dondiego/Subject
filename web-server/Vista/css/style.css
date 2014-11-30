@@ -11,6 +11,12 @@ header{
 	height: 170px;
 }
 
+.container {
+	width: auto;
+	height: auto;
+}
+
+
 input[type="text"]:focus , input[type="password"]:focus{
 	outline: none;
     border-color: #47C4FF;
@@ -29,6 +35,7 @@ input[type="submit"]:active {
     background-color: #06567D;	
 }
 
+/* Para pantallas de 100px en adelante */
 @media screen and (min-width: 100px){
 	body{
 		background-color: black;
@@ -175,14 +182,9 @@ input[type="submit"]:active {
 		text-align: justify;
 		margin-left: 20%;
 	}
-
-	.container {
-		width: auto;
-		height: auto;
-	}
-
 }
 
+/* Para pantallas de 480px en adelante */
 @media screen and (min-width: 480px){
 	body{
 		background-color: black;
@@ -198,6 +200,136 @@ input[type="submit"]:active {
    		font-family: "Arial";
     	font-size: 105px;    	
   	}
+
+  	.text_fields input{
+  		border-radius: 8px;
+  		border-color: #47C4FF;
+  		margin-left: -4px;
+  		margin-top: 9px;
+  		width: 220px;
+  		height: 20px;
+  		font-family: "Arial";
+  		font-size: 13px;
+  	}
+
+  	.login input{
+  		margin-top: 8%;  		
+  		border-radius: 8px;
+  		background-color: #47C4FF;
+  		font-family: "Arial";
+  		font-size: 18px;
+  		font-weight: bold;
+  		border-style: none;
+  		color: white;
+
+  	}
+
+  	.fondo_gris{
+  		margin-top: -25px;
+  		margin-left: 19%;
+  		width: 220px;
+  		height: 120px;
+  		background-color: #4B4B4B;
+  		padding: 10px 40px;
+  		border-radius: 25px;
+  		text-align: center;
+  	}
+
+  	.extras {
+  		width: 220px;
+  		height: 25px;
+  		margin-top: 0px;
+  		margin-left: 19%;
+  		text-align: center;
+  		padding: 10px 40px;
+  	}
+
+	.extras a.forgot_pass:link {
+		text-decoration:none; 
+    	color: white;
+    	font-size: 14px;
+    	font-family: "Arial";     	   	
+	}
+
+	.extras a.forgot_pass:visited {
+		text-decoration:none; 
+    	color: white;
+    	font-size: 14px;
+    	font-family: "Arial";    	
+	}
+
+	.extras a.forgot_pass:hover {
+		text-decoration:none; 
+    	color: #138BC7;
+    	font-size: 14.5px;
+    	font-family: "Arial";    	
+	}
+
+	.extras a.forgot_pass:active {
+		text-decoration:none; 
+    	color: #06567D;
+    	font-size: 14.5px;
+    	font-family: "Arial";    	
+	}
+
+	.registrar {
+		margin-top: 210px;
+  		margin-left: 19%;
+  		width: 220px;
+  		height: 120px;
+  		background-color: #4B4B4B;
+  		padding: 10px 40px;
+  		border-radius: 25px;
+  		text-align: center;
+	}	
+
+	.registrar input {	
+  		border-radius: 8px;
+  		background-color: #47C4FF;
+  		font-family: "Arial";
+  		font-size: 22px;
+  		font-weight: bold;
+  		border-style: none;
+  		color: white;
+	}
+
+	.registrar p {
+		color: white;
+		font-family: "Arial";
+		font-size: 19px;
+		font-weight: bold;		
+	}
+
+	.presentacion {
+		width: 300px;
+		height: auto;
+		margin-left: 19%;
+		margin-top: 35px;
+		border-radius: 25px;
+		background-color: #4B4B4B;;
+	}
+
+	.presentacion img {
+		width: 130px;
+		height: 140px;
+		margin-left: 5px; 
+		margin-top: 25px;				
+	}
+	
+	.intro {
+		width: 170px;
+		height: auto;
+		margin-left: 113px;
+		margin-top: -180px;		
+	}
+
+	.intro p {
+		font-family: "Arial";
+		font-size: 15px;
+		color: white;
+		text-align: justify;
+		margin-left: 20%;
+	}
 
 
 }

@@ -16,5 +16,12 @@ class Conexion(object):
         Returns: la conexión a la base
         '''
         if self.conn == None:
-            self.conn = psycopg2.connect(database="subject", user="postgres", password="proyecto3", host="127.0.0.1", port="5432")
+            self.conn = psycopg2.connect(database="prueba", user="postgres", password="proyecto3", host="127.0.0.1", port="5432")
         return self.conn 
+
+    def cierraConexion(self):
+        '''
+        Cierra la conexión a la base de datos
+        '''
+        if self.conn != None:
+            self.conn.close()

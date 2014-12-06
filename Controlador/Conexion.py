@@ -11,7 +11,7 @@ def getConexion():
        '''
        global conn
        if conn == None:
-           conn = psycopg2.connect(database="prueba", user="postgres", password="proyecto3", host="127.0.0.1", port="5432")
+           conn = psycopg2.connect(database="subject", user="postgres", password="proyecto3", host="127.0.0.1", port="5432")
        return conn 
 
 def cierraConexion():

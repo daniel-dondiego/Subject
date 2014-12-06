@@ -1,3 +1,8 @@
+import sys
+sys.path.append('../Controlador')
+
+import Comandos
+
 class Archivo(object):
     
     def __init__(self, id, url, id_usuario, id_grupo):
@@ -40,4 +45,10 @@ class Archivo(object):
         returns: el id del grupo.
         '''
         return self.id_grupo
-        
+
+    def agrega(self):
+        '''
+        Agrega el archivo a la base
+        '''
+        s = 'INSERT INTO archivos (url_archivo, id_usuario, id_grupo) VALUES(' + str(self.url) + str(self.id_usuario) + str(self.id_grupo) + ')'
+        Comandos.ejecuta_comando(s)

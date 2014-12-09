@@ -1,10 +1,22 @@
 class Ciudad(object):
 
 	def __init__(self,id,pais,ciudad):
-		self.__id = id
+                '''
+                Constructor con id
+                id: el id en la tabla de la ciudad
+                pais: el pais al que pertenece la ciudad
+                ciudad: el nombre de la ciudad
+                '''
+                self.__id = id
 		self.__pais = pais
 		self.__ciudad = ciudad
-	
+                
+        def __init(self, pais, ciudad):
+                '''
+                Constructor sin id
+                pais: el pais al que pertenece la ciudad
+                ciudad: el nombre de la ciudad
+                '''
 	def __str__(self):
 	   return self.__pais
 

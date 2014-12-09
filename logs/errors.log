@@ -1,0 +1,6 @@
+[Tue Dec 09 15:11:11.008952 2014] [:error] [pid 4927:tid 139791144298240] [client 127.0.0.1:33751] mod_wsgi (pid=4927): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Tue Dec 09 15:11:11.009061 2014] [:error] [pid 4927:tid 139791144298240] [client 127.0.0.1:33751] mod_wsgi (pid=4927): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Tue Dec 09 15:11:11.009141 2014] [:error] [pid 4927:tid 139791144298240] [client 127.0.0.1:33751] Traceback (most recent call last):
+[Tue Dec 09 15:11:11.009225 2014] [:error] [pid 4927:tid 139791144298240] [client 127.0.0.1:33751]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 24, in <module>
+[Tue Dec 09 15:11:11.009476 2014] [:error] [pid 4927:tid 139791144298240] [client 127.0.0.1:33751]     application = cherrypy.Application(Root(), '/', conf)
+[Tue Dec 09 15:11:11.009551 2014] [:error] [pid 4927:tid 139791144298240] [client 127.0.0.1:33751] TypeError: expose_() takes exactly 1 argument (0 given)

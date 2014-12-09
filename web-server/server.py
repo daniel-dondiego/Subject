@@ -1,13 +1,19 @@
- # -*- coding: utf-8 -*-
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 
 import os, os.path
 import cherrypy
 
 class Home(object):
- 	
- 	@cherrypy.expose
- 	def index(self):
- 		return open("Vista/index.html", "r")
+
+    @cherrypy.expose
+    def index(self):
+        return open("Vista/index.html", "r")
+
+    @cherrypy.expose
+    def login(self, user, password):
+        print user
+        print password
 
 if __name__ == '__main__':
 	conf  = {

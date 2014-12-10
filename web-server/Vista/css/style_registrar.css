@@ -1,0 +1,36 @@
+/*
+ * Document   : style_registrar.css
+ * Created on : 12/11/2014
+ * Author     : Miguel,Daniel,Victor,Luis,Claudia
+ * Description: css styles
+ */
+
+ header{
+	background-color: black;
+	width: auto;
+	height: 170px;
+}
+
+.container {
+	width: auto;
+	height: auto;
+}
+
+
+input[type="text"]:focus , input[type="password"]:focus{
+	outline: none;
+    border-color: #47C4FF;
+    box-shadow: 0 0 10px #47C4FF;
+}
+
+input[type="submit"]:hover  {
+	outline: none;
+    border-color: #036CA1;
+    background-color: #138BC7;
+}
+
+input[type="submit"]:active {
+	outline: none;
+    border-color: #036CA1;
+    background-color: #06567D;	
+}

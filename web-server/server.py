@@ -21,5 +21,17 @@ class Root(object):
     def index(self):
         return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/index.html", "r")
 
+    @cherrypy.expose
+    def login(self, user, password):
+        print user
+
+    @cherrypy.expose
+    def new_user(self):
+        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/registrar.html","r")
+
+    @cherrypy.expose
+    def forgot_pass(self):
+        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

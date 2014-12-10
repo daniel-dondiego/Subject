@@ -35,6 +35,64 @@ input[type="submit"]:active {
     background-color: #06567D;	
 }
 
+svg.logo{
+	font-family: "Arial";
+}
+
+.login input{
+	border-radius: 8px;
+  	background-color: #47C4FF;
+  	font-family: "Arial";
+  	font-weight: bold;
+  	border-style: none;
+  	color: white;
+}
+
+.text_fields input{
+	border-radius: 8px;
+  	border-color: #47C4FF;
+  	font-family: "Arial";
+}
+
+.extras a.forgot_pass:link {
+	text-decoration:none; 
+    color: white;
+    font-family: "Arial";     	   	
+}
+
+.extras a.forgot_pass:visited {
+    font-family: "Arial";    	
+    text-decoration:none; 
+}
+
+.extras a.forgot_pass:hover {
+    font-family: "Arial";    
+    text-decoration:none;
+}
+
+.extras a.forgot_pass:active {
+   	font-family: "Arial";    
+   	text-decoration:none; 
+}
+
+.registrar input {
+  	font-family: "Arial";
+  	border-radius: 8px;
+  	font-weight: bold;
+  	border-style: none;
+}
+
+.registrar p{
+    color: white;
+	font-family: "Arial";
+	font-weight: bold;
+}
+
+.intro p {
+	text-align: justify;
+	font-family: "Arial";
+}
+
 /* Para pantallas de 100px en adelante */
 @media screen and (min-width: 100px){
 	body{
@@ -44,41 +102,30 @@ input[type="submit"]:active {
 	svg.logo{
 		width: 300px;
 		height: 200px;
-		margin-left: 11%;
+		margin-left: 9%;
 		margin-top: 20px;		
 	}
 
 	svg.logo text{
-   		font-family: "Arial";
     	font-size: 85px;    	
   	}
 
-  	.text_fields input{
-  		border-radius: 8px;
-  		border-color: #47C4FF;
+  	.text_fields input{  		
   		margin-left: -11px;
   		margin-top: 3%;
   		width: 200px;
-  		height: 15px;
-  		font-family: "Arial";
+  		height: 15px;  		
   		font-size: 13px;
   	}
 
   	.login input{
   		margin-top: 8%;  		
-  		border-radius: 8px;
-  		background-color: #47C4FF;
-  		font-family: "Arial";
   		font-size: 15px;
-  		font-weight: bold;
-  		border-style: none;
-  		color: white;
-
   	}
 
   	.fondo_gris{
   		margin-top: -25px;
-  		margin-left: 14%;
+  		margin-left: 12%;
   		width: 180px;
   		height: 90px;
   		background-color: #4B4B4B;
@@ -91,42 +138,33 @@ input[type="submit"]:active {
   		width: 180px;
   		height: 25px;
   		margin-top: -5px;
-  		margin-left: 14%;
+  		margin-left: 12%;
   		text-align: center;
   		padding: 10px 40px;
   	}
 
 	.extras a.forgot_pass:link {
-		text-decoration:none; 
-    	color: white;
     	font-size: 11px;
-    	font-family: "Arial";     	   	
 	}
 
-	.extras a.forgot_pass:visited {
-		text-decoration:none; 
+	.extras a.forgot_pass:visited {		
     	color: white;
     	font-size: 11px;
-    	font-family: "Arial";    	
 	}
 
-	.extras a.forgot_pass:hover {
-		text-decoration:none; 
+	.extras a.forgot_pass:hover {		 
     	color: #138BC7;
-    	font-size: 11.5px;
-    	font-family: "Arial";    	
+    	font-size: 11.5px;	
 	}
 
-	.extras a.forgot_pass:active {
-		text-decoration:none; 
+	.extras a.forgot_pass:active {		
     	color: #06567D;
-    	font-size: 11.5px;
-    	font-family: "Arial";    	
+    	font-size: 11.5px;	
 	}
 
 	.registrar {
 		margin-top: 170px;
-  		margin-left: 14%;
+  		margin-left: 12%;
   		width: 180px;
   		height: 90px;
   		background-color: #4B4B4B;
@@ -136,29 +174,22 @@ input[type="submit"]:active {
 	}	
 
 	.registrar input {	
-  		border-radius: 8px;
   		background-color: #47C4FF;
-  		font-family: "Arial";
   		font-size: 18px;
-  		font-weight: bold;
-  		border-style: none;
   		color: white;
 	}
 
 	.registrar p {
-		color: white;
-		font-family: "Arial";
-		font-size: 15px;
-		font-weight: bold;		
+		font-size: 15px;				
 	}
 
 	.presentacion {
 		width: 255px;
 		height: auto;
-		margin-left: 14%;
+		margin-left: 12%;
 		margin-top: 25px;
 		border-radius: 25px;
-		background-color: #4B4B4B;;
+		background-color: #4B4B4B;
 	}
 
 	.presentacion img {
@@ -176,16 +207,15 @@ input[type="submit"]:active {
 	}
 
 	.intro p {
-		font-family: "Arial";
 		font-size: 13px;
 		color: white;
-		text-align: justify;
 		margin-left: 20%;
 	}
 }
 
 /* Para pantallas de 480px en adelante */
 @media screen and (min-width: 480px){
+	
 	body{
 		background-color: black;
 	}
@@ -197,31 +227,21 @@ input[type="submit"]:active {
 	}
 
 	svg.logo text{
-   		font-family: "Arial";
     	font-size: 105px;    	
   	}
 
   	.text_fields input{
-  		border-radius: 8px;
-  		border-color: #47C4FF;
   		margin-left: -4px;
   		margin-top: 9px;
   		width: 220px;
   		height: 20px;
-  		font-family: "Arial";
   		font-size: 13px;
   	}
 
   	.login input{
   		margin-top: 8%;  		
-  		border-radius: 8px;
   		background-color: #47C4FF;
-  		font-family: "Arial";
   		font-size: 18px;
-  		font-weight: bold;
-  		border-style: none;
-  		color: white;
-
   	}
 
   	.fondo_gris{
@@ -245,31 +265,23 @@ input[type="submit"]:active {
   	}
 
 	.extras a.forgot_pass:link {
-		text-decoration:none; 
     	color: white;
-    	font-size: 14px;
-    	font-family: "Arial";     	   	
+    	font-size: 14px;   	   	
 	}
 
 	.extras a.forgot_pass:visited {
-		text-decoration:none; 
     	color: white;
     	font-size: 14px;
-    	font-family: "Arial";    	
 	}
 
 	.extras a.forgot_pass:hover {
-		text-decoration:none; 
     	color: #138BC7;
-    	font-size: 14.5px;
-    	font-family: "Arial";    	
+    	font-size: 14.5px;	
 	}
 
 	.extras a.forgot_pass:active {
-		text-decoration:none; 
     	color: #06567D;
-    	font-size: 14.5px;
-    	font-family: "Arial";    	
+    	font-size: 14.5px;   	
 	}
 
 	.registrar {
@@ -284,20 +296,14 @@ input[type="submit"]:active {
 	}	
 
 	.registrar input {	
-  		border-radius: 8px;
   		background-color: #47C4FF;
-  		font-family: "Arial";
   		font-size: 22px;
-  		font-weight: bold;
-  		border-style: none;
   		color: white;
 	}
 
 	.registrar p {
 		color: white;
-		font-family: "Arial";
 		font-size: 19px;
-		font-weight: bold;		
 	}
 
 	.presentacion {
@@ -324,14 +330,13 @@ input[type="submit"]:active {
 	}
 
 	.intro p {
-		font-family: "Arial";
 		font-size: 15px;
 		color: white;
-		text-align: justify;
 		margin-left: 20%;
 	}
 }
 
+/* Pantallas de 767 pixeles en adelante */
 @media screen and (min-width: 767px){
 	
 	body {
@@ -346,7 +351,6 @@ input[type="submit"]:active {
 	}
 
 	svg.logo text{
-   		font-family: "Arial";
     	font-size: 110px;    	
   	}
 
@@ -362,26 +366,18 @@ input[type="submit"]:active {
   	}
 
   	.text_fields input{
-  		border-radius: 8px;
-  		border-color: #47C4FF;
   		margin-left: -4px;
   		margin-top: 9px;
   		width: 190px;
   		height: 16px;
-  		font-family: "Arial";
   		font-size: 13px;
   	}
 
   	.login input{
   		margin-top: 8%;
   		margin-left: -2%;  		
-  		border-radius: 8px;
   		background-color: #47C4FF;
-  		font-family: "Arial";
   		font-size: 16px;
-  		font-weight: bold;
-  		border-style: none;
-  		color: white;
   	}
 
   	.extras {
@@ -394,31 +390,23 @@ input[type="submit"]:active {
   	}
 
 	.extras a.forgot_pass:link {
-		text-decoration:none; 
     	color: white;
-    	font-size: 13px;
-    	font-family: "Arial";     	   	
+    	font-size: 13px;   	   	
 	}
 
 	.extras a.forgot_pass:visited {
-		text-decoration:none; 
     	color: white;
     	font-size: 13.5px;
-    	font-family: "Arial";    	
 	}
 
 	.extras a.forgot_pass:hover {
-		text-decoration:none; 
     	color: #138BC7;
     	font-size: 13.5px;
-    	font-family: "Arial";    	
 	}
 
-	.extras a.forgot_pass:active {
-		text-decoration:none; 
+	.extras a.forgot_pass:active { 
     	color: #06567D;
-    	font-size: 13.5px;
-    	font-family: "Arial";    	
+    	font-size: 13.5px;	
 	}
 
 	.registrar {
@@ -433,20 +421,14 @@ input[type="submit"]:active {
 	}	
 
 	.registrar input {	
-  		border-radius: 8px;
   		background-color: #47C4FF;
-  		font-family: "Arial";
   		font-size: 22px;
-  		font-weight: bold;
-  		border-style: none;
   		color: white;
 	}
 
 	.registrar p {
 		color: #4B4B4B;
-		font-family: "Arial";
 		font-size: 19px;
-		font-weight: bold;		
 	}
 
 	.presentacion {
@@ -473,19 +455,20 @@ input[type="submit"]:active {
 	}
 
 	.intro p {
-		font-family: "Arial";
 		font-size: 22px;
 		color: #4B4B4B;
-		text-align: justify;
 		margin-left: 20%;
 	}
 
 }
 
+/* Pantallas de 950px en adelante. */
 @media screen and (min-width: 950px){
+	
 	body {
 		background-color: #DFDCDC;
 	}
+
 	svg.logo{
 		width: 500px;
 		height: 200px;
@@ -493,7 +476,6 @@ input[type="submit"]:active {
 	}
 
 	svg.logo text{
-   		font-family: "Arial";
     	font-size: 140px;    	
   	}
 
@@ -518,6 +500,7 @@ input[type="submit"]:active {
 	}	
 }
 
+/*Pantallas de 1100px en adelante*/
 @media screen and (min-width: 1100px){
 	body {
 		background-color: #DFDCDC;
@@ -529,7 +512,6 @@ input[type="submit"]:active {
 	}
 
 	svg.logo text{
-   		font-family: "Arial";
     	font-size: 140px;    	
   	}
 

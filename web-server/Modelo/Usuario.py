@@ -1,4 +1,7 @@
 #Clase que abstrae la informacion de un usuario
+import psycopg2
+import Conexion
+
 class Usuario(object):
 	#constructor 
 	def __init__(self,id,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
@@ -38,8 +41,38 @@ class Usuario(object):
 	def get_nacionalidad(self):
 		return self.nacionalidad
 
-        def get_f_nacimiento(self):
-            return self.f_nacimiento
-            
-        def get_rating(self):
-            return self.rating
+    def get_f_nacimiento(self):
+        return self.f_nacimiento
+        
+    def get_rating(self):
+        return self.rating
+
+    def registra(self):
+    	ejecuta_comando("INSERT INTO usuario (nombre,apellido,genero,nick_name, \
+    					foto,escuela,password,nacionalidad,f_nacimiento,rating) \
+      VALUES (self.nombre,self.apellido,self.genero,self.nick_name,\
+    					self.foto,self.escuela,self.password,self.nacionalidad,self.f_nacimiento,self.rating)")
+
+    def ejecuta_comando(comando_sql):
+        '''
+        Ejecuta el comando de sql dado
+        comando_sql: el comando a ejecutar
+        '''
+        c = Conexion.getConexion()
+        cur = c.cursor()
+        cur.execute(comando_sql)
+        c.commit()
+
+    def consulta(consulta):
+        '''
+        Regresa los renglones con los resultados de la consulta
+        consulta: la consulta a realizar
+        Returns: una lista de renglones con los resultados de la consulta, para iterar sobre ellos
+        '''
+        c = Conexion.getConexion()
+        cur = c.cursor()
+        cur.execute(consulta)
+        rows = cur.fetchall()
+        return rows
+
+Conexion.cierraConexion()

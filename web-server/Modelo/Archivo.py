@@ -89,7 +89,7 @@ class Archivo(object):
 
     def set_id_grupo(self, id_grupo):
         '''
-        Modifica el id del grupo en el que está el archivo
+        Modifica el id del grupo en el que esta el archivo
         id_grupo: el nuevo id del grupo
         '''
         self.id_grupo = id_grupo

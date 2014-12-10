@@ -6,7 +6,7 @@ import Comandos
 class Usuario(object):
     #constructor 
     def __init__(self,id,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
-	self.__id=id
+	self.__id = id
 	self.__nombre = nombre
 	self.__apellido = apellido
 	self.__genero = genero

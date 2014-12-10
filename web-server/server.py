@@ -25,7 +25,7 @@ class Root(object):
 
     @cherrypy.expose
     def login(self, user, password):
-        print user
+        return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html", "r")
 
     def registrar(self, nombre, apellido, contrasenia, rcontrasenia, n, fdn, email):
         usuario = Usuario(None,nombre,apellido,n,email,'NULL',1,contrasenia,1,fdn,0.0)

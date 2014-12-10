@@ -7,6 +7,18 @@ import Comandos
 class Usuario(object):
     #constructor 
     def __init__(self,id,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
+	self.__id = id
+	self.__nombre = nombre
+	self.__apellido = apellido
+	self.__genero = genero
+	self.__nick_name = nick_name
+	self.__foto = foto
+	self.__escuela = escuela
+	self.__password = password
+	self.__nacionalidad = nacionalidad
+	self.__f_nacimiento = f_nacimiento
+	self.__rating = rating
+	
         if(id is None):
             self.__id=id
             self.__nombre = nombre
@@ -31,7 +43,6 @@ class Usuario(object):
             self.__f_nacimiento = f_nacimiento
             self.__rating = rating
         
-    
     def get_id(self):
         return self.id
     

@@ -23,7 +23,7 @@ class Root(object):
 
     @cherrypy.expose
     def login(self, user, password):
-        print user
+        return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html", "r")
 
     @cherrypy.expose
     def new_user(self):

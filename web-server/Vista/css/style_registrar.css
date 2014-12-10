@@ -16,7 +16,7 @@ header{
 	height: auto;
 }
 
-input[type="text"]:focus , input[type="password"]:focus{
+input[type="text"]:focus ,input[type="password"]:focus ,input[type="date"]:focus{
 	outline: none;
     border-color: #47C4FF;
     box-shadow: 0 0 10px #47C4FF;

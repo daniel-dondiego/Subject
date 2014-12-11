@@ -7,9 +7,9 @@ class Mensaje(object):
 		self.__id_destinatario = id_destinatario
 		self.__mensaje = mensaje
 		self.__fecha = fecha
-		
+	
 	def get_id(self):
-        return self.id
+	        return self.id
 	  
 	def get_id_remitente(self):
 		return self.id_remitente

@@ -34,5 +34,5 @@ class Categoria(object):
                 Agrega la categoria a la base de datos.
                 '''
                 s = 'INSERT INTO categoria (nombre) VALUES(' + str(self.nombre) + ')'
-        Comandos.ejecuta_comando(s)
+                Comandos.ejecuta_comando(s)
  

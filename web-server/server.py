@@ -3,7 +3,7 @@
 
 import sys, os
 sys.path.append(os.path.dirname(__file__))
-from Modelo  import Usuario
+from Modelo import Usuario
 from Controlador import Controller
 import atexit
 import threading
@@ -24,7 +24,8 @@ class Root(object):
 
     @cherrypy.expose
     def login(self, user, password):
-        return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html", "r")      
+        control = Controller.Controller()
+        return control.login(user,password)     
 
     @cherrypy.expose
     def new_user(self):
@@ -36,7 +37,11 @@ class Root(object):
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
-        return "Registro"
+        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'NULL','NULL',contrasenia,'NULL',fdn,0.0)        
+        control = Controller.Controller()
+        return control.verifica(usuario,rcontrasenia)
+        
+        
 
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

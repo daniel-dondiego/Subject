@@ -35,35 +35,37 @@ class Usuario(object):
             self.__rating = rating
         
     def get_id(self):
-        return self.id
+        return self.__id
     
     def get_nombre(self):
-        return self.nombre
+        return self.__nombre
 
     def get_apellido(self):
-        return self.apellido
+        return self.__apellido
 
     def get_genero(self):
-        return self.genero
+        return self.__genero
 
     def get_nick_name(self):
-        return self.nick_name
+        return self.__nick_name
 
     def get_foto(self):
-        return self.foto
+        return self.__foto
 
     def get_escuela(self):
-        return self.escuela
+        return self.__escuela
     
     def get_nacionalidad(self):
-        return self.nacionalidad
+        return self.__nacionalidad
 
     def get_f_nacimiento(self):
-        return self.f_nacimiento
+        return self.__f_nacimiento
         
     def get_rating(self):
-        return self.rating
+        return self.__rating
 
+    def get_password(self):
+        return self.__password
 
     def registra(self):
         ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \

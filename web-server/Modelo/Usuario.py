@@ -1,8 +1,9 @@
 #Clase que abstrae la informacion de un usuario
 import sys
-sys.path.append('../Controlador')
-import psycopg2
+sys.path.insert(0,'../Controlador/')
 import Comandos
+import psycopg2
+
 
 class Usuario(object):
     #constructor 

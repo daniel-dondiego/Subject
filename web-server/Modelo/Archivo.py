@@ -1,5 +1,5 @@
 import sys
-sys.path.append('../Controlador')
+sys.path.insert(0,'../Controlador')
 
 import Comandos
 

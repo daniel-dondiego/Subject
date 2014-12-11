@@ -560,3 +560,21 @@
 [Thu Dec 11 02:08:53.890683 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206]     def new_user(self):
 [Thu Dec 11 02:08:53.890714 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206]                       ^
 [Thu Dec 11 02:08:53.890728 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206] IndentationError: unindent does not match any outer indentation level
+[Thu Dec 11 02:25:47.291738 2014] [:error] [pid 26493:tid 140436991579904] [client 127.0.0.1:59279] mod_wsgi (pid=26493): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/new_user?
+[Thu Dec 11 02:25:47.291797 2014] [:error] [pid 26493:tid 140436991579904] [client 127.0.0.1:59279] mod_wsgi (pid=26493): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/new_user?
+[Thu Dec 11 02:25:47.291851 2014] [:error] [pid 26493:tid 140436991579904] [client 127.0.0.1:59279] Traceback (most recent call last):, referer: http://subject/new_user?
+[Thu Dec 11 02:25:47.291887 2014] [:error] [pid 26493:tid 140436991579904] [client 127.0.0.1:59279]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 11, in <module>, referer: http://subject/new_user?
+[Thu Dec 11 02:25:47.292012 2014] [:error] [pid 26493:tid 140436991579904] [client 127.0.0.1:59279]     import os, os.paths, referer: http://subject/new_user?
+[Thu Dec 11 02:25:47.292047 2014] [:error] [pid 26493:tid 140436991579904] [client 127.0.0.1:59279] ImportError: No module named paths, referer: http://subject/new_user?
+[Thu Dec 11 02:25:51.583902 2014] [:error] [pid 26493:tid 140436974794496] [client 127.0.0.1:59280] mod_wsgi (pid=26493): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Thu Dec 11 02:25:51.583958 2014] [:error] [pid 26493:tid 140436974794496] [client 127.0.0.1:59280] mod_wsgi (pid=26493): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/
+[Thu Dec 11 02:25:51.583996 2014] [:error] [pid 26493:tid 140436974794496] [client 127.0.0.1:59280] Traceback (most recent call last):, referer: http://subject/
+[Thu Dec 11 02:25:51.584031 2014] [:error] [pid 26493:tid 140436974794496] [client 127.0.0.1:59280]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 11, in <module>, referer: http://subject/
+[Thu Dec 11 02:25:51.584085 2014] [:error] [pid 26493:tid 140436974794496] [client 127.0.0.1:59280]     import os, os.paths, referer: http://subject/
+[Thu Dec 11 02:25:51.584119 2014] [:error] [pid 26493:tid 140436974794496] [client 127.0.0.1:59280] ImportError: No module named paths, referer: http://subject/
+[Thu Dec 11 02:25:51.762823 2014] [:error] [pid 26493:tid 140436999972608] [client 127.0.0.1:59281] mod_wsgi (pid=26493): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Thu Dec 11 02:25:51.762931 2014] [:error] [pid 26493:tid 140436999972608] [client 127.0.0.1:59281] mod_wsgi (pid=26493): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/
+[Thu Dec 11 02:25:51.763015 2014] [:error] [pid 26493:tid 140436999972608] [client 127.0.0.1:59281] Traceback (most recent call last):, referer: http://subject/
+[Thu Dec 11 02:25:51.763091 2014] [:error] [pid 26493:tid 140436999972608] [client 127.0.0.1:59281]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 11, in <module>, referer: http://subject/
+[Thu Dec 11 02:25:51.763205 2014] [:error] [pid 26493:tid 140436999972608] [client 127.0.0.1:59281]     import os, os.paths, referer: http://subject/
+[Thu Dec 11 02:25:51.763284 2014] [:error] [pid 26493:tid 140436999972608] [client 127.0.0.1:59281] ImportError: No module named paths, referer: http://subject/

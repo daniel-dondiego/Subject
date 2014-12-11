@@ -3,7 +3,7 @@
 
 import sys
 sys.stdout = sys.stderr
-sys.path.append('Modelo')
+sys.path.insert(0,'Modelo')
 import Usuario
 import atexit
 import threading

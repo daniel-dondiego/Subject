@@ -11,12 +11,6 @@ class Ciudad(object):
 		self.__pais = pais
 		self.__ciudad = ciudad
                 
-        def __init(self, pais, ciudad):
-                '''
-                Constructor sin id
-                pais: el pais al que pertenece la ciudad
-                ciudad: el nombre de la ciudad
-                '''
 	def __str__(self):
 	   return self.__pais
 

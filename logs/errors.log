@@ -1,0 +1,562 @@
+[Wed Dec 10 19:03:13.993941 2014] [:error] [pid 1502:tid 140437092292352] [client 127.0.0.1:56322] mod_wsgi (pid=1502): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:03:13.994016 2014] [:error] [pid 1502:tid 140437092292352] [client 127.0.0.1:56322] mod_wsgi (pid=1502): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:03:13.994062 2014] [:error] [pid 1502:tid 140437092292352] [client 127.0.0.1:56322] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:03:13.994102 2014] [:error] [pid 1502:tid 140437092292352] [client 127.0.0.1:56322]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:03:13.994245 2014] [:error] [pid 1502:tid 140437092292352] [client 127.0.0.1:56322]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:03:13.994284 2014] [:error] [pid 1502:tid 140437092292352] [client 127.0.0.1:56322] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:24.349263 2014] [:error] [pid 1502:tid 140436941223680] [client 127.0.0.1:56338] mod_wsgi (pid=1502): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:24.349308 2014] [:error] [pid 1502:tid 140436941223680] [client 127.0.0.1:56338] mod_wsgi (pid=1502): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:24.349335 2014] [:error] [pid 1502:tid 140436941223680] [client 127.0.0.1:56338] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:24.349358 2014] [:error] [pid 1502:tid 140436941223680] [client 127.0.0.1:56338]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:24.349447 2014] [:error] [pid 1502:tid 140436941223680] [client 127.0.0.1:56338]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:24.349470 2014] [:error] [pid 1502:tid 140436941223680] [client 127.0.0.1:56338] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.051802 2014] [:error] [pid 1503:tid 140436932830976] [client 127.0.0.1:56339] mod_wsgi (pid=1503): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:25.051898 2014] [:error] [pid 1503:tid 140436932830976] [client 127.0.0.1:56339] mod_wsgi (pid=1503): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:25.051983 2014] [:error] [pid 1503:tid 140436932830976] [client 127.0.0.1:56339] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:25.052056 2014] [:error] [pid 1503:tid 140436932830976] [client 127.0.0.1:56339]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:25.052305 2014] [:error] [pid 1503:tid 140436932830976] [client 127.0.0.1:56339]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.052383 2014] [:error] [pid 1503:tid 140436932830976] [client 127.0.0.1:56339] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.192709 2014] [:error] [pid 1503:tid 140436916045568] [client 127.0.0.1:56340] mod_wsgi (pid=1503): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:25.192745 2014] [:error] [pid 1503:tid 140436916045568] [client 127.0.0.1:56340] mod_wsgi (pid=1503): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:25.192789 2014] [:error] [pid 1503:tid 140436916045568] [client 127.0.0.1:56340] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:25.192814 2014] [:error] [pid 1503:tid 140436916045568] [client 127.0.0.1:56340]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:25.192846 2014] [:error] [pid 1503:tid 140436916045568] [client 127.0.0.1:56340]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.192867 2014] [:error] [pid 1503:tid 140436916045568] [client 127.0.0.1:56340] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.368563 2014] [:error] [pid 1502:tid 140436932830976] [client 127.0.0.1:56341] mod_wsgi (pid=1502): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:25.368633 2014] [:error] [pid 1502:tid 140436932830976] [client 127.0.0.1:56341] mod_wsgi (pid=1502): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:25.368687 2014] [:error] [pid 1502:tid 140436932830976] [client 127.0.0.1:56341] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:25.368734 2014] [:error] [pid 1502:tid 140436932830976] [client 127.0.0.1:56341]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:25.368800 2014] [:error] [pid 1502:tid 140436932830976] [client 127.0.0.1:56341]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.368847 2014] [:error] [pid 1502:tid 140436932830976] [client 127.0.0.1:56341] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.551820 2014] [:error] [pid 1503:tid 140437109077760] [client 127.0.0.1:56342] mod_wsgi (pid=1503): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:25.551874 2014] [:error] [pid 1503:tid 140437109077760] [client 127.0.0.1:56342] mod_wsgi (pid=1503): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:25.551948 2014] [:error] [pid 1503:tid 140437109077760] [client 127.0.0.1:56342] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:25.551999 2014] [:error] [pid 1503:tid 140437109077760] [client 127.0.0.1:56342]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:25.552062 2014] [:error] [pid 1503:tid 140437109077760] [client 127.0.0.1:56342]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:25.552100 2014] [:error] [pid 1503:tid 140437109077760] [client 127.0.0.1:56342] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:45.965757 2014] [:error] [pid 17721:tid 140437109077760] [client 127.0.0.1:56344] mod_wsgi (pid=17721): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:45.992793 2014] [:error] [pid 17721:tid 140437109077760] [client 127.0.0.1:56344] mod_wsgi (pid=17721): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:45.992900 2014] [:error] [pid 17721:tid 140437109077760] [client 127.0.0.1:56344] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:45.992970 2014] [:error] [pid 17721:tid 140437109077760] [client 127.0.0.1:56344]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:45.993191 2014] [:error] [pid 17721:tid 140437109077760] [client 127.0.0.1:56344]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:45.993235 2014] [:error] [pid 17721:tid 140437109077760] [client 127.0.0.1:56344] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:46.676697 2014] [:error] [pid 17720:tid 140437100685056] [client 127.0.0.1:56345] mod_wsgi (pid=17720): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:46.676744 2014] [:error] [pid 17720:tid 140437100685056] [client 127.0.0.1:56345] mod_wsgi (pid=17720): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:46.676764 2014] [:error] [pid 17720:tid 140437100685056] [client 127.0.0.1:56345] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:46.676784 2014] [:error] [pid 17720:tid 140437100685056] [client 127.0.0.1:56345]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:46.676843 2014] [:error] [pid 17720:tid 140437100685056] [client 127.0.0.1:56345]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:46.676862 2014] [:error] [pid 17720:tid 140437100685056] [client 127.0.0.1:56345] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:50.665877 2014] [:error] [pid 17720:tid 140437109077760] [client 127.0.0.1:56346] mod_wsgi (pid=17720): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:05:50.812600 2014] [:error] [pid 17720:tid 140437109077760] [client 127.0.0.1:56346] mod_wsgi (pid=17720): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:05:50.812676 2014] [:error] [pid 17720:tid 140437109077760] [client 127.0.0.1:56346] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:05:50.812709 2014] [:error] [pid 17720:tid 140437109077760] [client 127.0.0.1:56346]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:05:50.812762 2014] [:error] [pid 17720:tid 140437109077760] [client 127.0.0.1:56346]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:05:50.812788 2014] [:error] [pid 17720:tid 140437109077760] [client 127.0.0.1:56346] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:20:36.628281 2014] [:error] [pid 17903:tid 140437109077760] [client 127.0.0.1:56359] mod_wsgi (pid=17903): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/login?user=&password=
+[Wed Dec 10 19:20:36.628371 2014] [:error] [pid 17903:tid 140437109077760] [client 127.0.0.1:56359] mod_wsgi (pid=17903): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/login?user=&password=
+[Wed Dec 10 19:20:36.628450 2014] [:error] [pid 17903:tid 140437109077760] [client 127.0.0.1:56359] Traceback (most recent call last):, referer: http://subject/login?user=&password=
+[Wed Dec 10 19:20:36.628522 2014] [:error] [pid 17903:tid 140437109077760] [client 127.0.0.1:56359]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/login?user=&password=
+[Wed Dec 10 19:20:36.628726 2014] [:error] [pid 17903:tid 140437109077760] [client 127.0.0.1:56359]     import Usuario, referer: http://subject/login?user=&password=
+[Wed Dec 10 19:20:36.628770 2014] [:error] [pid 17903:tid 140437109077760] [client 127.0.0.1:56359] ImportError: No module named Usuario, referer: http://subject/login?user=&password=
+[Wed Dec 10 19:20:39.141148 2014] [:error] [pid 17903:tid 140437100685056] [client 127.0.0.1:56360] mod_wsgi (pid=17903): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:20:39.141236 2014] [:error] [pid 17903:tid 140437100685056] [client 127.0.0.1:56360] mod_wsgi (pid=17903): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:20:39.141309 2014] [:error] [pid 17903:tid 140437100685056] [client 127.0.0.1:56360] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:20:39.141381 2014] [:error] [pid 17903:tid 140437100685056] [client 127.0.0.1:56360]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:20:39.141476 2014] [:error] [pid 17903:tid 140437100685056] [client 127.0.0.1:56360]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:20:39.141568 2014] [:error] [pid 17903:tid 140437100685056] [client 127.0.0.1:56360] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:21:57.771873 2014] [:error] [pid 18001:tid 140437109077760] [client 127.0.0.1:56362] mod_wsgi (pid=18001): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/index
+[Wed Dec 10 19:21:57.799394 2014] [:error] [pid 18001:tid 140437109077760] [client 127.0.0.1:56362] mod_wsgi (pid=18001): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/index
+[Wed Dec 10 19:21:57.799478 2014] [:error] [pid 18001:tid 140437109077760] [client 127.0.0.1:56362] Traceback (most recent call last):, referer: http://subject/index
+[Wed Dec 10 19:21:57.799520 2014] [:error] [pid 18001:tid 140437109077760] [client 127.0.0.1:56362]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/index
+[Wed Dec 10 19:21:57.799703 2014] [:error] [pid 18001:tid 140437109077760] [client 127.0.0.1:56362]     import Usuario, referer: http://subject/index
+[Wed Dec 10 19:21:57.799745 2014] [:error] [pid 18001:tid 140437109077760] [client 127.0.0.1:56362] ImportError: No module named Usuario, referer: http://subject/index
+[Wed Dec 10 19:22:01.087618 2014] [:error] [pid 18000:tid 140437109077760] [client 127.0.0.1:56364] mod_wsgi (pid=18000): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:22:01.087682 2014] [:error] [pid 18000:tid 140437109077760] [client 127.0.0.1:56364] mod_wsgi (pid=18000): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:22:01.087714 2014] [:error] [pid 18000:tid 140437109077760] [client 127.0.0.1:56364] Traceback (most recent call last):
+[Wed Dec 10 19:22:01.087746 2014] [:error] [pid 18000:tid 140437109077760] [client 127.0.0.1:56364]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:22:01.087846 2014] [:error] [pid 18000:tid 140437109077760] [client 127.0.0.1:56364]     import Usuario
+[Wed Dec 10 19:22:01.087880 2014] [:error] [pid 18000:tid 140437109077760] [client 127.0.0.1:56364] ImportError: No module named Usuario
+[Wed Dec 10 19:22:40.733842 2014] [:error] [pid 18089:tid 140437109077760] [client 127.0.0.1:56365] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:22:40.741097 2014] [:error] [pid 18089:tid 140437109077760] [client 127.0.0.1:56365] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:22:40.741198 2014] [:error] [pid 18089:tid 140437109077760] [client 127.0.0.1:56365] Traceback (most recent call last):
+[Wed Dec 10 19:22:40.741244 2014] [:error] [pid 18089:tid 140437109077760] [client 127.0.0.1:56365]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:22:40.741402 2014] [:error] [pid 18089:tid 140437109077760] [client 127.0.0.1:56365]     import Usuario
+[Wed Dec 10 19:22:40.741440 2014] [:error] [pid 18089:tid 140437109077760] [client 127.0.0.1:56365] ImportError: No module named Usuario
+[Wed Dec 10 19:23:27.625389 2014] [:error] [pid 18089:tid 140437092292352] [client 127.0.0.1:56368] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:23:27.691660 2014] [:error] [pid 18089:tid 140437092292352] [client 127.0.0.1:56368] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:23:27.691797 2014] [:error] [pid 18089:tid 140437092292352] [client 127.0.0.1:56368] Traceback (most recent call last):
+[Wed Dec 10 19:23:27.691876 2014] [:error] [pid 18089:tid 140437092292352] [client 127.0.0.1:56368]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:23:27.691976 2014] [:error] [pid 18089:tid 140437092292352] [client 127.0.0.1:56368]     import Usuario
+[Wed Dec 10 19:23:27.692029 2014] [:error] [pid 18089:tid 140437092292352] [client 127.0.0.1:56368] ImportError: No module named Usuario
+[Wed Dec 10 19:23:30.251634 2014] [:error] [pid 18089:tid 140437083899648] [client 127.0.0.1:56369] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:23:30.251732 2014] [:error] [pid 18089:tid 140437083899648] [client 127.0.0.1:56369] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:23:30.251813 2014] [:error] [pid 18089:tid 140437083899648] [client 127.0.0.1:56369] Traceback (most recent call last):
+[Wed Dec 10 19:23:30.251893 2014] [:error] [pid 18089:tid 140437083899648] [client 127.0.0.1:56369]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:23:30.251998 2014] [:error] [pid 18089:tid 140437083899648] [client 127.0.0.1:56369]     import Usuario
+[Wed Dec 10 19:23:30.252070 2014] [:error] [pid 18089:tid 140437083899648] [client 127.0.0.1:56369] ImportError: No module named Usuario
+[Wed Dec 10 19:24:14.763867 2014] [:error] [pid 18088:tid 140437092292352] [client 127.0.0.1:56370] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:14.763906 2014] [:error] [pid 18088:tid 140437092292352] [client 127.0.0.1:56370] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:14.763927 2014] [:error] [pid 18088:tid 140437092292352] [client 127.0.0.1:56370] Traceback (most recent call last):
+[Wed Dec 10 19:24:14.763946 2014] [:error] [pid 18088:tid 140437092292352] [client 127.0.0.1:56370]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:14.764052 2014] [:error] [pid 18088:tid 140437092292352] [client 127.0.0.1:56370]     import Usuario
+[Wed Dec 10 19:24:14.764102 2014] [:error] [pid 18088:tid 140437092292352] [client 127.0.0.1:56370] ImportError: No module named Usuario
+[Wed Dec 10 19:24:16.970222 2014] [:error] [pid 18088:tid 140437083899648] [client 127.0.0.1:56371] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:16.970300 2014] [:error] [pid 18088:tid 140437083899648] [client 127.0.0.1:56371] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:16.970361 2014] [:error] [pid 18088:tid 140437083899648] [client 127.0.0.1:56371] Traceback (most recent call last):
+[Wed Dec 10 19:24:16.970422 2014] [:error] [pid 18088:tid 140437083899648] [client 127.0.0.1:56371]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:16.970505 2014] [:error] [pid 18088:tid 140437083899648] [client 127.0.0.1:56371]     import Usuario
+[Wed Dec 10 19:24:16.970559 2014] [:error] [pid 18088:tid 140437083899648] [client 127.0.0.1:56371] ImportError: No module named Usuario
+[Wed Dec 10 19:24:28.229790 2014] [:error] [pid 18089:tid 140437075506944] [client 127.0.0.1:56372] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:28.294716 2014] [:error] [pid 18089:tid 140437075506944] [client 127.0.0.1:56372] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:28.294857 2014] [:error] [pid 18089:tid 140437075506944] [client 127.0.0.1:56372] Traceback (most recent call last):
+[Wed Dec 10 19:24:28.294940 2014] [:error] [pid 18089:tid 140437075506944] [client 127.0.0.1:56372]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:28.295225 2014] [:error] [pid 18089:tid 140437075506944] [client 127.0.0.1:56372]     import Usuario
+[Wed Dec 10 19:24:28.295321 2014] [:error] [pid 18089:tid 140437075506944] [client 127.0.0.1:56372] ImportError: No module named Usuario
+[Wed Dec 10 19:24:28.987373 2014] [:error] [pid 18089:tid 140437067114240] [client 127.0.0.1:56373] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:28.987451 2014] [:error] [pid 18089:tid 140437067114240] [client 127.0.0.1:56373] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:28.987534 2014] [:error] [pid 18089:tid 140437067114240] [client 127.0.0.1:56373] Traceback (most recent call last):
+[Wed Dec 10 19:24:28.987599 2014] [:error] [pid 18089:tid 140437067114240] [client 127.0.0.1:56373]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:28.987680 2014] [:error] [pid 18089:tid 140437067114240] [client 127.0.0.1:56373]     import Usuario
+[Wed Dec 10 19:24:28.987728 2014] [:error] [pid 18089:tid 140437067114240] [client 127.0.0.1:56373] ImportError: No module named Usuario
+[Wed Dec 10 19:24:29.213350 2014] [:error] [pid 18089:tid 140437058721536] [client 127.0.0.1:56374] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:29.213429 2014] [:error] [pid 18089:tid 140437058721536] [client 127.0.0.1:56374] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:29.213490 2014] [:error] [pid 18089:tid 140437058721536] [client 127.0.0.1:56374] Traceback (most recent call last):
+[Wed Dec 10 19:24:29.213587 2014] [:error] [pid 18089:tid 140437058721536] [client 127.0.0.1:56374]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:29.213688 2014] [:error] [pid 18089:tid 140437058721536] [client 127.0.0.1:56374]     import Usuario
+[Wed Dec 10 19:24:29.213738 2014] [:error] [pid 18089:tid 140437058721536] [client 127.0.0.1:56374] ImportError: No module named Usuario
+[Wed Dec 10 19:24:29.578032 2014] [:error] [pid 18089:tid 140437050328832] [client 127.0.0.1:56375] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:29.578116 2014] [:error] [pid 18089:tid 140437050328832] [client 127.0.0.1:56375] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:29.578190 2014] [:error] [pid 18089:tid 140437050328832] [client 127.0.0.1:56375] Traceback (most recent call last):
+[Wed Dec 10 19:24:29.578264 2014] [:error] [pid 18089:tid 140437050328832] [client 127.0.0.1:56375]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:29.578384 2014] [:error] [pid 18089:tid 140437050328832] [client 127.0.0.1:56375]     import Usuario
+[Wed Dec 10 19:24:29.578463 2014] [:error] [pid 18089:tid 140437050328832] [client 127.0.0.1:56375] ImportError: No module named Usuario
+[Wed Dec 10 19:24:29.740717 2014] [:error] [pid 18088:tid 140437075506944] [client 127.0.0.1:56376] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:29.740806 2014] [:error] [pid 18088:tid 140437075506944] [client 127.0.0.1:56376] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:29.740878 2014] [:error] [pid 18088:tid 140437075506944] [client 127.0.0.1:56376] Traceback (most recent call last):
+[Wed Dec 10 19:24:29.740952 2014] [:error] [pid 18088:tid 140437075506944] [client 127.0.0.1:56376]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:29.741037 2014] [:error] [pid 18088:tid 140437075506944] [client 127.0.0.1:56376]     import Usuario
+[Wed Dec 10 19:24:29.741090 2014] [:error] [pid 18088:tid 140437075506944] [client 127.0.0.1:56376] ImportError: No module named Usuario
+[Wed Dec 10 19:24:29.920340 2014] [:error] [pid 18088:tid 140437067114240] [client 127.0.0.1:56377] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:29.920397 2014] [:error] [pid 18088:tid 140437067114240] [client 127.0.0.1:56377] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:29.920458 2014] [:error] [pid 18088:tid 140437067114240] [client 127.0.0.1:56377] Traceback (most recent call last):
+[Wed Dec 10 19:24:29.920514 2014] [:error] [pid 18088:tid 140437067114240] [client 127.0.0.1:56377]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:29.920576 2014] [:error] [pid 18088:tid 140437067114240] [client 127.0.0.1:56377]     import Usuario
+[Wed Dec 10 19:24:29.920617 2014] [:error] [pid 18088:tid 140437067114240] [client 127.0.0.1:56377] ImportError: No module named Usuario
+[Wed Dec 10 19:24:30.624663 2014] [:error] [pid 18089:tid 140437041936128] [client 127.0.0.1:56378] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:30.624746 2014] [:error] [pid 18089:tid 140437041936128] [client 127.0.0.1:56378] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:30.624851 2014] [:error] [pid 18089:tid 140437041936128] [client 127.0.0.1:56378] Traceback (most recent call last):
+[Wed Dec 10 19:24:30.624930 2014] [:error] [pid 18089:tid 140437041936128] [client 127.0.0.1:56378]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:30.625036 2014] [:error] [pid 18089:tid 140437041936128] [client 127.0.0.1:56378]     import Usuario
+[Wed Dec 10 19:24:30.625106 2014] [:error] [pid 18089:tid 140437041936128] [client 127.0.0.1:56378] ImportError: No module named Usuario
+[Wed Dec 10 19:24:30.826907 2014] [:error] [pid 18088:tid 140437058721536] [client 127.0.0.1:56379] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:30.827002 2014] [:error] [pid 18088:tid 140437058721536] [client 127.0.0.1:56379] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:30.827078 2014] [:error] [pid 18088:tid 140437058721536] [client 127.0.0.1:56379] Traceback (most recent call last):
+[Wed Dec 10 19:24:30.827149 2014] [:error] [pid 18088:tid 140437058721536] [client 127.0.0.1:56379]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:30.827254 2014] [:error] [pid 18088:tid 140437058721536] [client 127.0.0.1:56379]     import Usuario
+[Wed Dec 10 19:24:30.827320 2014] [:error] [pid 18088:tid 140437058721536] [client 127.0.0.1:56379] ImportError: No module named Usuario
+[Wed Dec 10 19:24:31.022786 2014] [:error] [pid 18089:tid 140437033543424] [client 127.0.0.1:56380] mod_wsgi (pid=18089): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:31.022851 2014] [:error] [pid 18089:tid 140437033543424] [client 127.0.0.1:56380] mod_wsgi (pid=18089): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:31.022911 2014] [:error] [pid 18089:tid 140437033543424] [client 127.0.0.1:56380] Traceback (most recent call last):
+[Wed Dec 10 19:24:31.022963 2014] [:error] [pid 18089:tid 140437033543424] [client 127.0.0.1:56380]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:31.023023 2014] [:error] [pid 18089:tid 140437033543424] [client 127.0.0.1:56380]     import Usuario
+[Wed Dec 10 19:24:31.023058 2014] [:error] [pid 18089:tid 140437033543424] [client 127.0.0.1:56380] ImportError: No module named Usuario
+[Wed Dec 10 19:24:31.161058 2014] [:error] [pid 18088:tid 140437050328832] [client 127.0.0.1:56381] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:31.161091 2014] [:error] [pid 18088:tid 140437050328832] [client 127.0.0.1:56381] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:31.161115 2014] [:error] [pid 18088:tid 140437050328832] [client 127.0.0.1:56381] Traceback (most recent call last):
+[Wed Dec 10 19:24:31.161137 2014] [:error] [pid 18088:tid 140437050328832] [client 127.0.0.1:56381]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:31.161170 2014] [:error] [pid 18088:tid 140437050328832] [client 127.0.0.1:56381]     import Usuario
+[Wed Dec 10 19:24:31.161189 2014] [:error] [pid 18088:tid 140437050328832] [client 127.0.0.1:56381] ImportError: No module named Usuario
+[Wed Dec 10 19:24:31.316456 2014] [:error] [pid 18088:tid 140437041936128] [client 127.0.0.1:56382] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:31.316578 2014] [:error] [pid 18088:tid 140437041936128] [client 127.0.0.1:56382] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:31.316668 2014] [:error] [pid 18088:tid 140437041936128] [client 127.0.0.1:56382] Traceback (most recent call last):
+[Wed Dec 10 19:24:31.316758 2014] [:error] [pid 18088:tid 140437041936128] [client 127.0.0.1:56382]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:31.316878 2014] [:error] [pid 18088:tid 140437041936128] [client 127.0.0.1:56382]     import Usuario
+[Wed Dec 10 19:24:31.316960 2014] [:error] [pid 18088:tid 140437041936128] [client 127.0.0.1:56382] ImportError: No module named Usuario
+[Wed Dec 10 19:24:31.539695 2014] [:error] [pid 18088:tid 140437033543424] [client 127.0.0.1:56383] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:31.539769 2014] [:error] [pid 18088:tid 140437033543424] [client 127.0.0.1:56383] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:31.539831 2014] [:error] [pid 18088:tid 140437033543424] [client 127.0.0.1:56383] Traceback (most recent call last):
+[Wed Dec 10 19:24:31.539892 2014] [:error] [pid 18088:tid 140437033543424] [client 127.0.0.1:56383]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:31.539971 2014] [:error] [pid 18088:tid 140437033543424] [client 127.0.0.1:56383]     import Usuario
+[Wed Dec 10 19:24:31.540022 2014] [:error] [pid 18088:tid 140437033543424] [client 127.0.0.1:56383] ImportError: No module named Usuario
+[Wed Dec 10 19:24:31.718286 2014] [:error] [pid 18088:tid 140437025150720] [client 127.0.0.1:56384] mod_wsgi (pid=18088): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 19:24:31.718331 2014] [:error] [pid 18088:tid 140437025150720] [client 127.0.0.1:56384] mod_wsgi (pid=18088): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 19:24:31.718365 2014] [:error] [pid 18088:tid 140437025150720] [client 127.0.0.1:56384] Traceback (most recent call last):
+[Wed Dec 10 19:24:31.718397 2014] [:error] [pid 18088:tid 140437025150720] [client 127.0.0.1:56384]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>
+[Wed Dec 10 19:24:31.718442 2014] [:error] [pid 18088:tid 140437025150720] [client 127.0.0.1:56384]     import Usuario
+[Wed Dec 10 19:24:31.718471 2014] [:error] [pid 18088:tid 140437025150720] [client 127.0.0.1:56384] ImportError: No module named Usuario
+[Wed Dec 10 20:47:44.150284 2014] [:error] [pid 18239:tid 140437109077760] [client 127.0.0.1:56567] mod_wsgi (pid=18239): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/new_user?
+[Wed Dec 10 20:47:44.150393 2014] [:error] [pid 18239:tid 140437109077760] [client 127.0.0.1:56567] mod_wsgi (pid=18239): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/new_user?
+[Wed Dec 10 20:47:44.150486 2014] [:error] [pid 18239:tid 140437109077760] [client 127.0.0.1:56567] Traceback (most recent call last):, referer: http://subject/new_user?
+[Wed Dec 10 20:47:44.150588 2014] [:error] [pid 18239:tid 140437109077760] [client 127.0.0.1:56567]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/new_user?
+[Wed Dec 10 20:47:44.150876 2014] [:error] [pid 18239:tid 140437109077760] [client 127.0.0.1:56567]     import Usuario, referer: http://subject/new_user?
+[Wed Dec 10 20:47:44.151000 2014] [:error] [pid 18239:tid 140437109077760] [client 127.0.0.1:56567] ImportError: No module named Usuario, referer: http://subject/new_user?
+[Wed Dec 10 20:49:05.648751 2014] [:error] [pid 18239:tid 140436941223680] [client 127.0.0.1:56572] mod_wsgi (pid=18239): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/new_user?
+[Wed Dec 10 20:49:05.648861 2014] [:error] [pid 18239:tid 140436941223680] [client 127.0.0.1:56572] mod_wsgi (pid=18239): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/new_user?
+[Wed Dec 10 20:49:05.648949 2014] [:error] [pid 18239:tid 140436941223680] [client 127.0.0.1:56572] Traceback (most recent call last):, referer: http://subject/new_user?
+[Wed Dec 10 20:49:05.649015 2014] [:error] [pid 18239:tid 140436941223680] [client 127.0.0.1:56572]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 7, in <module>, referer: http://subject/new_user?
+[Wed Dec 10 20:49:05.649239 2014] [:error] [pid 18239:tid 140436941223680] [client 127.0.0.1:56572]     import Usuario, referer: http://subject/new_user?
+[Wed Dec 10 20:49:05.649296 2014] [:error] [pid 18239:tid 140436941223680] [client 127.0.0.1:56572] ImportError: No module named Usuario, referer: http://subject/new_user?
+[Wed Dec 10 20:56:09.633282 2014] [:error] [pid 19787:tid 140437109077760] [client 127.0.0.1:56585] mod_wsgi (pid=19787): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:56:09.633358 2014] [:error] [pid 19787:tid 140437109077760] [client 127.0.0.1:56585] mod_wsgi (pid=19787): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:56:09.633416 2014] [:error] [pid 19787:tid 140437109077760] [client 127.0.0.1:56585] Traceback (most recent call last):
+[Wed Dec 10 20:56:09.633469 2014] [:error] [pid 19787:tid 140437109077760] [client 127.0.0.1:56585]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:56:09.633604 2014] [:error] [pid 19787:tid 140437109077760] [client 127.0.0.1:56585]     import Usuario
+[Wed Dec 10 20:56:09.633647 2014] [:error] [pid 19787:tid 140437109077760] [client 127.0.0.1:56585] ImportError: No module named Usuario
+[Wed Dec 10 20:56:15.999127 2014] [:error] [pid 19787:tid 140437100685056] [client 127.0.0.1:56588] mod_wsgi (pid=19787): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:56:15.999232 2014] [:error] [pid 19787:tid 140437100685056] [client 127.0.0.1:56588] mod_wsgi (pid=19787): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:56:15.999322 2014] [:error] [pid 19787:tid 140437100685056] [client 127.0.0.1:56588] Traceback (most recent call last):
+[Wed Dec 10 20:56:15.999412 2014] [:error] [pid 19787:tid 140437100685056] [client 127.0.0.1:56588]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:56:15.999519 2014] [:error] [pid 19787:tid 140437100685056] [client 127.0.0.1:56588]     import Usuario
+[Wed Dec 10 20:56:15.999596 2014] [:error] [pid 19787:tid 140437100685056] [client 127.0.0.1:56588] ImportError: No module named Usuario
+[Wed Dec 10 20:56:16.697474 2014] [:error] [pid 19786:tid 140437109077760] [client 127.0.0.1:56589] mod_wsgi (pid=19786): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:56:16.697532 2014] [:error] [pid 19786:tid 140437109077760] [client 127.0.0.1:56589] mod_wsgi (pid=19786): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:56:16.697573 2014] [:error] [pid 19786:tid 140437109077760] [client 127.0.0.1:56589] Traceback (most recent call last):
+[Wed Dec 10 20:56:16.697598 2014] [:error] [pid 19786:tid 140437109077760] [client 127.0.0.1:56589]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:56:16.697684 2014] [:error] [pid 19786:tid 140437109077760] [client 127.0.0.1:56589]     import Usuario
+[Wed Dec 10 20:56:16.697707 2014] [:error] [pid 19786:tid 140437109077760] [client 127.0.0.1:56589] ImportError: No module named Usuario
+[Wed Dec 10 20:56:16.897417 2014] [:error] [pid 19787:tid 140437092292352] [client 127.0.0.1:56590] mod_wsgi (pid=19787): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:56:16.897481 2014] [:error] [pid 19787:tid 140437092292352] [client 127.0.0.1:56590] mod_wsgi (pid=19787): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:56:16.897539 2014] [:error] [pid 19787:tid 140437092292352] [client 127.0.0.1:56590] Traceback (most recent call last):
+[Wed Dec 10 20:56:16.897595 2014] [:error] [pid 19787:tid 140437092292352] [client 127.0.0.1:56590]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:56:16.897673 2014] [:error] [pid 19787:tid 140437092292352] [client 127.0.0.1:56590]     import Usuario
+[Wed Dec 10 20:56:16.897721 2014] [:error] [pid 19787:tid 140437092292352] [client 127.0.0.1:56590] ImportError: No module named Usuario
+[Wed Dec 10 20:56:17.062275 2014] [:error] [pid 19786:tid 140437100685056] [client 127.0.0.1:56591] mod_wsgi (pid=19786): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:56:17.062311 2014] [:error] [pid 19786:tid 140437100685056] [client 127.0.0.1:56591] mod_wsgi (pid=19786): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:56:17.062343 2014] [:error] [pid 19786:tid 140437100685056] [client 127.0.0.1:56591] Traceback (most recent call last):
+[Wed Dec 10 20:56:17.062375 2014] [:error] [pid 19786:tid 140437100685056] [client 127.0.0.1:56591]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:56:17.062419 2014] [:error] [pid 19786:tid 140437100685056] [client 127.0.0.1:56591]     import Usuario
+[Wed Dec 10 20:56:17.062447 2014] [:error] [pid 19786:tid 140437100685056] [client 127.0.0.1:56591] ImportError: No module named Usuario
+[Wed Dec 10 20:56:17.258400 2014] [:error] [pid 19787:tid 140437083899648] [client 127.0.0.1:56592] mod_wsgi (pid=19787): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:56:17.258470 2014] [:error] [pid 19787:tid 140437083899648] [client 127.0.0.1:56592] mod_wsgi (pid=19787): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:56:17.258532 2014] [:error] [pid 19787:tid 140437083899648] [client 127.0.0.1:56592] Traceback (most recent call last):
+[Wed Dec 10 20:56:17.258596 2014] [:error] [pid 19787:tid 140437083899648] [client 127.0.0.1:56592]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:56:17.258675 2014] [:error] [pid 19787:tid 140437083899648] [client 127.0.0.1:56592]     import Usuario
+[Wed Dec 10 20:56:17.258727 2014] [:error] [pid 19787:tid 140437083899648] [client 127.0.0.1:56592] ImportError: No module named Usuario
+[Wed Dec 10 20:58:08.683076 2014] [:error] [pid 19884:tid 140437109077760] [client 127.0.0.1:56593] mod_wsgi (pid=19884): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:58:08.683156 2014] [:error] [pid 19884:tid 140437109077760] [client 127.0.0.1:56593] mod_wsgi (pid=19884): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:58:08.683178 2014] [:error] [pid 19884:tid 140437109077760] [client 127.0.0.1:56593] Traceback (most recent call last):
+[Wed Dec 10 20:58:08.683202 2014] [:error] [pid 19884:tid 140437109077760] [client 127.0.0.1:56593]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:58:08.683257 2014] [:error] [pid 19884:tid 140437109077760] [client 127.0.0.1:56593]     import Usuario
+[Wed Dec 10 20:58:08.683274 2014] [:error] [pid 19884:tid 140437109077760] [client 127.0.0.1:56593] ImportError: No module named Usuario
+[Wed Dec 10 20:58:14.326537 2014] [:error] [pid 19884:tid 140437100685056] [client 127.0.0.1:56594] mod_wsgi (pid=19884): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module., referer: http://subject/new_user?
+[Wed Dec 10 20:58:14.326610 2014] [:error] [pid 19884:tid 140437100685056] [client 127.0.0.1:56594] mod_wsgi (pid=19884): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'., referer: http://subject/new_user?
+[Wed Dec 10 20:58:14.326682 2014] [:error] [pid 19884:tid 140437100685056] [client 127.0.0.1:56594] Traceback (most recent call last):, referer: http://subject/new_user?
+[Wed Dec 10 20:58:14.326738 2014] [:error] [pid 19884:tid 140437100685056] [client 127.0.0.1:56594]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>, referer: http://subject/new_user?
+[Wed Dec 10 20:58:14.326803 2014] [:error] [pid 19884:tid 140437100685056] [client 127.0.0.1:56594]     import Usuario, referer: http://subject/new_user?
+[Wed Dec 10 20:58:14.326843 2014] [:error] [pid 19884:tid 140437100685056] [client 127.0.0.1:56594] ImportError: No module named Usuario, referer: http://subject/new_user?
+[Wed Dec 10 20:58:17.259539 2014] [:error] [pid 19885:tid 140437109077760] [client 127.0.0.1:56595] mod_wsgi (pid=19885): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:58:17.259616 2014] [:error] [pid 19885:tid 140437109077760] [client 127.0.0.1:56595] mod_wsgi (pid=19885): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:58:17.259661 2014] [:error] [pid 19885:tid 140437109077760] [client 127.0.0.1:56595] Traceback (most recent call last):
+[Wed Dec 10 20:58:17.259704 2014] [:error] [pid 19885:tid 140437109077760] [client 127.0.0.1:56595]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:58:17.259848 2014] [:error] [pid 19885:tid 140437109077760] [client 127.0.0.1:56595]     import Usuario
+[Wed Dec 10 20:58:17.259901 2014] [:error] [pid 19885:tid 140437109077760] [client 127.0.0.1:56595] ImportError: No module named Usuario
+[Wed Dec 10 20:58:19.152190 2014] [:error] [pid 19885:tid 140437100685056] [client 127.0.0.1:56596] mod_wsgi (pid=19885): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:58:19.152291 2014] [:error] [pid 19885:tid 140437100685056] [client 127.0.0.1:56596] mod_wsgi (pid=19885): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:58:19.152380 2014] [:error] [pid 19885:tid 140437100685056] [client 127.0.0.1:56596] Traceback (most recent call last):
+[Wed Dec 10 20:58:19.152499 2014] [:error] [pid 19885:tid 140437100685056] [client 127.0.0.1:56596]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:58:19.152650 2014] [:error] [pid 19885:tid 140437100685056] [client 127.0.0.1:56596]     import Usuario
+[Wed Dec 10 20:58:19.152719 2014] [:error] [pid 19885:tid 140437100685056] [client 127.0.0.1:56596] ImportError: No module named Usuario
+[Wed Dec 10 20:58:19.327864 2014] [:error] [pid 19885:tid 140437092292352] [client 127.0.0.1:56597] mod_wsgi (pid=19885): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:58:19.327907 2014] [:error] [pid 19885:tid 140437092292352] [client 127.0.0.1:56597] mod_wsgi (pid=19885): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:58:19.327960 2014] [:error] [pid 19885:tid 140437092292352] [client 127.0.0.1:56597] Traceback (most recent call last):
+[Wed Dec 10 20:58:19.328022 2014] [:error] [pid 19885:tid 140437092292352] [client 127.0.0.1:56597]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:58:19.328068 2014] [:error] [pid 19885:tid 140437092292352] [client 127.0.0.1:56597]     import Usuario
+[Wed Dec 10 20:58:19.328095 2014] [:error] [pid 19885:tid 140437092292352] [client 127.0.0.1:56597] ImportError: No module named Usuario
+[Wed Dec 10 20:58:24.811364 2014] [:error] [pid 19885:tid 140437083899648] [client 127.0.0.1:56598] mod_wsgi (pid=19885): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 20:58:24.811449 2014] [:error] [pid 19885:tid 140437083899648] [client 127.0.0.1:56598] mod_wsgi (pid=19885): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 20:58:24.811513 2014] [:error] [pid 19885:tid 140437083899648] [client 127.0.0.1:56598] Traceback (most recent call last):
+[Wed Dec 10 20:58:24.811580 2014] [:error] [pid 19885:tid 140437083899648] [client 127.0.0.1:56598]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 20:58:24.811660 2014] [:error] [pid 19885:tid 140437083899648] [client 127.0.0.1:56598]     import Usuario
+[Wed Dec 10 20:58:24.811711 2014] [:error] [pid 19885:tid 140437083899648] [client 127.0.0.1:56598] ImportError: No module named Usuario
+[Wed Dec 10 21:01:30.299236 2014] [:error] [pid 20022:tid 140437109077760] [client 127.0.0.1:56619] mod_wsgi (pid=20022): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:01:30.361237 2014] [:error] [pid 20022:tid 140437109077760] [client 127.0.0.1:56619] mod_wsgi (pid=20022): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:01:30.361312 2014] [:error] [pid 20022:tid 140437109077760] [client 127.0.0.1:56619] Traceback (most recent call last):
+[Wed Dec 10 21:01:30.361346 2014] [:error] [pid 20022:tid 140437109077760] [client 127.0.0.1:56619]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:01:30.361483 2014] [:error] [pid 20022:tid 140437109077760] [client 127.0.0.1:56619]     import Usuario
+[Wed Dec 10 21:01:30.361515 2014] [:error] [pid 20022:tid 140437109077760] [client 127.0.0.1:56619] ImportError: No module named Usuario
+[Wed Dec 10 21:01:31.463115 2014] [:error] [pid 20023:tid 140437109077760] [client 127.0.0.1:56620] mod_wsgi (pid=20023): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:01:31.463183 2014] [:error] [pid 20023:tid 140437109077760] [client 127.0.0.1:56620] mod_wsgi (pid=20023): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:01:31.463238 2014] [:error] [pid 20023:tid 140437109077760] [client 127.0.0.1:56620] Traceback (most recent call last):
+[Wed Dec 10 21:01:31.463276 2014] [:error] [pid 20023:tid 140437109077760] [client 127.0.0.1:56620]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:01:31.463404 2014] [:error] [pid 20023:tid 140437109077760] [client 127.0.0.1:56620]     import Usuario
+[Wed Dec 10 21:01:31.463458 2014] [:error] [pid 20023:tid 140437109077760] [client 127.0.0.1:56620] ImportError: No module named Usuario
+[Wed Dec 10 21:01:32.161713 2014] [:error] [pid 20022:tid 140437100685056] [client 127.0.0.1:56621] mod_wsgi (pid=20022): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:01:32.161782 2014] [:error] [pid 20022:tid 140437100685056] [client 127.0.0.1:56621] mod_wsgi (pid=20022): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:01:32.161851 2014] [:error] [pid 20022:tid 140437100685056] [client 127.0.0.1:56621] Traceback (most recent call last):
+[Wed Dec 10 21:01:32.161903 2014] [:error] [pid 20022:tid 140437100685056] [client 127.0.0.1:56621]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:01:32.161971 2014] [:error] [pid 20022:tid 140437100685056] [client 127.0.0.1:56621]     import Usuario
+[Wed Dec 10 21:01:32.162011 2014] [:error] [pid 20022:tid 140437100685056] [client 127.0.0.1:56621] ImportError: No module named Usuario
+[Wed Dec 10 21:01:33.272390 2014] [:error] [pid 20022:tid 140437092292352] [client 127.0.0.1:56622] mod_wsgi (pid=20022): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:01:33.272472 2014] [:error] [pid 20022:tid 140437092292352] [client 127.0.0.1:56622] mod_wsgi (pid=20022): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:01:33.272544 2014] [:error] [pid 20022:tid 140437092292352] [client 127.0.0.1:56622] Traceback (most recent call last):
+[Wed Dec 10 21:01:33.272658 2014] [:error] [pid 20022:tid 140437092292352] [client 127.0.0.1:56622]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:01:33.272762 2014] [:error] [pid 20022:tid 140437092292352] [client 127.0.0.1:56622]     import Usuario
+[Wed Dec 10 21:01:33.272839 2014] [:error] [pid 20022:tid 140437092292352] [client 127.0.0.1:56622] ImportError: No module named Usuario
+[Wed Dec 10 21:02:22.366320 2014] [:error] [pid 20111:tid 140437109077760] [client 127.0.0.1:56623] Target WSGI script not found or unable to stat: /home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py
+[Wed Dec 10 21:02:23.496396 2014] [:error] [pid 20111:tid 140437100685056] [client 127.0.0.1:56623] Target WSGI script not found or unable to stat: /home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py
+[Wed Dec 10 21:02:24.348578 2014] [:error] [pid 20111:tid 140437092292352] [client 127.0.0.1:56623] Target WSGI script not found or unable to stat: /home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py
+[Wed Dec 10 21:05:28.013958 2014] [:error] [pid 20251:tid 140437100685056] [client 127.0.0.1:56627] mod_wsgi (pid=20251): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:05:28.014076 2014] [:error] [pid 20251:tid 140437100685056] [client 127.0.0.1:56627] mod_wsgi (pid=20251): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:05:28.014201 2014] [:error] [pid 20251:tid 140437100685056] [client 127.0.0.1:56627] Traceback (most recent call last):
+[Wed Dec 10 21:05:28.014273 2014] [:error] [pid 20251:tid 140437100685056] [client 127.0.0.1:56627]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:05:28.014452 2014] [:error] [pid 20251:tid 140437100685056] [client 127.0.0.1:56627]     import Usuario
+[Wed Dec 10 21:05:28.014503 2014] [:error] [pid 20251:tid 140437100685056] [client 127.0.0.1:56627] ImportError: No module named Usuario
+[Wed Dec 10 21:05:55.512735 2014] [:error] [pid 20251:tid 140437109077760] [client 127.0.0.1:56628] mod_wsgi (pid=20251): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:05:55.512855 2014] [:error] [pid 20251:tid 140437109077760] [client 127.0.0.1:56628] mod_wsgi (pid=20251): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:05:55.512943 2014] [:error] [pid 20251:tid 140437109077760] [client 127.0.0.1:56628] Traceback (most recent call last):
+[Wed Dec 10 21:05:55.513025 2014] [:error] [pid 20251:tid 140437109077760] [client 127.0.0.1:56628]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:05:55.513132 2014] [:error] [pid 20251:tid 140437109077760] [client 127.0.0.1:56628]     import Usuario
+[Wed Dec 10 21:05:55.513203 2014] [:error] [pid 20251:tid 140437109077760] [client 127.0.0.1:56628] ImportError: No module named Usuario
+[Wed Dec 10 21:09:17.007318 2014] [:error] [pid 20504:tid 140437109077760] [client 127.0.0.1:56638] mod_wsgi (pid=20504): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:09:17.052130 2014] [:error] [pid 20504:tid 140437109077760] [client 127.0.0.1:56638] mod_wsgi (pid=20504): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:09:17.052265 2014] [:error] [pid 20504:tid 140437109077760] [client 127.0.0.1:56638] Traceback (most recent call last):
+[Wed Dec 10 21:09:17.052318 2014] [:error] [pid 20504:tid 140437109077760] [client 127.0.0.1:56638]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:09:17.052474 2014] [:error] [pid 20504:tid 140437109077760] [client 127.0.0.1:56638]     import usuario
+[Wed Dec 10 21:09:17.052509 2014] [:error] [pid 20504:tid 140437109077760] [client 127.0.0.1:56638] ImportError: No module named usuario
+[Wed Dec 10 21:10:15.302314 2014] [:error] [pid 20615:tid 140437100685056] [client 127.0.0.1:56644] mod_wsgi (pid=20615): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:10:15.302385 2014] [:error] [pid 20615:tid 140437100685056] [client 127.0.0.1:56644] mod_wsgi (pid=20615): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py'.
+[Wed Dec 10 21:10:15.302444 2014] [:error] [pid 20615:tid 140437100685056] [client 127.0.0.1:56644] Traceback (most recent call last):
+[Wed Dec 10 21:10:15.302484 2014] [:error] [pid 20615:tid 140437100685056] [client 127.0.0.1:56644]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py", line 6, in <module>
+[Wed Dec 10 21:10:15.302638 2014] [:error] [pid 20615:tid 140437100685056] [client 127.0.0.1:56644]     import Archivo
+[Wed Dec 10 21:10:15.302679 2014] [:error] [pid 20615:tid 140437100685056] [client 127.0.0.1:56644] ImportError: No module named Archivo
+[Wed Dec 10 21:38:11.023714 2014] [:error] [pid 20616:tid 140437100685056] [client 127.0.0.1:56757] Target WSGI script not found or unable to stat: /home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Modelo/server.py
+[Wed Dec 10 21:54:13.167266 2014] [:error] [pid 21403:tid 140437109077760] [client 127.0.0.1:56986] mod_wsgi (pid=21403): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:13.255795 2014] [:error] [pid 21403:tid 140437109077760] [client 127.0.0.1:56986] mod_wsgi (pid=21403): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:13.255895 2014] [:error] [pid 21403:tid 140437109077760] [client 127.0.0.1:56986] Traceback (most recent call last):
+[Wed Dec 10 21:54:13.255946 2014] [:error] [pid 21403:tid 140437109077760] [client 127.0.0.1:56986]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:13.256160 2014] [:error] [pid 21403:tid 140437109077760] [client 127.0.0.1:56986]     from Modelo import Usuario
+[Wed Dec 10 21:54:13.256210 2014] [:error] [pid 21403:tid 140437109077760] [client 127.0.0.1:56986] ImportError: No module named Modelo
+[Wed Dec 10 21:54:14.324986 2014] [:error] [pid 21375:tid 140437109077760] [client 127.0.0.1:56987] mod_wsgi (pid=21375): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:14.325052 2014] [:error] [pid 21375:tid 140437109077760] [client 127.0.0.1:56987] mod_wsgi (pid=21375): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:14.325093 2014] [:error] [pid 21375:tid 140437109077760] [client 127.0.0.1:56987] Traceback (most recent call last):
+[Wed Dec 10 21:54:14.325131 2014] [:error] [pid 21375:tid 140437109077760] [client 127.0.0.1:56987]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:14.325267 2014] [:error] [pid 21375:tid 140437109077760] [client 127.0.0.1:56987]     from Modelo import Usuario
+[Wed Dec 10 21:54:14.325306 2014] [:error] [pid 21375:tid 140437109077760] [client 127.0.0.1:56987] ImportError: No module named Modelo
+[Wed Dec 10 21:54:56.834495 2014] [:error] [pid 21403:tid 140437100685056] [client 127.0.0.1:56988] mod_wsgi (pid=21403): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:56.834602 2014] [:error] [pid 21403:tid 140437100685056] [client 127.0.0.1:56988] mod_wsgi (pid=21403): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:56.834681 2014] [:error] [pid 21403:tid 140437100685056] [client 127.0.0.1:56988] Traceback (most recent call last):
+[Wed Dec 10 21:54:56.834757 2014] [:error] [pid 21403:tid 140437100685056] [client 127.0.0.1:56988]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:56.834999 2014] [:error] [pid 21403:tid 140437100685056] [client 127.0.0.1:56988]     from Modelo.Usuario import Usuario
+[Wed Dec 10 21:54:56.835069 2014] [:error] [pid 21403:tid 140437100685056] [client 127.0.0.1:56988] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:54:57.575627 2014] [:error] [pid 21403:tid 140437092292352] [client 127.0.0.1:56989] mod_wsgi (pid=21403): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:57.575727 2014] [:error] [pid 21403:tid 140437092292352] [client 127.0.0.1:56989] mod_wsgi (pid=21403): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:57.575810 2014] [:error] [pid 21403:tid 140437092292352] [client 127.0.0.1:56989] Traceback (most recent call last):
+[Wed Dec 10 21:54:57.575898 2014] [:error] [pid 21403:tid 140437092292352] [client 127.0.0.1:56989]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:57.576025 2014] [:error] [pid 21403:tid 140437092292352] [client 127.0.0.1:56989]     from Modelo.Usuario import Usuario
+[Wed Dec 10 21:54:57.576088 2014] [:error] [pid 21403:tid 140437092292352] [client 127.0.0.1:56989] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:54:57.715596 2014] [:error] [pid 21403:tid 140437083899648] [client 127.0.0.1:56990] mod_wsgi (pid=21403): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:57.715694 2014] [:error] [pid 21403:tid 140437083899648] [client 127.0.0.1:56990] mod_wsgi (pid=21403): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:57.715783 2014] [:error] [pid 21403:tid 140437083899648] [client 127.0.0.1:56990] Traceback (most recent call last):
+[Wed Dec 10 21:54:57.715876 2014] [:error] [pid 21403:tid 140437083899648] [client 127.0.0.1:56990]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:57.715990 2014] [:error] [pid 21403:tid 140437083899648] [client 127.0.0.1:56990]     from Modelo.Usuario import Usuario
+[Wed Dec 10 21:54:57.716073 2014] [:error] [pid 21403:tid 140437083899648] [client 127.0.0.1:56990] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:54:57.868852 2014] [:error] [pid 21375:tid 140437100685056] [client 127.0.0.1:56991] mod_wsgi (pid=21375): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:57.868951 2014] [:error] [pid 21375:tid 140437100685056] [client 127.0.0.1:56991] mod_wsgi (pid=21375): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:57.869047 2014] [:error] [pid 21375:tid 140437100685056] [client 127.0.0.1:56991] Traceback (most recent call last):
+[Wed Dec 10 21:54:57.869121 2014] [:error] [pid 21375:tid 140437100685056] [client 127.0.0.1:56991]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:57.869362 2014] [:error] [pid 21375:tid 140437100685056] [client 127.0.0.1:56991]     from Modelo.Usuario import Usuario
+[Wed Dec 10 21:54:57.869425 2014] [:error] [pid 21375:tid 140437100685056] [client 127.0.0.1:56991] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:54:58.016223 2014] [:error] [pid 21375:tid 140437092292352] [client 127.0.0.1:56992] mod_wsgi (pid=21375): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:58.016370 2014] [:error] [pid 21375:tid 140437092292352] [client 127.0.0.1:56992] mod_wsgi (pid=21375): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:58.016468 2014] [:error] [pid 21375:tid 140437092292352] [client 127.0.0.1:56992] Traceback (most recent call last):
+[Wed Dec 10 21:54:58.016567 2014] [:error] [pid 21375:tid 140437092292352] [client 127.0.0.1:56992]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:58.016732 2014] [:error] [pid 21375:tid 140437092292352] [client 127.0.0.1:56992]     from Modelo.Usuario import Usuario
+[Wed Dec 10 21:54:58.016785 2014] [:error] [pid 21375:tid 140437092292352] [client 127.0.0.1:56992] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:54:58.195874 2014] [:error] [pid 21403:tid 140437075506944] [client 127.0.0.1:56993] mod_wsgi (pid=21403): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:54:58.195986 2014] [:error] [pid 21403:tid 140437075506944] [client 127.0.0.1:56993] mod_wsgi (pid=21403): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:54:58.196114 2014] [:error] [pid 21403:tid 140437075506944] [client 127.0.0.1:56993] Traceback (most recent call last):
+[Wed Dec 10 21:54:58.196196 2014] [:error] [pid 21403:tid 140437075506944] [client 127.0.0.1:56993]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:54:58.196294 2014] [:error] [pid 21403:tid 140437075506944] [client 127.0.0.1:56993]     from Modelo.Usuario import Usuario
+[Wed Dec 10 21:54:58.196349 2014] [:error] [pid 21403:tid 140437075506944] [client 127.0.0.1:56993] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:55:27.728013 2014] [:error] [pid 21486:tid 140437109077760] [client 127.0.0.1:56995] mod_wsgi (pid=21486): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:55:27.728090 2014] [:error] [pid 21486:tid 140437109077760] [client 127.0.0.1:56995] mod_wsgi (pid=21486): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:55:27.728145 2014] [:error] [pid 21486:tid 140437109077760] [client 127.0.0.1:56995] Traceback (most recent call last):
+[Wed Dec 10 21:55:27.728200 2014] [:error] [pid 21486:tid 140437109077760] [client 127.0.0.1:56995]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:55:27.728328 2014] [:error] [pid 21486:tid 140437109077760] [client 127.0.0.1:56995]     from Modelo.Usuario import *
+[Wed Dec 10 21:55:27.728369 2014] [:error] [pid 21486:tid 140437109077760] [client 127.0.0.1:56995] ImportError: No module named Modelo.Usuario
+[Wed Dec 10 21:58:51.496870 2014] [:error] [pid 21487:tid 140437100685056] [client 127.0.0.1:56996] mod_wsgi (pid=21487): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:51.555373 2014] [:error] [pid 21487:tid 140437100685056] [client 127.0.0.1:56996] mod_wsgi (pid=21487): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:51.555473 2014] [:error] [pid 21487:tid 140437100685056] [client 127.0.0.1:56996] Traceback (most recent call last):
+[Wed Dec 10 21:58:51.555522 2014] [:error] [pid 21487:tid 140437100685056] [client 127.0.0.1:56996]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:51.555694 2014] [:error] [pid 21487:tid 140437100685056] [client 127.0.0.1:56996]     from Modelo import Usuario
+[Wed Dec 10 21:58:51.555735 2014] [:error] [pid 21487:tid 140437100685056] [client 127.0.0.1:56996] ImportError: No module named Modelo
+[Wed Dec 10 21:58:52.296178 2014] [:error] [pid 21486:tid 140437100685056] [client 127.0.0.1:56997] mod_wsgi (pid=21486): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:52.296293 2014] [:error] [pid 21486:tid 140437100685056] [client 127.0.0.1:56997] mod_wsgi (pid=21486): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:52.296385 2014] [:error] [pid 21486:tid 140437100685056] [client 127.0.0.1:56997] Traceback (most recent call last):
+[Wed Dec 10 21:58:52.296470 2014] [:error] [pid 21486:tid 140437100685056] [client 127.0.0.1:56997]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:52.296808 2014] [:error] [pid 21486:tid 140437100685056] [client 127.0.0.1:56997]     from Modelo import Usuario
+[Wed Dec 10 21:58:52.296895 2014] [:error] [pid 21486:tid 140437100685056] [client 127.0.0.1:56997] ImportError: No module named Modelo
+[Wed Dec 10 21:58:52.432823 2014] [:error] [pid 21487:tid 140437092292352] [client 127.0.0.1:56998] mod_wsgi (pid=21487): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:52.432948 2014] [:error] [pid 21487:tid 140437092292352] [client 127.0.0.1:56998] mod_wsgi (pid=21487): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:52.433018 2014] [:error] [pid 21487:tid 140437092292352] [client 127.0.0.1:56998] Traceback (most recent call last):
+[Wed Dec 10 21:58:52.433081 2014] [:error] [pid 21487:tid 140437092292352] [client 127.0.0.1:56998]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:52.433169 2014] [:error] [pid 21487:tid 140437092292352] [client 127.0.0.1:56998]     from Modelo import Usuario
+[Wed Dec 10 21:58:52.433222 2014] [:error] [pid 21487:tid 140437092292352] [client 127.0.0.1:56998] ImportError: No module named Modelo
+[Wed Dec 10 21:58:52.596985 2014] [:error] [pid 21486:tid 140437092292352] [client 127.0.0.1:56999] mod_wsgi (pid=21486): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:52.597064 2014] [:error] [pid 21486:tid 140437092292352] [client 127.0.0.1:56999] mod_wsgi (pid=21486): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:52.597129 2014] [:error] [pid 21486:tid 140437092292352] [client 127.0.0.1:56999] Traceback (most recent call last):
+[Wed Dec 10 21:58:52.597192 2014] [:error] [pid 21486:tid 140437092292352] [client 127.0.0.1:56999]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:52.597274 2014] [:error] [pid 21486:tid 140437092292352] [client 127.0.0.1:56999]     from Modelo import Usuario
+[Wed Dec 10 21:58:52.597329 2014] [:error] [pid 21486:tid 140437092292352] [client 127.0.0.1:56999] ImportError: No module named Modelo
+[Wed Dec 10 21:58:52.735222 2014] [:error] [pid 21487:tid 140437083899648] [client 127.0.0.1:57000] mod_wsgi (pid=21487): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:52.735330 2014] [:error] [pid 21487:tid 140437083899648] [client 127.0.0.1:57000] mod_wsgi (pid=21487): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:52.735424 2014] [:error] [pid 21487:tid 140437083899648] [client 127.0.0.1:57000] Traceback (most recent call last):
+[Wed Dec 10 21:58:52.735520 2014] [:error] [pid 21487:tid 140437083899648] [client 127.0.0.1:57000]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:52.735639 2014] [:error] [pid 21487:tid 140437083899648] [client 127.0.0.1:57000]     from Modelo import Usuario
+[Wed Dec 10 21:58:52.735719 2014] [:error] [pid 21487:tid 140437083899648] [client 127.0.0.1:57000] ImportError: No module named Modelo
+[Wed Dec 10 21:58:52.916231 2014] [:error] [pid 21487:tid 140437067114240] [client 127.0.0.1:57001] mod_wsgi (pid=21487): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:52.916318 2014] [:error] [pid 21487:tid 140437067114240] [client 127.0.0.1:57001] mod_wsgi (pid=21487): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:52.916391 2014] [:error] [pid 21487:tid 140437067114240] [client 127.0.0.1:57001] Traceback (most recent call last):
+[Wed Dec 10 21:58:52.916452 2014] [:error] [pid 21487:tid 140437067114240] [client 127.0.0.1:57001]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:52.916531 2014] [:error] [pid 21487:tid 140437067114240] [client 127.0.0.1:57001]     from Modelo import Usuario
+[Wed Dec 10 21:58:52.916648 2014] [:error] [pid 21487:tid 140437067114240] [client 127.0.0.1:57001] ImportError: No module named Modelo
+[Wed Dec 10 21:58:54.086405 2014] [:error] [pid 21486:tid 140437083899648] [client 127.0.0.1:57002] mod_wsgi (pid=21486): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 21:58:54.086466 2014] [:error] [pid 21486:tid 140437083899648] [client 127.0.0.1:57002] mod_wsgi (pid=21486): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 21:58:54.086508 2014] [:error] [pid 21486:tid 140437083899648] [client 127.0.0.1:57002] Traceback (most recent call last):
+[Wed Dec 10 21:58:54.086544 2014] [:error] [pid 21486:tid 140437083899648] [client 127.0.0.1:57002]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 21:58:54.086593 2014] [:error] [pid 21486:tid 140437083899648] [client 127.0.0.1:57002]     from Modelo import Usuario
+[Wed Dec 10 21:58:54.086641 2014] [:error] [pid 21486:tid 140437083899648] [client 127.0.0.1:57002] ImportError: No module named Modelo
+[Wed Dec 10 22:02:21.309210 2014] [:error] [pid 21487:tid 140437033543424] [client 127.0.0.1:57007] mod_wsgi (pid=21487): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:02:21.339039 2014] [:error] [pid 21487:tid 140437033543424] [client 127.0.0.1:57007] mod_wsgi (pid=21487): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:02:21.339226 2014] [:error] [pid 21487:tid 140437033543424] [client 127.0.0.1:57007] Traceback (most recent call last):
+[Wed Dec 10 22:02:21.339351 2014] [:error] [pid 21487:tid 140437033543424] [client 127.0.0.1:57007]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:02:21.339743 2014] [:error] [pid 21487:tid 140437033543424] [client 127.0.0.1:57007]     from Modelo import Usuario
+[Wed Dec 10 22:02:21.339810 2014] [:error] [pid 21487:tid 140437033543424] [client 127.0.0.1:57007] ImportError: No module named Modelo
+[Wed Dec 10 22:08:20.935303 2014] [:error] [pid 21882:tid 140437109077760] [client 127.0.0.1:57027] mod_wsgi (pid=21882): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:08:21.296695 2014] [:error] [pid 21882:tid 140437109077760] [client 127.0.0.1:57027] mod_wsgi (pid=21882): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:08:21.296795 2014] [:error] [pid 21882:tid 140437109077760] [client 127.0.0.1:57027] Traceback (most recent call last):
+[Wed Dec 10 22:08:21.296841 2014] [:error] [pid 21882:tid 140437109077760] [client 127.0.0.1:57027]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:08:21.297020 2014] [:error] [pid 21882:tid 140437109077760] [client 127.0.0.1:57027]     from Modelo import Usuario
+[Wed Dec 10 22:08:21.297065 2014] [:error] [pid 21882:tid 140437109077760] [client 127.0.0.1:57027] ImportError: No module named Modelo
+[Wed Dec 10 22:12:28.766905 2014] [:error] [pid 22004:tid 140437109077760] [client 127.0.0.1:57279] mod_wsgi (pid=22004): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:28.766969 2014] [:error] [pid 22004:tid 140437109077760] [client 127.0.0.1:57279] mod_wsgi (pid=22004): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:28.766999 2014] [:error] [pid 22004:tid 140437109077760] [client 127.0.0.1:57279] Traceback (most recent call last):
+[Wed Dec 10 22:12:28.767044 2014] [:error] [pid 22004:tid 140437109077760] [client 127.0.0.1:57279]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:28.767144 2014] [:error] [pid 22004:tid 140437109077760] [client 127.0.0.1:57279]     from Modelo import Usuario
+[Wed Dec 10 22:12:28.767174 2014] [:error] [pid 22004:tid 140437109077760] [client 127.0.0.1:57279] ImportError: No module named Modelo
+[Wed Dec 10 22:12:29.606850 2014] [:error] [pid 22004:tid 140437100685056] [client 127.0.0.1:57280] mod_wsgi (pid=22004): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:29.606948 2014] [:error] [pid 22004:tid 140437100685056] [client 127.0.0.1:57280] mod_wsgi (pid=22004): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:29.607032 2014] [:error] [pid 22004:tid 140437100685056] [client 127.0.0.1:57280] Traceback (most recent call last):
+[Wed Dec 10 22:12:29.607117 2014] [:error] [pid 22004:tid 140437100685056] [client 127.0.0.1:57280]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:29.607230 2014] [:error] [pid 22004:tid 140437100685056] [client 127.0.0.1:57280]     from Modelo import Usuario
+[Wed Dec 10 22:12:29.607300 2014] [:error] [pid 22004:tid 140437100685056] [client 127.0.0.1:57280] ImportError: No module named Modelo
+[Wed Dec 10 22:12:29.775522 2014] [:error] [pid 22004:tid 140437092292352] [client 127.0.0.1:57281] mod_wsgi (pid=22004): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:29.775566 2014] [:error] [pid 22004:tid 140437092292352] [client 127.0.0.1:57281] mod_wsgi (pid=22004): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:29.775606 2014] [:error] [pid 22004:tid 140437092292352] [client 127.0.0.1:57281] Traceback (most recent call last):
+[Wed Dec 10 22:12:29.775645 2014] [:error] [pid 22004:tid 140437092292352] [client 127.0.0.1:57281]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:29.775697 2014] [:error] [pid 22004:tid 140437092292352] [client 127.0.0.1:57281]     from Modelo import Usuario
+[Wed Dec 10 22:12:29.775731 2014] [:error] [pid 22004:tid 140437092292352] [client 127.0.0.1:57281] ImportError: No module named Modelo
+[Wed Dec 10 22:12:29.933366 2014] [:error] [pid 22004:tid 140437083899648] [client 127.0.0.1:57282] mod_wsgi (pid=22004): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:29.933429 2014] [:error] [pid 22004:tid 140437083899648] [client 127.0.0.1:57282] mod_wsgi (pid=22004): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:29.933478 2014] [:error] [pid 22004:tid 140437083899648] [client 127.0.0.1:57282] Traceback (most recent call last):
+[Wed Dec 10 22:12:29.933526 2014] [:error] [pid 22004:tid 140437083899648] [client 127.0.0.1:57282]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:29.933589 2014] [:error] [pid 22004:tid 140437083899648] [client 127.0.0.1:57282]     from Modelo import Usuario
+[Wed Dec 10 22:12:29.933629 2014] [:error] [pid 22004:tid 140437083899648] [client 127.0.0.1:57282] ImportError: No module named Modelo
+[Wed Dec 10 22:12:30.090016 2014] [:error] [pid 22004:tid 140437075506944] [client 127.0.0.1:57283] mod_wsgi (pid=22004): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:30.090111 2014] [:error] [pid 22004:tid 140437075506944] [client 127.0.0.1:57283] mod_wsgi (pid=22004): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:30.090219 2014] [:error] [pid 22004:tid 140437075506944] [client 127.0.0.1:57283] Traceback (most recent call last):
+[Wed Dec 10 22:12:30.090295 2014] [:error] [pid 22004:tid 140437075506944] [client 127.0.0.1:57283]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:30.090398 2014] [:error] [pid 22004:tid 140437075506944] [client 127.0.0.1:57283]     from Modelo import Usuario
+[Wed Dec 10 22:12:30.090467 2014] [:error] [pid 22004:tid 140437075506944] [client 127.0.0.1:57283] ImportError: No module named Modelo
+[Wed Dec 10 22:12:30.265233 2014] [:error] [pid 22005:tid 140437100685056] [client 127.0.0.1:57284] mod_wsgi (pid=22005): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:30.265318 2014] [:error] [pid 22005:tid 140437100685056] [client 127.0.0.1:57284] mod_wsgi (pid=22005): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:30.265381 2014] [:error] [pid 22005:tid 140437100685056] [client 127.0.0.1:57284] Traceback (most recent call last):
+[Wed Dec 10 22:12:30.265445 2014] [:error] [pid 22005:tid 140437100685056] [client 127.0.0.1:57284]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:30.265644 2014] [:error] [pid 22005:tid 140437100685056] [client 127.0.0.1:57284]     from Modelo import Usuario
+[Wed Dec 10 22:12:30.265692 2014] [:error] [pid 22005:tid 140437100685056] [client 127.0.0.1:57284] ImportError: No module named Modelo
+[Wed Dec 10 22:12:31.583867 2014] [:error] [pid 22004:tid 140437067114240] [client 127.0.0.1:57285] mod_wsgi (pid=22004): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:12:31.583962 2014] [:error] [pid 22004:tid 140437067114240] [client 127.0.0.1:57285] mod_wsgi (pid=22004): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:12:31.584044 2014] [:error] [pid 22004:tid 140437067114240] [client 127.0.0.1:57285] Traceback (most recent call last):
+[Wed Dec 10 22:12:31.584114 2014] [:error] [pid 22004:tid 140437067114240] [client 127.0.0.1:57285]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:12:31.584213 2014] [:error] [pid 22004:tid 140437067114240] [client 127.0.0.1:57285]     from Modelo import Usuario
+[Wed Dec 10 22:12:31.584266 2014] [:error] [pid 22004:tid 140437067114240] [client 127.0.0.1:57285] ImportError: No module named Modelo
+[Wed Dec 10 22:14:30.829945 2014] [:error] [pid 22132:tid 140437109077760] [client 127.0.0.1:57301] mod_wsgi (pid=22132): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:14:30.830026 2014] [:error] [pid 22132:tid 140437109077760] [client 127.0.0.1:57301] mod_wsgi (pid=22132): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:14:30.830065 2014] [:error] [pid 22132:tid 140437109077760] [client 127.0.0.1:57301] Traceback (most recent call last):
+[Wed Dec 10 22:14:30.830112 2014] [:error] [pid 22132:tid 140437109077760] [client 127.0.0.1:57301]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:14:30.830262 2014] [:error] [pid 22132:tid 140437109077760] [client 127.0.0.1:57301]     from Modelo import Usuario
+[Wed Dec 10 22:14:30.830316 2014] [:error] [pid 22132:tid 140437109077760] [client 127.0.0.1:57301] ImportError: No module named Modelo
+[Wed Dec 10 22:21:08.653541 2014] [:error] [pid 22133:tid 140437092292352] [client 127.0.0.1:57342] mod_wsgi (pid=22133): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:21:08.653642 2014] [:error] [pid 22133:tid 140437092292352] [client 127.0.0.1:57342] mod_wsgi (pid=22133): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:21:08.653698 2014] [:error] [pid 22133:tid 140437092292352] [client 127.0.0.1:57342] Traceback (most recent call last):
+[Wed Dec 10 22:21:08.653754 2014] [:error] [pid 22133:tid 140437092292352] [client 127.0.0.1:57342]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:21:08.653888 2014] [:error] [pid 22133:tid 140437092292352] [client 127.0.0.1:57342]     from Modelo import Usuario
+[Wed Dec 10 22:21:08.653930 2014] [:error] [pid 22133:tid 140437092292352] [client 127.0.0.1:57342] ImportError: No module named Modelo
+[Wed Dec 10 22:41:25.052253 2014] [:error] [pid 22677:tid 140437109077760] [client 127.0.0.1:57712] mod_wsgi (pid=22677): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:41:25.090793 2014] [:error] [pid 22677:tid 140437109077760] [client 127.0.0.1:57712] mod_wsgi (pid=22677): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:41:25.090901 2014] [:error] [pid 22677:tid 140437109077760] [client 127.0.0.1:57712] Traceback (most recent call last):
+[Wed Dec 10 22:41:25.090952 2014] [:error] [pid 22677:tid 140437109077760] [client 127.0.0.1:57712]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:41:25.091138 2014] [:error] [pid 22677:tid 140437109077760] [client 127.0.0.1:57712]     from Modelo import Usuario
+[Wed Dec 10 22:41:25.091199 2014] [:error] [pid 22677:tid 140437109077760] [client 127.0.0.1:57712] ImportError: No module named Modelo
+[Wed Dec 10 22:45:11.467305 2014] [:error] [pid 22803:tid 140437109077760] [client 127.0.0.1:57733] mod_wsgi (pid=22803): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 22:45:11.530382 2014] [:error] [pid 22803:tid 140437109077760] [client 127.0.0.1:57733] mod_wsgi (pid=22803): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 22:45:11.530482 2014] [:error] [pid 22803:tid 140437109077760] [client 127.0.0.1:57733] Traceback (most recent call last):
+[Wed Dec 10 22:45:11.530529 2014] [:error] [pid 22803:tid 140437109077760] [client 127.0.0.1:57733]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 6, in <module>
+[Wed Dec 10 22:45:11.530710 2014] [:error] [pid 22803:tid 140437109077760] [client 127.0.0.1:57733]     from Controlador import Comandos
+[Wed Dec 10 22:45:11.530782 2014] [:error] [pid 22803:tid 140437109077760] [client 127.0.0.1:57733] ImportError: No module named Controlador
+[Wed Dec 10 23:29:25.429288 2014] [:error] [pid 23295:tid 140437083899648] [client 127.0.0.1:58053] mod_wsgi (pid=23295): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Wed Dec 10 23:29:25.435752 2014] [:error] [pid 23295:tid 140437083899648] [client 127.0.0.1:58053] mod_wsgi (pid=23295): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/
+[Wed Dec 10 23:29:25.435895 2014] [:error] [pid 23295:tid 140437083899648] [client 127.0.0.1:58053] Traceback (most recent call last):, referer: http://subject/
+[Wed Dec 10 23:29:25.435998 2014] [:error] [pid 23295:tid 140437083899648] [client 127.0.0.1:58053]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>, referer: http://subject/
+[Wed Dec 10 23:29:25.436355 2014] [:error] [pid 23295:tid 140437083899648] [client 127.0.0.1:58053]     usuario = Usuario.Usuario(), referer: http://subject/
+[Wed Dec 10 23:29:25.436433 2014] [:error] [pid 23295:tid 140437083899648] [client 127.0.0.1:58053] TypeError: __init__() takes exactly 12 arguments (1 given), referer: http://subject/
+[Wed Dec 10 23:29:58.326523 2014] [:error] [pid 23294:tid 140437083899648] [client 127.0.0.1:58054] mod_wsgi (pid=23294): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 23:29:58.326666 2014] [:error] [pid 23294:tid 140437083899648] [client 127.0.0.1:58054] mod_wsgi (pid=23294): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 23:29:58.326770 2014] [:error] [pid 23294:tid 140437083899648] [client 127.0.0.1:58054] Traceback (most recent call last):
+[Wed Dec 10 23:29:58.326872 2014] [:error] [pid 23294:tid 140437083899648] [client 127.0.0.1:58054]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>
+[Wed Dec 10 23:29:58.327203 2014] [:error] [pid 23294:tid 140437083899648] [client 127.0.0.1:58054]     usuario = Usuario.Usuario()
+[Wed Dec 10 23:29:58.327304 2014] [:error] [pid 23294:tid 140437083899648] [client 127.0.0.1:58054] TypeError: __init__() takes exactly 12 arguments (1 given)
+[Wed Dec 10 23:31:07.264709 2014] [:error] [pid 23295:tid 140437058721536] [client 127.0.0.1:58065] mod_wsgi (pid=23295): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 23:31:07.264766 2014] [:error] [pid 23295:tid 140437058721536] [client 127.0.0.1:58065] mod_wsgi (pid=23295): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 23:31:07.264808 2014] [:error] [pid 23295:tid 140437058721536] [client 127.0.0.1:58065] Traceback (most recent call last):
+[Wed Dec 10 23:31:07.264845 2014] [:error] [pid 23295:tid 140437058721536] [client 127.0.0.1:58065]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>
+[Wed Dec 10 23:31:07.265001 2014] [:error] [pid 23295:tid 140437058721536] [client 127.0.0.1:58065]     usuario = Usuario.Usuario()
+[Wed Dec 10 23:31:07.265033 2014] [:error] [pid 23295:tid 140437058721536] [client 127.0.0.1:58065] TypeError: __init__() takes exactly 12 arguments (1 given)
+[Wed Dec 10 23:31:40.831644 2014] [:error] [pid 23294:tid 140437067114240] [client 127.0.0.1:58067] mod_wsgi (pid=23294): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 23:31:40.831740 2014] [:error] [pid 23294:tid 140437067114240] [client 127.0.0.1:58067] mod_wsgi (pid=23294): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 23:31:40.831825 2014] [:error] [pid 23294:tid 140437067114240] [client 127.0.0.1:58067] Traceback (most recent call last):
+[Wed Dec 10 23:31:40.831920 2014] [:error] [pid 23294:tid 140437067114240] [client 127.0.0.1:58067]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>
+[Wed Dec 10 23:31:40.832156 2014] [:error] [pid 23294:tid 140437067114240] [client 127.0.0.1:58067]     usuario = Usuario.Usuario(self)
+[Wed Dec 10 23:31:40.832214 2014] [:error] [pid 23294:tid 140437067114240] [client 127.0.0.1:58067] NameError: name 'self' is not defined
+[Wed Dec 10 23:31:55.636454 2014] [:error] [pid 23294:tid 140437058721536] [client 127.0.0.1:58068] mod_wsgi (pid=23294): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 23:31:55.636564 2014] [:error] [pid 23294:tid 140437058721536] [client 127.0.0.1:58068] mod_wsgi (pid=23294): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 23:31:55.636739 2014] [:error] [pid 23294:tid 140437058721536] [client 127.0.0.1:58068] Traceback (most recent call last):
+[Wed Dec 10 23:31:55.636836 2014] [:error] [pid 23294:tid 140437058721536] [client 127.0.0.1:58068]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>
+[Wed Dec 10 23:31:55.637101 2014] [:error] [pid 23294:tid 140437058721536] [client 127.0.0.1:58068]     usuario = Usuario.Usuario(1)
+[Wed Dec 10 23:31:55.637158 2014] [:error] [pid 23294:tid 140437058721536] [client 127.0.0.1:58068] TypeError: __init__() takes exactly 12 arguments (2 given)
+[Wed Dec 10 23:31:56.356014 2014] [:error] [pid 23295:tid 140437041936128] [client 127.0.0.1:58069] mod_wsgi (pid=23295): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 23:31:56.356120 2014] [:error] [pid 23295:tid 140437041936128] [client 127.0.0.1:58069] mod_wsgi (pid=23295): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 23:31:56.356213 2014] [:error] [pid 23295:tid 140437041936128] [client 127.0.0.1:58069] Traceback (most recent call last):
+[Wed Dec 10 23:31:56.356280 2014] [:error] [pid 23295:tid 140437041936128] [client 127.0.0.1:58069]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>
+[Wed Dec 10 23:31:56.356561 2014] [:error] [pid 23295:tid 140437041936128] [client 127.0.0.1:58069]     usuario = Usuario.Usuario(1)
+[Wed Dec 10 23:31:56.356701 2014] [:error] [pid 23295:tid 140437041936128] [client 127.0.0.1:58069] TypeError: __init__() takes exactly 12 arguments (2 given)
+[Wed Dec 10 23:31:56.535402 2014] [:error] [pid 23295:tid 140437033543424] [client 127.0.0.1:58070] mod_wsgi (pid=23295): Target WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py' cannot be loaded as Python module.
+[Wed Dec 10 23:31:56.535524 2014] [:error] [pid 23295:tid 140437033543424] [client 127.0.0.1:58070] mod_wsgi (pid=23295): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Wed Dec 10 23:31:56.535597 2014] [:error] [pid 23295:tid 140437033543424] [client 127.0.0.1:58070] Traceback (most recent call last):
+[Wed Dec 10 23:31:56.535689 2014] [:error] [pid 23295:tid 140437033543424] [client 127.0.0.1:58070]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, in <module>
+[Wed Dec 10 23:31:56.535790 2014] [:error] [pid 23295:tid 140437033543424] [client 127.0.0.1:58070]     usuario = Usuario.Usuario(1)
+[Wed Dec 10 23:31:56.535845 2014] [:error] [pid 23295:tid 140437033543424] [client 127.0.0.1:58070] TypeError: __init__() takes exactly 12 arguments (2 given)
+[Thu Dec 11 02:08:26.136918 2014] [:error] [pid 26494:tid 140437025150720] [client 127.0.0.1:59202] mod_wsgi (pid=26494, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Thu Dec 11 02:08:26.137014 2014] [:error] [pid 26494:tid 140437025150720] [client 127.0.0.1:59202] mod_wsgi (pid=26494): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Thu Dec 11 02:08:26.137242 2014] [:error] [pid 26494:tid 140437025150720] [client 127.0.0.1:59202]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36
+[Thu Dec 11 02:08:26.137290 2014] [:error] [pid 26494:tid 140437025150720] [client 127.0.0.1:59202]     def index(self):
+[Thu Dec 11 02:08:26.137313 2014] [:error] [pid 26494:tid 140437025150720] [client 127.0.0.1:59202]                    ^
+[Thu Dec 11 02:08:26.137339 2014] [:error] [pid 26494:tid 140437025150720] [client 127.0.0.1:59202] IndentationError: unindent does not match any outer indentation level
+[Thu Dec 11 02:08:30.768287 2014] [:error] [pid 26494:tid 140437016758016] [client 127.0.0.1:59203] mod_wsgi (pid=26494, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/login?user=&password=
+[Thu Dec 11 02:08:30.768396 2014] [:error] [pid 26494:tid 140437016758016] [client 127.0.0.1:59203] mod_wsgi (pid=26494): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'., referer: http://subject/login?user=&password=
+[Thu Dec 11 02:08:30.768655 2014] [:error] [pid 26494:tid 140437016758016] [client 127.0.0.1:59203]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36, referer: http://subject/login?user=&password=
+[Thu Dec 11 02:08:30.768712 2014] [:error] [pid 26494:tid 140437016758016] [client 127.0.0.1:59203]     def index(self):, referer: http://subject/login?user=&password=
+[Thu Dec 11 02:08:30.768740 2014] [:error] [pid 26494:tid 140437016758016] [client 127.0.0.1:59203]                    ^, referer: http://subject/login?user=&password=
+[Thu Dec 11 02:08:30.768765 2014] [:error] [pid 26494:tid 140437016758016] [client 127.0.0.1:59203] IndentationError: unindent does not match any outer indentation level, referer: http://subject/login?user=&password=
+[Thu Dec 11 02:08:38.792908 2014] [:error] [pid 26493:tid 140437067114240] [client 127.0.0.1:59204] mod_wsgi (pid=26493, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Thu Dec 11 02:08:38.920828 2014] [:error] [pid 26493:tid 140437067114240] [client 127.0.0.1:59204] mod_wsgi (pid=26493): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Thu Dec 11 02:08:38.921100 2014] [:error] [pid 26493:tid 140437067114240] [client 127.0.0.1:59204]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36
+[Thu Dec 11 02:08:38.921151 2014] [:error] [pid 26493:tid 140437067114240] [client 127.0.0.1:59204]     def index(self):
+[Thu Dec 11 02:08:38.921169 2014] [:error] [pid 26493:tid 140437067114240] [client 127.0.0.1:59204]                    ^
+[Thu Dec 11 02:08:38.921188 2014] [:error] [pid 26493:tid 140437067114240] [client 127.0.0.1:59204] IndentationError: unindent does not match any outer indentation level
+[Thu Dec 11 02:08:53.866612 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206] mod_wsgi (pid=26494, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Thu Dec 11 02:08:53.890409 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206] mod_wsgi (pid=26494): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py'.
+[Thu Dec 11 02:08:53.890652 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206]   File "/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/server.py", line 36
+[Thu Dec 11 02:08:53.890683 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206]     def new_user(self):
+[Thu Dec 11 02:08:53.890714 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206]                       ^
+[Thu Dec 11 02:08:53.890728 2014] [:error] [pid 26494:tid 140437008365312] [client 127.0.0.1:59206] IndentationError: unindent does not match any outer indentation level

@@ -1,25 +1,15 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 #Clase que abstrae la informacion de un usuario
 import sys
-sys.path.insert(0,'../Controlador/')
-import Comandos
+sys.path.append("..")
+from Controlador import Comandos
 import psycopg2
 
 
 class Usuario(object):
     #constructor 
     def __init__(self,id,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
-	self.__id = id
-	self.__nombre = nombre
-	self.__apellido = apellido
-	self.__genero = genero
-	self.__nick_name = nick_name
-	self.__foto = foto
-	self.__escuela = escuela
-	self.__password = password
-	self.__nacionalidad = nacionalidad
-	self.__f_nacimiento = f_nacimiento
-	self.__rating = rating
-	
         if(id is None):
             self.__id=id
             self.__nombre = nombre

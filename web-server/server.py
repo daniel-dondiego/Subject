@@ -1,15 +1,14 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-import sys
-sys.stdout = sys.stderr
-sys.path.insert(0,'Modelo')
-import Usuario
+import sys, os
+sys.path.append(os.path.dirname(__file__))
+from Modelo  import Usuario
+from Controlador import Controller
 import atexit
 import threading
 import cherrypy
 import os, os.path
-
 
 cherrypy.config.update({'environment': 'embedded'})
 
@@ -21,23 +20,23 @@ class Root(object):
 
     @cherrypy.expose
     def index(self):
-        return open("/home/daniel/proyectoWeb/web-server/Vista/index.html", "r")
+        return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):
-        return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html", "r")
-
-    def registrar(self, nombre, apellido, contrasenia, rcontrasenia, n, fdn, email):
-        usuario = Usuario(None,nombre,apellido,n,email,'NULL',1,contrasenia,1,fdn,0.0)
-        usuario.registra()
+        return open("/home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html", "r")      
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/daniel/proyectoWeb/web-server/Vista/public_html/registrar.html","r")
+        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/daniel/proyectoWeb/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+
+    @cherrypy.expose
+    def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
+        return "Registro"
 
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

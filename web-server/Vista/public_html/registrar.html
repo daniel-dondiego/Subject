@@ -51,29 +51,25 @@
     		</form> 			
        	</header>
        	<section class="container">
-       		<form action="registrar" method="get">
+       		<form action="registrarse" method="post">
        			<div class="entrada_datos">
        				<div class="text_fields">
        					<h2>Registro</h2>
        					<p>Ingresa tus datos:</p>
        					<input type="text" name="nombre" placeholder="Nombre"/>
-       	
        					<input type="text" name="apellido" placeholder="Apellido">
-       				
-       					<input type="password" name="contrasenia" placeholder="Contraseña"/>
-       				
+       					<input type="text" name="email" placeholder="Correo electrónico"/> 
+       					<input type="password" name="contrasenia" placeholder="Contraseña"/>      		
        					<input type="password" name="rcontrasenia" placeholder="Repite la contraseña"/>
        					<br/>
        					<br/>       					
-       					<select placeholder="Escoge tu género:">            						 		<option selected="selected" value="n">Escoge tu género</option>
+       					<select name="genero" placeholder="Escoge tu género:">            	
+                	<option selected="selected" value="n">Escoge tu género</option>
        						<option value="f">Femenino</option>
        						<option value="m">Masculino</option>
        					</select>
        					<p class="fd">Fecha de nacimiento:</p>
-       					<input type="date" name="fdn" placeholder="Fecha de nacimiento">
-       					
-       					<input type="text" name="email" placeholder="Correo electrónico"/> 
-       					
+       					<input type="date" name="fdn" placeholder="Fecha de nacimiento"/>
        					<div class="registrame">
        						<input type="submit" value="¡Registrarme!"/>		
        					</div>       					

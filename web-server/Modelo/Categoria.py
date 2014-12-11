@@ -35,4 +35,17 @@ class Categoria(object):
                 '''
                 s = 'INSERT INTO categoria (nombre) VALUES(' + str(self.nombre) + ')'
                 Comandos.ejecuta_comando(s)
- 
+
+        def set_id(self, id):
+                '''
+                Actualiza el valor del id de la instancia
+                id: el nuevo id
+                '''
+                self.id = id
+
+        def set_nombre(self, nombre):
+                '''
+                Actualiza el valor del nombre de la categoria
+                nombre: el nuevo nombre de la categoria
+                '''
+                self.nombre = nombre

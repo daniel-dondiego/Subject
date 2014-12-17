@@ -16,23 +16,12 @@ class Archivo(object):
         id_grupo: el id del grupo al que pertenece el archivo o 0 si no 
                   pertenece a ningun grupo
         '''
-        self.__id = id
+        if not id is None:
+            self.__id = id
         self.__url = url
         self.__id_usuario = id_usuario
         self.__id_grupo = id_grupo
 
-    def __init__(self, url, id_usuario, id_grupo):
-        '''
-        Crea una instancia de tipo archivo (constructor sin id).
-        url: el url con la ubicacion del archivo
-        id_usuario: el id del usuario al que pertenece el archivo
-        id_grupo: el id del grupo al que pertenece el archivo o 0 si no 
-                  pertenece a ningun grupo
-        '''
-        self.__url = url
-        self.__id_usuario = id_usuario
-        self.__id_grupo = id_grupo
-    
     def get_id(self):
         '''
         Regresa el id del archivo en la tabla de archivos.

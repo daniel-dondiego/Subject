@@ -28,8 +28,8 @@ class Ciudad(object):
    
     def get_pais(self):
         '''
-        Regresa el nombre del país al que pertenece la ciudad
-        Returns: el país al que pertenece la ciudad
+        Regresa el nombre del pais al que pertenece la ciudad
+        Returns: el pais al que pertenece la ciudad
         '''
 	return self.__pais
 	

@@ -105,5 +105,5 @@ class Grupo(object):
         Returns: una lista de tuples con los usuarios
         '''
         s = 'SELECT id_usuario FROM grupo_usuario WHERE id_grupo = '
-        s += str(self.id) + ';'
-        return consulta(s)
+        s += str(self.__id) + ';'
+        return Comandos.consulta(s)

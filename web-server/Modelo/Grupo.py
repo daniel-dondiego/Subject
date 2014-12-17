@@ -9,7 +9,7 @@ class Grupo(object):
         visibilidad: la visibilidad del grupo
         imagen: la imagen del grupo
         '''
-        self.__id=id
+        self.__id = id
         self.__nombre = nombre
         self.__id_usuario = id_usuario
         self.__visibilidad = visibilidad

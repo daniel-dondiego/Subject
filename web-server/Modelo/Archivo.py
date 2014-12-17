@@ -7,7 +7,7 @@ import Comandos
 
 class Archivo(object):
     
-    def __init__(self, id = None, url, id_usuario, id_grupo):
+    def __init__(self, id, url, id_usuario, id_grupo):
         '''
         Crea una instancia de tipo archivo.
         id: el id del archivo en la base de datos

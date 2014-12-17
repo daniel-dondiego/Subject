@@ -1,3 +1,10 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+import sys
+sys.path.append("..")
+from Controlador import Comandos
+import psycopg2
+
 class Grupo(object):
 	
     def __init__(self,id,nombre,id_usuario,visibilidad,imagen):
@@ -91,3 +98,12 @@ class Grupo(object):
         imagen: la nueva imagen del grupo
         '''
         self.__imagen = imagen
+    
+    def get_usuarios(self):
+        '''
+        Regresa a los usuarios como una lista de tuples
+        Returns: una lista de tuples con los usuarios
+        '''
+        s = 'SELECT id_usuario FROM grupo_usuario WHERE id_grupo = '
+        s += str(self.id) + ';'
+        return consulta(s)

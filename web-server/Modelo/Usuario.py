@@ -10,7 +10,7 @@ import psycopg2
 class Usuario(object):
     #constructor 
     def __init__(self,id,nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating):
-        if(id is None):
+        if(not id is None):
             self.__id=id
             self.__nombre = nombre
             self.__apellido = apellido

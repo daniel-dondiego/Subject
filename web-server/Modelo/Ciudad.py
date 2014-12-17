@@ -1,6 +1,6 @@
 class Ciudad(object):
 
-    def __init__(self,id = None,pais,ciudad):
+    def __init__(self,id,pais,ciudad):
         '''
         Constructor con id
         id: el id en la tabla de la ciudad

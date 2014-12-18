@@ -40,8 +40,6 @@ class Root(object):
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'NULL','NULL',contrasenia,'NULL',fdn,0.0)        
         control = Controller.Controller()
         return control.verifica(usuario,rcontrasenia)
-        
-        
 
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

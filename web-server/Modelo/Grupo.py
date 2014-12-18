@@ -111,20 +111,20 @@ class Grupo(object):
 
     def get_publicaciones(self):
         '''
-        Regresa los ids de las publicaciones en una lista de tuples
-        Returns: una lista de tuples con los ids de las publicaciones que
+        Regresa las publicaciones del grupo en una lista de tuples
+        Returns: una lista de tuples con las publicaciones que
         pertenecen al grupo
         '''
-        s = 'SELECT id FROM publicaciones WHERE id_grupo = '
+        s = 'SELECT * FROM publicaciones WHERE id_grupo = '
         s += str(self.__id) + ';'
         return Comandos.consulta(s)
     
     def get_archivos(self):
         '''
-        Regresa los ids de los archivos en las publicaciones del grupo
-        Returns: una lista de tuples con los ids de los archivos que pertenecen a
+        Regresa los archivos en las publicaciones del grupo
+        Returns: una lista de tuples con los archivos que pertenecen a
         publicaciones del grupo
         '''
-        s = 'SELECT id FROM archivos WHERE id_grupo = '
+        s = 'SELECT * FROM archivos WHERE id_grupo = '
         s += str(self.__id) + ';'
         return Comandos.consulta(s)

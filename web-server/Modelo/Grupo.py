@@ -101,11 +101,12 @@ class Grupo(object):
     
     def get_usuarios(self):
         '''
-        Regresa los ids de los usuarios en una lista de tuples
-        Returns: una lista de tuples con los ids de los usuarios
+        Regresa a los usuarios del grupo en una lista de tuples
+        Returns: una lista de tuples con los usuarios
         '''
-        s = 'SELECT id_usuario FROM grupo_usuario WHERE id_grupo = '
-        s += str(self.__id) + ';'
+        s = 'SELECT * FROM usuario WHERE id IN (SELECT id_usuario FROM '
+        s += 'grupo_usuario WHERE id_grupo = '
+        s += str(self.__id) + ');' 
         return Comandos.consulta(s)
 
     def get_publicaciones(self):

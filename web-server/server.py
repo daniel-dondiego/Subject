@@ -32,7 +32,7 @@ class Root(object):
 
     @cherrypy.expose
     def index(self):
-        return open("/home/daniel/Subject3/web-server/Vista/index.html", "r")
+        return open("/home/daniel/Subject4/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):
@@ -46,16 +46,17 @@ class Root(object):
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/daniel/Subject3/web-server/Vista/public_html/registrar.html","r")
+        return open("home/daniel/Subject4/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/daniel/Subject3/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/daniel/Subject4/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'NULL','NULL',contrasenia,'NULL',fdn,0.0)        
-        return Controller.verifica(usuario,rcontrasenia)
+        control = Controller.Controller()
+        return control.verifica(usuario,rcontrasenia)
     
     @cherrypy.expose    
     def validate(self):

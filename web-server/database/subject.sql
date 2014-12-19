@@ -41,7 +41,7 @@ CREATE TABLE archivos (
 );
 
 
-ALTER TABLE public.archivos OWNER TO postgres;
+ALTER TABLE archivos OWNER TO postgres;
 
 --
 -- Name: archivos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -55,7 +55,7 @@ CREATE SEQUENCE archivos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.archivos_id_seq OWNER TO postgres;
+ALTER TABLE archivos_id_seq OWNER TO postgres;
 
 --
 -- Name: archivos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -74,7 +74,7 @@ CREATE TABLE carrera (
 );
 
 
-ALTER TABLE public.carrera OWNER TO postgres;
+ALTER TABLE carrera OWNER TO postgres;
 
 --
 -- Name: carrera_escuela; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
@@ -87,7 +87,7 @@ CREATE TABLE carrera_escuela (
 );
 
 
-ALTER TABLE public.carrera_escuela OWNER TO postgres;
+ALTER TABLE carrera_escuela OWNER TO postgres;
 
 --
 -- Name: carrera_escuela_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -101,7 +101,7 @@ CREATE SEQUENCE carrera_escuela_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.carrera_escuela_id_seq OWNER TO postgres;
+ALTER TABLE carrera_escuela_id_seq OWNER TO postgres;
 
 --
 -- Name: carrera_escuela_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -122,7 +122,7 @@ CREATE SEQUENCE carrera_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.carrera_id_seq OWNER TO postgres;
+ALTER TABLE carrera_id_seq OWNER TO postgres;
 
 --
 -- Name: carrera_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -141,7 +141,7 @@ CREATE TABLE categoria (
 );
 
 
-ALTER TABLE public.categoria OWNER TO postgres;
+ALTER TABLE categoria OWNER TO postgres;
 
 --
 -- Name: categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -155,7 +155,7 @@ CREATE SEQUENCE categoria_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.categoria_id_seq OWNER TO postgres;
+ALTER TABLE categoria_id_seq OWNER TO postgres;
 
 --
 -- Name: categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -175,7 +175,7 @@ CREATE TABLE ciudad (
 );
 
 
-ALTER TABLE public.ciudad OWNER TO postgres;
+ALTER TABLE ciudad OWNER TO postgres;
 
 --
 -- Name: ciudad_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -189,7 +189,7 @@ CREATE SEQUENCE ciudad_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.ciudad_id_seq OWNER TO postgres;
+ALTER TABLE ciudad_id_seq OWNER TO postgres;
 
 --
 -- Name: ciudad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -209,7 +209,7 @@ CREATE TABLE escuela (
 );
 
 
-ALTER TABLE public.escuela OWNER TO postgres;
+ALTER TABLE escuela OWNER TO postgres;
 
 --
 -- Name: escuela_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -223,7 +223,7 @@ CREATE SEQUENCE escuela_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.escuela_id_seq OWNER TO postgres;
+ALTER TABLE escuela_id_seq OWNER TO postgres;
 
 --
 -- Name: escuela_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -243,7 +243,7 @@ CREATE TABLE grupo_usuario (
 );
 
 
-ALTER TABLE public.grupo_usuario OWNER TO postgres;
+ALTER TABLE grupo_usuario OWNER TO postgres;
 
 --
 -- Name: grupo_usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -257,7 +257,7 @@ CREATE SEQUENCE grupo_usuario_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.grupo_usuario_id_seq OWNER TO postgres;
+ALTER TABLE grupo_usuario_id_seq OWNER TO postgres;
 
 --
 -- Name: grupo_usuario_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -279,7 +279,7 @@ CREATE TABLE grupos (
 );
 
 
-ALTER TABLE public.grupos OWNER TO postgres;
+ALTER TABLE grupos OWNER TO postgres;
 
 --
 -- Name: grupos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -293,7 +293,7 @@ CREATE SEQUENCE grupos_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.grupos_id_seq OWNER TO postgres;
+ALTER TABLE grupos_id_seq OWNER TO postgres;
 
 --
 -- Name: grupos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -316,7 +316,7 @@ CREATE TABLE institucion (
 );
 
 
-ALTER TABLE public.institucion OWNER TO postgres;
+ALTER TABLE institucion OWNER TO postgres;
 
 --
 -- Name: institucion_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -330,13 +330,47 @@ CREATE SEQUENCE institucion_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.institucion_id_seq OWNER TO postgres;
+ALTER TABLE institucion_id_seq OWNER TO postgres;
 
 --
 -- Name: institucion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
 ALTER SEQUENCE institucion_id_seq OWNED BY institucion.id;
+
+
+--
+-- Name: likes; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE likes (
+    id integer NOT NULL,
+    id_usuario integer,
+    id_publicacion integer
+);
+
+
+ALTER TABLE likes OWNER TO postgres;
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE likes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE likes_id_seq OWNER TO postgres;
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE likes_id_seq OWNED BY likes.id;
 
 
 --
@@ -350,7 +384,7 @@ CREATE TABLE materias (
 );
 
 
-ALTER TABLE public.materias OWNER TO postgres;
+ALTER TABLE materias OWNER TO postgres;
 
 --
 -- Name: materias_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -364,7 +398,7 @@ CREATE SEQUENCE materias_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.materias_id_seq OWNER TO postgres;
+ALTER TABLE materias_id_seq OWNER TO postgres;
 
 --
 -- Name: materias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -386,7 +420,7 @@ CREATE TABLE mensajes (
 );
 
 
-ALTER TABLE public.mensajes OWNER TO postgres;
+ALTER TABLE mensajes OWNER TO postgres;
 
 --
 -- Name: mensajes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -400,7 +434,7 @@ CREATE SEQUENCE mensajes_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.mensajes_id_seq OWNER TO postgres;
+ALTER TABLE mensajes_id_seq OWNER TO postgres;
 
 --
 -- Name: mensajes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -422,7 +456,7 @@ CREATE TABLE notificaciones (
 );
 
 
-ALTER TABLE public.notificaciones OWNER TO postgres;
+ALTER TABLE notificaciones OWNER TO postgres;
 
 --
 -- Name: notificaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -436,7 +470,7 @@ CREATE SEQUENCE notificaciones_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.notificaciones_id_seq OWNER TO postgres;
+ALTER TABLE notificaciones_id_seq OWNER TO postgres;
 
 --
 -- Name: notificaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -456,7 +490,7 @@ CREATE TABLE paises (
 );
 
 
-ALTER TABLE public.paises OWNER TO postgres;
+ALTER TABLE paises OWNER TO postgres;
 
 --
 -- Name: paises_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -470,7 +504,7 @@ CREATE SEQUENCE paises_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.paises_id_seq OWNER TO postgres;
+ALTER TABLE paises_id_seq OWNER TO postgres;
 
 --
 -- Name: paises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -490,7 +524,7 @@ CREATE TABLE persona_carrera (
 );
 
 
-ALTER TABLE public.persona_carrera OWNER TO postgres;
+ALTER TABLE persona_carrera OWNER TO postgres;
 
 --
 -- Name: persona_carrera_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -504,7 +538,7 @@ CREATE SEQUENCE persona_carrera_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.persona_carrera_id_seq OWNER TO postgres;
+ALTER TABLE persona_carrera_id_seq OWNER TO postgres;
 
 --
 -- Name: persona_carrera_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -528,7 +562,7 @@ CREATE TABLE publicaciones (
 );
 
 
-ALTER TABLE public.publicaciones OWNER TO postgres;
+ALTER TABLE publicaciones OWNER TO postgres;
 
 --
 -- Name: publicaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -542,7 +576,7 @@ CREATE SEQUENCE publicaciones_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.publicaciones_id_seq OWNER TO postgres;
+ALTER TABLE publicaciones_id_seq OWNER TO postgres;
 
 --
 -- Name: publicaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -562,7 +596,7 @@ CREATE TABLE rating (
 );
 
 
-ALTER TABLE public.rating OWNER TO postgres;
+ALTER TABLE rating OWNER TO postgres;
 
 --
 -- Name: rating_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -576,7 +610,7 @@ CREATE SEQUENCE rating_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.rating_id_seq OWNER TO postgres;
+ALTER TABLE rating_id_seq OWNER TO postgres;
 
 --
 -- Name: rating_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -604,7 +638,7 @@ CREATE TABLE usuario (
 );
 
 
-ALTER TABLE public.usuario OWNER TO postgres;
+ALTER TABLE usuario OWNER TO postgres;
 
 --
 -- Name: usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -618,7 +652,7 @@ CREATE SEQUENCE usuario_id_seq
     CACHE 1;
 
 
-ALTER TABLE public.usuario_id_seq OWNER TO postgres;
+ALTER TABLE usuario_id_seq OWNER TO postgres;
 
 --
 -- Name: usuario_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -688,6 +722,13 @@ ALTER TABLE ONLY grupos ALTER COLUMN id SET DEFAULT nextval('grupos_id_seq'::reg
 --
 
 ALTER TABLE ONLY institucion ALTER COLUMN id SET DEFAULT nextval('institucion_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY likes ALTER COLUMN id SET DEFAULT nextval('likes_id_seq'::regclass);
 
 
 --
@@ -879,6 +920,21 @@ COPY institucion (id, nombre, id_pais, id_ciudad, imagen, web_site) FROM stdin;
 --
 
 SELECT pg_catalog.setval('institucion_id_seq', 1, false);
+
+
+--
+-- Data for Name: likes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY likes (id, id_usuario, id_publicacion) FROM stdin;
+\.
+
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('likes_id_seq', 1, false);
 
 
 --
@@ -1074,6 +1130,14 @@ ALTER TABLE ONLY institucion
 
 
 --
+-- Name: likes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY likes
+    ADD CONSTRAINT likes_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: materias_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -1215,6 +1279,22 @@ ALTER TABLE ONLY institucion
 
 ALTER TABLE ONLY institucion
     ADD CONSTRAINT institucion_id_pais_fkey FOREIGN KEY (id_pais) REFERENCES paises(id);
+
+
+--
+-- Name: likes_id_publicacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY likes
+    ADD CONSTRAINT likes_id_publicacion_fkey FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id);
+
+
+--
+-- Name: likes_id_usuario_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY likes
+    ADD CONSTRAINT likes_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id);
 
 
 --

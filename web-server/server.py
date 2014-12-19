@@ -35,10 +35,12 @@ class Root(object):
         return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
-    def login(self, user, password):
-        status = Controller.login(user,password)
+    def login(self, user, password):        
+        control = Controller.Controller()
+        status = control.login(user,password)
+        return "welcome"
         if status == 1:
-            cherrypy.session['email']=email
+            cherrypy.session['email'] = email
             cherrypy.session['isvalid'] = 1
             raise cherrypy.HTTPRedirect("/")
         else:

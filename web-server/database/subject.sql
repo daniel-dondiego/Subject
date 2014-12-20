@@ -199,6 +199,42 @@ ALTER SEQUENCE ciudad_id_seq OWNED BY ciudad.id;
 
 
 --
+-- Name: comentarios; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE comentarios (
+    id integer NOT NULL,
+    contenido text NOT NULL,
+    id_usuario integer,
+    id_publicacion integer,
+    fecha date NOT NULL
+);
+
+
+ALTER TABLE public.comentarios OWNER TO postgres;
+
+--
+-- Name: comentarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE comentarios_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.comentarios_id_seq OWNER TO postgres;
+
+--
+-- Name: comentarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE comentarios_id_seq OWNED BY comentarios.id;
+
+
+--
 -- Name: escuela; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -340,6 +376,40 @@ ALTER SEQUENCE institucion_id_seq OWNED BY institucion.id;
 
 
 --
+-- Name: likes; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE likes (
+    id integer NOT NULL,
+    id_usuario integer,
+    id_publicacion integer
+);
+
+
+ALTER TABLE public.likes OWNER TO postgres;
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE likes_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.likes_id_seq OWNER TO postgres;
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE likes_id_seq OWNED BY likes.id;
+
+
+--
 -- Name: materias; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -452,7 +522,8 @@ ALTER SEQUENCE notificaciones_id_seq OWNED BY notificaciones.id;
 CREATE TABLE paises (
     id integer NOT NULL,
     pais text NOT NULL,
-    nacionalidad text NOT NULL
+    nacionalidad text NOT NULL,
+    imgbanderas text NOT NULL
 );
 
 
@@ -524,7 +595,8 @@ CREATE TABLE publicaciones (
     id_archivo integer,
     id_materia integer,
     fecha date NOT NULL,
-    visibilidad integer
+    visibilidad integer,
+    contenido text
 );
 
 
@@ -583,6 +655,40 @@ ALTER TABLE public.rating_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE rating_id_seq OWNED BY rating.id;
+
+
+--
+-- Name: siguea; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE siguea (
+    id integer NOT NULL,
+    id_seguidor integer,
+    id_seguido integer
+);
+
+
+ALTER TABLE public.siguea OWNER TO postgres;
+
+--
+-- Name: siguea_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE siguea_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.siguea_id_seq OWNER TO postgres;
+
+--
+-- Name: siguea_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE siguea_id_seq OWNED BY siguea.id;
 
 
 --
@@ -666,6 +772,13 @@ ALTER TABLE ONLY ciudad ALTER COLUMN id SET DEFAULT nextval('ciudad_id_seq'::reg
 -- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
+ALTER TABLE ONLY comentarios ALTER COLUMN id SET DEFAULT nextval('comentarios_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
 ALTER TABLE ONLY escuela ALTER COLUMN id SET DEFAULT nextval('escuela_id_seq'::regclass);
 
 
@@ -688,6 +801,13 @@ ALTER TABLE ONLY grupos ALTER COLUMN id SET DEFAULT nextval('grupos_id_seq'::reg
 --
 
 ALTER TABLE ONLY institucion ALTER COLUMN id SET DEFAULT nextval('institucion_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY likes ALTER COLUMN id SET DEFAULT nextval('likes_id_seq'::regclass);
 
 
 --
@@ -737,6 +857,13 @@ ALTER TABLE ONLY publicaciones ALTER COLUMN id SET DEFAULT nextval('publicacione
 --
 
 ALTER TABLE ONLY rating ALTER COLUMN id SET DEFAULT nextval('rating_id_seq'::regclass);
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY siguea ALTER COLUMN id SET DEFAULT nextval('siguea_id_seq'::regclass);
 
 
 --
@@ -822,6 +949,21 @@ SELECT pg_catalog.setval('ciudad_id_seq', 1, false);
 
 
 --
+-- Data for Name: comentarios; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY comentarios (id, contenido, id_usuario, id_publicacion, fecha) FROM stdin;
+\.
+
+
+--
+-- Name: comentarios_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('comentarios_id_seq', 1, false);
+
+
+--
 -- Data for Name: escuela; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -882,6 +1024,21 @@ SELECT pg_catalog.setval('institucion_id_seq', 1, false);
 
 
 --
+-- Data for Name: likes; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY likes (id, id_usuario, id_publicacion) FROM stdin;
+\.
+
+
+--
+-- Name: likes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('likes_id_seq', 1, false);
+
+
+--
 -- Data for Name: materias; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -930,7 +1087,85 @@ SELECT pg_catalog.setval('notificaciones_id_seq', 1, false);
 -- Data for Name: paises; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY paises (id, pais, nacionalidad) FROM stdin;
+COPY paises (id, pais, nacionalidad, imgbanderas) FROM stdin;
+1	Afganistán	Afgano(a)	afganistán.jpg
+2	Albania	Albanés(a)	albania.png
+3	Alemania	Alemán(a)	alemania.jpg
+4	Andorra	Andorrano(a)	andorra.jpg
+5	Angola	Angoleño(a)	angola.png
+6	Antigua y barbuda	Antiguano(a)	antiguabarbuda.png
+7	Arabia Saudí	Árabe	arabiasaudita.png
+8	Argelia	Argelino(a)	argelia.png
+9	Argentina	Argentino(a)	argentina.png
+10	Armenia	Armenio(a)	armenia.png
+11	Australia	Australiano(a)	australia.png
+12	Austria	Austriaco(a)	austria.jpg
+13	Azerbaiyán	Azerbaiyano(a)	azerbaiyan.jpg
+14	Bahamas	Bahameño(a)	bahamas.png
+15	Bangladesh	Bangladesí	bangladesh.jpg
+16	Barbados	Barbadense	barbados.png
+17	Baréin	Bareiní	barein.png
+18	Bélgica	Belga	belgica.jpg
+19	Argentina	Argentino(a)	argentina.png
+20	Armenia	Armenio(a)	armenia.png
+21	Australia	Australiano(a)	australia.png
+22	Austria	Austriaco(a)	austria.jpg
+23	Azerbaiyán	Azerbaiyano(a)	azerbaiyan.jpg
+24	Bahamas	Bahameño(a)	bahamas.png
+25	Bangladesh	Bangladesí	bangladesh.jpg
+26	Barbados	Barbadense	barbados.png
+27	Baréin	Bareiní	barein.png
+28	Belice	Beliceño(a)	belice.png
+29	Benín	Beninés(a)	benin.png
+30	Bielorrusia	Bielorruso(a)	bielorusia.png
+31	Bolivia	Boliviano(a)	bolivia.png
+32	Bosnia-Herzegovina	Bosnio(a)	bosnia.png
+33	Botsuana	Botsuano(a)	botsuana.jpg
+34	Bulgaria	Búlgaro(a)	bulgaria.png
+35	Bután	Butanés(a)	butan.png
+36	Camerún	Camerúnes(a)	camerun.png
+37	Canadá	Canadiense	canada.jpg
+38	Camboya	Camboyano(a)	camboya.png
+39	Catar	Catarí	catar.png
+40	Chad	Chadiano(a)	chad.png
+41	Chile	Chileno(a)	chile.png
+42	China	Chino(a)	china.jpg
+43	Chipre	Chipriota	chipre.png
+44	Colombia	Colombiano(a)	colombia.jpg
+45	República del Congo	Congolés(a)	congo.png
+46	Corea del norte	Norcoreano(a)	coreanorte.png
+47	Corea del sur	Surcoreano(a)	coreasur.jpg
+48	Costa de Marfil	Marfileño(a)	costamarfil.png
+49	Costa Rica	Costarricense	cr.png
+50	Croacia	Croata	croacia.jpg
+51	Cuba	Cubano(a)	cuba.png
+52	Dinamarca	Danés(a)	dinamarca.jpg
+53	Dominica	Dominiqués(a)	dominica.png
+54	Ecuador	Ecuatoriano(a)	ecuador.jpg
+55	Egipto	Egipcio(a)	egipto.png
+56	El Salvador	Salvadoreño(a)	elsalvador.png
+57	Emiratos Árabes Unidos	Emiratí	emiratos.png
+58	Eritrea	Eritreo(a)	eritrea.png
+59	Escocia	Escocés(a)	escocia.png
+60	Eslovaquia	Eslovaco(a)	eslovaquia.jpg
+61	Eslovenia	Esloveno(a)	eslovenia.jpg
+62	España	Español(a)	españa.jpg
+63	Estados Unidos	Estadounidense	eu.png
+64	Etiopía	Etíope	etiopia.png
+65	Filipinas	Filipino(a)	filipinas.png
+66	Finlandia	Finlandés(a)	finlandia.png
+67	Francia	Francés(a)	francia.jpg
+68	Gabón	Gabonés(a)	gabon.jpg
+69	Gales	Galés	gales.png
+70	Gambia	Gambiano(a)	gambia.png
+71	Ghana	Ghanés(a)	ghana.png
+72	Grecia	Griego(a)	greacia.png
+73	Guam	Guameño(a)	guam.png
+74	Guatemala	Guatemalteco(a)	guatemala.png
+75	Guyana	Guyanés(a)	guyana.png
+76	Haití	Haitiano(a)	haiti.png
+77	Holanda	Holandés(a)	holanda.jpg
+78	Hungría	Húngaro(a)	hungria.jpg
 \.
 
 
@@ -938,7 +1173,7 @@ COPY paises (id, pais, nacionalidad) FROM stdin;
 -- Name: paises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('paises_id_seq', 1, false);
+SELECT pg_catalog.setval('paises_id_seq', 78, true);
 
 
 --
@@ -960,7 +1195,7 @@ SELECT pg_catalog.setval('persona_carrera_id_seq', 1, false);
 -- Data for Name: publicaciones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad) FROM stdin;
+COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad, contenido) FROM stdin;
 \.
 
 
@@ -984,6 +1219,21 @@ COPY rating (id, id_usuario, calificacion) FROM stdin;
 --
 
 SELECT pg_catalog.setval('rating_id_seq', 1, false);
+
+
+--
+-- Data for Name: siguea; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY siguea (id, id_seguidor, id_seguido) FROM stdin;
+\.
+
+
+--
+-- Name: siguea_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 
 
 --
@@ -1042,6 +1292,14 @@ ALTER TABLE ONLY ciudad
 
 
 --
+-- Name: comentarios_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY comentarios
+    ADD CONSTRAINT comentarios_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: escuela_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -1071,6 +1329,14 @@ ALTER TABLE ONLY grupos
 
 ALTER TABLE ONLY institucion
     ADD CONSTRAINT institucion_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: likes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY likes
+    ADD CONSTRAINT likes_pkey PRIMARY KEY (id);
 
 
 --
@@ -1130,6 +1396,14 @@ ALTER TABLE ONLY rating
 
 
 --
+-- Name: siguea_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY siguea
+    ADD CONSTRAINT siguea_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: usuario_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -1178,6 +1452,22 @@ ALTER TABLE ONLY ciudad
 
 
 --
+-- Name: comentarios_id_publicacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY comentarios
+    ADD CONSTRAINT comentarios_id_publicacion_fkey FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id);
+
+
+--
+-- Name: comentarios_id_usuario_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY comentarios
+    ADD CONSTRAINT comentarios_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+
+
+--
 -- Name: grupo_usuario_id_grupo_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1215,6 +1505,22 @@ ALTER TABLE ONLY institucion
 
 ALTER TABLE ONLY institucion
     ADD CONSTRAINT institucion_id_pais_fkey FOREIGN KEY (id_pais) REFERENCES paises(id);
+
+
+--
+-- Name: likes_id_publicacion_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY likes
+    ADD CONSTRAINT likes_id_publicacion_fkey FOREIGN KEY (id_publicacion) REFERENCES publicaciones(id);
+
+
+--
+-- Name: likes_id_usuario_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY likes
+    ADD CONSTRAINT likes_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id);
 
 
 --
@@ -1303,6 +1609,22 @@ ALTER TABLE ONLY publicaciones
 
 ALTER TABLE ONLY rating
     ADD CONSTRAINT rating_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+
+
+--
+-- Name: siguea_id_seguido_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY siguea
+    ADD CONSTRAINT siguea_id_seguido_fkey FOREIGN KEY (id_seguido) REFERENCES usuario(id);
+
+
+--
+-- Name: siguea_id_seguidor_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY siguea
+    ADD CONSTRAINT siguea_id_seguidor_fkey FOREIGN KEY (id_seguidor) REFERENCES usuario(id);
 
 
 --

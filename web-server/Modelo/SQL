@@ -15,7 +15,8 @@ CREATE TABLE usuario(
 CREATE TABLE paises(
 	id SERIAL PRIMARY KEY,
 	pais TEXT NOT NULL,
-	nacionalidad TEXT NOT NULL
+	nacionalidad TEXT NOT NULL,
+	imgbanderas TEXT NOT NULL
 );
 
 CREATE TABLE escuela(
@@ -31,7 +32,8 @@ CREATE TABLE publicaciones(
 	id_archivo INTEGER references archivos(id),
 	id_materia INTEGER references materias(id),
 	fecha DATE NOT NULL,
-	visibilidad INTEGER
+	visibilidad INTEGER,
+	contenido TEXT
 );
 
 CREATE TABLE carrera(
@@ -118,4 +120,24 @@ CREATE TABLE persona_carrera(
 	id SERIAL PRIMARY KEY,
 	id_usuario INTEGER references usuario(id),
 	id_carrera_titulo INTEGER references carrera(id)
+);
+
+CREATE TABLE likes(
+	id SERIAL PRIMARY KEY,
+	id_usuario INTEGER references usuario(id),
+	id_publicacion INTEGER references publicaciones(id)
+);
+
+CREATE TABLE comentarios(
+	id SERIAL PRIMARY KEY,
+	contenido TEXT NOT NULL,
+	id_usuario INTEGER references usuario(id),
+	id_publicacion INTEGER references publicaciones(id),
+	fecha DATE NOT NULL
+);
+
+CREATE TABLE siguea(
+	id SERIAL PRIMARY KEY,
+	id_seguidor INTEGER references usuario(id),
+	id_seguido INTEGER references usuario(id)
 );

@@ -20,7 +20,7 @@ def authorized():
     email = cherrypy.session.get('email')
     isvalid = cherrypy.session.get('isvalid')
     if not email:
-        raise cherrypy.HTTPRedirect("/signin")
+        raise cherrypy.HTTPRedirect("/")
     if not isvalid:
         raise cherrypy.HTTPRedirect("/validate")
     return email
@@ -29,13 +29,11 @@ class Root(object):
 
     @cherrypy.expose
     def index(self):
-        email = authorized()
-        return open("home/daniel/Subject5/web-server/Vista/public_html/perfil.html")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
         
-
     @cherrypy.expose
     def signin(self):
-        return open("home/daniel/Subject5/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -44,14 +42,14 @@ class Root(object):
         if status == 1:
             cherrypy.session['email'] = user
             cherrypy.session['isvalid'] = 1
-            raise cherrypy.HTTPRedirect("/")
+            raise cherrypy.HTTPRedirect("/home")
         else:
             return "Login failed"     
 
     @cherrypy.expose
-    def perfil(self):
+    def home(self):
         email = authorized()
-        return open("home/daniel/Subject5/web-server/Vista/public_html/perfil.html")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
         
 
     @cherrypy.expose
@@ -61,11 +59,11 @@ class Root(object):
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/daniel/Subject5/web-server/Vista/public_html/registrar.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/daniel/Subject5/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):

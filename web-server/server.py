@@ -37,14 +37,25 @@ class Root(object):
     @cherrypy.expose
     def login(self, user, password):        
         control = Controller.Controller()
-        status = control.login(user,password)
-        return "welcome"
+        status = control.login(user,password)        
         if status == 1:
-            cherrypy.session['email'] = email
+            cherrypy.session['email'] = user
             cherrypy.session['isvalid'] = 1
-            raise cherrypy.HTTPRedirect("/")
+            raise cherrypy.HTTPRedirect("/perfil")
         else:
             return "Login failed"     
+
+    @cherrypy.expose
+    def perfil(self):
+        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html")
+
+    @cherrypy.expose
+    def logout(self, ctoken):
+        
+        if ctoken != cherrypy.session.get('token'):
+            return "Security violation"
+        cherrypy.session.clear()
+        raise cherrypy.HTTPRedirect("/")   
 
     @cherrypy.expose
     def new_user(self):
@@ -64,14 +75,7 @@ class Root(object):
     def validate(self):
         email = cherrypy.session.get('email')
         isvalid = cherrypy.session.get('isvalid')
-        return {'email':email,'isvalid':isvalid, 'token':token}    
-    
-    @cherrypy.expose
-    def logout(self,ctoken):
-        if ctoken != cherrypy.session.get('token'):
-            return "Security violation"
-        cherrypy.session.clear()
-        raise cherrypy.HTTPRedirect("/")    
+        return {'email':email,'isvalid':isvalid, 'token':token}     
 
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

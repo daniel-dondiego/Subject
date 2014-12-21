@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Grupo</title>
+    <style>
+      ul.menu {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      }
+
+      li.menu {
+      display: inline;
+      float: left;
+      }
+      
+      a {
+      display: block;
+      width: 200px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background-color: #0000B3;
+      text-align: center;
+      padding: 4px;
+      text-decoration: none;
+      text-transform: uppercase;
+      }
+      
+      a:hover, a:active {
+      background-color: #000034;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <!-- Imagen del grupo -->
+    <img src=${imagen} alt="Imagen del grupo" style="width: 69px;height: 100px;display: block;margin-left: auto;margin-right: auto"/>
+    <h2 style="text-align: center">${nombre}</h2>
+    <!-- Barra de navegacion -->
+    <ul class="menu">
+      <li class="menu"><a href="/static/miembros.html">Miembros</a></li>
+      <li class="menu"><a href="/static/archivos.html">Archivos</a></li>
+      <!-- Publicaciones -->
+      <div>
+	<ul>
+	  ${publicaciones}
+	</ul>
+      </div>
+  </body>
+</html>

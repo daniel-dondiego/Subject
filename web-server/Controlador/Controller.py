@@ -5,13 +5,11 @@ import sys
 sys.path.append("..")
 import Comandos
 import string
-
+import EnviaCorreos
 
 class Controller(object):
-    def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-        return ''.join(random.choice(chars) for x in range(size))
-	
-    def verifica(self , usuario, rcontrasenia):
+
+    def verifica(self,usuario, rcontrasenia):
         if(usuario.get_password() != rcontrasenia):
             return "Las contraseñas no coinciden"
         if(len(usuario.get_password()) == 0):
@@ -26,13 +24,13 @@ class Controller(object):
 	    return "Debe llenar el campo del nombre."
 	if(len(usuario.get_genero()) == 0):
 	    return "Debe llenar el campo del genero."
-	c_conf = EnviaCorreos.EnviaCorreos()
-	c_conf.correo_de_confirmacion(usuario.get_nick_name(),4321)
-	#Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
-	#	VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+','+ str(usuario.get_foto())+','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
-		#if(usuario.get_genero() == 'm'):
-	    #		return "Bienvenido a Subject " + usuario.get_nombre()
-	    #   	return "Bienvenia a Subject " + usuario.get_nombre()
+	#c_conf = EnviaCorreos.EnviaCorreos()
+	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
+	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
+		VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+','+ str(usuario.get_foto())+','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
+	if(usuario.get_genero() == 'm'):
+   		return "Bienvenido a Subject " + usuario.get_nombre()
+       	return "Bienvenia a Subject " + usuario.get_nombre()
 
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	

@@ -9,7 +9,7 @@ import EnviaCorreos
 
 class Controller(object):
 
-    def verifica(usuario, rcontrasenia):
+    def verifica(self,usuario, rcontrasenia):
         if(usuario.get_password() != rcontrasenia):
             return "Las contraseñas no coinciden"
         if(len(usuario.get_password()) == 0):

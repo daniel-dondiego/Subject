@@ -8,8 +8,10 @@ from Controlador import Controller
 import atexit
 import threading
 import cherrypy
+import CherrypyMako
 import os, os.path
 
+CherrypyMako.setup()
 cherrypy.config.update({'environment': 'embedded'})
 
 if cherrypy.__version__.startswith('3.0') and cherrypy.engine.state == 0:

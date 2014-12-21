@@ -8,8 +8,6 @@ import string
 
 
 class Controller(object):
-    def id_generator(size=6, chars=string.ascii_uppercase + string.digits):
-        return ''.join(random.choice(chars) for x in range(size))
 	
     def verifica(self , usuario, rcontrasenia):
         if(usuario.get_password() != rcontrasenia):

@@ -19,20 +19,23 @@ if cherrypy.__version__.startswith('3.0') and cherrypy.engine.state == 0:
 def authorized():
     email = cherrypy.session.get('email')
     isvalid = cherrypy.session.get('isvalid')
-    token = cherrypy.session.get('token')
     if not email:
         raise cherrypy.HTTPRedirect("/signin")
     if not isvalid:
         raise cherrypy.HTTPRedirect("/validate")
-    if not token:
-        token = cherrypy.session["token"] = Controller.id_generator(12)
-    return email,token
+    return email
 
 class Root(object):
 
     @cherrypy.expose
     def index(self):
-        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/index.html", "r")
+        email = authorized()
+        return open("home/daniel/Subject5/web-server/Vista/public_html/perfil.html")
+        
+
+    @cherrypy.expose
+    def signin(self):
+        return open("home/daniel/Subject5/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -41,29 +44,28 @@ class Root(object):
         if status == 1:
             cherrypy.session['email'] = user
             cherrypy.session['isvalid'] = 1
-            raise cherrypy.HTTPRedirect("/perfil")
+            raise cherrypy.HTTPRedirect("/")
         else:
             return "Login failed"     
 
     @cherrypy.expose
     def perfil(self):
-        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/perfil.html")
+        email = authorized()
+        return open("home/daniel/Subject5/web-server/Vista/public_html/perfil.html")
+        
 
     @cherrypy.expose
-    def logout(self, ctoken):
-        
-        if ctoken != cherrypy.session.get('token'):
-            return "Security violation"
+    def logout(self): 
         cherrypy.session.clear()
         raise cherrypy.HTTPRedirect("/")   
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/daniel/Subject5/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/miguel/Documentos/Modelado/Proyectos/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/daniel/Subject5/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
@@ -75,7 +77,7 @@ class Root(object):
     def validate(self):
         email = cherrypy.session.get('email')
         isvalid = cherrypy.session.get('isvalid')
-        return {'email':email,'isvalid':isvalid, 'token':token}     
+        return {'email':email,'isvalid':isvalid}     
 
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

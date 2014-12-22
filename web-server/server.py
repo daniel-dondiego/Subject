@@ -8,10 +8,8 @@ from Controlador import Controller
 import atexit
 import threading
 import cherrypy
-import CherrypyMako
 import os, os.path
 
-CherrypyMako.setup()
 cherrypy.config.update({'environment': 'embedded'})
 
 if cherrypy.__version__.startswith('3.0') and cherrypy.engine.state == 0:
@@ -41,8 +39,8 @@ class Root(object):
     def login(self, user, password):        
         control = Controller.Controller()
         status = control.login(user,password)        
-        if status == 1:
-            cherrypy.session['email'] = user
+        if status == 1:            
+            cherrypy.session['email'] = user            
             cherrypy.session['isvalid'] = 1
             raise cherrypy.HTTPRedirect("/home")
         else:
@@ -53,6 +51,10 @@ class Root(object):
         email = authorized()
         return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
         
+    @cherrypy.expose
+    def get_nombre(self):    
+        control = Controller.Controller()
+        return control.get_nombre(cherrypy.session.get('email'))
 
     @cherrypy.expose
     def logout(self): 

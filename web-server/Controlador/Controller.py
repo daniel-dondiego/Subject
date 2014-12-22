@@ -38,6 +38,10 @@ class Controller(object):
             return 'usuario incorrecto'
         if(l[0][0] != password):
             return 0
-        return 1    
+        return 1
+
+    def get_nombre(self ,email):
+        nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE nick_name = \'%s\';' % (email));
+        return nombre[0][0]
 
 

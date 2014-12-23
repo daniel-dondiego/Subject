@@ -164,6 +164,7 @@ body {
   	height: 100%;
   	position: fixed;
   	width: 120px;
+  	margin-top: -50px;
 }
 
 /* Basic styling */
@@ -173,6 +174,7 @@ body {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    margin-top: -45px;
 }
 
 .menu ul {
@@ -215,6 +217,19 @@ body {
   	margin-bottom: 2px;
   	text-decoration: none;
   	text-transform: uppercase;
+}
+
+.notificacion_logo {
+	margin-left: 65%;
+	width: auto;
+	height: auto;
+	margin-top: 2px;
+}
+
+.notificacion_logo img{
+	margin-top: 8px;
+	width: 30px;
+	height: 30px;
 }
 
 .icon-menu:hover{

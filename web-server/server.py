@@ -61,6 +61,10 @@ class Root(object):
         }
 
     @cherrypy.expose
+    def get_info(self):
+        return "<p>Holaa</p>"
+
+    @cherrypy.expose
     def logout(self): 
         cherrypy.session.clear()
         raise cherrypy.HTTPRedirect("/")   

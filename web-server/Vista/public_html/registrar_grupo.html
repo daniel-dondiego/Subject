@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Registrar grupo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <style>
+      p {
+      display: block;
+      }
+      input,select{
+      float: right;
+      display: inline;
+      margin-right: 80%;
+      width: 150px;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="display: block; width: 780px; border: 10px solid #0000A0">
+      <h1 style="display: block; font-size: 18px; margin-left: auto; margin-right: auto">¡Registra un grupo!</h1>
+      <p>Nombre
+	<input type="text" name="Nombre" style="float: right; display: inline"/><br>
+      </p>
+      <p>Privacidad
+	<select name="visibilidad" placeholder="Escoge la visibilidad">        
+          <option selected="selected" value="n">Escoge la visibilidad</option>
+       	  <option value="pu">Público</option>
+       	  <option value="pr">Privado</option>
+       	</select>
+      </p>  
+      <br>
+      <button type="button" style="display: block">Crear</button>
+    </div>
+  </body>
+</html>

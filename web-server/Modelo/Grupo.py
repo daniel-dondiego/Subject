@@ -134,7 +134,7 @@ class Grupo(object):
         Agrega el grupo a la base
         '''
         s = 'INSERT INTO grupos (nombre, id_usuario, visibilidad, imagen) VALUES('
-        s += str(self.nombre) + ', ' + str(self.id_usuario) + ', ' + str(self.visibilidad) + ', ' + str(self.imagen) + ')'
+        s += str(self.__nombre) + ', ' + str(self.__id_usuario) + ', ' + str(self.__visibilidad) + ', ' + str(self.__imagen) + ')'
         Comandos.ejecuta_comando(s)
 
     def agrega_usuario(self, id_usuario):
@@ -143,5 +143,5 @@ class Grupo(object):
         id_usuario: el id del usuario a agregar al grupo
         '''
         s = 'INSERT INTO grupo_usuario (id_grupo, id_usuario) VALUES('
-        s += str(self.id) + ', ' + str(id_usuario) + ')'
+        s += str(self.__id) + ', ' + str(id_usuario) + ')'
         Comandos.ejecuta_comando(s)

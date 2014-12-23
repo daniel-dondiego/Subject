@@ -1,85 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>SUBJECT-Registrar usuario</title>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
-    	<link href="/static/css/normalize.css" rel="stylesheet"/>
-    	<link href="/static/css/style_registrar.css" rel="stylesheet"/>	
-    	<link href="/static/img/logonegro.png" rel="shortcut icon" type="image/x-icon"/>
-    	<script src="/static/js/IndexScripts.js" type="text/javascript"></script>
-	</head>
-	<body>
-		<header>
-
-    		<!-- Logo de Subject -->
-    	    <svg class="logo">   
-    		    <g>
-    		   	    <defs>
-	   			        <filter id="sombra_letras" x="0" y="0" width="100%" height="100%">
-      				        <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
-      				        <feColorMatrix result = "matrixOut" in = "offOut" type = "matrix" values = "0.01 0 0 0 0 
-      		    	          0 0.1 0 0 0.6 0.9 0.5 0.8 0.9 0 0 0 0 1 0"/>
-      				        <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="7" />
-      				        <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
-    				    </filter>
-  				    </defs> 			    			
-    			    <text x="0" y="115" fill="white" filter="url(#sombra_letras)">Subject</text>
-    			    <ellipse id="elipseNegro" cx="0" cy="0" rx="0" ry="0" fill="black"/>
-	   			    <ellipse id="elipseAzul" cx="0" cy="0" rx="0" ry="0" fill="#47C4FF"/>	   	
-    			    <script>
-       				    colocaElipses();
-       			    </script>
-    			</g>
-    		</svg>
-
-            <!-- login  -->   		   		    	
-    		<form action="login" method="get"> 
-    		    <div class="fondo_gris">
-    		        <div class="text_fields"> 
-    		  	        <input type="text" name="user" placeholder="Usuario"/>
-    		            <br/>    					  					
-    		            <input type="password" name="password" placeholder="Contraseña"/>    			
-    		        </div>
-    			    <div class="login">
-      				    <input type="submit" value="Entrar"/>
-      		    	</div>    				
-      		    </div>
-    	   		<div class="extras">
-    		  	    <a class="forgot_pass" href="forgot_pass" title="Recordar contraseña">¿Olvidaste tu contraseña?</a>
-    			</div>
-    		</form> 			
-       	</header>
-       	<section class="container">
-       		<form action="registrarse" method="post">
-       			<div class="entrada_datos">
-       				<div class="text_fields">
-       					<h2>Registro</h2>
-       					<p>Ingresa tus datos:</p>
-       					<input type="text" name="nombre" placeholder="Nombre"/>
-       					<input type="text" name="apellido" placeholder="Apellido">
-       					<input type="text" name="email" placeholder="Correo electrónico"/> 
-       					<input type="password" name="contrasenia" placeholder="Contraseña"/>      		
-       					<input type="password" name="rcontrasenia" placeholder="Repite la contraseña"/>
-       					<br/>
-       					<br/>       					
-       					<select name="genero" placeholder="Escoge tu género:">            	
-                	<option selected="selected" value="n">Escoge tu género</option>
-       						<option value="f">Femenino</option>
-       						<option value="m">Masculino</option>
-       					</select>
-       					<p class="fd">Fecha de nacimiento:</p>
-       					<input type="date" name="fdn" placeholder="Fecha de nacimiento"/>
-       					<div class="registrame">
-       						<input type="submit" value="¡Registrarme!"/>		
-       					</div>       					
-       				</div>
-       			</div>
-       			<br/>
-       		</form>
-       		<article class="presentacion">
-       			<img  src="/static/img/book-sbj.png" alt="Subject_book"/>
-       		</article>
+  <head>
+    <title>SUBJECT-Registrar usuario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link href="/static/css/normalize.css" rel="stylesheet"/>
+    <link href="/static/css/style_registrar.css" rel="stylesheet"/>	
+    <link href="/static/img/logonegro.png" rel="shortcut icon" type="image/x-icon"/>
+    <script src="/static/js/IndexScripts.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <header>
+      
+      <!-- Logo de Subject -->
+      <svg class="logo">   
+    	<g>
+    	  <defs>
+	    <filter id="sombra_letras" x="0" y="0" width="100%" height="100%">
+      	      <feOffset result="offOut" in="SourceGraphic" dx="0" dy="0" />
+      	      <feColorMatrix result = "matrixOut" in = "offOut" type = "matrix" values = "0.01 0 0 0 0 
+      		    									  0 0.1 0 0 0.6 0.9 0.5 0.8 0.9 0 0 0 0 1 0"/>
+      	      <feGaussianBlur result="blurOut" in="matrixOut" stdDeviation="7" />
+      	      <feBlend in="SourceGraphic" in2="blurOut" mode="normal" />
+    	    </filter>
+  	  </defs> 			    			
+    	  <text x="0" y="115" fill="white" filter="url(#sombra_letras)">Subject</text>
+    	  <ellipse id="elipseNegro" cx="0" cy="0" rx="0" ry="0" fill="black"/>
+	  <ellipse id="elipseAzul" cx="0" cy="0" rx="0" ry="0" fill="#47C4FF"/>	   	
+    	  <script>
+       	    colocaElipses();
+       	  </script>
+    	</g>
+      </svg>
+      
+      <!-- login  -->   		   		    	
+      <form action="login" method="get"> 
+    	<div class="fondo_gris">
+    	  <div class="text_fields"> 
+    	    <input type="text" name="user" placeholder="Usuario"/>
+    	    <br/>    					  					
+    	    <input type="password" name="password" placeholder="Contraseña"/>    			
+    	  </div>
+    	  <div class="login">
+      	    <input type="submit" value="Entrar"/>
+      	  </div>    				
+      	</div>
+    	<div class="extras">
+    	  <a class="forgot_pass" href="forgot_pass" title="Recordar contraseña">¿Olvidaste tu contraseña?</a>
+    	</div>
+      </form> 			
+    </header>
+    <section class="container">
+      <form action="registrarse" method="post">
+       	<div class="entrada_datos">
+       	  <div class="text_fields">
+       	    <h2>Registro</h2>
+       	    <p>Ingresa tus datos:</p>
+       	    <input type="text" name="nombre" placeholder="Nombre"/>
+       	    <input type="text" name="apellido" placeholder="Apellido">
+       	    <input type="text" name="email" placeholder="Correo electrónico"/> 
+       	    <input type="password" name="contrasenia" placeholder="Contraseña"/>      		
+       	    <input type="password" name="rcontrasenia" placeholder="Repite la contraseña"/>
+       	    <br/>
+       	    <br/>       					
+       	    <select name="genero" placeholder="Escoge tu género:">            	
+              <option selected="selected" value="n">Escoge tu género</option>
+       	      <option value="f">Femenino</option>
+       	      <option value="m">Masculino</option>
+       	    </select>
+       	    <p class="fd">Fecha de nacimiento:</p>
+       	    <input type="date" name="fdn" placeholder="Fecha de nacimiento"/>
+       	    <div class="registrame">
+       	      <input type="submit" value="¡Registrarme!"/>		
+       	    </div>       					
+       	  </div>
+       	</div>
+       	<br/>
+      </form>
+      <article class="presentacion">
+       	<img  src="/static/img/book-sbj.png" alt="Subject_book"/>
+      </article>
        	</section>
-	</body>
+  </body>
 <html>

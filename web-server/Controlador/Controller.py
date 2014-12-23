@@ -41,7 +41,13 @@ class Controller(object):
         return 1
 
     def get_nombre(self ,email):
-        nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE nick_name = \'%s\';' % (email));
-        return nombre[0][0]
+        nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE nick_name = \'%s\';' % (email))
+        apellido = Comandos.consulta('SELECT apellido FROM usuario WHERE nick_name = \'%s\';' % (email))        
+        return ("%s %s" % (nombre[0][0],apellido[0][0]))
+
+    def get_edad(self, email):
+        edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE nick_name = \'%s\';' % (email))
+        print '%s años' % (edad[0][0])
+        return ('%d años' % (edad[0][0]))
 
 

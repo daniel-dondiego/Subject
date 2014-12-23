@@ -74,7 +74,7 @@ input[type="search"]:focus {
 }
 
 .header_perfil #datos_principales{
-	background-color: red;
+	background-color: none;
 }
 
 .menu_centro{
@@ -211,7 +211,7 @@ body {
 	.header_perfil #foto_perfil{
 		width: 90px;
 		height: 90px;
-		margin-left: 10%;
+		margin-left: 6%;
 		margin-top: 58px;
 		position: fixed;
 	}
@@ -219,9 +219,15 @@ body {
 	.header_perfil #datos_principales{
 		width: 200px;
 		height: 90px;
-		margin-left: 36%;
+		margin-left: 38%;
 		margin-top: 58px;
 		position: fixed;
+		color: white;
+	}
+
+	.header_perfil #datos_principales h2{
+		margin-top: 5px;
+		font-family:'Open ans', sans-serif;
 	}
 }
 

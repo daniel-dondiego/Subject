@@ -52,9 +52,13 @@ class Root(object):
         return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
         
     @cherrypy.expose
+    @cherrypy.tools.json_out()
     def get_nombre(self):    
         control = Controller.Controller()
-        return control.get_nombre(cherrypy.session.get('email'))
+        return {
+            'nombre':control.get_nombre(cherrypy.session.get('email')),
+            'edad'  :control.get_edad(cherrypy.session.get('email'))
+        }
 
     @cherrypy.expose
     def logout(self): 

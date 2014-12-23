@@ -57,7 +57,8 @@ class Root(object):
         control = Controller.Controller()
         return {
             'nombre':control.get_nombre(cherrypy.session.get('email')),
-            'edad'  :control.get_edad(cherrypy.session.get('email'))
+            'edad'  :control.get_edad(cherrypy.session.get('email')),
+            'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
         }
 
     @cherrypy.expose
@@ -79,7 +80,7 @@ class Root(object):
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
-        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'NULL','NULL',contrasenia,'NULL',fdn,0.0)        
+        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png','NULL',contrasenia,'NULL',fdn,0.0)        
         control = Controller.Controller()
         return control.verifica(usuario,rcontrasenia)
 

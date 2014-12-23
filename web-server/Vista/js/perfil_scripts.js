@@ -5,6 +5,7 @@ $(document).ready(function() {
     request.done(function(response){        
         $('#user_name').text(response.nombre);
         $('#birthday').text(response.edad);
+        $('#foto_perfil').html(response.foto);
     });
     request.fail(function(jqXHR, textStatus) {
         alert('Error al cargar los elementos.');

@@ -50,4 +50,8 @@ class Controller(object):
         print '%s años' % (edad[0][0])
         return ('%d años' % (edad[0][0]))
 
+    def get_foto_perfil(self, email):
+        foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
+        return ('<img src=\'%s\'/>' % (foto[0][0]))
+
 

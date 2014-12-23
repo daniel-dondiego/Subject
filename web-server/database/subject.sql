@@ -701,12 +701,12 @@ CREATE TABLE usuario (
     apellido text NOT NULL,
     genero character(1),
     nick_name text,
-    foto bytea,
     escuela integer,
     password character varying NOT NULL,
     nacionalidad integer,
     f_nacimiento date NOT NULL,
-    rating real NOT NULL
+    rating real NOT NULL,
+    foto text NOT NULL
 );
 
 
@@ -1166,6 +1166,90 @@ COPY paises (id, pais, nacionalidad, imgbanderas) FROM stdin;
 76	Haití	Haitiano(a)	haiti.png
 77	Holanda	Holandés(a)	holanda.jpg
 78	Hungría	Húngaro(a)	hungria.jpg
+79	India	Hindú	india.jpg
+80	Indonesia	Indonesio(a)	indonesia.jpg
+81	Inglaterra	Inglés(a)	inglaterra.png
+82	Irak	Iraquí	irak.png
+83	Irán	Iraní	iran.jpg
+84	Irlanda del norte	Norirlandés(a)	irlandanorte.jpg
+85	Irlanda	Irlandés(a)	irlanda.png
+86	Israel	Israelí	israel.png
+87	Italia	Italiano(a)	italia.png
+88	Jamaica	Jamaiquino(a)	jamaica.png
+89	Japón	Japonés(a)	japon.jpg
+90	Jordania	Jordano(a)	jordania.png
+91	Kazajistán	Kazajo	kazajistan.png
+92	Kenia	Keniano(a)	kenia.png
+93	Kuwait	Kuwaití	kuwait.png
+94	Laos	Laosiano(a)	laos.jpg
+95	Líbano	Libanés(a)	libano.png
+96	Liberia	Liberiano(a)	liberia.png
+97	Libia	Libio(a)	libia.jpg
+98	Lituania	Lituano(a)	Lituania.jpg
+99	Luxemburgo	Luxemburgués(a)	luxemburgo.jpg
+100	Macao	Macaense	macao.png
+101	Malasia	Malayo	malasia.png
+102	Maldivas	Maldivo(a)	maldivas.jpg
+103	Marruecos	Marroquí	marruecos.jpg
+104	México	Mexicano(a)	mexico.jpg
+105	Mongolia	Mongol	mongolia.jpg
+106	Mozambique	Mozambiqueño(a)	mozambique.png
+107	Namibia	Namibio(a)	namibia.png
+108	Nepal	Nepalí	nepal.png
+109	Nicaragua	Nicaragüense	nicaragua.png
+110	Nigeria	Nigeriano(a)	nigeria.png
+111	Noruega	Noruego(a)	noruega.png
+112	Nueva Zelanda	Neozelandés(a)	nz.png
+113	Omán	Omaní	oman.jpg
+114	Pakistán	Pakistaní	pakistan.png
+115	Panamá	Panameño(a)	panama.png
+116	Paraguay	Paraguayo(a)	paraguay.png
+117	Perú	Peruano(a)	peru.png
+118	Polonia	Polaco(a)	polinia.jpg
+119	Portugal	Portugués(a)	portugal.png
+120	Puerto Rico	Puertorriqueño(a)	puertorico.png
+121	Qatar	Catarí	qatar.png
+122	República Checa	Checo(a)	repcheca.png
+123	República Dominicana	Dominicano(a)	repdominicana.png
+124	Ruanda	Ruandés	ruanda.png
+125	Rumania	Rumano(a)	rumania.jpg
+126	Rusia	Ruso(a)	rusia.png
+127	Senegal	Senegalés(a)	senegal.png
+128	Serbia	Serbio(a)	serbia.png
+129	Sudáfrica	Sudafricano(a)	sudafrica.png
+130	Suecia	Sueco(a)	suecia.png
+131	Suiza	Suizo(a)	suiza.jpg
+132	Tahití	Tahitiano(a)	tahiti.jpg
+133	Togo	Togolés(a)	togo.png
+134	Túnez	tunecino(a)	tunez.png
+135	Turkmenistán	Turcomano(a)	turkm.png
+136	Panamá	Panameño(a)	panama.png
+137	Paraguay	Paraguayo(a)	paraguay.png
+138	Perú	Peruano(a)	peru.png
+139	Polonia	Polaco(a)	polinia.jpg
+140	Portugal	Portugués(a)	portugal.png
+141	Puerto Rico	Puertorriqueño(a)	puertorico.png
+142	Qatar	Catarí	qatar.png
+143	República Checa	Checo(a)	repcheca.png
+144	República Dominicana	Dominicano(a)	repdominicana.png
+145	Ruanda	Ruandés	ruanda.png
+146	Rumania	Rumano(a)	rumania.jpg
+147	Rusia	Ruso(a)	rusia.png
+148	Senegal	Senegalés(a)	senegal.png
+149	Serbia	Serbio(a)	serbia.png
+150	Sudáfrica	Sudafricano(a)	sudafrica.png
+151	Suecia	Sueco(a)	suecia.png
+152	Suiza	Suizo(a)	suiza.jpg
+153	Tahití	Tahitiano(a)	tahiti.jpg
+154	Togo	Togolés(a)	togo.png
+155	Túnez	tunecino(a)	tunez.png
+156	Turkmenistán	Turcomano(a)	turkm.png
+157	Turquía	Turco(a)	turquia.png
+158	Ucrania	Ucraniano(a)	ucrania.jpg
+159	Uruguay	Uruguayo(a)	uruguay.jpg
+160	Vietnam	Vietnamita	vn.png
+161	Yugoslavia	Yugoslavo(a)	yugoslavia.jpg
+162	Zaire	Zaireño	zaire.png
 \.
 
 
@@ -1173,7 +1257,7 @@ COPY paises (id, pais, nacionalidad, imgbanderas) FROM stdin;
 -- Name: paises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('paises_id_seq', 78, true);
+SELECT pg_catalog.setval('paises_id_seq', 162, true);
 
 
 --
@@ -1240,7 +1324,7 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY usuario (id, nombre, apellido, genero, nick_name, foto, escuela, password, nacionalidad, f_nacimiento, rating) FROM stdin;
+COPY usuario (id, nombre, apellido, genero, nick_name, escuela, password, nacionalidad, f_nacimiento, rating, foto) FROM stdin;
 \.
 
 

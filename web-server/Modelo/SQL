@@ -4,7 +4,7 @@ CREATE TABLE usuario(
 	apellido TEXT NOT NULL,
 	genero CHARACTER(1),
 	nick_name TEXT,
-	foto BYTEA,
+	foto TEXT,
 	escuela INTEGER references escuela(id),
 	password VARCHAR NOT NULL,
 	nacionalidad INTEGER references paises(id),

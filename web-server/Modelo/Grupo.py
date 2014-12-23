@@ -128,3 +128,11 @@ class Grupo(object):
         s = 'SELECT * FROM archivos WHERE id_grupo = '
         s += str(self.__id) + ';'
         return Comandos.consulta(s)
+
+    def agrega(self):
+        '''
+        Agrega el grupo a la base
+        '''
+    s = 'INSERT INTO grupos (nombre, id_usuario, visibilidad, imagen) VALUES('
+        s += str(self.nombre) + ', ' + str(self.id_usuario) + ', ' + str(self.visibilidad) + ', ' + str(self.imagen) + ')'
+        Comandos.ejecuta_comando(s)

@@ -55,7 +55,7 @@ class Archivo(object):
         Agrega el archivo a la base
         '''
         s = 'INSERT INTO archivos (url_archivo, id_usuario, id_grupo) VALUES(' 
-        s += str(self.url) + str(self.id_usuario) + str(self.id_grupo) + ')'
+        s += str(self.url) + ', ' + str(self.id_usuario) + ', ' + str(self.id_grupo) + ')'
         Comandos.ejecuta_comando(s)
 
     def set_id(self, id):

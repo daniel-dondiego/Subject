@@ -9,7 +9,7 @@ import EnviaCorreos
 
 class Controller(object):
 
-    def verifica(usuario, rcontrasenia):
+    def verifica(self,usuario, rcontrasenia):
         if(usuario.get_password() != rcontrasenia):
             return "Las contraseñas no coinciden"
         if(len(usuario.get_password()) == 0):
@@ -25,12 +25,12 @@ class Controller(object):
 	if(len(usuario.get_genero()) == 0):
 	    return "Debe llenar el campo del genero."
 	#c_conf = EnviaCorreos.EnviaCorreos()
-	EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
-	#Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
-	#	VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+','+ str(usuario.get_foto())+','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
-		#if(usuario.get_genero() == 'm'):
-	    #		return "Bienvenido a Subject " + usuario.get_nombre()
-	    #   	return "Bienvenia a Subject " + usuario.get_nombre()
+	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
+	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
+		VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+','+ str(usuario.get_foto())+','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
+	if(usuario.get_genero() == 'm'):
+   		return "Bienvenido a Subject " + usuario.get_nombre()
+       	return "Bienvenia a Subject " + usuario.get_nombre()
 
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
@@ -38,6 +38,16 @@ class Controller(object):
             return 'usuario incorrecto'
         if(l[0][0] != password):
             return 0
-        return 1    
+        return 1
+
+    def get_nombre(self ,email):
+        nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE nick_name = \'%s\';' % (email))
+        apellido = Comandos.consulta('SELECT apellido FROM usuario WHERE nick_name = \'%s\';' % (email))        
+        return ("%s %s" % (nombre[0][0],apellido[0][0]))
+
+    def get_edad(self, email):
+        edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE nick_name = \'%s\';' % (email))
+        print '%s años' % (edad[0][0])
+        return ('%d años' % (edad[0][0]))
 
 

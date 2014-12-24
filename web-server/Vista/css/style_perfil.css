@@ -19,7 +19,7 @@
  	position: fixed;
  }
 
-input[type="search"]:focus {
+input[type="search"]:focus , TEXTAREA[type="text"]:focus{
 	outline: none;
     border-color: #47C4FF;
     box-shadow: 0 0 10px #47C4FF;
@@ -41,6 +41,14 @@ input[type="search"]:focus {
   	margin-top: 13px;
   	margin-left:20%;
   	font-size: 80%;
+}
+
+#contenido #publicacion_nueva TEXTAREA{
+	border-radius: 8px;
+  	border-color: #47C4FF;
+  	font-family: "Arial";
+  	resize: none;
+  	overflow: hidden;
 }
 
 .head #buscador input:focus{
@@ -144,10 +152,10 @@ input[type="search"]:focus {
 
 #contenido #publicacion_nueva{
 	margin: 0 auto;
-	background-color: white;
+	background-color: #F0F0F0;
 	-webkit-box-shadow: 3px 5px 15px #2F2E2E;
   	-moz-box-shadow: 3px 5px 15px #2F2E2E;
-  	border-radius: 5px;
+  	border-radius: 8px;
 }
 
 body {
@@ -309,6 +317,15 @@ body {
 
 	.menu_centro {
 		margin-top: -50px;
+	}
+
+	#contenido #publicacion_nueva TEXTAREA{
+		margin-left: 4%;
+		margin-top: 10px;
+		width: 269px;
+		height: 50px;
+		font-size: 14px;
+		font-family: "Arial";
 	}
 }
 

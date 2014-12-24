@@ -702,11 +702,11 @@ CREATE TABLE usuario (
     genero character(1),
     nick_name text,
     escuela integer,
-    password character varying NOT NULL,
     nacionalidad integer,
     f_nacimiento date NOT NULL,
     rating real NOT NULL,
-    foto text NOT NULL
+    foto text NOT NULL,
+    password bigint NOT NULL
 );
 
 
@@ -1324,7 +1324,7 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY usuario (id, nombre, apellido, genero, nick_name, escuela, password, nacionalidad, f_nacimiento, rating, foto) FROM stdin;
+COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, password) FROM stdin;
 \.
 
 

@@ -15,10 +15,21 @@ $(document).ready(function() {
     $('#button_info').click(function(){
         var info_request = $.ajax({'url':'/get_info'});
         info_request.done(function(response){
-            $('#publicaciones_usuario').html(response);
+            $('#publicacion_nueva').html(response);
         });
         inf_request.fail(function(jqXHR, textStatus){
             alert('Error al cargar la información.');        
+        });
+    });
+
+    /* Obtiene el código html de la pestaña de publicaciones en el perfil */
+    $('#button_publicaciones').click(function(){
+        var publicaciones_request = $.ajax({'url':'/get_publicaciones'});
+        publicaciones_request.done(function(response){
+            $('#publicacion_nueva').html(response);
+        });
+        publicaciones_request.fail(function(jqXHR, textStatus){
+            alert('Error al cargar las publicaciones.'); 
         });
     });
 

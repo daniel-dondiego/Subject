@@ -66,6 +66,24 @@ class Root(object):
         return "<p>Holaa</p>"
 
     @cherrypy.expose
+    def get_publicaciones(self):
+        return """
+                <form action="#" method="post">
+                    <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
+                    <select name="materia" placeholder="Escoge una materia:">              
+                        <option selected="selected" value="n">Materia</option>
+                        <option value="a">Álgebra</option>
+                        <option value="c">Cálculo</option>
+                    </select>
+                    <label for="adjuntar_archivo">
+                        <img src="/static/img/adjuntar.png"/>
+                    </label>
+                    <input id="adjuntar_archivo" type="file"/>
+                    <input type="submit" value="Publicar"/>
+                </form> 
+                """
+
+    @cherrypy.expose
     def logout(self): 
         cherrypy.session.clear()
         raise cherrypy.HTTPRedirect("/")   

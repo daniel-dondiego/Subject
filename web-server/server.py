@@ -57,8 +57,31 @@ class Root(object):
         control = Controller.Controller()
         return {
             'nombre':control.get_nombre(cherrypy.session.get('email')),
-            'edad'  :control.get_edad(cherrypy.session.get('email'))
+            'edad'  :control.get_edad(cherrypy.session.get('email')),
+            'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
         }
+
+    @cherrypy.expose
+    def get_info(self):
+        return "<p>Holaa</p>"
+
+    @cherrypy.expose
+    def get_publicaciones(self):
+        return """
+                <form action="#" method="post">
+                    <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
+                    <select name="materia" placeholder="Escoge una materia:">              
+                        <option selected="selected" value="n">Materia</option>
+                        <option value="a">Álgebra</option>
+                        <option value="c">Cálculo</option>
+                    </select>
+                    <label for="adjuntar_archivo">
+                        <img src="/static/img/adjuntar.png"/>
+                    </label>
+                    <input id="adjuntar_archivo" type="file"/>
+                    <input type="submit" value="Publicar"/>
+                </form> 
+                """
 
     @cherrypy.expose
     def logout(self): 
@@ -75,7 +98,7 @@ class Root(object):
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
-        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'NULL','NULL',contrasenia,'NULL',fdn,0.0)        
+        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png','NULL',contrasenia,'NULL',fdn,0.0)        
         control = Controller.Controller()
         return control.verifica(usuario,rcontrasenia)
 

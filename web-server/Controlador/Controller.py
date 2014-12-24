@@ -27,7 +27,7 @@ class Controller(object):
 	#c_conf = EnviaCorreos.EnviaCorreos()
 	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
 	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
-		VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+','+ str(usuario.get_foto())+','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
+		VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+',\''+ str(usuario.get_foto())+'\','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
 	if(usuario.get_genero() == 'm'):
    		return "Bienvenido a Subject " + usuario.get_nombre()
        	return "Bienvenia a Subject " + usuario.get_nombre()
@@ -49,5 +49,9 @@ class Controller(object):
         edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE nick_name = \'%s\';' % (email))
         print '%s años' % (edad[0][0])
         return ('%d años' % (edad[0][0]))
+
+    def get_foto_perfil(self, email):
+        foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
+        return ('<img src=\'%s\'/>' % (foto[0][0]))
 
 

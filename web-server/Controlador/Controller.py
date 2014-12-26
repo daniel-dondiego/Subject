@@ -26,8 +26,8 @@ class Controller(object):
 	    return "Debe llenar el campo del genero."
 	#c_conf = EnviaCorreos.EnviaCorreos()
 	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
-	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
-		VALUES ('+'\''+str(usuario.get_nombre())+'\''+','+'\''+str(usuario.get_apellido())+'\''+','+'\''+str(usuario.get_genero())+'\''+','+'\''+str(usuario.get_nick_name())+'\''+',\''+ str(usuario.get_foto())+'\','+str(usuario.get_escuela())+','+'\''+str(usuario.get_password())+'\''+','+str(usuario.get_nacionalidad())+','+'\''+str(usuario.get_f_nacimiento())+'\''+','+str(usuario.get_rating())+');')
+	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password) \
+		VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'some\',%d);'%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()),str(usuario.get_f_nacimiento()),hash(str(usuario.get_password()))))
 	if(usuario.get_genero() == 'm'):
    		return "Bienvenido a Subject " + usuario.get_nombre()
        	return "Bienvenia a Subject " + usuario.get_nombre()
@@ -36,7 +36,7 @@ class Controller(object):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
         if(l == []):
             return 'usuario incorrecto'
-        if(l[0][0] != password):
+        if(l[0][0] != hash(password)):
             return 0
         return 1
 

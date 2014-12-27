@@ -4,6 +4,7 @@
 import sys
 sys.path.append("..")
 from Controlador import Comandos, PasswordHashing
+from PasswordHashing import Password
 import psycopg2
 
 

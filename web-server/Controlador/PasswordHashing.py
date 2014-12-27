@@ -50,7 +50,14 @@ class Password(object):
         hashing = hashlib.sha256()
         hashing.update(to_hash)
         return hashing.digest()
-        
+    
+    def get_salt(self):
+        '''
+        Regresa el salt de la contrasena
+        returns: el salt de la contrasena
+        '''
+        return self.__salt
+ 
     
         
         

@@ -3,7 +3,7 @@
 #Clase que abstrae la informacion de un usuario
 import sys
 sys.path.append("..")
-from Controlador import Comandos
+from Controlador import Comandos, PasswordHashing
 import psycopg2
 
 
@@ -32,7 +32,7 @@ class Usuario(object):
         self.__nick_name = nick_name
         self.__foto = foto
         self.__escuela = escuela
-        self.__password = password
+        self.__password = Password(password, PasswordHashing.salt())
         self.__nacionalidad = nacionalidad
         self.__f_nacimiento = f_nacimiento
         self.__rating = rating
@@ -189,14 +189,14 @@ class Usuario(object):
         Actualiza la contrasena del usuario
         password: la nueva contrasena del usuario
         '''
-        self.__password = password
+        self.__password = Password(password, PasswordHashing.salt())
 
     def registra(self):
         '''
         Registra al usuario en la base de datos
         '''
-        ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
-        VALUES ('+'\''+str(self.__nombre)+'\''+','+'\''+str(self.__apellido)+'\''+','+'\''+str(self.__genero)+'\''+','+'\''+str(self.__nick_name)+'\''+','+ str(self.__foto)+','+str(self.__escuela)+','+'\''+str(self.__password)+'\''+','+str(self.__nacionalidad)+','+'\''+str(self.__f_nacimiento)+'\''+','+str(self.__rating)+')')
+        Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) \
+        VALUES ('+'\''+str(self.__nombre)+'\''+','+'\''+str(self.__apellido)+'\''+','+'\''+str(self.__genero)+'\''+','+'\''+str(self.__nick_name)+'\''+','+ str(self.__escuela)+','+str(self.__nacionalidad)+','+'\''+str(self.__f_nacimiento)+'\''+','+str(self.__rating)+','+'\''+str(self.__foto)+'\''+','+ str(self.__password.create_hash()) + ',' + str(self.__password.get_salt()) +')')
      
     def get_grupos(self):
         '''

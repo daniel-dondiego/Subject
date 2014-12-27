@@ -10,7 +10,7 @@ def salt():
     Regresa una cadena de bytes aleatoria del mismo tamano del hash
     returns: una cadena aleatoria de bytes del tamano del hash
     '''
-    return os.urandom(HASH_BYTE_SIZE)
+    return os.urandom(HASH_BYTE_SIZE).encode('hex')
 
 def slow_equals(hash1, hash2):
     '''
@@ -52,7 +52,7 @@ class Password(object):
         to_hash = str(self.__salt) + self.__password
         hashing = hashlib.sha256()
         hashing.update(to_hash)
-        return hashing.digest()
+        return hashing.hexdigest()
     
     def get_salt(self):
         '''

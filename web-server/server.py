@@ -8,6 +8,7 @@ from Controlador import Controller
 import atexit
 import threading
 import cherrypy
+from cherrypy import log
 import cgi
 import tempfile
 import os, os.path
@@ -67,7 +68,7 @@ class Root(object):
     def get_info(self):
         return "<p>Holaa</p>"
 
-    @cherrypy.expose
+    @cherrypy.expose    
     def get_publicaciones(self):
         return """
                 <form action="publica" method="post" enctype="multipart/form-data">
@@ -86,23 +87,26 @@ class Root(object):
                 """
 
     @cherrypy.expose
-    def publica(self, contentp, materia, archivo):
+    def publica(self, contentp, materia, archivo=None):
+        out = """<html>
+                    <body>
+                        myFile length: %s<br />
+                        myFile filename: %s<br />
+                        myFile mime-type: %s
+                    </body>
+                </html>"""
         size = 0
         allData=''
-        #logging.info('myfile: ' + str(archivo))        
         while True:
             data = archivo.file.read(8192)
             allData+=data
             if not data:
                     break
             size += len(data)
-
-        savedFile=open(archivo.filename, 'wb')
-        #logging.info('writing file: ' + archivo.filename)
+        savedFile=open(archivo.filename , 'wb')
         savedFile.write(allData)
-        savedFile.close()
-        return "done!"
-        
+        savedFile.close()           
+        return out % (size, archivo.filename, archivo.type)
 
     @cherrypy.expose
     def logout(self): 
@@ -129,6 +133,7 @@ class Root(object):
         isvalid = cherrypy.session.get('isvalid')
         return {'email':email,'isvalid':isvalid}     
 
-cherrypy.request.process_request_body = False
+cherrypy.server.max_request_body_size = 0
+cherrypy.server.socket_timeout = 60
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

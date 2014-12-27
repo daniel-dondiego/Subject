@@ -26,8 +26,8 @@ class Controller(object):
 	    return "Debe llenar el campo del genero."
 	#c_conf = EnviaCorreos.EnviaCorreos()
 	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
-	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password) \
-		VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'some\',%d);'%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()),str(usuario.get_f_nacimiento()),hash(str(usuario.get_password()))))
+	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) \
+		VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()),str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
 	if(usuario.get_genero() == 'm'):
    		return "Bienvenido a Subject " + usuario.get_nombre()
        	return "Bienvenia a Subject " + usuario.get_nombre()

@@ -1,10 +1,10 @@
 #!/usr/bin/python
-# -*- coding: utf-8 -*-
 #Clase que abstrae la informacion de un usuario
 import sys
 sys.path.append("..")
-from Controlador import Comandos
+from Controlador import Conexion, Comandos, PasswordHashing
 import psycopg2
+import struct
 
 
 class Usuario(object):
@@ -32,7 +32,7 @@ class Usuario(object):
         self.__nick_name = nick_name
         self.__foto = foto
         self.__escuela = escuela
-        self.__password = password
+        self.__password = PasswordHashing.Password(password, PasswordHashing.salt())
         self.__nacionalidad = nacionalidad
         self.__f_nacimiento = f_nacimiento
         self.__rating = rating
@@ -189,14 +189,15 @@ class Usuario(object):
         Actualiza la contrasena del usuario
         password: la nueva contrasena del usuario
         '''
-        self.__password = password
+        self.__password = PasswordHashing.Password(password, PasswordHashing.salt())
 
     def registra(self):
         '''
         Registra al usuario en la base de datos
         '''
-        ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,foto,escuela,password,nacionalidad,f_nacimiento,rating) \
-        VALUES ('+'\''+str(self.__nombre)+'\''+','+'\''+str(self.__apellido)+'\''+','+'\''+str(self.__genero)+'\''+','+'\''+str(self.__nick_name)+'\''+','+ str(self.__foto)+','+str(self.__escuela)+','+'\''+str(self.__password)+'\''+','+str(self.__nacionalidad)+','+'\''+str(self.__f_nacimiento)+'\''+','+str(self.__rating)+')')
+        c = Conexion.getConexion()
+        cur = c.cursor()
+        cur.execute('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela, nacionalidad, f_nacimiento, rating, foto, salt, password) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (self.__nombre, self.__apellido, self.__genero, self.__nick_name, self.__escuela, self.__nacionalidad, self.__f_nacimiento, self.__rating, self.__foto, psycopg2.Binary(self.__password.get_salt()), psycopg2.Binary(self.__password.create_hash())))
      
     def get_grupos(self):
         '''
@@ -208,6 +209,5 @@ class Usuario(object):
         return Comandos.consulta(s)
         
     
-        
 
 

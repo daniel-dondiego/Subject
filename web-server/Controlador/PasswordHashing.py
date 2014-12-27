@@ -1,4 +1,7 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import os
+import hashlib
 
 HASH_BYTE_SIZE = 32
 
@@ -46,11 +49,18 @@ class Password(object):
         Crea el hash de la contrasena
         returns: el hash de la contrasena
         '''
-        to_hash = str(salt) + password
+        to_hash = str(self.__salt) + self.__password
         hashing = hashlib.sha256()
         hashing.update(to_hash)
         return hashing.digest()
-        
+    
+    def get_salt(self):
+        '''
+        Regresa el salt de la contrasena
+        returns: el salt de la contrasena
+        '''
+        return self.__salt
+ 
     
         
         

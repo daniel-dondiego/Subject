@@ -638,3 +638,532 @@
 [Mon Dec 22 01:38:59.649604 2014] [:error] [pid 8216:tid 139848456648448] [client 127.0.0.1:36324]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptools.py", line 124, in __call__, referer: http://subject/home
 [Mon Dec 22 01:38:59.649696 2014] [:error] [pid 8216:tid 139848456648448] [client 127.0.0.1:36324]     % self._name), referer: http://subject/home
 [Mon Dec 22 01:38:59.649777 2014] [:error] [pid 8216:tid 139848456648448] [client 127.0.0.1:36324] TypeError: The 'mako' Tool does not accept positional arguments; you must use keyword arguments., referer: http://subject/home
+[Fri Dec 26 01:26:37.698879 2014] [:error] [pid 13226:tid 140201615648512] [client 127.0.0.1:58436] mod_wsgi (pid=13226): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 01:26:37.698986 2014] [:error] [pid 13226:tid 140201615648512] [client 127.0.0.1:58436] mod_wsgi (pid=13226): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 01:26:37.699065 2014] [:error] [pid 13226:tid 140201615648512] [client 127.0.0.1:58436] Traceback (most recent call last):, referer: http://subject/
+[Fri Dec 26 01:26:37.699139 2014] [:error] [pid 13226:tid 140201615648512] [client 127.0.0.1:58436]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 46, in <module>, referer: http://subject/
+[Fri Dec 26 01:26:37.699531 2014] [:error] [pid 13226:tid 140201615648512] [client 127.0.0.1:58436]     cherrypy.tools.noBodyProcess = cherrypy.Tool('before_request_body', noBodyProcess), referer: http://subject/
+[Fri Dec 26 01:26:37.699607 2014] [:error] [pid 13226:tid 140201615648512] [client 127.0.0.1:58436] NameError: name 'noBodyProcess' is not defined, referer: http://subject/
+[Fri Dec 26 01:26:38.900623 2014] [:error] [pid 13226:tid 140201649219328] [client 127.0.0.1:58437] mod_wsgi (pid=13226): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 01:26:38.900739 2014] [:error] [pid 13226:tid 140201649219328] [client 127.0.0.1:58437] mod_wsgi (pid=13226): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 01:26:38.900813 2014] [:error] [pid 13226:tid 140201649219328] [client 127.0.0.1:58437] Traceback (most recent call last):, referer: http://subject/
+[Fri Dec 26 01:26:38.900876 2014] [:error] [pid 13226:tid 140201649219328] [client 127.0.0.1:58437]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 46, in <module>, referer: http://subject/
+[Fri Dec 26 01:26:38.900988 2014] [:error] [pid 13226:tid 140201649219328] [client 127.0.0.1:58437]     cherrypy.tools.noBodyProcess = cherrypy.Tool('before_request_body', noBodyProcess), referer: http://subject/
+[Fri Dec 26 01:26:38.901055 2014] [:error] [pid 13226:tid 140201649219328] [client 127.0.0.1:58437] NameError: name 'noBodyProcess' is not defined, referer: http://subject/
+[Fri Dec 26 01:26:39.390774 2014] [:error] [pid 13225:tid 140201582077696] [client 127.0.0.1:58438] mod_wsgi (pid=13225): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 01:26:39.390898 2014] [:error] [pid 13225:tid 140201582077696] [client 127.0.0.1:58438] mod_wsgi (pid=13225): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 01:26:39.390968 2014] [:error] [pid 13225:tid 140201582077696] [client 127.0.0.1:58438] Traceback (most recent call last):, referer: http://subject/
+[Fri Dec 26 01:26:39.391033 2014] [:error] [pid 13225:tid 140201582077696] [client 127.0.0.1:58438]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 46, in <module>, referer: http://subject/
+[Fri Dec 26 01:26:39.391388 2014] [:error] [pid 13225:tid 140201582077696] [client 127.0.0.1:58438]     cherrypy.tools.noBodyProcess = cherrypy.Tool('before_request_body', noBodyProcess), referer: http://subject/
+[Fri Dec 26 01:26:39.391466 2014] [:error] [pid 13225:tid 140201582077696] [client 127.0.0.1:58438] NameError: name 'noBodyProcess' is not defined, referer: http://subject/
+[Fri Dec 26 01:26:39.570883 2014] [:error] [pid 13226:tid 140201598863104] [client 127.0.0.1:58439] mod_wsgi (pid=13226): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 01:26:39.570996 2014] [:error] [pid 13226:tid 140201598863104] [client 127.0.0.1:58439] mod_wsgi (pid=13226): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 01:26:39.571084 2014] [:error] [pid 13226:tid 140201598863104] [client 127.0.0.1:58439] Traceback (most recent call last):, referer: http://subject/
+[Fri Dec 26 01:26:39.571164 2014] [:error] [pid 13226:tid 140201598863104] [client 127.0.0.1:58439]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 46, in <module>, referer: http://subject/
+[Fri Dec 26 01:26:39.571292 2014] [:error] [pid 13226:tid 140201598863104] [client 127.0.0.1:58439]     cherrypy.tools.noBodyProcess = cherrypy.Tool('before_request_body', noBodyProcess), referer: http://subject/
+[Fri Dec 26 01:26:39.571407 2014] [:error] [pid 13226:tid 140201598863104] [client 127.0.0.1:58439] NameError: name 'noBodyProcess' is not defined, referer: http://subject/
+[Fri Dec 26 02:02:13.202506 2014] [:error] [pid 17565:tid 140201598863104] [client 127.0.0.1:58738] mod_wsgi (pid=17565): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 02:02:13.277354 2014] [:error] [pid 17565:tid 140201598863104] [client 127.0.0.1:58738] mod_wsgi (pid=17565): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:02:13.277447 2014] [:error] [pid 17565:tid 140201598863104] [client 127.0.0.1:58738]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 99, referer: http://subject/
+[Fri Dec 26 02:02:13.277464 2014] [:error] [pid 17565:tid 140201598863104] [client 127.0.0.1:58738]     return "done", referer: http://subject/
+[Fri Dec 26 02:02:13.277470 2014] [:error] [pid 17565:tid 140201598863104] [client 127.0.0.1:58738] SyntaxError: 'return' outside function, referer: http://subject/
+[Fri Dec 26 02:02:14.565757 2014] [:error] [pid 17566:tid 140201773692672] [client 127.0.0.1:58739] mod_wsgi (pid=17566): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 02:02:14.565826 2014] [:error] [pid 17566:tid 140201773692672] [client 127.0.0.1:58739] mod_wsgi (pid=17566): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:02:14.565958 2014] [:error] [pid 17566:tid 140201773692672] [client 127.0.0.1:58739]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 99, referer: http://subject/
+[Fri Dec 26 02:02:14.565983 2014] [:error] [pid 17566:tid 140201773692672] [client 127.0.0.1:58739]     return "done", referer: http://subject/
+[Fri Dec 26 02:02:14.565994 2014] [:error] [pid 17566:tid 140201773692672] [client 127.0.0.1:58739] SyntaxError: 'return' outside function, referer: http://subject/
+[Fri Dec 26 02:02:14.998867 2014] [:error] [pid 17566:tid 140201691182848] [client 127.0.0.1:58740] mod_wsgi (pid=17566): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 02:02:14.999013 2014] [:error] [pid 17566:tid 140201691182848] [client 127.0.0.1:58740] mod_wsgi (pid=17566): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:02:14.999217 2014] [:error] [pid 17566:tid 140201691182848] [client 127.0.0.1:58740]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 99, referer: http://subject/
+[Fri Dec 26 02:02:14.999259 2014] [:error] [pid 17566:tid 140201691182848] [client 127.0.0.1:58740]     return "done", referer: http://subject/
+[Fri Dec 26 02:02:14.999286 2014] [:error] [pid 17566:tid 140201691182848] [client 127.0.0.1:58740] SyntaxError: 'return' outside function, referer: http://subject/
+[Fri Dec 26 02:02:15.175732 2014] [:error] [pid 17565:tid 140201815656192] [client 127.0.0.1:58741] mod_wsgi (pid=17565): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 02:02:15.175810 2014] [:error] [pid 17565:tid 140201815656192] [client 127.0.0.1:58741] mod_wsgi (pid=17565): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:02:15.175953 2014] [:error] [pid 17565:tid 140201815656192] [client 127.0.0.1:58741]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 99, referer: http://subject/
+[Fri Dec 26 02:02:15.176001 2014] [:error] [pid 17565:tid 140201815656192] [client 127.0.0.1:58741]     return "done", referer: http://subject/
+[Fri Dec 26 02:02:15.176016 2014] [:error] [pid 17565:tid 140201815656192] [client 127.0.0.1:58741] SyntaxError: 'return' outside function, referer: http://subject/
+[Fri Dec 26 02:02:15.346550 2014] [:error] [pid 17566:tid 140201682790144] [client 127.0.0.1:58742] mod_wsgi (pid=17566): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Fri Dec 26 02:02:15.346713 2014] [:error] [pid 17566:tid 140201682790144] [client 127.0.0.1:58742] mod_wsgi (pid=17566): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:02:15.346941 2014] [:error] [pid 17566:tid 140201682790144] [client 127.0.0.1:58742]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 99, referer: http://subject/
+[Fri Dec 26 02:02:15.346979 2014] [:error] [pid 17566:tid 140201682790144] [client 127.0.0.1:58742]     return "done", referer: http://subject/
+[Fri Dec 26 02:02:15.346997 2014] [:error] [pid 17566:tid 140201682790144] [client 127.0.0.1:58742] SyntaxError: 'return' outside function, referer: http://subject/
+[Fri Dec 26 02:04:57.989625 2014] [:error] [pid 17930:tid 140201649219328] [client 127.0.0.1:58753] mod_wsgi (pid=17930, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:04:58.031437 2014] [:error] [pid 17930:tid 140201649219328] [client 127.0.0.1:58753] mod_wsgi (pid=17930): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:04:58.031632 2014] [:error] [pid 17930:tid 140201649219328] [client 127.0.0.1:58753]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 97, referer: http://subject/
+[Fri Dec 26 02:04:58.031655 2014] [:error] [pid 17930:tid 140201649219328] [client 127.0.0.1:58753]     saved_file=open(archivo.filename, 'wb'), referer: http://subject/
+[Fri Dec 26 02:04:58.031666 2014] [:error] [pid 17930:tid 140201649219328] [client 127.0.0.1:58753]     ^, referer: http://subject/
+[Fri Dec 26 02:04:58.031676 2014] [:error] [pid 17930:tid 140201649219328] [client 127.0.0.1:58753] IndentationError: unexpected indent, referer: http://subject/
+[Fri Dec 26 02:05:00.025607 2014] [:error] [pid 17929:tid 140201682790144] [client 127.0.0.1:58754] mod_wsgi (pid=17929, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:05:00.025731 2014] [:error] [pid 17929:tid 140201682790144] [client 127.0.0.1:58754] mod_wsgi (pid=17929): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:05:00.025930 2014] [:error] [pid 17929:tid 140201682790144] [client 127.0.0.1:58754]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 97, referer: http://subject/
+[Fri Dec 26 02:05:00.025972 2014] [:error] [pid 17929:tid 140201682790144] [client 127.0.0.1:58754]     saved_file=open(archivo.filename, 'wb'), referer: http://subject/
+[Fri Dec 26 02:05:00.025990 2014] [:error] [pid 17929:tid 140201682790144] [client 127.0.0.1:58754]     ^, referer: http://subject/
+[Fri Dec 26 02:05:00.026002 2014] [:error] [pid 17929:tid 140201682790144] [client 127.0.0.1:58754] IndentationError: unexpected indent, referer: http://subject/
+[Fri Dec 26 02:05:00.698753 2014] [:error] [pid 17930:tid 140201640826624] [client 127.0.0.1:58755] mod_wsgi (pid=17930, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:05:00.698861 2014] [:error] [pid 17930:tid 140201640826624] [client 127.0.0.1:58755] mod_wsgi (pid=17930): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Fri Dec 26 02:05:00.699067 2014] [:error] [pid 17930:tid 140201640826624] [client 127.0.0.1:58755]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 97, referer: http://subject/
+[Fri Dec 26 02:05:00.699107 2014] [:error] [pid 17930:tid 140201640826624] [client 127.0.0.1:58755]     saved_file=open(archivo.filename, 'wb'), referer: http://subject/
+[Fri Dec 26 02:05:00.699129 2014] [:error] [pid 17930:tid 140201640826624] [client 127.0.0.1:58755]     ^, referer: http://subject/
+[Fri Dec 26 02:05:00.699148 2014] [:error] [pid 17930:tid 140201640826624] [client 127.0.0.1:58755] IndentationError: unexpected indent, referer: http://subject/
+[Fri Dec 26 20:33:55.455642 2014] [:error] [pid 4537:tid 140665421793024] [client 127.0.0.1:45759] mod_wsgi (pid=4537, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:33:55.529549 2014] [:error] [pid 4537:tid 140665421793024] [client 127.0.0.1:45759] mod_wsgi (pid=4537): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:33:55.529662 2014] [:error] [pid 4537:tid 140665421793024] [client 127.0.0.1:45759]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:33:55.529680 2014] [:error] [pid 4537:tid 140665421793024] [client 127.0.0.1:45759]     @cherrypy.exposex|
+[Fri Dec 26 20:33:55.529686 2014] [:error] [pid 4537:tid 140665421793024] [client 127.0.0.1:45759]                      ^
+[Fri Dec 26 20:33:55.529692 2014] [:error] [pid 4537:tid 140665421793024] [client 127.0.0.1:45759] SyntaxError: invalid syntax
+[Fri Dec 26 20:33:58.257587 2014] [:error] [pid 4536:tid 140665446971136] [client 127.0.0.1:45760] mod_wsgi (pid=4536, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:33:58.257676 2014] [:error] [pid 4536:tid 140665446971136] [client 127.0.0.1:45760] mod_wsgi (pid=4536): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:33:58.257916 2014] [:error] [pid 4536:tid 140665446971136] [client 127.0.0.1:45760]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:33:58.257955 2014] [:error] [pid 4536:tid 140665446971136] [client 127.0.0.1:45760]     @cherrypy.exposex|
+[Fri Dec 26 20:33:58.257973 2014] [:error] [pid 4536:tid 140665446971136] [client 127.0.0.1:45760]                      ^
+[Fri Dec 26 20:33:58.257989 2014] [:error] [pid 4536:tid 140665446971136] [client 127.0.0.1:45760] SyntaxError: invalid syntax
+[Fri Dec 26 20:33:59.365590 2014] [:error] [pid 4537:tid 140665413400320] [client 127.0.0.1:45761] mod_wsgi (pid=4537, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:33:59.365690 2014] [:error] [pid 4537:tid 140665413400320] [client 127.0.0.1:45761] mod_wsgi (pid=4537): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:33:59.365936 2014] [:error] [pid 4537:tid 140665413400320] [client 127.0.0.1:45761]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:33:59.365985 2014] [:error] [pid 4537:tid 140665413400320] [client 127.0.0.1:45761]     @cherrypy.exposex|
+[Fri Dec 26 20:33:59.366013 2014] [:error] [pid 4537:tid 140665413400320] [client 127.0.0.1:45761]                      ^
+[Fri Dec 26 20:33:59.366076 2014] [:error] [pid 4537:tid 140665413400320] [client 127.0.0.1:45761] SyntaxError: invalid syntax
+[Fri Dec 26 20:34:00.209818 2014] [:error] [pid 4536:tid 140665438578432] [client 127.0.0.1:45762] mod_wsgi (pid=4536, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.209887 2014] [:error] [pid 4536:tid 140665438578432] [client 127.0.0.1:45762] mod_wsgi (pid=4536): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.210004 2014] [:error] [pid 4536:tid 140665438578432] [client 127.0.0.1:45762]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:34:00.210037 2014] [:error] [pid 4536:tid 140665438578432] [client 127.0.0.1:45762]     @cherrypy.exposex|
+[Fri Dec 26 20:34:00.210048 2014] [:error] [pid 4536:tid 140665438578432] [client 127.0.0.1:45762]                      ^
+[Fri Dec 26 20:34:00.210056 2014] [:error] [pid 4536:tid 140665438578432] [client 127.0.0.1:45762] SyntaxError: invalid syntax
+[Fri Dec 26 20:34:00.435326 2014] [:error] [pid 4536:tid 140665430185728] [client 127.0.0.1:45763] mod_wsgi (pid=4536, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.435373 2014] [:error] [pid 4536:tid 140665430185728] [client 127.0.0.1:45763] mod_wsgi (pid=4536): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.435487 2014] [:error] [pid 4536:tid 140665430185728] [client 127.0.0.1:45763]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:34:00.435507 2014] [:error] [pid 4536:tid 140665430185728] [client 127.0.0.1:45763]     @cherrypy.exposex|
+[Fri Dec 26 20:34:00.435518 2014] [:error] [pid 4536:tid 140665430185728] [client 127.0.0.1:45763]                      ^
+[Fri Dec 26 20:34:00.435526 2014] [:error] [pid 4536:tid 140665430185728] [client 127.0.0.1:45763] SyntaxError: invalid syntax
+[Fri Dec 26 20:34:00.609024 2014] [:error] [pid 4536:tid 140665421793024] [client 127.0.0.1:45764] mod_wsgi (pid=4536, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.609098 2014] [:error] [pid 4536:tid 140665421793024] [client 127.0.0.1:45764] mod_wsgi (pid=4536): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.609292 2014] [:error] [pid 4536:tid 140665421793024] [client 127.0.0.1:45764]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:34:00.609327 2014] [:error] [pid 4536:tid 140665421793024] [client 127.0.0.1:45764]     @cherrypy.exposex|
+[Fri Dec 26 20:34:00.609345 2014] [:error] [pid 4536:tid 140665421793024] [client 127.0.0.1:45764]                      ^
+[Fri Dec 26 20:34:00.609362 2014] [:error] [pid 4536:tid 140665421793024] [client 127.0.0.1:45764] SyntaxError: invalid syntax
+[Fri Dec 26 20:34:00.771948 2014] [:error] [pid 4537:tid 140665405007616] [client 127.0.0.1:45765] mod_wsgi (pid=4537, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.771982 2014] [:error] [pid 4537:tid 140665405007616] [client 127.0.0.1:45765] mod_wsgi (pid=4537): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.772062 2014] [:error] [pid 4537:tid 140665405007616] [client 127.0.0.1:45765]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:34:00.772073 2014] [:error] [pid 4537:tid 140665405007616] [client 127.0.0.1:45765]     @cherrypy.exposex|
+[Fri Dec 26 20:34:00.772079 2014] [:error] [pid 4537:tid 140665405007616] [client 127.0.0.1:45765]                      ^
+[Fri Dec 26 20:34:00.772084 2014] [:error] [pid 4537:tid 140665405007616] [client 127.0.0.1:45765] SyntaxError: invalid syntax
+[Fri Dec 26 20:34:00.941844 2014] [:error] [pid 4536:tid 140665413400320] [client 127.0.0.1:45766] mod_wsgi (pid=4536, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.941912 2014] [:error] [pid 4536:tid 140665413400320] [client 127.0.0.1:45766] mod_wsgi (pid=4536): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:00.942076 2014] [:error] [pid 4536:tid 140665413400320] [client 127.0.0.1:45766]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:34:00.942106 2014] [:error] [pid 4536:tid 140665413400320] [client 127.0.0.1:45766]     @cherrypy.exposex|
+[Fri Dec 26 20:34:00.942118 2014] [:error] [pid 4536:tid 140665413400320] [client 127.0.0.1:45766]                      ^
+[Fri Dec 26 20:34:00.942129 2014] [:error] [pid 4536:tid 140665413400320] [client 127.0.0.1:45766] SyntaxError: invalid syntax
+[Fri Dec 26 20:34:01.116783 2014] [:error] [pid 4536:tid 140665405007616] [client 127.0.0.1:45767] mod_wsgi (pid=4536, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:01.116871 2014] [:error] [pid 4536:tid 140665405007616] [client 127.0.0.1:45767] mod_wsgi (pid=4536): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Fri Dec 26 20:34:01.117078 2014] [:error] [pid 4536:tid 140665405007616] [client 127.0.0.1:45767]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 70
+[Fri Dec 26 20:34:01.117119 2014] [:error] [pid 4536:tid 140665405007616] [client 127.0.0.1:45767]     @cherrypy.exposex|
+[Fri Dec 26 20:34:01.117142 2014] [:error] [pid 4536:tid 140665405007616] [client 127.0.0.1:45767]                      ^
+[Fri Dec 26 20:34:01.117162 2014] [:error] [pid 4536:tid 140665405007616] [client 127.0.0.1:45767] SyntaxError: invalid syntax
+[Sat Dec 27 01:11:32.494219 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483] mod_wsgi (pid=11882): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:11:32.494259 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483] mod_wsgi (pid=11882): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:11:32.494289 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:11:32.494319 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:11:32.494414 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:11:32.494428 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:32.536914 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:11:32.536955 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:11:32.536991 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:11:32.537003 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:11:32.537135 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:11:32.537158 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:11:32.537176 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:11:32.537186 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:11:32.540112 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:11:32.540139 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:32.540174 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:11:32.540193 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:32.540219 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:11:32.540236 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:32.551403 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:11:32.551446 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:11:32.551481 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:11:32.551507 2014] [:error] [pid 11882:tid 140229832210176] [client 127.0.0.1:48483] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:11:33.152802 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484] mod_wsgi (pid=11882): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:11:33.152914 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484] mod_wsgi (pid=11882): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:11:33.152995 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:11:33.153059 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:11:33.153137 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:11:33.153166 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:33.153210 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:11:33.153237 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:11:33.153299 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:11:33.153326 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:11:33.153362 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:11:33.153386 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:11:33.153420 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:11:33.153444 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:11:33.153480 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:11:33.153504 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:33.153538 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:11:33.153562 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:33.153597 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:11:33.153621 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:33.153658 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:11:33.153683 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:11:33.153716 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:11:33.153767 2014] [:error] [pid 11882:tid 140229823817472] [client 127.0.0.1:48484] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:11:33.710837 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485] mod_wsgi (pid=11882): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:11:33.710884 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485] mod_wsgi (pid=11882): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:11:33.710913 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:11:33.710943 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:11:33.711001 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:11:33.711017 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:33.711043 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:11:33.711056 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:11:33.711078 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:11:33.711092 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:11:33.711113 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:11:33.711126 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:11:33.711147 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:11:33.711161 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:11:33.711182 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:11:33.711196 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:33.711217 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:11:33.711231 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:33.711252 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:11:33.711266 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:33.711288 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:11:33.711301 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:11:33.711321 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:11:33.711348 2014] [:error] [pid 11882:tid 140229742688000] [client 127.0.0.1:48485] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:11:34.005366 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486] mod_wsgi (pid=11881): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:11:34.005419 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486] mod_wsgi (pid=11881): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:11:34.005443 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:11:34.005466 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:11:34.005582 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:11:34.005597 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:34.005694 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:11:34.005708 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:11:34.005728 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:11:34.005738 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:11:34.005856 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:11:34.005870 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:11:34.005887 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:11:34.005897 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:11:34.006042 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:11:34.006060 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:34.006079 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:11:34.006089 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:34.006103 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:11:34.006112 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:34.006487 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:11:34.006514 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:11:34.006550 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:11:34.006577 2014] [:error] [pid 11881:tid 140229832210176] [client 127.0.0.1:48486] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:11:34.064783 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487] mod_wsgi (pid=11881): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:11:34.064825 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487] mod_wsgi (pid=11881): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:11:34.064846 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:11:34.064866 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:11:34.064896 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:11:34.064907 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:34.064926 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:11:34.064936 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:11:34.064950 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:11:34.064960 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:11:34.064974 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:11:34.064983 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:11:34.064997 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:11:34.065006 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:11:34.065020 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:11:34.065029 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:34.065043 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:11:34.065053 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:11:34.065079 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:11:34.065089 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:11:34.065104 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:11:34.065113 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:11:34.065126 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:11:34.065147 2014] [:error] [pid 11881:tid 140229823817472] [client 127.0.0.1:48487] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:13:39.634410 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488] mod_wsgi (pid=12025): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:13:39.634455 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488] mod_wsgi (pid=12025): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:13:39.634484 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:13:39.634516 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:13:39.634615 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:13:39.634630 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:13:39.634721 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:13:39.634734 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:13:39.634752 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:13:39.634762 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:13:39.634874 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:13:39.634887 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:13:39.634904 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:13:39.634913 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:13:39.635029 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:13:39.635052 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:13:39.635069 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:13:39.635078 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:13:39.635092 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:13:39.635101 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:13:39.635424 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:13:39.635437 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:13:39.635453 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:13:39.635472 2014] [:error] [pid 12025:tid 140229830698752] [client 127.0.0.1:48488] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:13:40.309042 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489] mod_wsgi (pid=12025): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:13:40.309167 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489] mod_wsgi (pid=12025): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:13:40.309214 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:13:40.309256 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:13:40.309314 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:13:40.309338 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:13:40.309375 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:13:40.309397 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:13:40.309429 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:13:40.309450 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:13:40.309484 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:13:40.309505 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:13:40.309555 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:13:40.309577 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:13:40.309608 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:13:40.309628 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:13:40.309658 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:13:40.309679 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:13:40.309709 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:13:40.309728 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:13:40.309760 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:13:40.309780 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:13:40.309809 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:13:40.309846 2014] [:error] [pid 12025:tid 140229822306048] [client 127.0.0.1:48489] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:13:41.248074 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490] mod_wsgi (pid=12026): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:13:41.248122 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490] mod_wsgi (pid=12026): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:13:41.248151 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:13:41.248178 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:13:41.248317 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:13:41.248337 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:13:41.248474 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:13:41.248492 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:13:41.248518 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:13:41.248546 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:13:41.248717 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:13:41.248735 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:13:41.248759 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:13:41.248774 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:13:41.248952 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:13:41.248970 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:13:41.248994 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:13:41.249009 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:13:41.249030 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:13:41.249044 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:13:41.249550 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:13:41.249568 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:13:41.249592 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:13:41.249622 2014] [:error] [pid 12026:tid 140229830698752] [client 127.0.0.1:48490] IOError: [Errno 13] Permission denied: '/Access.log', referer: http://subject/
+[Sat Dec 27 01:15:29.689886 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491] mod_wsgi (pid=12128): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:15:29.689959 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491] mod_wsgi (pid=12128): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:15:29.689987 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:15:29.690010 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:15:29.690121 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:15:29.690147 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:15:29.690239 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:15:29.690252 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:15:29.690270 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:15:29.690280 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:15:29.690390 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:15:29.690402 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:15:29.690419 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:15:29.690429 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:15:29.690547 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:15:29.690559 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:15:29.690576 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:15:29.690586 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:15:29.690600 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:15:29.690609 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:15:29.690927 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:15:29.690940 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:15:29.690956 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:15:29.690975 2014] [:error] [pid 12128:tid 140229829187328] [client 127.0.0.1:48491] IOError: [Errno 13] Permission denied: '/home/miguel/Documentos/Modelado/Subject/logs/access.log', referer: http://subject/
+[Sat Dec 27 01:15:30.438714 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492] mod_wsgi (pid=12128): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:15:30.438773 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492] mod_wsgi (pid=12128): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:15:30.438818 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:15:30.438859 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:15:30.438903 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:15:30.438917 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:15:30.438946 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:15:30.438968 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:15:30.438998 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:15:30.439011 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:15:30.439027 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:15:30.439037 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:15:30.439065 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:15:30.439088 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:15:30.439110 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:15:30.439121 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:15:30.439135 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:15:30.439145 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:15:30.439159 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:15:30.439169 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:15:30.439198 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:15:30.439212 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:15:30.439227 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:15:30.439273 2014] [:error] [pid 12128:tid 140229820794624] [client 127.0.0.1:48492] IOError: [Errno 13] Permission denied: '/home/miguel/Documentos/Modelado/Subject/logs/access.log', referer: http://subject/
+[Sat Dec 27 01:16:43.059723 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493] mod_wsgi (pid=12238): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:16:43.059887 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493] mod_wsgi (pid=12238): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:16:43.059922 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:16:43.059953 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:16:43.060066 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:16:43.060081 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:16:43.060174 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:16:43.060187 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:16:43.060205 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:16:43.060216 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:16:43.060329 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:16:43.060342 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:16:43.060359 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:16:43.060369 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:16:43.060486 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:16:43.060499 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:16:43.060516 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:16:43.060526 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:16:43.060540 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:16:43.060558 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:16:43.060881 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:16:43.060895 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:16:43.060911 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:16:43.060932 2014] [:error] [pid 12238:tid 140229709117184] [client 127.0.0.1:48493] IOError: [Errno 13] Permission denied: '/home/miguel/Documentos/Modelado/Subject/logs/access1.log', referer: http://subject/
+[Sat Dec 27 01:16:43.829398 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494] mod_wsgi (pid=12238): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:16:43.829470 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494] mod_wsgi (pid=12238): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:16:43.829500 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:16:43.829538 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 138, in <module>, referer: http://subject/
+[Sat Dec 27 01:16:43.829574 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:16:43.829588 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:16:43.829610 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:16:43.829623 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:16:43.829642 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:16:43.829654 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:16:43.829673 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:16:43.829685 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:16:43.829703 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:16:43.829716 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:16:43.829734 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:16:43.829747 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:16:43.829778 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:16:43.829792 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:16:43.829810 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:16:43.829822 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:16:43.829841 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:16:43.829854 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:16:43.829872 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:16:43.829895 2014] [:error] [pid 12238:tid 140229700724480] [client 127.0.0.1:48494] IOError: [Errno 13] Permission denied: '/home/miguel/Documentos/Modelado/Subject/logs/access1.log', referer: http://subject/
+[Sat Dec 27 01:57:37.896206 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454] mod_wsgi (pid=13222): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:57:37.921543 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454] mod_wsgi (pid=13222): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:57:37.921611 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:57:37.921636 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 139, in <module>, referer: http://subject/
+[Sat Dec 27 01:57:37.921768 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:57:37.921788 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:37.921877 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:57:37.921890 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:57:37.921907 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:57:37.921917 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:57:37.922042 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:57:37.922064 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:57:37.922094 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:57:37.922111 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:57:37.922311 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:57:37.922336 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:37.922377 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:57:37.922398 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:37.922424 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:57:37.922450 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:37.923029 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:57:37.923069 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:57:37.923113 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:57:37.923147 2014] [:error] [pid 13222:tid 140229583226624] [client 127.0.0.1:49454] IOError: [Errno 13] Permission denied: '/access.log', referer: http://subject/
+[Sat Dec 27 01:57:39.008569 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455] mod_wsgi (pid=13222): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:57:39.008627 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455] mod_wsgi (pid=13222): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:57:39.008655 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:57:39.008682 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 139, in <module>, referer: http://subject/
+[Sat Dec 27 01:57:39.008719 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:57:39.008734 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.008757 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:57:39.008770 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:57:39.008790 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:57:39.008815 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:57:39.008836 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.008849 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:57:39.008869 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.008882 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:57:39.008902 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:57:39.008914 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.008933 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:57:39.008946 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.008965 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:57:39.008977 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.008998 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:57:39.009011 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:57:39.009029 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:57:39.009054 2014] [:error] [pid 13222:tid 140229717509888] [client 127.0.0.1:49455] IOError: [Errno 13] Permission denied: '/access.log', referer: http://subject/
+[Sat Dec 27 01:57:39.466436 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456] mod_wsgi (pid=13222): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:57:39.466520 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456] mod_wsgi (pid=13222): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:57:39.466551 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:57:39.466579 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 139, in <module>, referer: http://subject/
+[Sat Dec 27 01:57:39.466618 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:57:39.466634 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.466672 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:57:39.466687 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:57:39.466709 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:57:39.466723 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:57:39.466744 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.466758 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:57:39.466779 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.466793 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:57:39.466813 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:57:39.466826 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.466847 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:57:39.466860 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.466880 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:57:39.466894 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.466915 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:57:39.466929 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:57:39.466948 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:57:39.466973 2014] [:error] [pid 13222:tid 140229591619328] [client 127.0.0.1:49456] IOError: [Errno 13] Permission denied: '/access.log', referer: http://subject/
+[Sat Dec 27 01:57:39.634506 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457] mod_wsgi (pid=13223): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:57:39.634592 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457] mod_wsgi (pid=13223): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:57:39.634636 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:57:39.634665 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 139, in <module>, referer: http://subject/
+[Sat Dec 27 01:57:39.634805 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:57:39.634824 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.634953 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:57:39.634971 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:57:39.634996 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:57:39.635011 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:57:39.635173 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.635190 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:57:39.635214 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.635228 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:57:39.635391 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:57:39.635409 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.635433 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:57:39.635447 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.635469 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:57:39.635482 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.635958 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:57:39.635975 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:57:39.635999 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:57:39.636028 2014] [:error] [pid 13223:tid 140229616797440] [client 127.0.0.1:49457] IOError: [Errno 13] Permission denied: '/access.log', referer: http://subject/
+[Sat Dec 27 01:57:39.798140 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458] mod_wsgi (pid=13222): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/
+[Sat Dec 27 01:57:39.798176 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458] mod_wsgi (pid=13222): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/
+[Sat Dec 27 01:57:39.798196 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458] Traceback (most recent call last):, referer: http://subject/
+[Sat Dec 27 01:57:39.798216 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 139, in <module>, referer: http://subject/
+[Sat Dec 27 01:57:39.798245 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     application = cherrypy.Application(Root(), '/', conf), referer: http://subject/
+[Sat Dec 27 01:57:39.798256 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 59, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.798273 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     self.merge(config), referer: http://subject/
+[Sat Dec 27 01:57:39.798283 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 101, in merge, referer: http://subject/
+[Sat Dec 27 01:57:39.798297 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     self.namespaces(self.config.get("/", {})), referer: http://subject/
+[Sat Dec 27 01:57:39.798306 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/lib/reprconf.py", line 120, in __call__, referer: http://subject/
+[Sat Dec 27 01:57:39.798320 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     handler(k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.798329 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cptree.py", line 54, in <lambda>, referer: http://subject/
+[Sat Dec 27 01:57:39.798342 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     self.namespaces["log"] = lambda k, v: setattr(self.log, k, v), referer: http://subject/
+[Sat Dec 27 01:57:39.798351 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 389, in _set_access_file, referer: http://subject/
+[Sat Dec 27 01:57:39.798364 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     self._set_file_handler(self.access_log, newvalue), referer: http://subject/
+[Sat Dec 27 01:57:39.798373 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 361, in _set_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.798387 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     self._add_builtin_file_handler(log, filename), referer: http://subject/
+[Sat Dec 27 01:57:39.798396 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/local/lib/python2.7/dist-packages/cherrypy/_cplogging.py", line 347, in _add_builtin_file_handler, referer: http://subject/
+[Sat Dec 27 01:57:39.798409 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     h = logging.FileHandler(fname), referer: http://subject/
+[Sat Dec 27 01:57:39.798418 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/lib/python2.7/logging/__init__.py", line 911, in __init__, referer: http://subject/
+[Sat Dec 27 01:57:39.798444 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     StreamHandler.__init__(self, self._open()), referer: http://subject/
+[Sat Dec 27 01:57:39.798454 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]   File "/usr/lib/python2.7/logging/__init__.py", line 936, in _open, referer: http://subject/
+[Sat Dec 27 01:57:39.798467 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458]     stream = open(self.baseFilename, self.mode), referer: http://subject/
+[Sat Dec 27 01:57:39.798485 2014] [:error] [pid 13222:tid 140229600012032] [client 127.0.0.1:49458] IOError: [Errno 13] Permission denied: '/access.log', referer: http://subject/

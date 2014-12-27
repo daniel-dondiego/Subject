@@ -37,7 +37,7 @@ input[type="submit"]:active {
     background-color: #06567D;	
 }
 
-input{
+input[type="submit"]	{
 	border-radius: 8px;
   	background-color: #47C4FF;
   	font-family: "Arial";
@@ -193,6 +193,7 @@ select:active {
 	margin: 0 auto;
 	background-color:#DFDCDC;
 	padding: 10px 0px;
+	height: auto;
 }
 
 #contenido #publicaciones_usuario {
@@ -305,6 +306,7 @@ body {
 
 /* Para pantallas de 100px en adelante */
 @media screen and (min-width: 100px){
+	
 	.header_perfil {
 		height: 160px;
 		margin-top: -2px;
@@ -347,7 +349,6 @@ body {
 	#contenido {
 		margin-top: 0px;
 		width: 350px;
-		height: 600px;
 	}
 
 	#contenido #publicaciones_usuario{
@@ -396,24 +397,139 @@ body {
 
 /* Para pantallas de 480px en adelante */
 @media screen and (min-width: 480px){
+
 	.header_perfil {
-		height: 170px;
+		height: 160px;
+		margin-top: -2px;
+	}
+
+	.header_perfil #foto_perfil{
+		width: 120px;
+		height: 120px;
+		margin-left: 6%;
+		margin-top: 15px;
+		position: fixed;
+	}
+
+	.header_perfil #foto_perfil img{
+		width: 115px;
+		height: 115px;
+		margin: 0 auto;
+		border-radius: 10px;
+	}
+
+	.header_perfil #datos_principales{
+		width: 200px;
+		height: 90px;
+		margin-left: 34%;
+		margin-top: 25px;
+		position: fixed;
+		color: white;
+	}
+
+	.header_perfil #datos_principales h2 {
+		margin-top: 5px;
+		font-family:'Open Sans', sans-serif;
+	}
+
+	.header_perfil #datos_principales h3 {
+		margin-top: -5px;
+		font-family: 'Open Sans', sans-serif;
 	}
 
 	.menu_centro {
-		margin-top: 20px;
+		margin-top: -50px;
 	}
+
+	#contenido {
+		margin-top: 0px;
+		width: 460px;
+	}
+
+	#contenido #publicaciones_usuario{
+		width: 300px;
+		height: 100px;
+	}
+
+	#contenido #publicacion_nueva{
+		width: 400px;
+	}
+
+	#contenido #publicacion_nueva img{
+		width: 35px;
+		height: 35px;
+		margin-bottom: -10px;
+	}
+
+	#espacio {
+		height: 250px;
+		width: auto;
+	}
+
+	#contenido #publicacion_nueva input[type="submit"]{
+		width: 162px;
+	}
+
+	#contenido #publicacion_nueva TEXTAREA{
+		margin-left: 4%;
+		margin-top: 10px;
+		width: 363px;
+		height: 50px;
+		font-size: 14px;
+		font-family: "Arial";
+	}
+
+	#contenido #publicacion_nueva select{
+		margin-left: 4%;
+		width: 162px;
+		margin-bottom: 5px;
+	}
+
 }
 
 /* Para pantallas de 480px en adelante */
 @media screen and (min-width: 767px){
-	.header_perfil {
-		height: 180px;
+	
+	#contenido {
+		margin-top: 0px;
+		width: 760px;
 	}
 
-	.menu_centro {
-		margin-top: 30px;
+	#contenido #publicaciones_usuario{
+		width: 300px;
+		height: 100px;
 	}
+
+	#contenido #publicacion_nueva{
+		width: 500px;
+	}
+
+	#contenido #publicacion_nueva img{
+		width: 35px;
+		height: 35px;
+		margin-bottom: -10px;
+	}
+
+
+	#contenido #publicacion_nueva input[type="submit"]{
+		width: 162px;
+	}
+
+	#contenido #publicacion_nueva TEXTAREA{
+		margin-left: 4%;
+		margin-top: 10px;
+		width: 455px;
+		height: 50px;
+		font-size: 14px;
+		font-family: "Arial";
+	}
+
+	#contenido #publicacion_nueva select{
+		margin-left: 13%;
+		width: 162px;
+		margin-bottom: 5px;
+	}
+
 }
 
 /* Para pantallas de 950px en adelante */

@@ -8,6 +8,8 @@ from Controlador import Controller
 import atexit
 import threading
 import cherrypy
+import cgi
+import tempfile
 import os, os.path
 
 cherrypy.config.update({'environment': 'embedded'})
@@ -68,20 +70,39 @@ class Root(object):
     @cherrypy.expose
     def get_publicaciones(self):
         return """
-                <form action="#" method="post">
+                <form action="publica" method="post" enctype="multipart/form-data">
                     <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
                     <select name="materia" placeholder="Escoge una materia:">              
                         <option selected="selected" value="n">Materia</option>
-                        <option value="a">Álgebra</option>
+                        <option value="Álgebra">Álgebra</option>
                         <option value="c">Cálculo</option>
                     </select>
                     <label for="adjuntar_archivo">
                         <img src="/static/img/adjuntar.png"/>
                     </label>
-                    <input id="adjuntar_archivo" type="file"/>
+                    <input id="adjuntar_archivo" type="file" name="archivo"/>
                     <input type="submit" value="Publicar"/>
                 </form> 
                 """
+
+    @cherrypy.expose
+    def publica(self, contentp, materia, archivo):
+        size = 0
+        allData=''
+        #logging.info('myfile: ' + str(archivo))        
+        while True:
+            data = archivo.file.read(8192)
+            allData+=data
+            if not data:
+                    break
+            size += len(data)
+
+        savedFile=open(archivo.filename, 'wb')
+        #logging.info('writing file: ' + archivo.filename)
+        savedFile.write(allData)
+        savedFile.close()
+        return "done!"
+        
 
     @cherrypy.expose
     def logout(self): 
@@ -108,5 +129,6 @@ class Root(object):
         isvalid = cherrypy.session.get('isvalid')
         return {'email':email,'isvalid':isvalid}     
 
+cherrypy.request.process_request_body = False
 conf = os.path.join(os.path.dirname(__file__),'server.conf')
 application = cherrypy.Application(Root(), '/', conf)

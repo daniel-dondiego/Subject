@@ -198,6 +198,7 @@ class Usuario(object):
         c = Conexion.getConexion()
         cur = c.cursor()
         cur.execute('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela, nacionalidad, f_nacimiento, rating, foto, salt, password) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (self.__nombre, self.__apellido, self.__genero, self.__nick_name, self.__escuela, self.__nacionalidad, self.__f_nacimiento, self.__rating, self.__foto, psycopg2.Binary(self.__password.get_salt()), psycopg2.Binary(self.__password.create_hash())))
+        c.commit()
      
     def get_grupos(self):
         '''
@@ -208,6 +209,9 @@ class Usuario(object):
         s += self.__id + ')'
         return Comandos.consulta(s)
         
-    
-
+u = Usuario(None,"Luis","Soto","M","Lu1sZiTh0","http","1","Luisz","1","10-10-2010",0)
+u.registra()
+rows = Comandos.consulta("SELECT * FROM usuario")
+for row in rows:
+    print 'Salt: ' + str(row[10])
 

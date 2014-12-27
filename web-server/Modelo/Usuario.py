@@ -208,6 +208,7 @@ class Usuario(object):
         return Comandos.consulta(s)
         
     
-        
+u = Usuario(None, 'Luis', 'Soto', 'm', 'Luisito', 'http', None, 'Luisit0', None, '19-10-1990', 10)
+u.registra()
 
 

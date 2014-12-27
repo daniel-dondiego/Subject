@@ -195,8 +195,8 @@ class Usuario(object):
         '''
         Registra al usuario en la base de datos
         '''
-        Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) \
-        VALUES ('+'\''+str(self.__nombre)+'\''+','+'\''+str(self.__apellido)+'\''+','+'\''+str(self.__genero)+'\''+','+'\''+str(self.__nick_name)+'\''+','+ str(self.__escuela)+','+str(self.__nacionalidad)+','+'\''+str(self.__f_nacimiento)+'\''+','+str(self.__rating)+','+'\''+str(self.__foto)+'\''+',' + str(self.__password.create_hash())  + ',' +  str(self.__password.get_salt()) +')')
+        Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela, nacionalidad, f_nacimiento, rating, foto, salt, password) \
+        VALUES ('+'\''+str(self.__nombre)+'\''+','+'\''+str(self.__apellido)+'\''+','+'\''+str(self.__genero)+'\''+','+'\''+str(self.__nick_name)+'\''+','+ str(self.__escuela)+','+str(self.__nacionalidad)+','+'\''+str(self.__f_nacimiento)+'\''+','+str(self.__rating)+','+'\''+str(self.__foto)+'\''+ ',' + str(self.__password.get_salt()) + ', ' + str(self.__password.create_hash()) + ')')
      
     def get_grupos(self):
         '''

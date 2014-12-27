@@ -32,14 +32,14 @@ def slow_equals(hash1, hash2):
 
 class Password(object):
     
-    def __init__(self, password):
+    def __init__(self, password, salt):
         '''
         Construye un objeto de tipo Password
         password: la contrasena del usuario
         salt: cadena aleatoria de bytes independiente de la contrasena
         '''
         self.__password = password
-        self.__salt = salt()
+        self.__salt = salt
         
     def create_hash(self):
         '''

@@ -14,7 +14,7 @@ class Escuela(object):
         self.__nombre = nombre
         self.__imagen = imagen
 
-    def __str__(self);
+    def __str__(self):
         '''
         Regresa un string con el nombre de la escuela
         Returns: el nombre de la escuela

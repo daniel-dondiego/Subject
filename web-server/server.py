@@ -120,8 +120,8 @@ class Perfil(object):
         return "Error"
 
     @cherrypy.expose
-    def publica(self, contentp, materia, archivo):
-        return control.publica(contentp,materia,archivo)  
+    def publica(self, contentp, materia, archivo=None):
+        return control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))  
 
 root = Root()
 root.perfil = Perfil()

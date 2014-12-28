@@ -9,6 +9,8 @@ import EnviaCorreos
 import cgi
 import shutil
 import tempfile
+import os, sys, stat
+import time
 
 class Controller(object):
 
@@ -57,18 +59,29 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return ('<img src=\'%s\'/>' % (foto[0][0]))
 
-    def publica(self, contentp, materia, archivo=None):
-        size = 0
-        allData=''
-        while True:
-            data = archivo.file.read(8192)
-            allData+=data
-            if not data:
-                break
-            size += len(data)
-        savedFile = open('tmp/'+archivo.filename, 'wb')
-        savedFile.write(allData)
-        savedFile.close()
-        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html')
-        return "<img src=\"static/public_html/%s\"/>" % (archivo.filename)
+    def publica_como_usuario(self, contentp, materia, archivo, email):
+        id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
+        fecha_hora = time.strftime('%Y-%m-%d %X')
+        if(len(archivo.filename) != 0):
+            size = 0
+            allData=''
+            while True:
+                data = archivo.file.read(8192)
+                allData+=data
+                if not data:
+                    break
+                size += len(data)
+            savedFile = open('tmp/'+archivo.filename, 'wb')
+            savedFile.write(allData)
+            savedFile.close()
+            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
+            #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)
+            Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))
+            id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
+            Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
+            return "done"
+        return "ok"
+        
 

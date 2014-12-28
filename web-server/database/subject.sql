@@ -707,7 +707,7 @@ CREATE TABLE usuario (
     rating real NOT NULL,
     foto text NOT NULL,
     salt bytea NOT NULL,
-    password bytea NOT NULL
+    password bigint NOT NULL
 );
 
 
@@ -969,6 +969,7 @@ SELECT pg_catalog.setval('comentarios_id_seq', 1, false);
 --
 
 COPY escuela (id, nombre, imagen) FROM stdin;
+1	UNAM	\\x68747470
 \.
 
 
@@ -976,7 +977,7 @@ COPY escuela (id, nombre, imagen) FROM stdin;
 -- Name: escuela_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('escuela_id_seq', 1, false);
+SELECT pg_catalog.setval('escuela_id_seq', 1, true);
 
 
 --
@@ -1326,6 +1327,7 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 --
 
 COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, salt, password) FROM stdin;
+3	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	\\x61	12416037344
 \.
 
 
@@ -1333,7 +1335,7 @@ COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_
 -- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('usuario_id_seq', 1, false);
+SELECT pg_catalog.setval('usuario_id_seq', 3, true);
 
 
 --

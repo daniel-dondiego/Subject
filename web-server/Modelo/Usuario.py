@@ -32,7 +32,7 @@ class Usuario(object):
         self.__nick_name = nick_name
         self.__foto = foto
         self.__escuela = escuela
-        self.__password = PasswordHashing.Password(password, PasswordHashing.salt())
+        self.__password = password#PasswordHashing.Password(password, PasswordHashing.salt())
         self.__nacionalidad = nacionalidad
         self.__f_nacimiento = f_nacimiento
         self.__rating = rating
@@ -189,7 +189,7 @@ class Usuario(object):
         Actualiza la contrasena del usuario
         password: la nueva contrasena del usuario
         '''
-        self.__password = PasswordHashing.Password(password, PasswordHashing.salt())
+        self.__password = password#PasswordHashing.Password(password, PasswordHashing.salt())
 
     def registra(self):
         '''

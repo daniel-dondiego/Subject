@@ -6,6 +6,9 @@ sys.path.append("..")
 import Comandos
 import string
 import EnviaCorreos
+import cgi
+import shutil
+import tempfile
 
 class Controller(object):
 
@@ -54,4 +57,18 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return ('<img src=\'%s\'/>' % (foto[0][0]))
 
+    def publica(self, contentp, materia, archivo=None):
+        size = 0
+        allData=''
+        while True:
+            data = archivo.file.read(8192)
+            allData+=data
+            if not data:
+                break
+            size += len(data)
+        savedFile = open('tmp/'+archivo.filename, 'wb')
+        savedFile.write(allData)
+        savedFile.close()
+        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html')
+        return "<img src=\"static/public_html/%s\"/>" % (archivo.filename)
 

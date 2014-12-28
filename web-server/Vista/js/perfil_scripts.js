@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     /* Obtiene los datos del header del perfil */
-    var request = $.ajax({'url':'/get_nombre'});
+    var request = $.ajax({'url':'/perfil/get_contenido_perfil','data':{'funcion': 'get_datos'}});
     request.done(function(response){        
         $('#user_name').text(response.nombre);
         $('#birthday').text(response.edad);
@@ -13,7 +13,7 @@ $(document).ready(function() {
 
     /* Obtiene el código html de la pestaña de información en el perfil */
     $('#button_info').click(function(){
-        var info_request = $.ajax({'url':'/get_info'});
+        var info_request = $.ajax({'url':'/perfil/get_contenido_perfil','data':{'funcion':'get_info'}});
         info_request.done(function(response){
             $('#publicacion_nueva').html(response);
         });
@@ -24,7 +24,7 @@ $(document).ready(function() {
 
     /* Obtiene el código html de la pestaña de publicaciones en el perfil */
     $('#button_publicaciones').click(function(){
-        var publicaciones_request = $.ajax({'url':'/get_publicaciones'});
+        var publicaciones_request = $.ajax({'url':'/perfil/get_contenido_perfil','data':{'funcion':'get_publicaciones'}});
         publicaciones_request.done(function(response){
             $('#publicacion_nueva').html(response);
         });

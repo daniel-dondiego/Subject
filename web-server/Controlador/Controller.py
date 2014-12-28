@@ -80,7 +80,7 @@ class Controller(object):
             #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
-            Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
+            Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,TIMESTAMP \'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
             return "done"
         return "ok"
         

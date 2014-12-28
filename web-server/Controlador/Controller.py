@@ -33,7 +33,7 @@ class Controller(object):
 		VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()),str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
 	if(usuario.get_genero() == 'm'):
    		return "Bienvenido a Subject " + usuario.get_nombre()
-       	return "Bienvenia a Subject " + usuario.get_nombre()
+       	return "Bienvenida a Subject " + usuario.get_nombre()
 
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	

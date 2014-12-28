@@ -61,6 +61,11 @@ class Password(object):
         '''
         return self.__salt
  
-    
+    def get_password(self):
+        '''
+        Regresa la contrasena
+        returns: la cadena que representa la contrasena
+        '''
+        return self.__password
         
         

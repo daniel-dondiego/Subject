@@ -33,4 +33,7 @@ $(document).ready(function() {
         });
     });
 
+    $('.notificacion_logo').click(function(){
+        Notifier.info('You have been informed!');
+    });
 });

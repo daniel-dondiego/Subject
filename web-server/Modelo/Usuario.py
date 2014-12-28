@@ -209,9 +209,9 @@ class Usuario(object):
         s += self.__id + ')'
         return Comandos.consulta(s)
         
-u = Usuario(None,"Luis","Soto","M","Lu1sZiTh0","http","1","Luisz","1","10-10-2010",0)
-u.registra()
-rows = Comandos.consulta("SELECT * FROM usuario")
-for row in rows:
-    print 'Salt: ' + str(row[10])
+#u = Usuario(None,"Luis","Soto","M","Lu1sZiTh0","http","1","Luisz","1","10-10-2010",0)
+#u.registra()
+#rows = Comandos.consulta("SELECT * FROM usuario")
+#for row in rows:
+#    print 'Salt: ' + str(row[10])
 

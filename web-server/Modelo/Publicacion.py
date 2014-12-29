@@ -1,5 +1,8 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+import sys
+sys.path.append("..")
+from Controlador import Comandos
 
 class Publicacion(object):
 
@@ -118,3 +121,10 @@ class Publicacion(object):
         visibilidad: la nueva visibilidad de la publicacion
         '''
         self.__visibilidad = visibilidad
+
+    def get_likes(self):
+        '''
+        Regresa los likes de la publicacion
+        '''
+        s = "SELECT * FROM likes WHERE id_publicacion = " + str(self.id)
+        return Comandos.Consulta(s)

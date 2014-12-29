@@ -136,7 +136,4 @@ class Publicacion(object):
         returns: el numero de likes en la publicacion
         '''
         likes = self.get_likes()
-        i = 0
-        for like in likes:
-            i += 1
-        return i
+        return len(likes)

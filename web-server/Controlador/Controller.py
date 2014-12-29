@@ -106,6 +106,8 @@ class Controller(object):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
         cadena = ""
+        if rows == []:
+            return publicaciones % (cad_materias,"")
         for row in rows:
             n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
             a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
@@ -113,7 +115,7 @@ class Controller(object):
             arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
             cadena += publicacion_cf % (row['id'],nombre,row['fecha'],arch[0][0],materia[0][0])
-        return publicaciones % cadena
+        return publicaciones % (cad_materias,cadena)
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))

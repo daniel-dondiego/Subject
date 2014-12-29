@@ -125,6 +125,18 @@ class Publicacion(object):
     def get_likes(self):
         '''
         Regresa los likes de la publicacion
+        returns: los likes de la publicacion
         '''
         s = "SELECT * FROM likes WHERE id_publicacion = " + str(self.id)
         return Comandos.Consulta(s)
+
+    def get_numero_likes(self):
+        '''
+        Regresa el numero de likes en la publicacion
+        returns: el numero de likes en la publicacion
+        '''
+        likes = self.get_likes()
+        i = 0
+        for like in likes:
+            i += 1
+        return i

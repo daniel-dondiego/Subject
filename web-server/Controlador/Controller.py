@@ -69,8 +69,7 @@ class Controller(object):
                     <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
                     <select name="materia" placeholder="Escoge una materia:">              
                         <option selected="selected" value="n">Materia</option>
-                        <option value="Álgebra">Álgebra</option>
-                        <option value="c">Cálculo</option>
+                        %s
                     </select>
                     <label for="adjuntar_archivo">
                         <img src="/static/img/adjuntar.png"/>
@@ -100,6 +99,10 @@ class Controller(object):
             </div>
             <div id="espacio_perfil"></div>
             """
+        materias = Comandos.consulta('SELECT nombre FROM categoria;')
+        cad_materias = ""
+        for materia in materias:
+            cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
         cadena = ""
@@ -111,8 +114,6 @@ class Controller(object):
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
             cadena += publicacion_cf % (row['id'],nombre,row['fecha'],arch[0][0],materia[0][0])
         return publicaciones % cadena
-
-
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
@@ -130,8 +131,8 @@ class Controller(object):
             savedFile = open('tmp/'+archivo.filename, 'wb')
             savedFile.write(allData)
             savedFile.close()
-            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
+            shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
             #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))

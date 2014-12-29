@@ -83,5 +83,18 @@ class Controller(object):
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,TIMESTAMP \'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
             return "done"
         return "ok"
-        
+
+    def busca(self, nombre):
+        '''
+        Busca a la persona en la base de datos
+        nombre: el nombre de la persona a buscar
+        '''
+        i = 0
+        nombre_completo = nombre.split()
+        s = "SELECT * FROM usuario WHERE "
+        for name in nombre_completo:
+            if i != 0:
+                s += "OR "
+            s += "nombre LIKE \'" + name + "\' OR apellido LIKE \'" + name + "\'"
+        return Comandos.consulta(s)
 

@@ -4,11 +4,16 @@
 import sys
 sys.path.append("..")
 import Comandos
+from Modelo import Publicacion
 import string
 import EnviaCorreos
 import cgi
 import shutil
 import tempfile
+import os, sys, stat
+import time
+import psycopg2
+import psycopg2.extras
 
 class Controller(object):
 
@@ -57,18 +62,100 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return ('<img src=\'%s\'/>' % (foto[0][0]))
 
-    def publica(self, contentp, materia, archivo=None):
-        size = 0
-        allData=''
-        while True:
-            data = archivo.file.read(8192)
-            allData+=data
-            if not data:
-                break
-            size += len(data)
-        savedFile = open('tmp/'+archivo.filename, 'wb')
-        savedFile.write(allData)
-        savedFile.close()
-        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html')
-        return "<img src=\"static/public_html/%s\"/>" % (archivo.filename)
+    def get_publicaciones_perfil(self,email):
+        publicaciones =  """
+            <div id="publicacion_nueva"> 
+                <form action="publica" method="POST" enctype="multipart/form-data">
+                    <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
+                    <select name="materia" placeholder="Escoge una materia:">              
+                        <option selected="selected" value="n">Materia</option>
+                        %s
+                    </select>
+                    <label for="adjuntar_archivo">
+                        <img src="/static/img/adjuntar.png"/>
+                    </label>
+                    <input id="adjuntar_archivo" type="file" name="archivo"/>
+                    <input type="submit" value="Publicar"/>
+                </form> 
+            </div>
+            <div id="espacio_perfil"></div>
+            %s
+            """
+        publicacion_cf = """ 
+            <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
+                <div id="nombre_p">
+                    <p>%s</p>
+                </div>
+                <div id="fecha">
+                    <p>%s</p>
+                </div>
+                <div id="imagen_p">
+                    <img src="%s"/>
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
+        materias = Comandos.consulta('SELECT nombre FROM categoria;')
+        cad_materias = ""
+        for materia in materias:
+            cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
+        id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
+        cadena = ""
+        if rows == []:
+            return publicaciones % (cad_materias,"")
+        for row in rows:
+            n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
+            a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
+            nombre = '%s %s'%(n[0][0],a[0][0])
+            arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
+            materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
+            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],arch[0][0],materia[0][0])
+        return publicaciones % (cad_materias,cadena)
+
+    def publica_como_usuario(self, contentp, materia, archivo, email):
+        id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
+        fecha_hora = time.strftime('%Y-%m-%d %X')
+        if(len(archivo.filename) != 0):
+            size = 0
+            allData=''
+            while True:
+                data = archivo.file.read(8192)
+                allData+=data
+                if not data:
+                    break
+                size += len(data)
+            savedFile = open('tmp/'+archivo.filename, 'wb')
+            savedFile.write(allData)
+            savedFile.close()
+            shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
+            #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)
+            Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))
+            id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
+            Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
+            return "done"
+        return "ok"
+
+    def busca(self, nombre):
+        '''
+        Busca a la persona en la base de datos
+        nombre: el nombre de la persona a buscar
+        '''
+        i = 0
+        nombre_completo = nombre.split()
+        s = "SELECT * FROM usuario WHERE "
+        for name in nombre_completo:
+            if i != 0:
+                s += "OR "
+            s += "nombre LIKE \'%" + name + "%\' OR apellido LIKE \'%" + name + "%\' OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE nombre LIKE \'%" + name + "%\')) "
+            i += 1
+        return s
+            #return Comandos.consulta(s)
+
 

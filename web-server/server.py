@@ -98,21 +98,7 @@ class Perfil(object):
                 'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
             }
         if funcion == 'get_publicaciones':
-            return """
-                <form action="publica" method="POST" enctype="multipart/form-data">
-                    <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
-                    <select name="materia" placeholder="Escoge una materia:">              
-                        <option selected="selected" value="n">Materia</option>
-                        <option value="Álgebra">Álgebra</option>
-                        <option value="c">Cálculo</option>
-                    </select>
-                    <label for="adjuntar_archivo">
-                        <img src="/static/img/adjuntar.png"/>
-                    </label>
-                    <input id="adjuntar_archivo" type="file" name="archivo"/>
-                    <input type="submit" value="Publicar"/>
-                </form> 
-                """
+            return control.get_publicaciones_perfil(cherrypy.session.get('email'))
         if funcion == 'get_info':
             return "<p>Info<p>"
         if funcion == 'get_archivos':
@@ -120,8 +106,8 @@ class Perfil(object):
         return "Error"
 
     @cherrypy.expose
-    def publica(self, contentp, materia, archivo):
-        return control.publica(contentp,materia,archivo)  
+    def publica(self, contentp, materia, archivo=None):
+        return control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))  
 
 root = Root()
 root.perfil = Perfil()

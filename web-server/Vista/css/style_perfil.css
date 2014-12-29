@@ -362,6 +362,7 @@ body {
 
 	#contenido #publicacion_nueva{
 		width: 300px;
+		background-color: blue;
 	}
 
 	#contenido #publicacion_nueva img{

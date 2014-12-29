@@ -95,6 +95,11 @@ class Controller(object):
         for name in nombre_completo:
             if i != 0:
                 s += "OR "
-            s += "nombre LIKE \'" + name + "\' OR apellido LIKE \'" + name + "\'"
-        return Comandos.consulta(s)
+            s += "nombre LIKE \'%" + name + "%\' OR apellido LIKE \'%" + name + "%\' OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE nombre LIKE \'%" + name + "%\')) "
+            i += 1
+        return s
+            #return Comandos.consulta(s)
+
+c = Controller()
+print(c.busca("Luis Soto"))
 

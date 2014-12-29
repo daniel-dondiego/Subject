@@ -198,6 +198,7 @@ select:active {
 
 #contenido #publicaciones_usuario {
 	margin: 0 auto;
+	height: auto;
 	background-color: #F0F0F0;
 	-webkit-box-shadow: 3px 5px 15px #2F2E2E;
   	-moz-box-shadow: 3px 5px 15px #2F2E2E;
@@ -355,8 +356,8 @@ body {
 	}
 
 	#contenido #publicaciones_usuario{
-		width: 300px;
-		height: 100px;
+		width: 290px;
+		padding: 0.5px 5px;
 	}
 
 	#contenido #publicacion_nueva{
@@ -389,6 +390,7 @@ body {
 		height: 50px;
 		font-size: 14px;
 		font-family: "Arial";
+		font-weight: bold;
 	}
 
 	#contenido #publicacion_nueva select{
@@ -396,6 +398,27 @@ body {
 		width: 120px;
 		margin-bottom: 5px;
 	}
+
+	#contenido #id_p{
+		display: none;
+	}
+
+	#contenido #nombre_p {
+		width: auto;
+		height: auto;
+		margin-left: 5px;
+		color: #323279;
+		font-size: 18px;
+		font-family: "Arial";
+	}
+
+	#contenido #fecha {
+		margin-top: -39px;
+		margin-left:190px;
+		font-size: 15px;
+		color: #BDBDBD;
+	}
+
 }
 
 /* Para pantallas de 480px en adelante */
@@ -450,12 +473,11 @@ body {
 	}
 
 	#contenido #publicaciones_usuario{
-		width: 300px;
-		height: 100px;
+		width: 460px;
 	}
 
 	#contenido #publicacion_nueva{
-		width: 400px;
+		width: 46	0px;
 	}
 
 	#contenido #publicacion_nueva img{
@@ -499,8 +521,7 @@ body {
 	}
 
 	#contenido #publicaciones_usuario{
-		width: 300px;
-		height: 100px;
+		width: 500px;
 	}
 
 	#contenido #publicacion_nueva{
@@ -543,8 +564,7 @@ body {
 	}	
 
 	#contenido #publicaciones_usuario{
-		width: 300px;
-		height: 100px;
+		width: 600px;
 	}
 
 	#contenido #publicacion_nueva{

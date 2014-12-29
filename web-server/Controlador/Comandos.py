@@ -2,6 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import psycopg2
+import psycopg2.extras
+import sys
 import Conexion
 
 def ejecuta_comando(comando_sql):
@@ -21,7 +23,7 @@ def consulta(consulta):
     Returns: una lista de renglones con los resultados de la consulta, para iterar sobre ellos
     '''
     c = Conexion.getConexion()
-    cur = c.cursor()
+    cur = c.cursor(cursor_factory=psycopg2.extras.DictCursor)
     cur.execute(consulta)
     rows = cur.fetchall()
     return rows

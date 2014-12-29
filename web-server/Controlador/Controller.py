@@ -82,8 +82,9 @@ class Controller(object):
             <div id="espacio_perfil"></div>
             %s
             """
-        publicacion_sf = """ 
+        publicacion_cf = """ 
             <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
                 <div id="nombre_p">
                     <p>%s</p>
                 </div>
@@ -100,11 +101,15 @@ class Controller(object):
             <div id="espacio_perfil"></div>
             """
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
         cadena = ""
-        cursor = Comandos.consulta('SELECT materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
-        for row in cursor:
-            for x in row:
-                cadena += '%s \n' % x
+        for row in rows:
+            n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
+            a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
+            nombre = '%s %s'%(n[0][0],a[0][0])
+            arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
+            materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
+            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],arch[0][0],materia[0][0])
         return publicaciones % cadena
 
 
@@ -150,6 +155,4 @@ class Controller(object):
         return s
             #return Comandos.consulta(s)
 
-c = Controller()
-print(c.busca("Luis Soto"))
 

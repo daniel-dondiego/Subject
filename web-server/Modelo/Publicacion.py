@@ -137,3 +137,30 @@ class Publicacion(object):
         '''
         likes = self.get_likes()
         return len(likes)
+        
+    def like(self, id_usuario):
+        '''
+        Agrega un like a la publicacion 
+        id_usuario: el id del usuario que dio el like
+        '''
+        if not self.has_liked(id_usuario):
+            s = "INSERT INTO likes (id_usuario, id_publicacion) VALUES (" + str(id_usuario) + ", " + str(self.__id) + ")"
+            Comandos.ejecuta_comando(s)
+
+    def dislike(self, id_usuario):
+        '''
+        Elimina el like de la publicacion dado por el usuario(si este existe)
+        id_usuario: el id del usuario de quien se quiere eliminar el like
+        '''
+        Comandos.ejecuta_comando("DELETE * FROM likes WHERE id_usuario = " + str(id_usuario) + " AND id_publicacion = " + str(self.__id))
+
+        
+    def has_liked(self, id_usuario):
+        '''
+        Regresa True si el usuario le dio like a la publicacion y False en otro caso
+        id_usuario: el id del usuario que se quiere saber si dio like
+        returns: si el usuario con el id le dio like a la publicacion
+        '''
+        s = 'SELECT * FROM likes WHERE id_usuario = ' + str(id_usuario) 
+        likes = Comandos.consulta(s)
+        return len(likes) != 0

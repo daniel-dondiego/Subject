@@ -41,7 +41,7 @@ CREATE TABLE archivos (
 );
 
 
-ALTER TABLE archivos OWNER TO postgres;
+ALTER TABLE public.archivos OWNER TO postgres;
 
 --
 -- Name: archivos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -55,7 +55,7 @@ CREATE SEQUENCE archivos_id_seq
     CACHE 1;
 
 
-ALTER TABLE archivos_id_seq OWNER TO postgres;
+ALTER TABLE public.archivos_id_seq OWNER TO postgres;
 
 --
 -- Name: archivos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -74,7 +74,7 @@ CREATE TABLE carrera (
 );
 
 
-ALTER TABLE carrera OWNER TO postgres;
+ALTER TABLE public.carrera OWNER TO postgres;
 
 --
 -- Name: carrera_escuela; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
@@ -87,7 +87,7 @@ CREATE TABLE carrera_escuela (
 );
 
 
-ALTER TABLE carrera_escuela OWNER TO postgres;
+ALTER TABLE public.carrera_escuela OWNER TO postgres;
 
 --
 -- Name: carrera_escuela_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -101,7 +101,7 @@ CREATE SEQUENCE carrera_escuela_id_seq
     CACHE 1;
 
 
-ALTER TABLE carrera_escuela_id_seq OWNER TO postgres;
+ALTER TABLE public.carrera_escuela_id_seq OWNER TO postgres;
 
 --
 -- Name: carrera_escuela_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -122,7 +122,7 @@ CREATE SEQUENCE carrera_id_seq
     CACHE 1;
 
 
-ALTER TABLE carrera_id_seq OWNER TO postgres;
+ALTER TABLE public.carrera_id_seq OWNER TO postgres;
 
 --
 -- Name: carrera_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -141,7 +141,7 @@ CREATE TABLE categoria (
 );
 
 
-ALTER TABLE categoria OWNER TO postgres;
+ALTER TABLE public.categoria OWNER TO postgres;
 
 --
 -- Name: categoria_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -155,7 +155,7 @@ CREATE SEQUENCE categoria_id_seq
     CACHE 1;
 
 
-ALTER TABLE categoria_id_seq OWNER TO postgres;
+ALTER TABLE public.categoria_id_seq OWNER TO postgres;
 
 --
 -- Name: categoria_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -175,7 +175,7 @@ CREATE TABLE ciudad (
 );
 
 
-ALTER TABLE ciudad OWNER TO postgres;
+ALTER TABLE public.ciudad OWNER TO postgres;
 
 --
 -- Name: ciudad_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -189,7 +189,7 @@ CREATE SEQUENCE ciudad_id_seq
     CACHE 1;
 
 
-ALTER TABLE ciudad_id_seq OWNER TO postgres;
+ALTER TABLE public.ciudad_id_seq OWNER TO postgres;
 
 --
 -- Name: ciudad_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -207,11 +207,12 @@ CREATE TABLE comentarios (
     contenido text NOT NULL,
     id_usuario integer,
     id_publicacion integer,
-    fecha date NOT NULL
+    fecha date NOT NULL,
+    hora time without time zone NOT NULL
 );
 
 
-ALTER TABLE comentarios OWNER TO postgres;
+ALTER TABLE public.comentarios OWNER TO postgres;
 
 --
 -- Name: comentarios_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -225,7 +226,7 @@ CREATE SEQUENCE comentarios_id_seq
     CACHE 1;
 
 
-ALTER TABLE comentarios_id_seq OWNER TO postgres;
+ALTER TABLE public.comentarios_id_seq OWNER TO postgres;
 
 --
 -- Name: comentarios_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -245,7 +246,7 @@ CREATE TABLE escuela (
 );
 
 
-ALTER TABLE escuela OWNER TO postgres;
+ALTER TABLE public.escuela OWNER TO postgres;
 
 --
 -- Name: escuela_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -259,7 +260,7 @@ CREATE SEQUENCE escuela_id_seq
     CACHE 1;
 
 
-ALTER TABLE escuela_id_seq OWNER TO postgres;
+ALTER TABLE public.escuela_id_seq OWNER TO postgres;
 
 --
 -- Name: escuela_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -279,7 +280,7 @@ CREATE TABLE grupo_usuario (
 );
 
 
-ALTER TABLE grupo_usuario OWNER TO postgres;
+ALTER TABLE public.grupo_usuario OWNER TO postgres;
 
 --
 -- Name: grupo_usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -293,7 +294,7 @@ CREATE SEQUENCE grupo_usuario_id_seq
     CACHE 1;
 
 
-ALTER TABLE grupo_usuario_id_seq OWNER TO postgres;
+ALTER TABLE public.grupo_usuario_id_seq OWNER TO postgres;
 
 --
 -- Name: grupo_usuario_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -315,7 +316,7 @@ CREATE TABLE grupos (
 );
 
 
-ALTER TABLE grupos OWNER TO postgres;
+ALTER TABLE public.grupos OWNER TO postgres;
 
 --
 -- Name: grupos_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -329,7 +330,7 @@ CREATE SEQUENCE grupos_id_seq
     CACHE 1;
 
 
-ALTER TABLE grupos_id_seq OWNER TO postgres;
+ALTER TABLE public.grupos_id_seq OWNER TO postgres;
 
 --
 -- Name: grupos_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -352,7 +353,7 @@ CREATE TABLE institucion (
 );
 
 
-ALTER TABLE institucion OWNER TO postgres;
+ALTER TABLE public.institucion OWNER TO postgres;
 
 --
 -- Name: institucion_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -366,7 +367,7 @@ CREATE SEQUENCE institucion_id_seq
     CACHE 1;
 
 
-ALTER TABLE institucion_id_seq OWNER TO postgres;
+ALTER TABLE public.institucion_id_seq OWNER TO postgres;
 
 --
 -- Name: institucion_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -386,7 +387,7 @@ CREATE TABLE likes (
 );
 
 
-ALTER TABLE likes OWNER TO postgres;
+ALTER TABLE public.likes OWNER TO postgres;
 
 --
 -- Name: likes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -400,7 +401,7 @@ CREATE SEQUENCE likes_id_seq
     CACHE 1;
 
 
-ALTER TABLE likes_id_seq OWNER TO postgres;
+ALTER TABLE public.likes_id_seq OWNER TO postgres;
 
 --
 -- Name: likes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -420,7 +421,7 @@ CREATE TABLE materias (
 );
 
 
-ALTER TABLE materias OWNER TO postgres;
+ALTER TABLE public.materias OWNER TO postgres;
 
 --
 -- Name: materias_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -434,7 +435,7 @@ CREATE SEQUENCE materias_id_seq
     CACHE 1;
 
 
-ALTER TABLE materias_id_seq OWNER TO postgres;
+ALTER TABLE public.materias_id_seq OWNER TO postgres;
 
 --
 -- Name: materias_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -456,7 +457,7 @@ CREATE TABLE mensajes (
 );
 
 
-ALTER TABLE mensajes OWNER TO postgres;
+ALTER TABLE public.mensajes OWNER TO postgres;
 
 --
 -- Name: mensajes_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -470,7 +471,7 @@ CREATE SEQUENCE mensajes_id_seq
     CACHE 1;
 
 
-ALTER TABLE mensajes_id_seq OWNER TO postgres;
+ALTER TABLE public.mensajes_id_seq OWNER TO postgres;
 
 --
 -- Name: mensajes_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -492,7 +493,7 @@ CREATE TABLE notificaciones (
 );
 
 
-ALTER TABLE notificaciones OWNER TO postgres;
+ALTER TABLE public.notificaciones OWNER TO postgres;
 
 --
 -- Name: notificaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -506,7 +507,7 @@ CREATE SEQUENCE notificaciones_id_seq
     CACHE 1;
 
 
-ALTER TABLE notificaciones_id_seq OWNER TO postgres;
+ALTER TABLE public.notificaciones_id_seq OWNER TO postgres;
 
 --
 -- Name: notificaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -527,7 +528,7 @@ CREATE TABLE paises (
 );
 
 
-ALTER TABLE paises OWNER TO postgres;
+ALTER TABLE public.paises OWNER TO postgres;
 
 --
 -- Name: paises_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -541,7 +542,7 @@ CREATE SEQUENCE paises_id_seq
     CACHE 1;
 
 
-ALTER TABLE paises_id_seq OWNER TO postgres;
+ALTER TABLE public.paises_id_seq OWNER TO postgres;
 
 --
 -- Name: paises_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -561,7 +562,7 @@ CREATE TABLE persona_carrera (
 );
 
 
-ALTER TABLE persona_carrera OWNER TO postgres;
+ALTER TABLE public.persona_carrera OWNER TO postgres;
 
 --
 -- Name: persona_carrera_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -575,7 +576,7 @@ CREATE SEQUENCE persona_carrera_id_seq
     CACHE 1;
 
 
-ALTER TABLE persona_carrera_id_seq OWNER TO postgres;
+ALTER TABLE public.persona_carrera_id_seq OWNER TO postgres;
 
 --
 -- Name: persona_carrera_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -596,11 +597,12 @@ CREATE TABLE publicaciones (
     id_materia integer,
     fecha date NOT NULL,
     visibilidad integer,
-    contenido text
+    contenido text,
+    hora time without time zone NOT NULL
 );
 
 
-ALTER TABLE publicaciones OWNER TO postgres;
+ALTER TABLE public.publicaciones OWNER TO postgres;
 
 --
 -- Name: publicaciones_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -614,7 +616,7 @@ CREATE SEQUENCE publicaciones_id_seq
     CACHE 1;
 
 
-ALTER TABLE publicaciones_id_seq OWNER TO postgres;
+ALTER TABLE public.publicaciones_id_seq OWNER TO postgres;
 
 --
 -- Name: publicaciones_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -634,7 +636,7 @@ CREATE TABLE rating (
 );
 
 
-ALTER TABLE rating OWNER TO postgres;
+ALTER TABLE public.rating OWNER TO postgres;
 
 --
 -- Name: rating_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -648,7 +650,7 @@ CREATE SEQUENCE rating_id_seq
     CACHE 1;
 
 
-ALTER TABLE rating_id_seq OWNER TO postgres;
+ALTER TABLE public.rating_id_seq OWNER TO postgres;
 
 --
 -- Name: rating_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -668,7 +670,7 @@ CREATE TABLE siguea (
 );
 
 
-ALTER TABLE siguea OWNER TO postgres;
+ALTER TABLE public.siguea OWNER TO postgres;
 
 --
 -- Name: siguea_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -682,7 +684,7 @@ CREATE SEQUENCE siguea_id_seq
     CACHE 1;
 
 
-ALTER TABLE siguea_id_seq OWNER TO postgres;
+ALTER TABLE public.siguea_id_seq OWNER TO postgres;
 
 --
 -- Name: siguea_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -706,12 +708,12 @@ CREATE TABLE usuario (
     f_nacimiento date NOT NULL,
     rating real NOT NULL,
     foto text NOT NULL,
-    salt bytea NOT NULL,
-    password bigint NOT NULL
+    password bigint NOT NULL,
+    salt bytea NOT NULL
 );
 
 
-ALTER TABLE usuario OWNER TO postgres;
+ALTER TABLE public.usuario OWNER TO postgres;
 
 --
 -- Name: usuario_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -725,7 +727,7 @@ CREATE SEQUENCE usuario_id_seq
     CACHE 1;
 
 
-ALTER TABLE usuario_id_seq OWNER TO postgres;
+ALTER TABLE public.usuario_id_seq OWNER TO postgres;
 
 --
 -- Name: usuario_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
@@ -894,6 +896,115 @@ SELECT pg_catalog.setval('archivos_id_seq', 1, false);
 --
 
 COPY carrera (id, nombre) FROM stdin;
+1	Actuaría
+2	Arquitectura
+3	Arquitectura del paisaje
+4	Ciencias de la computación
+5	Diseño industrial
+6	Física
+7	Ingeniería civil
+8	Ingeniería de minas y metalurgia
+9	Ingeniería electrica elctrónica
+10	Ingeniería en computación
+11	Ingeniería en telecomunicaciones
+12	Ingeniería geofísica
+13	Ingeniería geológica
+14	Ingeniería industrial
+15	Ingeniería mecánica
+16	Ingeniería mecánica electrica
+17	Ingeniería petrolera
+18	Ingeniería química
+19	Ingeniería química metalúrgica
+20	Ingeniería topográfica y geodesica
+21	Matemáticas aplicadas y computación
+22	Matemáticas
+23	Urbanismo
+24	Ingeniería mecatrónica
+25	Ingeniería geomática
+26	Tecnología
+27	Ciencias de la tierra
+28	Ingeniería en energias renovables
+29	Nanotecnología
+30	Ingeniería en telecomunicaciones, sistemas y electrónica
+31	Geociencias
+32	Tecnologías para la información en ciencias
+33	Ciencia de materiales sustentables
+34	Física biomédica
+35	Biología
+36	Cirujano dentista
+37	Enfermería y Obstetricia
+38	Ingeniería Agrícola
+39	Ingeniería en alimentos
+40	Investigación biomédica básica
+41	Medicina veterinaria y zootecnia
+42	Médico cirujano
+43	Optometría
+44	Psicología
+45	Química
+46	Química de alimentos
+47	Química farmaceutico biológica
+48	Química industrial
+49	Ciencias Genómicas
+50	Ciencias ambientales
+51	Manejo sustentable de zonas costeras
+52	Bioquímica dignóstica
+53	Farmacia
+54	Enfermería
+55	Fisioterapia
+56	Odontología
+57	Ciencias agrogenómicas
+58	Ciencia forense
+59	Administración
+60	Ciencias de la comunicación
+61	Ciencias políticas y administración pública
+62	Contaduría
+63	Derecho
+64	Economía
+65	Gografía
+66	Informática
+67	Planificación para el desarrrollo AGR
+68	Relaciones internacionales
+69	Sociología
+70	Economía industrial
+71	Administración agropecuaria
+72	Comunicación
+73	Comunicación y periodismo
+74	Estudios sociales y gestión local
+75	Artes visuales
+76	Bibliotecología
+77	Canto
+78	Composición
+79	Comunicación gráfica
+80	Diseño gráfico
+81	Educación musical
+82	Enseñanza de inglés
+83	Estudios latinoamericanos
+84	Etnomusicología
+85	Filosofía
+86	Historia
+87	Instrumentista
+88	Lengua y literaturas hispánicas
+89	Lengua y literaturas modernas alemanas
+90	Lengua y literaturas modernas francesas
+91	Lengua y literaturas modernas inglesas
+92	Lengua y literaturas modernas italianas
+93	Letras clásicas
+94	Literatura dramática y teatro
+95	Pedagogía
+96	Piano
+97	Diseño y comunicación visual
+98	Enseñanza de alemán como lengua extranjera
+99	Enseñanza de español como lengua extranjera
+100	Enseñanza de francés como lengua extranjera
+101	Enseñanza de inglés como lengua extranjera
+102	Enseñanza de italiano como lengua extranjera
+103	Desarrollo y gestión interculturales
+104	Lengua y literaturas modernas portuguesas
+105	Geohistoria
+106	Literatura intercultural
+107	Historia del arte
+108	Arte y diseño
+109	cinematografía
 \.
 
 
@@ -916,7 +1027,7 @@ SELECT pg_catalog.setval('carrera_escuela_id_seq', 1, false);
 -- Name: carrera_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('carrera_id_seq', 1, false);
+SELECT pg_catalog.setval('carrera_id_seq', 109, true);
 
 
 --
@@ -924,6 +1035,31 @@ SELECT pg_catalog.setval('carrera_id_seq', 1, false);
 --
 
 COPY categoria (id, nombre) FROM stdin;
+1	Matemáticas
+2	Computación
+3	Física
+4	Química
+5	Literatura
+6	Filosofía
+7	Deportes
+8	Música
+9	Política
+10	Biología
+11	Arquitectura
+12	Español
+13	Finanzas
+14	Economía
+15	Cocina
+16	Medicina
+17	Psicología
+18	Odontología
+19	Tecnología
+20	Comunicaciones
+21	Veterinaria
+22	Trabajo social
+23	Administración
+24	Historia
+25	Geografía
 \.
 
 
@@ -931,7 +1067,7 @@ COPY categoria (id, nombre) FROM stdin;
 -- Name: categoria_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('categoria_id_seq', 1, false);
+SELECT pg_catalog.setval('categoria_id_seq', 25, true);
 
 
 --
@@ -953,7 +1089,7 @@ SELECT pg_catalog.setval('ciudad_id_seq', 1, false);
 -- Data for Name: comentarios; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY comentarios (id, contenido, id_usuario, id_publicacion, fecha) FROM stdin;
+COPY comentarios (id, contenido, id_usuario, id_publicacion, fecha, hora) FROM stdin;
 \.
 
 
@@ -969,7 +1105,6 @@ SELECT pg_catalog.setval('comentarios_id_seq', 1, false);
 --
 
 COPY escuela (id, nombre, imagen) FROM stdin;
-1	UNAM	\\x68747470
 \.
 
 
@@ -977,7 +1112,7 @@ COPY escuela (id, nombre, imagen) FROM stdin;
 -- Name: escuela_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('escuela_id_seq', 1, true);
+SELECT pg_catalog.setval('escuela_id_seq', 1, false);
 
 
 --
@@ -1045,6 +1180,52 @@ SELECT pg_catalog.setval('likes_id_seq', 1, false);
 --
 
 COPY materias (id, materia, id_categoria) FROM stdin;
+1	Cálculo	1
+2	Geometría	1
+3	Álgebra	1
+4	Trigonometría	1
+5	Programación	2
+6	Sistemas operativos	2
+7	Compiladores	2
+8	Estructuras de datos	2
+9	Mecánica	3
+10	Óptica	3
+11	Movimiento	3
+12	Energía	3
+13	Narrativa	5
+14	Didáctica	5
+15	Dramática	5
+16	Elementos	4
+17	Sustancias	4
+18	Conceptos básicos	4
+19	Moléculas	4
+20	Acidos y bases	4
+21	Antigua	6
+22	Medieval y renacentista	6
+23	Moderna	6
+24	Contemporánea	6
+25	Volleyball	7
+26	Basketball	7
+27	Futbol	7
+28	Células	10
+29	Aparatos y sistemas	10
+30	Reino animal	10
+31	Genética	10
+32	Anatomía	10
+33	Ecología	10
+34	Diseño	11
+35	Historia	11
+36	Ortografía	12
+37	Acentuación	12
+38	Oferta y demanda	14
+39	Educativa	17
+40	Clínica	17
+41	laboral	17
+42	De México	24
+43	Universal	24
+44	Relieve	25
+45	Clima	25
+46	Continentes	25
 \.
 
 
@@ -1052,7 +1233,7 @@ COPY materias (id, materia, id_categoria) FROM stdin;
 -- Name: materias_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('materias_id_seq', 1, false);
+SELECT pg_catalog.setval('materias_id_seq', 46, true);
 
 
 --
@@ -1281,7 +1462,7 @@ SELECT pg_catalog.setval('persona_carrera_id_seq', 1, false);
 -- Data for Name: publicaciones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad, contenido) FROM stdin;
+COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad, contenido, hora) FROM stdin;
 \.
 
 
@@ -1326,8 +1507,7 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 -- Data for Name: usuario; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, salt, password) FROM stdin;
-3	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	\\x61	12416037344
+COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) FROM stdin;
 \.
 
 
@@ -1335,7 +1515,7 @@ COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_
 -- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('usuario_id_seq', 3, true);
+SELECT pg_catalog.setval('usuario_id_seq', 1, false);
 
 
 --

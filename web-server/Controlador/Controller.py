@@ -4,6 +4,7 @@
 import sys
 sys.path.append("..")
 import Comandos
+from Modelo import Publicacion
 import string
 import EnviaCorreos
 import cgi
@@ -11,6 +12,8 @@ import shutil
 import tempfile
 import os, sys, stat
 import time
+import psycopg2
+import psycopg2.extras
 
 class Controller(object):
 
@@ -59,6 +62,53 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return ('<img src=\'%s\'/>' % (foto[0][0]))
 
+    def get_publicaciones_perfil(self,email):
+        publicaciones =  """
+            <div id="publicacion_nueva"> 
+                <form action="publica" method="POST" enctype="multipart/form-data">
+                    <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
+                    <select name="materia" placeholder="Escoge una materia:">              
+                        <option selected="selected" value="n">Materia</option>
+                        <option value="Álgebra">Álgebra</option>
+                        <option value="c">Cálculo</option>
+                    </select>
+                    <label for="adjuntar_archivo">
+                        <img src="/static/img/adjuntar.png"/>
+                    </label>
+                    <input id="adjuntar_archivo" type="file" name="archivo"/>
+                    <input type="submit" value="Publicar"/>
+                </form> 
+            </div>
+            <div id="espacio_perfil"></div>
+            %s
+            """
+        publicacion_sf = """ 
+            <div id="publicaciones_usuario">
+                <div id="nombre_p">
+                    <p>%s</p>
+                </div>
+                <div id="fecha">
+                    <p>%s</p>
+                </div>
+                <div id="imagen_p">
+                    <img src="%s"/>
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
+        id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        cadena = ""
+        cursor = Comandos.consulta('SELECT materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
+        for row in cursor:
+            for x in row:
+                cadena += '%s \n' % x
+        return publicaciones % cadena
+
+
+
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
@@ -80,7 +130,7 @@ class Controller(object):
             #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
-            Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,TIMESTAMP \'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
+            Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha_hora,contentp))
             return "done"
         return "ok"
         

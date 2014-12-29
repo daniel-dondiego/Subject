@@ -198,7 +198,10 @@ select:active {
 
 #contenido #publicaciones_usuario {
 	margin: 0 auto;
-	background-color: blue;
+	background-color: #F0F0F0;
+	-webkit-box-shadow: 3px 5px 15px #2F2E2E;
+  	-moz-box-shadow: 3px 5px 15px #2F2E2E;
+  	border-radius: 8px;
 }
 
 #contenido #publicacion_nueva{
@@ -538,10 +541,26 @@ body {
 		margin-top: 0px;
 		width: 800px;
 	}	
-}
 
+	#contenido #publicaciones_usuario{
+		width: 300px;
+		height: 100px;
+	}
 
-/* Para pantallas de 1100px en adelante */
-@media screen and (min-width: 1100px){
+	#contenido #publicacion_nueva{
+		width: 600px;
+	}
 
+	#contenido #publicacion_nueva TEXTAREA{
+		margin-left: 4%;
+		margin-top: 10px;
+		width: 545px;
+		height: 50px;
+		font-size: 14px;
+		font-family: "Arial";
+	}
+
+	#contenido #publicacion_nueva select{
+		margin-left: 17%;
+	}
 }

@@ -153,7 +153,7 @@ class Controller(object):
         for name in nombre_completo:
             if i != 0:
                 s += "OR "
-            s += "nombre LIKE \'%" + name + "%\' OR apellido LIKE \'%" + name + "%\' OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE nombre LIKE \'%" + name + "%\')) "
+            s += "LOWER(nombre) LIKE LOWER(\'%" + name + "%\') OR LOWER(apellido) LIKE LOWER(\'%" + name + "%\') OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE LOWER(nombre) LIKE LOWER(\'%" + name + "%\'))) "
             i += 1
         return Comandos.consulta(s)
 

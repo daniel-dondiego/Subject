@@ -101,11 +101,14 @@ class Controller(object):
             """
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         cadena = ""
-        cursor = Comandos.consulta('SELECT materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
-        for row in cursor:
-            for x in row:
-                cadena += '%s \n' % x
-        return publicaciones % cadena
+        cursor = Comandos.consulta('SELECT id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = %d;' % (id_usuario[0][0]))
+        if cursor == []:
+            return publicaciones % ""
+        else:
+            for row in cursor:
+                for x in row:
+                    cadena += '%s \n' % x
+            return "done"
 
 
 
@@ -125,8 +128,8 @@ class Controller(object):
             savedFile = open('tmp/'+archivo.filename, 'wb')
             savedFile.write(allData)
             savedFile.close()
-            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
+            shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
             #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
@@ -150,6 +153,6 @@ class Controller(object):
         return s
             #return Comandos.consulta(s)
 
-c = Controller()
-print(c.busca("Luis Soto"))
+#c = Controller()
+#print(c.busca("Luis Soto"))
 

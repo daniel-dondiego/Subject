@@ -69,8 +69,7 @@ class Controller(object):
                     <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
                     <select name="materia" placeholder="Escoge una materia:">              
                         <option selected="selected" value="n">Materia</option>
-                        <option value="Álgebra">Álgebra</option>
-                        <option value="c">Cálculo</option>
+                        %s
                     </select>
                     <label for="adjuntar_archivo">
                         <img src="/static/img/adjuntar.png"/>
@@ -99,11 +98,17 @@ class Controller(object):
             </div>
             <div id="espacio_perfil"></div>
             """
+
+        materias = Comandos.consulta('SELECT nombre FROM categoria;')
+        cad_materias = ""
+        for materia in materias:
+            cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         cadena = ""
         cursor = Comandos.consulta('SELECT id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = %d;' % (id_usuario[0][0]))
+        
         if cursor == []:
-            return publicaciones % ""
+            return publicaciones % (cad_materias,"")
         else:
             for row in cursor:
                 for x in row:

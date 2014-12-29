@@ -157,4 +157,11 @@ class Controller(object):
             i += 1
         return Comandos.consulta(s)
 
-
+    def get_grupos_usuario(id):
+        '''
+        Regresa los grupos de un usuario dado su id
+        id: el id en la base del usuario
+        '''
+        s = "SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = "
+        s += id + ')'
+        return Comandos.consulta(s)

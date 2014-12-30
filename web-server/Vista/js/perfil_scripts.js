@@ -19,7 +19,7 @@ $(document).ready(function() {
     publicaciones_inicio.fail(function(jqXHR, textStatus){
         alert('Error al cargar las publicaciones.' + textStatus+" "+jqXHR); 
     });
-
+    
     /* Obtiene el código html de la pestaña de información en el perfil */
     $('#button_info').click(function(){
         var info_request = $.ajax({'url':'/perfil/get_contenido_perfil','data':{'funcion':'get_info'}});

@@ -47,7 +47,7 @@ class Root(object):
     def login(self, user, password):        
         status = control.login(user,password)        
         if status == 1:            
-            cherrypy.session['email'] = user            
+            cherrypy.session['email'] = cherrypy.request.login = user            
             cherrypy.session['isvalid'] = 1
             cherrypy.session.acquire_lock()
             raise cherrypy.HTTPRedirect("/home")

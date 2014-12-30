@@ -121,7 +121,11 @@ class Controller(object):
 
     def get_info_perfil(self, email):
         info = """
-            
+            <div id="info_p">
+                <div id="nombre_i">
+                    <p>%s</p>
+                </div>
+            </div>
             """
         return info
 

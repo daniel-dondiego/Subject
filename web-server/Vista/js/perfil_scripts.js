@@ -17,7 +17,7 @@ $(document).ready(function() {
         $('#contenido').html(response);
     });
     publicaciones_inicio.fail(function(jqXHR, textStatus){
-        alert('Error al cargar las publicaciones.'); 
+        alert('Error al cargar las publicaciones.' + textStatus+" "+jqXHR); 
     });
 
     /* Obtiene el código html de la pestaña de información en el perfil */

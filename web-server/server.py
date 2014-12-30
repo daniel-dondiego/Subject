@@ -12,7 +12,6 @@ import os, os.path
 
 
 cherrypy.config.update({'environment': 'embedded'})
-
 if cherrypy.__version__.startswith('3.0') and cherrypy.engine.state == 0:
     cherrypy.engine.start(blocking=False)
     atexit.register(cherrypy.engine.stop)
@@ -50,6 +49,7 @@ class Root(object):
         if status == 1:            
             cherrypy.session['email'] = user            
             cherrypy.session['isvalid'] = 1
+            cherrypy.session.acquire_lock()
             raise cherrypy.HTTPRedirect("/home")
         else:
             return "Login failed"
@@ -75,7 +75,8 @@ class Root(object):
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png','NULL',contrasenia,'NULL',fdn,0.0)        
-        return control.verifica(usuario,rcontrasenia)
+        control.verifica(usuario,rcontrasenia)
+        raise cherrypy.HTTPRedirect('/verifica_cuenta')
 
     @cherrypy.expose    
     def validate(self):
@@ -83,6 +84,13 @@ class Root(object):
         isvalid = cherrypy.session.get('isvalid')
         return {'email':email,'isvalid':isvalid}
 
+    @cherrypy.expose
+    def verifica_cuenta(self):
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html")
+
+    @cherrypy.expose
+    def verifica_codigo(self, codigo):
+        return "ok"
 
 class Perfil(object):
 
@@ -115,7 +123,6 @@ class Perfil(object):
 
 root = Root()
 root.perfil = Perfil()
-
 cherrypy.server.max_request_body_size = 0
 cherrypy.server.socket_timeout = 60
 conf = os.path.join(os.path.dirname(__file__),'server.conf')

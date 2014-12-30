@@ -14,7 +14,6 @@ import os, sys, stat
 import time
 import psycopg2
 import psycopg2.extras
-
 class Controller(object):
 
     def verifica(self,usuario, rcontrasenia):

@@ -90,6 +90,9 @@ class Controller(object):
                 <div id="fecha">
                     <p>%s</p>
                 </div>
+                <div id="contenido_p">
+                    <p>%s</p>
+                </div>
                 <div id="imagen_p">
                     <img src="%s"/>
                 </div>
@@ -104,7 +107,7 @@ class Controller(object):
         for materia in materias:
             cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
-        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario FROM publicaciones WHERE id_usuario = \'%s\';' % (id_usuario[0][0]))
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY hora DESC;' % (id_usuario[0][0]))
         cadena = ""
         if rows == []:
             return publicaciones % (cad_materias,"")
@@ -114,10 +117,10 @@ class Controller(object):
             nombre = '%s %s'%(n[0][0],a[0][0])
             arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
-            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],arch[0][0],materia[0][0])
+            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['contenido'],arch[0][0],materia[0][0])
         return publicaciones % (cad_materias,cadena)
 
-    def publica_como_usuario(self, contentp, materia, archivo, email):        
+    def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        
         id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
         fecha = time.strftime('%Y-%m-%d')
@@ -140,8 +143,8 @@ class Controller(object):
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
-            return "done"
-        return "ok"
+            return
+        return
 
     def busca(self, nombre):
         '''

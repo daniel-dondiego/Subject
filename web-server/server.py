@@ -38,11 +38,11 @@ class Root(object):
         email = cherrypy.session.get('email')
         if email != None:
             raise cherrypy.HTTPRedirect('/home')
-        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
         
     @cherrypy.expose
     def signin(self):
-        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -66,11 +66,11 @@ class Root(object):
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
@@ -89,7 +89,7 @@ class Perfil(object):
     @cherrypy.expose
     def index(self):
         email = authorized()
-        return open("home/daniel/Subject/web-server/Vista/public_html/perfil.html")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
@@ -110,7 +110,8 @@ class Perfil(object):
 
     @cherrypy.expose
     def publica(self, contentp, materia, archivo=None):
-        return control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))  
+        control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))
+        raise cherrypy.HTTPRedirect("/perfil")
 
 root = Root()
 root.perfil = Perfil()

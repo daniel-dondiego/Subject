@@ -61,6 +61,10 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 
+    def get_id_usr(self, email):
+        i = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        return i[0][0]
+
     def get_publicaciones_perfil(self,email):
         publicaciones =  """
             <div id="publicacion_nueva"> 

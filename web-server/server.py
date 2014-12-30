@@ -9,10 +9,11 @@ import atexit
 import threading
 import cherrypy
 import os, os.path
+import CherrypyMako
+CherrypyMako.setup()
 
 
 cherrypy.config.update({'environment': 'embedded'})
-
 if cherrypy.__version__.startswith('3.0') and cherrypy.engine.state == 0:
     cherrypy.engine.start(blocking=False)
     atexit.register(cherrypy.engine.stop)
@@ -48,8 +49,9 @@ class Root(object):
     def login(self, user, password):        
         status = control.login(user,password)        
         if status == 1:            
-            cherrypy.session['email'] = user            
+            cherrypy.session['email'] = cherrypy.request.login = user            
             cherrypy.session['isvalid'] = 1
+            cherrypy.session.acquire_lock()
             raise cherrypy.HTTPRedirect("/home")
         else:
             return "Login failed"
@@ -75,7 +77,12 @@ class Root(object):
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png','NULL',contrasenia,'NULL',fdn,0.0)        
-        return control.verifica(usuario,rcontrasenia)
+        control.verifica(usuario,rcontrasenia)
+        raise cherrypy.HTTPRedirect('/verifica_cuenta')
+
+    @cherrypy.expose
+    def get_escuelas_paises(self):
+        return {'escuela' : control.get_lista_escuelas(),'pais': control.get_lista_paises()}
 
     @cherrypy.expose    
     def validate(self):
@@ -83,8 +90,67 @@ class Root(object):
         isvalid = cherrypy.session.get('isvalid')
         return {'email':email,'isvalid':isvalid}
 
+    @cherrypy.expose
+    def verifica_cuenta(self):
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html")
+
+    @cherrypy.expose
+    def verifica_codigo(self, codigo):
+        return "ok"
+
 
 class Perfil(object):
+
+    @cherrypy.tools.mako(filename='interfaz_grupos.html')
+    @cherrypy.expose
+    def grupos(self):
+        o=control.get_id_usr(cherrypy.session.get('email'))
+        u = Usuario.Usuario(o,"Pa","lala","m","lala",'/static/img/fotos_perfil/agregarFoto.png','NULL',"Perriro",'NULL',"01-01-01",0)
+        rows = u.get_grupos()
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][1]+"</li>"
+        return {'grupos':c}
+	
+    @cherrypy.tools.mako(filename='usuarios-grupo.html')
+    @cherrypy.expose
+    def miembros(self):
+        g = Grupo.Grupo(1,'Rifadores',1,1,'src')
+        rows = g.get_usuarios()
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][2]+"</li>"
+        return {'imagen':"/static/img/scizor.png",'nombre':g.get_nombre(),'miembros':c}
+	
+    @cherrypy.tools.mako(filename='grupo.html')
+    @cherrypy.expose
+    def grupo(self):
+        g = Grupo.Grupo(1,'Rifadores',1,1,'src')
+        rows = g.get_publicaciones()
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][7]+"</li>"
+        return {'imagen':"/static/img/scizor.png",'nombre':g.get_nombre(),'publicaciones':c}
+
+    @cherrypy.expose
+    def crear_grupo(self):
+        return open("home/luis/proyecto/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+	
+    @cherrypy.expose
+    def registra_grupo(self,nombre,visibilidad):
+        id_usuario=control.get_id_usr(cherrypy.session.get('email'))
+        g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
+        g.agrega()
+        return "Se agregó con exito"
+
+    @cherrypy.tools.mako(filename='resultado_busqueda.html')
+    @cherrypy.expose
+    def busqueda(self,buscador_personas):
+        rows=control.busca(buscador_personas)
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
+        return {'cadena':buscador_personas,'resultados':c}
 
     @cherrypy.expose
     def index(self):
@@ -103,7 +169,7 @@ class Perfil(object):
         if funcion == 'get_publicaciones':
             return control.get_publicaciones_perfil(cherrypy.session.get('email'))
         if funcion == 'get_info':
-            return "<p>Info<p>"
+            return control.get_info_perfil(cherrypy.session.get('email'))
         if funcion == 'get_archivos':
             return "<p>Publicaciones<p>"
         return "Error"
@@ -115,7 +181,6 @@ class Perfil(object):
 
 root = Root()
 root.perfil = Perfil()
-
 cherrypy.server.max_request_body_size = 0
 cherrypy.server.socket_timeout = 60
 conf = os.path.join(os.path.dirname(__file__),'server.conf')

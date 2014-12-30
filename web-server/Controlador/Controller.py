@@ -14,7 +14,6 @@ import os, sys, stat
 import time
 import psycopg2
 import psycopg2.extras
-
 class Controller(object):
 
     def verifica(self,usuario, rcontrasenia):
@@ -40,6 +39,20 @@ class Controller(object):
    		return "Bienvenido a Subject " + usuario.get_nombre()
        	return "Bienvenida a Subject " + usuario.get_nombre()
 
+    def get_lista_paises(self):
+        paises = Comandos.consulta('SELECT pais FROM paises;')
+        cad_paises = "<select name=\"escuela\">\n"
+        for pais in paises:
+            cad_paises += " <option value=\"%s\">%s</option>\n" %(pais[0],pais[0])
+        return "jajatl"#cad_paises + "</select>"
+                    
+    def get_lista_escuelas(self):
+        escuelas = Comandos.consulta('SELECT nombre FROM escuela;')
+        cad_escuelas = "<select name=\"pais\">\n"
+        for escuela in escuelas:
+            cad_escuelas += "   <option value=\"%s\">%s</option>\n" %(escuela[0],escuela[0])
+        return "jajatl"#cad_escuelas + "\n</select>"
+
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
         if(l == []):
@@ -60,7 +73,11 @@ class Controller(object):
 
     def get_foto_perfil(self, email):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
-        return ('<img src=\'%s\'/>' % (foto[0][0]))
+        return (''''<img src=\'%s\'/>''' % (foto[0][0]))
+
+    def get_id_usr(self, email):
+        i = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        return i[0][0]
 
     def get_publicaciones_perfil(self,email):
         publicaciones =  """
@@ -85,10 +102,10 @@ class Controller(object):
             <div id="publicaciones_usuario">
                 <p id="id_p">%s</p>
                 <div id="nombre_p">
-                    <p>%s</p>
+                    <a href="../perfil"><p>%s</p></a>
                 </div>
                 <div id="fecha">
-                    <p>%s</p>
+                    <p>%s - %s</p>
                 </div>
                 <div id="contenido_p">
                     <p>%s</p>
@@ -107,7 +124,7 @@ class Controller(object):
         for materia in materias:
             cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
-        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY hora DESC;' % (id_usuario[0][0]))
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido,hora FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY hora DESC;' % (id_usuario[0][0]))
         cadena = ""
         if rows == []:
             return publicaciones % (cad_materias,"")
@@ -117,8 +134,46 @@ class Controller(object):
             nombre = '%s %s'%(n[0][0],a[0][0])
             arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
-            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['contenido'],arch[0][0],materia[0][0])
+            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],arch[0][0],materia[0][0])
         return publicaciones % (cad_materias,cadena)
+
+    def get_info_perfil(self, email):
+        info = """
+            <div id="info_p">
+                <div id="nombre_i">
+                    <p>Nombre: %s</p>
+                </div>
+                <div id="genero">
+                    <p>Sexo: %s</p>
+                </div>
+                <div id="correo">
+                    <p>Correo: %s</p>
+                </div>
+                <div id="escuela">
+                    <p>Escuela: %s</p>
+                </div>
+                <div id="pais">
+                    <p>Pa&iacute;s de origen: %s</p>
+                </div>
+                <div id="edad_i">
+                    <p>Edad: %s</p>
+                    <p>Fecha de nacimiento: %s</p>
+                </div>
+                <div id="rating">
+                    <p>Raiting: %d</p>
+                </div>
+                <div id="foto_i">
+                    <img src=\'%s\'/>
+                </div>
+            </div>
+            """
+        import Controller
+        control = Controller.Controller()        
+        nombre = control.get_nombre(email)
+        genero = Comandos.consulta('SELECT genero FROM usuario WHERE nick_name=\'%s\';' % (email))
+        correo = email
+        edad = control.get_edad(email)
+        return info
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        

@@ -78,6 +78,10 @@ class Root(object):
         control.verifica(usuario,rcontrasenia)
         raise cherrypy.HTTPRedirect('/verifica_cuenta')
 
+    @cherrypy.expose
+    def get_escuelas_paises(self):
+        return {'escuela' : control.get_lista_escuelas(),'pais': control.get_lista_paises()}
+
     @cherrypy.expose    
     def validate(self):
         email = cherrypy.session.get('email')
@@ -91,6 +95,7 @@ class Root(object):
     @cherrypy.expose
     def verifica_codigo(self, codigo):
         return "ok"
+
 
 class Perfil(object):
 

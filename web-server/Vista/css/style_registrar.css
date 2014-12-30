@@ -118,6 +118,10 @@ svg.logo{
 	font-family: "Arial";
 }
 
+label {
+	color: white;
+	font-weight: bold;
+}
 
 /* Para pantallas de 100px en adelante */
 @media screen and (min-width: 100px){
@@ -449,6 +453,11 @@ svg.logo{
 		height: auto;
 		margin-left: 53%;
 		margin-top: -430px;
+	}
+
+	label {
+		color: #4B4B4B;
+		font-weight: bold;
 	}
 
 }

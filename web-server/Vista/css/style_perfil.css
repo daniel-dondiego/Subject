@@ -214,6 +214,15 @@ select:active {
   	border-radius: 8px;
 }
 
+#contenido #info_p{
+	margin: 0 auto;
+	height: auto;
+	background-color: #F0F0F0;
+	-webkit-box-shadow: 3px 5px 15px #2F2E2E;
+  	-moz-box-shadow: 3px 5px 15px #2F2E2E;
+  	border-radius: 8px;
+}
+
 #contenido #publicacion_nueva{
 	margin: 0 auto;
 	background-color: #F0F0F0;
@@ -315,6 +324,15 @@ body {
 #espacio_perfil{
 	width: 100%;
 	height: 20px;
+}
+
+#contenido #info_p{
+	padding: 0.5px 5px;
+	color: #737373;
+}
+
+#contenido #info_p #foto_i img{
+	margin: 0 auto;
 }
 
 /* Para pantallas de 100px en adelante */
@@ -447,6 +465,10 @@ body {
 		font-size: 16px;
 	}
 
+	#contenido #info_p{
+		width: 290px;
+	}
+
 }
 
 /* Para pantallas de 480px en adelante */
@@ -562,6 +584,10 @@ body {
 
 	#contenido #imagen_p img{
 		width: 100%;
+	}
+
+	#contenido #info_p{
+
 	}
 
 }

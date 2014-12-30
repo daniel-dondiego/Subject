@@ -39,6 +39,20 @@ class Controller(object):
    		return "Bienvenido a Subject " + usuario.get_nombre()
        	return "Bienvenida a Subject " + usuario.get_nombre()
 
+    def get_lista_paises(self):
+        paises = Comandos.consulta('SELECT pais FROM paises;')
+        cad_paises = "<select name=\"escuela\">\n"
+        for pais in paises:
+            cad_paises += " <option value=\"%s\">%s</option>\n" %(pais[0],pais[0])
+        return "jajatl"#cad_paises + "</select>"
+                    
+    def get_lista_escuelas(self):
+        escuelas = Comandos.consulta('SELECT nombre FROM escuela;')
+        cad_escuelas = "<select name=\"pais\">\n"
+        for escuela in escuelas:
+            cad_escuelas += "   <option value=\"%s\">%s</option>\n" %(escuela[0],escuela[0])
+        return "jajatl"#cad_escuelas + "\n</select>"
+
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
         if(l == []):
@@ -123,10 +137,38 @@ class Controller(object):
         info = """
             <div id="info_p">
                 <div id="nombre_i">
-                    <p>%s</p>
+                    <p>Nombre: %s</p>
+                </div>
+                <div id="genero">
+                    <p>Sexo: %s</p>
+                </div>
+                <div id="correo">
+                    <p>Correo: %s</p>
+                </div>
+                <div id="escuela">
+                    <p>Escuela: %s</p>
+                </div>
+                <div id="pais">
+                    <p>Pa&iacute;s de origen: %s</p>
+                </div>
+                <div id="edad_i">
+                    <p>Edad: %s</p>
+                    <p>Fecha de nacimiento: %s</p>
+                </div>
+                <div id="rating">
+                    <p>Raiting: %d</p>
+                </div>
+                <div id="foto_i">
+                    <img src=\'%s\'/>
                 </div>
             </div>
             """
+        import Controller
+        control = Controller.Controller()        
+        nombre = control.get_nombre(email)
+        genero = Comandos.consulta('SELECT genero FROM usuario WHERE nick_name=\'%s\';' % (email))
+        correo = email
+        edad = control.get_edad(email)
         return info
 
     def publica_como_usuario(self, contentp, materia, archivo, email):

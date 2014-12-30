@@ -8,6 +8,8 @@
     <link href="/static/css/style_registrar.css" rel="stylesheet"/>	
     <link href="/static/img/logonegro.png" rel="shortcut icon" type="image/x-icon"/>
     <script src="/static/js/IndexScripts.js" type="text/javascript"></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script src="/static/js/registro_scripts.js" type="text/javascript"></script>
   </head>
   <body>
     <header>
@@ -62,12 +64,25 @@
        	    <input type="password" name="contrasenia" placeholder="Contraseña"/>      		
        	    <input type="password" name="rcontrasenia" placeholder="Repite la contraseña"/>
        	    <br/>
-       	    <br/>       					
-       	    <select name="genero" placeholder="Escoge tu género:">            	
-              <option selected="selected" value="n">Escoge tu género</option>
-       	      <option value="f">Femenino</option>
+       	    <br/>
+            <label for="genero">G&eacute;nero:</label>       					
+       	    <select name="genero" placeholder="Escoge tu género:">
+       	      <option selected="selected" value="f">Femenino</option>
        	      <option value="m">Masculino</option>
        	    </select>
+            </br>
+            </br>
+            <label for="escuela">Escuela:</label>
+            <div id="escuela_s">
+            </div>
+            </br>
+            </br>
+            <label for="pais">Pa&iacute;s:</label>
+            <div id="pais_origen">
+              
+            </div>
+            </br>
+            </br>
        	    <p class="fd">Fecha de nacimiento:</p>
        	    <input type="date" name="fdn" placeholder="Fecha de nacimiento"/>
        	    <div class="registrame">

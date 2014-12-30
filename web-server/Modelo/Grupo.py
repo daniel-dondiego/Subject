@@ -133,8 +133,8 @@ class Grupo(object):
         '''
         Agrega el grupo a la base
         '''
-        s = 'INSERT INTO grupos (nombre, id_usuario, visibilidad, imagen) VALUES('
-        s += str(self.__nombre) + ', ' + str(self.__id_usuario) + ', ' + str(self.__visibilidad) + ', ' + str(self.__imagen) + ')'
+        s = 'INSERT INTO grupos (nombre, id_usuario, visibilidad, imagen) VALUES(\''
+        s += str(self.__nombre) + '\', ' + str(self.__id_usuario) + ', ' + str(self.__visibilidad) + ', \'' + str(self.__imagen) + '\')'
         Comandos.ejecuta_comando(s)
 
     def agrega_usuario(self, id_usuario):

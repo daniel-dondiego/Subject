@@ -206,7 +206,7 @@ class Usuario(object):
         returns: la lista de los grupos del usuario
         '''
         s = 'SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = '
-        s += self.__id + ')'
+        s += str(self.__id) + ')'
         return Comandos.consulta(s)
         
 #u = Usuario(None,"Luis","Soto","M","Lu1sZiTh0","http","1","Luisz","1","10-10-2010",0)

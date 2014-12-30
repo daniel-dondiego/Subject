@@ -9,6 +9,8 @@ import atexit
 import threading
 import cherrypy
 import os, os.path
+import CherrypyMako
+CherrypyMako.setup()
 
 
 cherrypy.config.update({'environment': 'embedded'})
@@ -98,6 +100,57 @@ class Root(object):
 
 
 class Perfil(object):
+
+    @cherrypy.tools.mako(filename='interfaz_grupos.html')
+    @cherrypy.expose
+    def grupos(self):
+        o=control.get_id_usr(cherrypy.session.get('email'))
+        u = Usuario.Usuario(o,"Pa","lala","m","lala",'/static/img/fotos_perfil/agregarFoto.png','NULL',"Perriro",'NULL',"01-01-01",0)
+        rows = u.get_grupos()
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][1]+"</li>"
+        return {'grupos':c}
+	
+    @cherrypy.tools.mako(filename='usuarios-grupo.html')
+    @cherrypy.expose
+    def miembros(self):
+        g = Grupo.Grupo(1,'Rifadores',1,1,'src')
+        rows = g.get_usuarios()
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][2]+"</li>"
+        return {'imagen':"/static/img/scizor.png",'nombre':g.get_nombre(),'miembros':c}
+	
+    @cherrypy.tools.mako(filename='grupo.html')
+    @cherrypy.expose
+    def grupo(self):
+        g = Grupo.Grupo(1,'Rifadores',1,1,'src')
+        rows = g.get_publicaciones()
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][7]+"</li>"
+        return {'imagen':"/static/img/scizor.png",'nombre':g.get_nombre(),'publicaciones':c}
+
+    @cherrypy.expose
+    def crear_grupo(self):
+        return open("home/luis/proyecto/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+	
+    @cherrypy.expose
+    def registra_grupo(self,nombre,visibilidad):
+        id_usuario=control.get_id_usr(cherrypy.session.get('email'))
+        g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
+        g.agrega()
+        return "Se agregó con exito"
+
+    @cherrypy.tools.mako(filename='resultado_busqueda.html')
+    @cherrypy.expose
+    def busqueda(self,buscador_personas):
+        rows=control.busca(buscador_personas)
+        c=""
+        for x in range (0,len(rows)):
+            c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
+        return {'cadena':buscador_personas,'resultados':c}
 
     @cherrypy.expose
     def index(self):

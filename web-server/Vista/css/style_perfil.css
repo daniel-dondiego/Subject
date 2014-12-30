@@ -10,13 +10,15 @@
 	height: 50px;	
 	background-color: black;
 	position: fixed;
+	margin-top: -50px;
+	-webkit-box-shadow: 3px 3px 5px #2F2E2E;
+    -moz-box-shadow: 3px 3px 5px #2F2E2E;
 }
 
 .header_perfil {
  	width: 100%;
  	background-color:#47C4FF;
  	background-image: url("/static/img/fondo_blue.jpg");
- 	position: fixed;
  }
 
 input[type="search"]:focus , TEXTAREA[type="text"]:focus{
@@ -44,6 +46,14 @@ input[type="submit"]	{
   	font-weight: bold;
   	border-style: none;
   	color: white;
+}
+
+#contenido a{
+	text-decoration: none;
+}
+
+#contenido a:hover{
+	font-weight: bold;
 }
 
 select {
@@ -143,7 +153,7 @@ select:active {
 	height: 40px;
 	text-align: center;
 	color: white;
-	position: fixed;
+	
 }
 
 .menu_centro #archivos{
@@ -191,7 +201,6 @@ select:active {
 
 #contenido {
 	margin: 0 auto;
-	background-color:#DFDCDC;
 	padding: 10px 0px;
 	height: auto;
 }
@@ -313,15 +322,15 @@ body {
 	
 	.header_perfil {
 		height: 160px;
-		margin-top: -2px;
+		margin-top: 50px;
+		padding: 1px 0px;
 	}
 
 	.header_perfil #foto_perfil{
 		width: 90px;
 		height: 90px;
 		margin-left: 6%;
-		margin-top: 8px;
-		position: fixed;
+		margin-top: 15px;
 	}
 
 	.header_perfil #foto_perfil img{
@@ -335,8 +344,7 @@ body {
 		width: 200px;
 		height: 90px;
 		margin-left: 38%;
-		margin-top: 25px;
-		position: fixed;
+		margin-top: -80px;
 		color: white;
 	}
 
@@ -376,7 +384,7 @@ body {
 	}
 
 	.menu_centro {
-		margin-top: -50px;
+		margin-top: -30px;
 	}
 
 	#contenido #publicacion_nueva input[type="submit"]{
@@ -390,7 +398,6 @@ body {
 		height: 50px;
 		font-size: 14px;
 		font-family: "Arial";
-		font-weight: bold;
 	}
 
 	#contenido #publicacion_nueva select{
@@ -403,30 +410,55 @@ body {
 		display: none;
 	}
 
-	#contenido #nombre_p {
+	#contenido #nombre_p p{
 		width: auto;
 		height: auto;
 		margin-left: 5px;
-		color: #323279;
+		color: #47C4FF;
 		font-size: 18px;
 		font-family: "Arial";
 	}
 
 	#contenido #fecha {
-		margin-top: -39px;
+		margin-top: -34px;
 		margin-left:190px;
-		font-size: 15px;
+		font-size: 10px;
 		color: #BDBDBD;
+	}
+
+	#contenido #imagen_p{
+		width: 90%;
+		height: 90%;
+		margin: 0 auto;
+	}
+
+	#contenido #imagen_p img{
+		width: 100%;
+	}
+
+	#contenido #contenido_p , #contenido #materia_p {
+		width: 90%;
+		height: auto;
+		margin: 0 auto;
+		margin-top: 20px;
+		color: #737373;
+		text-align: justify;
+		font-family: "Arial";
+		font-size: 16px;
 	}
 
 }
 
 /* Para pantallas de 480px en adelante */
 @media screen and (min-width: 480px){
+	.head{
+		margin-top: -40px;
+	}
 
 	.header_perfil {
 		height: 160px;
-		margin-top: -2px;
+		margin-top: 40px;
+		padding: 10px 0px;
 	}
 
 	.header_perfil #foto_perfil{
@@ -434,7 +466,6 @@ body {
 		height: 120px;
 		margin-left: 6%;
 		margin-top: 15px;
-		position: fixed;
 	}
 
 	.header_perfil #foto_perfil img{
@@ -448,8 +479,7 @@ body {
 		width: 200px;
 		height: 90px;
 		margin-left: 34%;
-		margin-top: 25px;
-		position: fixed;
+		margin-top: -100px;
 		color: white;
 	}
 
@@ -464,20 +494,20 @@ body {
 	}
 
 	.menu_centro {
-		margin-top: -50px;
+		margin-top: -10px;
 	}
 
 	#contenido {
 		margin-top: 0px;
-		width: 460px;
+		width: 450px;
 	}
 
 	#contenido #publicaciones_usuario{
-		width: 460px;
+		width: 430px;
 	}
 
 	#contenido #publicacion_nueva{
-		width: 46	0px;
+		width: 440px;
 	}
 
 	#contenido #publicacion_nueva img{
@@ -498,16 +528,40 @@ body {
 	#contenido #publicacion_nueva TEXTAREA{
 		margin-left: 4%;
 		margin-top: 10px;
-		width: 363px;
+		width: 400px;
 		height: 50px;
 		font-size: 14px;
 		font-family: "Arial";
 	}
 
 	#contenido #publicacion_nueva select{
-		margin-left: 4%;
+		margin-left: 7%;
 		width: 162px;
 		margin-bottom: 5px;
+	}
+
+	#contenido #nombre_p p{
+		margin-left: 25px;
+		color: #47C4FF;
+		font-size: 28px;
+		font-family: "Arial";
+	}
+
+	#contenido #fecha {
+		margin-top: -50px;
+		margin-left:310px;
+		font-size: 10px;
+		color: #BDBDBD;
+	}
+
+	#contenido #imagen_p{
+		width: 50%;
+		height: 50%;
+		margin: 0 auto;
+	}
+
+	#contenido #imagen_p img{
+		width: 100%;
 	}
 
 }
@@ -525,7 +579,7 @@ body {
 	}
 
 	#contenido #publicacion_nueva{
-		width: 500px;
+		width: 510px;
 	}
 
 	#contenido #publicacion_nueva img{
@@ -554,6 +608,10 @@ body {
 		margin-bottom: 5px;
 	}
 
+	#contenido #fecha {
+		margin-left: 80%;
+	}
+
 }
 
 /* Para pantallas de 950px en adelante */
@@ -568,7 +626,7 @@ body {
 	}
 
 	#contenido #publicacion_nueva{
-		width: 600px;
+		width: 610px;
 	}
 
 	#contenido #publicacion_nueva TEXTAREA{

@@ -111,7 +111,7 @@ class Perfil(object):
         if funcion == 'get_publicaciones':
             return control.get_publicaciones_perfil(cherrypy.session.get('email'))
         if funcion == 'get_info':
-            return "<p>Info<p>"
+            return control.get_info_perfil(cherrypy.session.get('email'))
         if funcion == 'get_archivos':
             return "<p>Publicaciones<p>"
         return "Error"

@@ -59,7 +59,7 @@ class Controller(object):
 
     def get_foto_perfil(self, email):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
-        return ('<img src=\'%s\'/>' % (foto[0][0]))
+        return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 
     def get_publicaciones_perfil(self,email):
         publicaciones =  """
@@ -84,10 +84,10 @@ class Controller(object):
             <div id="publicaciones_usuario">
                 <p id="id_p">%s</p>
                 <div id="nombre_p">
-                    <p>%s</p>
+                    <a href="../perfil"><p>%s</p></a>
                 </div>
                 <div id="fecha">
-                    <p>%s</p>
+                    <p>%s - %s</p>
                 </div>
                 <div id="contenido_p">
                     <p>%s</p>
@@ -106,7 +106,7 @@ class Controller(object):
         for materia in materias:
             cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
-        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY hora DESC;' % (id_usuario[0][0]))
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido,hora FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY hora DESC;' % (id_usuario[0][0]))
         cadena = ""
         if rows == []:
             return publicaciones % (cad_materias,"")
@@ -116,8 +116,14 @@ class Controller(object):
             nombre = '%s %s'%(n[0][0],a[0][0])
             arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
-            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['contenido'],arch[0][0],materia[0][0])
+            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],arch[0][0],materia[0][0])
         return publicaciones % (cad_materias,cadena)
+
+    def get_info_perfil(self, email):
+        info = """
+            
+            """
+        return info
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        

@@ -141,7 +141,7 @@ class Perfil(object):
 
     @cherrypy.expose
     def crear_grupo(self):
-        return open("home/luis/proyecto/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):

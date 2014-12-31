@@ -12,7 +12,6 @@ import os, sys, stat
 import time
 import psycopg2
 import psycopg2.extras
-import cherrypy
 
 class Controller(object):
 
@@ -39,13 +38,14 @@ class Controller(object):
 
     def registra(self,cod):
         if(cod == codigo):
-		Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) \
-			VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usr.get_nombre()),str(usr.get_apellido()),str(usr.get_genero()),str(usr.get_nick_name()),str(usr.get_f_nacimiento()),str(usr.get_foto()),hash(str(usr.get_password()))))
-		if(usr.get_genero() == 'm'):
-   			return "Bienvenido a Subject " + usr.get_nombre()
-		return "Bienvenida a Subject " + usr.get_nombre()
+		id_escuela = Comandos.consulta('SELECT id FROM escuela WHERE nombre=\'%s\';' % (usr.get_escuela()))
+        	id_nacionalidad = Comandos.consulta('SELECT id FROM paises WHERE pais=\'%s\';' % (usr.get_nacionalidad()))
+        	Comandos.ejecuta_comando("""INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) VALUES (\'%s\',\'%s\',\'%s\',\'%s\',%d,%d,\'%s\',0,\'%s\',%d,\'a\');"""%(str(usr.get_nombre()),str(usr.get_apellido()),str(usr.get_genero()),str(usr.get_nick_name()), id_escuela[0][0],id_nacionalidad[0][0],str(usr.get_f_nacimiento()),str(usr.get_foto()),hash(str(usr.get_password()))))
+        	if(usr.get_genero() == 'm'):
+            		return "Bienvenido a Subject " + usr.get_nombre()
+        	return "Bienvenida a Subject " + usr.get_nombre()
 	else:
-		return "No coinciden"
+	       return "No coinciden"
 
     def get_lista_paises(self):
         paises = Comandos.consulta('SELECT pais FROM paises;')

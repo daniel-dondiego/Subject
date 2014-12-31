@@ -293,7 +293,7 @@ class Controller(object):
         Busca a la persona en la base de datos
         nombre: el nombre de la persona a buscar
         '''
-        if not cadena_valida(nombre):
+        if not self.cadena_valida(nombre):
             return []
         i = 0
         nombre_completo = nombre.split()

@@ -110,7 +110,7 @@ class Controller(object):
                     <p>%s</p>
                 </div>
                 <div id="imagen_p">
-                    <img src="%s"/>
+                    %s
                 </div>
                 <div id="materia_p">
                     <p>%s</p>
@@ -151,8 +151,12 @@ class Controller(object):
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
             nombre = '%s %s'%(n[0][0],a[0][0])
             if not row['id_archivo'] is None:
+                tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
-                cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],arch[0][0],materia[0][0])
+                if(tipo[0][0] == 'imagen'):                    
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0])
+                else:
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0])
             else:
                 cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0])
         return publicaciones % (cad_materias,cadena)
@@ -173,7 +177,7 @@ class Controller(object):
         shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
         os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
-        Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0]))
+        Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0],'imagen'))
         Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
 
     def get_info_perfil(self, email):
@@ -235,7 +239,8 @@ class Controller(object):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        
         id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
         fecha = time.strftime('%Y-%m-%d')
-        hora = time.strftime('%X')        
+        hora = time.strftime('%X')   
+        #return str(archivo.type)
         if(len(archivo.filename) != 0):
             size = 0
             allData=''
@@ -248,9 +253,14 @@ class Controller(object):
             savedFile = open('tmp/'+archivo.filename, 'wb')
             savedFile.write(allData)
             savedFile.close()
+            tipo=""
+            if(str(archivo.type) == 'application/pdf'):
+                tipo = 'pdf'
+            else:
+                tipo = 'imagen'
             shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
             os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
-            Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))            
+            Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return

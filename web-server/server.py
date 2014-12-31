@@ -84,6 +84,9 @@ class Root(object):
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, escuela, pais, fdn):
+        for value in locals().values():
+            if not Controller.cadena_valida(value):
+                raise ValueError("El parametro " + value + " es invalido")
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png',escuela,contrasenia,pais,fdn,0.0)        
         control.verifica(usuario,rcontrasenia)
         raise cherrypy.HTTPRedirect('/verifica_cuenta')
@@ -145,6 +148,8 @@ class Perfil(object):
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
+        if not cadena_valida(nombre):
+            return 'Nombre invalido'
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
         g.agrega()

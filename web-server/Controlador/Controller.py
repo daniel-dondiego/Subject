@@ -62,6 +62,8 @@ class Controller(object):
         return cad_escuelas + "\n</select>"
 
     def login(self,email,password):
+        if not cadena_valida(email):
+            return 0
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
         if(l == []):
             return 'usuario incorrecto'
@@ -240,6 +242,8 @@ class Controller(object):
         Busca a la persona en la base de datos
         nombre: el nombre de la persona a buscar
         '''
+        if not cadena_valida(nombre):
+            return []
         i = 0
         nombre_completo = nombre.split()
         s = "SELECT * FROM usuario WHERE "
@@ -255,6 +259,39 @@ class Controller(object):
         Regresa los grupos de un usuario dado su id
         id: el id en la base del usuario
         '''
-        s = "SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = "
-        s += id + ')'
-        return Comandos.consulta(s)
+        if is_number(id):
+            s = "SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = "
+            s += id + ')'
+            return Comandos.consulta(s)
+        return []
+
+def cadena_valida(cadena):
+    '''
+    Regresa True si la cadena es valida (no contiene palabras reservadas) y
+    False en otro caso
+    cadena: la cadena a analizar
+    returns: si la cadena es valida
+    '''
+    baja = cadena.lower()
+    palabras_reservadas = ["drop", " or ", " or", "or ", " and ", " and", 
+                           "and ", "select", "*", "#", "$", "%", "&", "/", 
+                           "(", ")", "?", "\'", "\"", "!", "\\", "+",
+                           " - ", "- ", " -"] 
+    for palabra in palabras_reservadas:
+        if palabra in baja:
+            return False
+    return True
+
+def is_number(s):
+    '''
+    Regresa si una cadena es numero
+    Codigo obtenido de http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-in-python
+    s: la cadena que queremos saber si es numero
+    returns: si s es numero
+    '''
+    try:
+        float(s)
+        return True
+    except ValueError:
+       return False
+    

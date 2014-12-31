@@ -37,7 +37,8 @@ CREATE TABLE archivos (
     id integer NOT NULL,
     url_archivo text NOT NULL,
     id_usuario integer,
-    id_grupo integer
+    id_grupo integer,
+    tipo text
 );
 
 
@@ -883,7 +884,7 @@ ALTER TABLE ONLY usuario ALTER COLUMN id SET DEFAULT nextval('usuario_id_seq'::r
 -- Data for Name: archivos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY archivos (id, url_archivo, id_usuario, id_grupo) FROM stdin;
+COPY archivos (id, url_archivo, id_usuario, id_grupo, tipo) FROM stdin;
 \.
 
 

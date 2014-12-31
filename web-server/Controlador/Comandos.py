@@ -5,6 +5,8 @@ import psycopg2
 import psycopg2.extras
 import sys
 import Conexion
+import random
+import smtplib
 
 def ejecuta_comando(comando_sql):
     '''
@@ -28,5 +30,36 @@ def consulta(consulta):
     rows = cur.fetchall()
     return rows
 
+def correo_de_confirmacion(correo,clave):
+    TO = correo
+    SUBJECT = "TERMINA TU REGISTRO!"
+    TEXT = "tu clave de cuatro digitos es: %s" % str(clave)
+    gmail_sender = 'notificaciones.subject@gmail.com'
+
+    server = smtplib.SMTP('smtp.gmail.com', 587)
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login(gmail_sender,'proyecto3')
+        
+    BODY = '\r\n'.join([
+           'To: %s'%TO,
+           'From: %s'%gmail_sender,
+           'Subject: %s'%SUBJECT,
+           '',
+           TEXT
+           ])
+    try:
+       server.sendmail(gmail_sender,[TO],BODY)
+       print 'email sent'
+    except:
+       print 'error'
+    server.quit()
+
+def genera_clave():
+    clave = ''
+    for x in range(0,4):
+        clave += str(random.randint(0,9))
+    return clave
 
 Conexion.cierraConexion()

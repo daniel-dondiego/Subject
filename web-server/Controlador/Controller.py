@@ -62,7 +62,7 @@ class Controller(object):
         return cad_escuelas + "\n</select>"
 
     def login(self,email,password):
-        if not cadena_valida(email):
+        if not self.cadena_valida(email):
             return 0
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
         if(l == []):
@@ -85,8 +85,20 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 
+    '''
+    Regresa el id del usario a partir de el email de este ultimo
+    email:el email del usuario
+    '''
     def get_id_usr(self, email):
         i = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        return i[0][0]
+
+    '''
+    Regresa el id del grupo a partir del nombre de este ultimo
+    email: el nombre del grupo
+    '''
+    def get_id_grupo(self, nombre):
+        i = Comandos.consulta('SELECT id FROM grupos WHERE nombre = \'%s\';' % (nombre))
         return i[0][0]
 
     def get_publicaciones_perfil(self,email):
@@ -250,7 +262,6 @@ class Controller(object):
         id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
         fecha = time.strftime('%Y-%m-%d')
         hora = time.strftime('%X')   
-        #return str(archivo.type)
         if(len(archivo.filename) != 0):
             size = 0
             allData=''
@@ -263,7 +274,6 @@ class Controller(object):
             savedFile = open('tmp/'+archivo.filename, 'wb')
             savedFile.write(allData)
             savedFile.close()
-<<<<<<< HEAD
             tipo=""
             if(str(archivo.type) == 'application/pdf'):
                 tipo = 'pdf'
@@ -272,12 +282,6 @@ class Controller(object):
             shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
             os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
-=======
-            shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
-            #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)            
-            Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))            
->>>>>>> 0dc08d89959dbf5140d8f83fa6116bd948470958
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return
@@ -312,14 +316,14 @@ class Controller(object):
             return Comandos.consulta(s)
         return []
 
-    def cadena_valida(cadena):
+    def cadena_valida(self, cadena):
         '''
         Regresa True si la cadena es valida (no contiene palabras reservadas) y
         False en otro caso
         cadena: la cadena a analizar
         returns: si la cadena es valida
         '''
-        baja = cadena.lower()
+        baja = cadena
         palabras_reservadas = ["drop", " or ", " or", "or ", " and ", " and", 
                                "and ", "select", "*", "#", "$", "%", "&", "/", 
                                "(", ")", "?", "\'", "\"", "!", "\\", "+",

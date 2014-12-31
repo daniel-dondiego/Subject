@@ -4,6 +4,7 @@
 import sys, os
 sys.path.append(os.path.dirname(__file__))
 from Modelo import Usuario
+from Modelo import Grupo
 from Controlador import Controller
 import atexit
 import threading
@@ -39,11 +40,11 @@ class Root(object):
         email = cherrypy.session.get('email')
         if email != None:
             raise cherrypy.HTTPRedirect('/home')
-        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
         
     @cherrypy.expose
     def signin(self):
-        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -59,7 +60,7 @@ class Root(object):
     @cherrypy.expose
     def home(self):
         email = authorized()
-        return """<a href="/perfil">Perfil</a>"""      
+        return open('home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/home.html','r')     
 
     @cherrypy.expose
     def logout(self): 
@@ -68,11 +69,11 @@ class Root(object):
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def get_lista_paises(self):
@@ -98,7 +99,7 @@ class Root(object):
 
     @cherrypy.expose
     def verifica_cuenta(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/verifica_cuenta.html")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html")
 
     @cherrypy.expose
     def verfica_codigo(self,codigo):
@@ -175,7 +176,7 @@ class Perfil(object):
 
     @cherrypy.expose
     def crear_grupo(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
@@ -184,6 +185,9 @@ class Perfil(object):
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
         g.agrega()
+        g.set_id(control.get_id_grupo(nombre))
+        id_usr=control.get_id_usr(cherrypy.session.get('email'))
+        g.agrega_usuario(id_usr)
         return "Se agregó con exito"
 
     @cherrypy.tools.mako(filename='resultado_busqueda.html')

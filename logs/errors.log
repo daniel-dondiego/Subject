@@ -1374,3 +1374,9 @@
 [Wed Dec 31 00:07:09.491593 2014] [:error] [pid 18627:tid 140629803771648] [client 127.0.0.1:54357]     else
 [Wed Dec 31 00:07:09.491608 2014] [:error] [pid 18627:tid 140629803771648] [client 127.0.0.1:54357]        ^
 [Wed Dec 31 00:07:09.491613 2014] [:error] [pid 18627:tid 140629803771648] [client 127.0.0.1:54357] SyntaxError: invalid syntax
+[Wed Dec 31 00:28:40.328487 2014] [:error] [pid 19603:tid 140629922686720] [client 127.0.0.1:55068] mod_wsgi (pid=19603, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/
+[Wed Dec 31 00:28:40.328529 2014] [:error] [pid 19603:tid 140629922686720] [client 127.0.0.1:55068] mod_wsgi (pid=19603): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/
+[Wed Dec 31 00:28:40.328587 2014] [:error] [pid 19603:tid 140629922686720] [client 127.0.0.1:55068]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 199, referer: http://subject/perfil/
+[Wed Dec 31 00:28:40.328596 2014] [:error] [pid 19603:tid 140629922686720] [client 127.0.0.1:55068]     <<<<<<< HEAD, referer: http://subject/perfil/
+[Wed Dec 31 00:28:40.328601 2014] [:error] [pid 19603:tid 140629922686720] [client 127.0.0.1:55068]      ^, referer: http://subject/perfil/
+[Wed Dec 31 00:28:40.328606 2014] [:error] [pid 19603:tid 140629922686720] [client 127.0.0.1:55068] SyntaxError: invalid syntax, referer: http://subject/perfil/

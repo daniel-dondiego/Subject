@@ -4,7 +4,6 @@
 import sys
 sys.path.append("..")
 import Comandos
-from Modelo import Publicacion
 import string
 import EnviaCorreos
 import cgi
@@ -33,25 +32,26 @@ class Controller(object):
 	    return "Debe llenar el campo del genero."
 	#c_conf = EnviaCorreos.EnviaCorreos()
 	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
-	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) \
-		VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()),str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
-	if(usuario.get_genero() == 'm'):
-   		return "Bienvenido a Subject " + usuario.get_nombre()
-       	return "Bienvenida a Subject " + usuario.get_nombre()
+    	id_escuela = Comandos.consulta('SELECT id FROM escuela WHERE nombre=\'%s\';' % (usuario.get_escuela()))
+    	id_nacionalidad = Comandos.consulta('SELECT id FROM paises WHERE pais=\'%s\';' % (usuario.get_nacionalidad()))
+    	Comandos.ejecuta_comando("""INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) VALUES (\'%s\',\'%s\',\'%s\',\'%s\',%d,%d,\'%s\',0,\'%s\',%d,\'a\');"""%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()), id_escuela[0][0],id_nacionalidad[0][0],str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
+    	if(usuario.get_genero() == 'm'):
+	    return "Bienvenido a Subject " + usuario.get_nombre()
+	return "Bienvenida a Subject " + usuario.get_nombre()
 
     def get_lista_paises(self):
         paises = Comandos.consulta('SELECT pais FROM paises;')
-        cad_paises = "<select name=\"escuela\">\n"
+        cad_paises = "<label for=\"pais\">Pa&iacute;s:</label>\n<select name=\"pais\">\n"
         for pais in paises:
             cad_paises += " <option value=\"%s\">%s</option>\n" %(pais[0],pais[0])
-        return "jajatl"#cad_paises + "</select>"
+        return cad_paises + "</select>"
                     
     def get_lista_escuelas(self):
         escuelas = Comandos.consulta('SELECT nombre FROM escuela;')
-        cad_escuelas = "<select name=\"pais\">\n"
+        cad_escuelas = "<label for=\"escuela\">Escuela:</label>\n<select name=\"escuela\">\n"
         for escuela in escuelas:
             cad_escuelas += "   <option value=\"%s\">%s</option>\n" %(escuela[0],escuela[0])
-        return "jajatl"#cad_escuelas + "\n</select>"
+        return cad_escuelas + "\n</select>"
 
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
@@ -85,7 +85,6 @@ class Controller(object):
                 <form action="publica" method="POST" enctype="multipart/form-data">
                     <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
                     <select name="materia" placeholder="Escoge una materia:">              
-                        <option selected="selected" value="n">Materia</option>
                         %s
                     </select>
                     <label for="adjuntar_archivo">
@@ -119,6 +118,24 @@ class Controller(object):
             </div>
             <div id="espacio_perfil"></div>
             """
+        publicacion_sf =  """ 
+            <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
+                <div id="nombre_p">
+                    <a href="../perfil"><p>%s</p></a>
+                </div>
+                <div id="fecha">
+                    <p>%s - %s</p>
+                </div>
+                <div id="contenido_p">
+                    <p>%s</p>
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
         materias = Comandos.consulta('SELECT materia FROM materias;')
         cad_materias = ""
         for materia in materias:
@@ -131,11 +148,19 @@ class Controller(object):
         for row in rows:
             n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
             a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
-            nombre = '%s %s'%(n[0][0],a[0][0])
-            arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
-            cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],arch[0][0],materia[0][0])
+            nombre = '%s %s'%(n[0][0],a[0][0])
+            if not row['id_archivo'] is None:
+                arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
+                cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],arch[0][0],materia[0][0])
+            else:
+                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0])
         return publicaciones % (cad_materias,cadena)
+
+    def get_null(self):
+        co = Comandos.consulta('select id_archivo from publicaciones where id=3;')
+        return co
+
 
     def get_info_perfil(self, email):
         info = """
@@ -199,6 +224,7 @@ class Controller(object):
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return
+        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
         return
 
     def busca(self, nombre):

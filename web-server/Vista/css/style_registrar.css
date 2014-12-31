@@ -123,6 +123,14 @@ label {
 	font-weight: bold;
 }
 
+#escuela_s select{
+	width: 100px;
+}
+
+#pais_origen select{
+	width: 125px;
+}
+
 /* Para pantallas de 100px en adelante */
 @media screen and (min-width: 100px){
 	body{
@@ -485,6 +493,7 @@ label {
   	.presentacion img {
 		width: 370px;
 		height: 400px;
+		margin-left: 20%;
 	}
 
 	.presentacion {

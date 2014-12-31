@@ -75,14 +75,18 @@ class Root(object):
         return open("home/daniel/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
-    def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, fdn):
-        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png','NULL',contrasenia,'NULL',fdn,0.0)        
-        control.verifica(usuario,rcontrasenia)
-        raise cherrypy.HTTPRedirect('/verifica_cuenta')
+    def get_lista_paises(self):
+        return control.get_lista_paises()
+    
+    @cherrypy.expose
+    def get_lista_escuelas(self):
+        return control.get_lista_escuelas()
 
     @cherrypy.expose
-    def get_escuelas_paises(self):
-        return {'escuela' : control.get_lista_escuelas(),'pais': control.get_lista_paises()}
+    def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, escuela, pais, fdn):
+        usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png',escuela,contrasenia,pais,fdn,0.0)        
+        control.verifica(usuario,rcontrasenia)
+        raise cherrypy.HTTPRedirect('/verifica_cuenta')
 
     @cherrypy.expose    
     def validate(self):
@@ -100,6 +104,9 @@ class Root(object):
 
 
 class Perfil(object):
+    """
+    Maneja los métodos y los archivos para mostrar un perfil
+    """
 
     @cherrypy.tools.mako(filename='interfaz_grupos.html')
     @cherrypy.expose

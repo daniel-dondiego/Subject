@@ -82,7 +82,7 @@ class Controller(object):
     def get_publicaciones_perfil(self,email):
         publicaciones =  """
             <div id="publicacion_nueva"> 
-                <form action="publica" method="POST" enctype="multipart/form-data">
+                <form action="publica" method="POST" enctype="multipart/form-data" id="new_public">
                     <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
                     <select name="materia" placeholder="Escoge una materia:">              
                         %s
@@ -157,16 +157,35 @@ class Controller(object):
                 cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0])
         return publicaciones % (cad_materias,cadena)
 
-    def get_null(self):
-        co = Comandos.consulta('select id_archivo from publicaciones where id=3;')
-        return co
-
+    
+    def actualiza_foto(self, email, archivo):
+        size = 0
+        allData=''
+        while True:
+            data = archivo.file.read(8192)
+            allData+=data
+            if not data:
+                break
+            size += len(data)            
+        savedFile = open('tmp/'+archivo.filename, 'wb')
+        savedFile.write(allData)
+        savedFile.close()
+        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
+        os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
+        id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0]))
+        Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
 
     def get_info_perfil(self, email):
         info = """
             <div id="info_p">
+                <h2>Informaci&oacute;n</h2>
                 <div id="nombre_i">
                     <p>Nombre: %s</p>
+                </div>
+                <div id="edad_i">
+                    <p>Edad: %s</p>
+                    <p>Fecha de nacimiento: %s</p>
                 </div>
                 <div id="genero">
                     <p>Sexo: %s</p>
@@ -180,25 +199,37 @@ class Controller(object):
                 <div id="pais">
                     <p>Pa&iacute;s de origen: %s</p>
                 </div>
-                <div id="edad_i">
-                    <p>Edad: %s</p>
-                    <p>Fecha de nacimiento: %s</p>
-                </div>
                 <div id="rating">
-                    <p>Raiting: %d</p>
+                    <p>Rating: %g</p>
                 </div>
                 <div id="foto_i">
                     <img src=\'%s\'/>
                 </div>
+                <form onsubmit="return Verify(this);" action="actualiza_foto" method="post" enctype="multipart/form-data"> 
+                    <div id="div_act_foto">
+                        <input type="file" name="nueva_foto"/>                    
+                        <input type="submit" value="Actualizar"/>
+                    </div>
+                </form>
             </div>
             """
         import Controller
         control = Controller.Controller()        
         nombre = control.get_nombre(email)
-        genero = Comandos.consulta('SELECT genero FROM usuario WHERE nick_name=\'%s\';' % (email))
-        correo = email
         edad = control.get_edad(email)
-        return info
+        f_nac = Comandos.consulta('SELECT f_nacimiento FROM usuario WHERE nick_name=\'%s\';' % (email))
+        g = Comandos.consulta('SELECT genero FROM usuario WHERE nick_name=\'%s\';' % (email))
+        if g[0][0] == 'm':
+            genero = "Masculino"
+        else:
+            genero = "Femenino"
+        id_escuela = Comandos.consulta('SELECT escuela FROM usuario WHERE nick_name=\'%s\';' % (email))
+        escuela = Comandos.consulta('SELECT nombre FROM escuela where id=\'%d\';' % (id_escuela[0][0]))
+        id_pais = Comandos.consulta('SELECT nacionalidad FROM usuario WHERE nick_name=\'%s\';' % (email))
+        pais = Comandos.consulta('SELECT pais FROM paises WHERE id=\'%d\';' % (id_pais[0][0]))
+        raiting = Comandos.consulta('SELECT rating FROM usuario WHERE nick_name=\'%s\';' % (email))
+        foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name=\'%s\';' % (email))
+        return (info % (str(nombre),str(edad),str(f_nac[0][0]),str(genero),str(email),str(escuela[0][0]),str(pais[0][0]),raiting[0][0],str(foto[0][0])))
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        
@@ -218,8 +249,7 @@ class Controller(object):
             savedFile.write(allData)
             savedFile.close()
             shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
-            #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)            
+            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))

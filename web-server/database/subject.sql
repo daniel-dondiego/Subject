@@ -242,7 +242,8 @@ ALTER SEQUENCE comentarios_id_seq OWNED BY comentarios.id;
 CREATE TABLE escuela (
     id integer NOT NULL,
     nombre text NOT NULL,
-    imagen bytea
+    imagen text,
+    id_inst integer
 );
 
 
@@ -348,8 +349,8 @@ CREATE TABLE institucion (
     nombre text NOT NULL,
     id_pais integer,
     id_ciudad integer,
-    imagen bytea,
-    web_site text
+    web_site text,
+    imagen text
 );
 
 
@@ -417,7 +418,8 @@ ALTER SEQUENCE likes_id_seq OWNED BY likes.id;
 CREATE TABLE materias (
     id integer NOT NULL,
     materia text NOT NULL,
-    id_categoria integer
+    id_categoria integer,
+    incidencias integer
 );
 
 
@@ -524,7 +526,8 @@ CREATE TABLE paises (
     id integer NOT NULL,
     pais text NOT NULL,
     nacionalidad text NOT NULL,
-    imgbanderas text NOT NULL
+    imgbanderas text NOT NULL,
+    incidencias integer
 );
 
 
@@ -1075,6 +1078,97 @@ SELECT pg_catalog.setval('categoria_id_seq', 25, true);
 --
 
 COPY ciudad (id, nombre, pais) FROM stdin;
+1	Ciudad de México	104
+2	Ecatepec	104
+3	Guadalajara	104
+4	Puebla	104
+5	Juárez	104
+6	Tijuana	104
+7	León	104
+8	Zapopan	104
+9	MOnterrey	104
+10	Chihuahua	104
+11	Mérida	104
+12	San Luis Potosí	104
+13	Aguascalientes	104
+14	Hermosillo	104
+15	Saltillo	104
+16	Mexicalli	104
+17	Culiacán	104
+18	Acapulco	104
+19	Cancún	104
+20	Querétaro	104
+21	Torreón	104
+22	Morelia	104
+23	Reynosa	104
+24	Tlaquepaque	104
+25	Tuxla	104
+26	Durango	104
+27	Matamoros	104
+28	Xalapa	104
+29	Mazatlán	104
+30	Villahermosa	104
+31	Celaya	104
+32	Cuernavaca	104
+33	Tepic	104
+34	Ciudad Victoria	104
+35	Tampico	104
+36	Ensenada	104
+37	Uruapan	104
+38	Los Mochis	104
+39	Pachuca	104
+40	Oaxaca	104
+41	Tehuacán	104
+42	Coatzacolacos	104
+43	Campeche	104
+44	Monclova	104
+45	La Paz	104
+46	Nogales	104
+47	Puerto Vallarta	104
+48	Tapachula	104
+49	Chilpancingo	104
+50	Ciudad del Carmen	104
+51	Chalco	104
+52	San Critobal de las casas	104
+53	Colima	104
+54	Manzanillo	104
+55	Zacatecas	104
+56	Guadalupe	104
+57	Fresnillo	104
+58	Tokio	89
+59	Nueva York	63
+60	Sao Paulo	163
+61	Seúl	47
+62	Bombay	79
+63	Los Angeles	63
+64	Osaka	89
+65	Yakarta	80
+66	El Cairo	55
+67	Moscú	126
+68	Calcuta	79
+69	Manila	65
+70	Londres	81
+71	Shangai	42
+72	París	67
+73	Chicago	63
+74	Lima	117
+75	Bogotá	44
+76	Buenos Aires	9
+77	Sidney	21
+78	Roma	87
+79	Atenas	72
+80	Cambridge	63
+81	Palo Alto	63
+82	Oxford	81
+83	New Haven	63
+84	San Diego	63
+85	Bristol	81
+86	Burnaby	37
+87	Bochum	3
+88	Xi an	42
+89	Valencia	62
+90	Santiago	41
+91	San Juan	120
 \.
 
 
@@ -1082,7 +1176,7 @@ COPY ciudad (id, nombre, pais) FROM stdin;
 -- Name: ciudad_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('ciudad_id_seq', 1, false);
+SELECT pg_catalog.setval('ciudad_id_seq', 91, true);
 
 
 --
@@ -1104,7 +1198,26 @@ SELECT pg_catalog.setval('comentarios_id_seq', 1, false);
 -- Data for Name: escuela; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY escuela (id, nombre, imagen) FROM stdin;
+COPY escuela (id, nombre, imagen, id_inst) FROM stdin;
+1	Facultad de Arquitectura	/static/img/inst/arqui.png	1
+2	Facultad de Artes y Diseño	/static/img/inst/fad.jpg	1
+3	Facultad de Ciencias	/static/img/inst/ciencias.jpg	1
+4	Facultad de Ciencias Políticas y Sociales	/static/img/inst/polacas.jpg	1
+5	Facultad de Contaduría y administración	/static/img/inst/conta.jpg	1
+6	Facultad de Derecho	/static/img/inst/derecho.jpg	1
+7	Facultad de Economía	/static/img/inst/eco.png	1
+8	Facultad de Estudios Superiores Acatlán	/static/img/inst/Fesa.jpg	1
+9	Facultad de Estudios Superiores Aragón	/static/img/inst/arag.jpg	1
+10	Facultad de Estudios Superiores Cuautitlán	/static/img/inst/cuaut.jpg	1
+11	Facultad de Estudios Superiores Iztacala	/static/img/inst/iz.jpg	1
+12	Facultad de Estudios Superiores Zaragoza	/static/img/inst/za.jpg	1
+13	Facultad de Filosofía y Letras	/static/img/inst/fyl.png	1
+14	Facultad de Igeniería	/static/img/inst/inge.jpg	1
+15	Facultad de Medicina	/static/img/inst/med.jpg	1
+16	Facultad de Medicina Veterinaria y Zootecnia	/static/img/inst/fmvz.jpg	1
+17	Facultad de Odontología	/static/img/inst/odonto.jpg	1
+18	Facultad de Psicología	/static/img/inst/psico.jpg	1
+19	Facultad de Química	/static/img/inst/quim.jpg	1
 \.
 
 
@@ -1112,7 +1225,7 @@ COPY escuela (id, nombre, imagen) FROM stdin;
 -- Name: escuela_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('escuela_id_seq', 1, false);
+SELECT pg_catalog.setval('escuela_id_seq', 19, true);
 
 
 --
@@ -1149,7 +1262,53 @@ SELECT pg_catalog.setval('grupos_id_seq', 1, false);
 -- Data for Name: institucion; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY institucion (id, nombre, id_pais, id_ciudad, imagen, web_site) FROM stdin;
+COPY institucion (id, nombre, id_pais, id_ciudad, web_site, imagen) FROM stdin;
+1	Universidad Nacional Auónoma de México	104	1	http://www.unam.mx/	/static/img/inst/unam.png
+2	Instituto Politécnico Nacional	104	1	www.ipn.mx/	/static/img/inst/ipn.jpg
+3	Universidad Autónoma Metropolitana	104	1	www.uam.mx	/static/img/inst/uam.jpg
+4	Universidad Iberoamericana	104	1	uia.mx/	/static/img/inst/ibero.jpg
+5	Universidad Anáhuac	104	1	www.anahuac.mx/	/static/img/inst/anahuac.jpg
+6	Tecnológico de Monterrey	104	9	www.itesm.mx/	/static/img/inst/tec.jpg
+7	Instituto Tecnológico Autónomo de México	104	1	www.itam.mx	/static/img/inst/itam.jpg
+8	Universidad Autónoma de la Ciudad de México	104	1	www.uacm.edu.mx/	/static/img/inst/uacm.png
+9	Universidad Autónoma de Guadalajara	104	3	www.uag.mx/	/static/img/inst/uag.jpg
+10	Universidad Autónoma de Nuevo León	104	9	www.uanl.mx/	/static/img/inst/uanl.png
+11	Universidad Autónoma de Querétaro	104	20	www.uaq.mx/	/static/img/inst/uaq.jpg
+12	Universidad Autónoma de Zacatecas	104	55	www.uaz.edu.mx/	/static/img/inst/uaz.jpg
+13	Universidad Autónoma de Guerrero	104	49	www.uagro.mx/	/static/img/inst/uagro.png
+14	Universidad Autónoma de Sinaloa	104	17	www.uas.edu.mx/	/static/img/inst/uas.jpg
+15	Universidad Autónoma de Tamaulipas	104	34	www.uat.edu.mx/	/static/img/inst/uat.png
+16	Universidad Autónoma del Carmen	104	50	www.unacar.mx/	/static/img/inst/unacar.png
+17	Universidad del Valle de México	104	1	www.universidaduvm.mx/	/static/img/inst/uvm.jpg
+18	Instituto Tecnológico de Acapulco	104	18	www.it-acapulco.edu.mx/	/static/img/inst/ita.jpg
+19	Universidad Panamericana	104	1	www.up.edu.mx/	/static/img/inst/up.jpg
+20	Universidad Autónoma de San Luis Potosí	104	12	www.uaslp.mx/	/static/img/inst/uaslp.png
+21	Universidad Autónoma de Yucatan	104	11	www.uady.mx/	/static/img/inst/uay.jpg
+22	Universidad Autónoma de Chiapas	104	25	www.unach.mx/	/static/img/inst/uac.jpg
+23	Universidad Tecnológica de México	104	1	www.unitec.mx/‎	/static/img/inst/unitec.jpg
+24	Universidad de Harvard 	63	80	www.harvard.edu/	/static/img/inst/harv.png
+25	Universidad Stanford	63	81	www.stanford.edu/	/static/img/inst/stan.png
+26	Instituto Tecnológico de Massachusetts	63	80	web.mit.edu/	/static/img/inst/mit.jpg
+27	Universidad de Columbia	63	59	www.columbia.edu/	/static/img/inst/col.jpg
+28	Universidad de Chicago	63	73	www.uchicago.edu/	/static/img/inst/chic.png
+29	Universidad de Oxford	81	82	www.ox.ac.uk/	/static/img/inst/ox.jpg
+30	Universidad Yale	63	83	www.yale.edu/	/static/img/inst/yale.jpg
+31	Universidad de California en los Angeles	63	63	www.ucla.edu/	/static/img/inst/ucla.png
+32	Universidad Cornell	63	59	www.cornell.edu/	/static/img/inst/cor.jpg
+33	Universidad de California en San Diego	63	84	ucsd.edu/	/static/img/inst/ucsd.png
+34	Universidad de Tokio	89	58	www.u-tokyo.ac.jp/index_j.html	/static/img/inst/tokio.jpg
+35	Universidad de Pierre y Marie Curie	67	72	www.upmc.fr/en/	/static/img/inst/upmc.jpg
+36	Universidad de Bristol	81	85	www.bris.ac.uk/	/static/img/inst/bristol.png
+37	Universidad Simon Fraser	37	86	www.sfu.ca/	/static/img/inst/usg.jpg
+38	Universidad Ruhr de Bochum	3	87	www.ruhr-uni-bochum.de	/static/img/inst/rub.png
+39	Universidad Jiaotong de Xi an	42	88	www.xjtu.edu.cn/en/	/static/img/inst/xi.png
+40	Universidad de Valencia	62	89	http://www.uv.es/uvweb/universidad/es/universidad-valencia-1285845048380.html	/static/img/inst/valencia.png
+41	Universidad de Sao Paulo	163	60	www5.usp.br/	/static/img/inst/sao.jpg
+42	Universidad de Chile	41	90	www.uchile.cl/	/static/img/inst/chile.png
+43	Universidad Nacional de Colombia	44	75	unal.edu.co/	/static/img/inst/col.png
+44	Universidad de Puerto Rico	120	91	www.upr.edu/	/static/img/inst/pr.png
+45	Universidad Tecnológica Nacional	9	76	www.utn.edu.ar/	/static/img/inst/utn.jpg
+46	Universidad Nacional Mayor de San Marcos	117	74	www.unmsm.edu.pe/	/static/img/inst/sm.png
 \.
 
 
@@ -1157,7 +1316,7 @@ COPY institucion (id, nombre, id_pais, id_ciudad, imagen, web_site) FROM stdin;
 -- Name: institucion_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('institucion_id_seq', 1, false);
+SELECT pg_catalog.setval('institucion_id_seq', 46, true);
 
 
 --
@@ -1179,53 +1338,53 @@ SELECT pg_catalog.setval('likes_id_seq', 1, false);
 -- Data for Name: materias; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY materias (id, materia, id_categoria) FROM stdin;
-1	Cálculo	1
-2	Geometría	1
-3	Álgebra	1
-4	Trigonometría	1
-5	Programación	2
-6	Sistemas operativos	2
-7	Compiladores	2
-8	Estructuras de datos	2
-9	Mecánica	3
-10	Óptica	3
-11	Movimiento	3
-12	Energía	3
-13	Narrativa	5
-14	Didáctica	5
-15	Dramática	5
-16	Elementos	4
-17	Sustancias	4
-18	Conceptos básicos	4
-19	Moléculas	4
-20	Acidos y bases	4
-21	Antigua	6
-22	Medieval y renacentista	6
-23	Moderna	6
-24	Contemporánea	6
-25	Volleyball	7
-26	Basketball	7
-27	Futbol	7
-28	Células	10
-29	Aparatos y sistemas	10
-30	Reino animal	10
-31	Genética	10
-32	Anatomía	10
-33	Ecología	10
-34	Diseño	11
-35	Historia	11
-36	Ortografía	12
-37	Acentuación	12
-38	Oferta y demanda	14
-39	Educativa	17
-40	Clínica	17
-41	laboral	17
-42	De México	24
-43	Universal	24
-44	Relieve	25
-45	Clima	25
-46	Continentes	25
+COPY materias (id, materia, id_categoria, incidencias) FROM stdin;
+1	Cálculo	1	\N
+2	Geometría	1	\N
+3	Álgebra	1	\N
+4	Trigonometría	1	\N
+5	Programación	2	\N
+6	Sistemas operativos	2	\N
+7	Compiladores	2	\N
+8	Estructuras de datos	2	\N
+9	Mecánica	3	\N
+10	Óptica	3	\N
+11	Movimiento	3	\N
+12	Energía	3	\N
+13	Narrativa	5	\N
+14	Didáctica	5	\N
+15	Dramática	5	\N
+16	Elementos	4	\N
+17	Sustancias	4	\N
+18	Conceptos básicos	4	\N
+19	Moléculas	4	\N
+20	Acidos y bases	4	\N
+21	Antigua	6	\N
+22	Medieval y renacentista	6	\N
+23	Moderna	6	\N
+24	Contemporánea	6	\N
+25	Volleyball	7	\N
+26	Basketball	7	\N
+27	Futbol	7	\N
+28	Células	10	\N
+29	Aparatos y sistemas	10	\N
+30	Reino animal	10	\N
+31	Genética	10	\N
+32	Anatomía	10	\N
+33	Ecología	10	\N
+34	Diseño	11	\N
+35	Historia	11	\N
+36	Ortografía	12	\N
+37	Acentuación	12	\N
+38	Oferta y demanda	14	\N
+39	Educativa	17	\N
+40	Clínica	17	\N
+41	laboral	17	\N
+42	De México	24	\N
+43	Universal	24	\N
+44	Relieve	25	\N
+45	Clima	25	\N
+46	Continentes	25	\N
 \.
 
 
@@ -1270,169 +1429,170 @@ SELECT pg_catalog.setval('notificaciones_id_seq', 1, false);
 -- Data for Name: paises; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY paises (id, pais, nacionalidad, imgbanderas) FROM stdin;
-1	Afganistán	Afgano(a)	afganistán.jpg
-2	Albania	Albanés(a)	albania.png
-3	Alemania	Alemán(a)	alemania.jpg
-4	Andorra	Andorrano(a)	andorra.jpg
-5	Angola	Angoleño(a)	angola.png
-6	Antigua y barbuda	Antiguano(a)	antiguabarbuda.png
-7	Arabia Saudí	Árabe	arabiasaudita.png
-8	Argelia	Argelino(a)	argelia.png
-9	Argentina	Argentino(a)	argentina.png
-10	Armenia	Armenio(a)	armenia.png
-11	Australia	Australiano(a)	australia.png
-12	Austria	Austriaco(a)	austria.jpg
-13	Azerbaiyán	Azerbaiyano(a)	azerbaiyan.jpg
-14	Bahamas	Bahameño(a)	bahamas.png
-15	Bangladesh	Bangladesí	bangladesh.jpg
-16	Barbados	Barbadense	barbados.png
-17	Baréin	Bareiní	barein.png
-18	Bélgica	Belga	belgica.jpg
-19	Argentina	Argentino(a)	argentina.png
-20	Armenia	Armenio(a)	armenia.png
-21	Australia	Australiano(a)	australia.png
-22	Austria	Austriaco(a)	austria.jpg
-23	Azerbaiyán	Azerbaiyano(a)	azerbaiyan.jpg
-24	Bahamas	Bahameño(a)	bahamas.png
-25	Bangladesh	Bangladesí	bangladesh.jpg
-26	Barbados	Barbadense	barbados.png
-27	Baréin	Bareiní	barein.png
-28	Belice	Beliceño(a)	belice.png
-29	Benín	Beninés(a)	benin.png
-30	Bielorrusia	Bielorruso(a)	bielorusia.png
-31	Bolivia	Boliviano(a)	bolivia.png
-32	Bosnia-Herzegovina	Bosnio(a)	bosnia.png
-33	Botsuana	Botsuano(a)	botsuana.jpg
-34	Bulgaria	Búlgaro(a)	bulgaria.png
-35	Bután	Butanés(a)	butan.png
-36	Camerún	Camerúnes(a)	camerun.png
-37	Canadá	Canadiense	canada.jpg
-38	Camboya	Camboyano(a)	camboya.png
-39	Catar	Catarí	catar.png
-40	Chad	Chadiano(a)	chad.png
-41	Chile	Chileno(a)	chile.png
-42	China	Chino(a)	china.jpg
-43	Chipre	Chipriota	chipre.png
-44	Colombia	Colombiano(a)	colombia.jpg
-45	República del Congo	Congolés(a)	congo.png
-46	Corea del norte	Norcoreano(a)	coreanorte.png
-47	Corea del sur	Surcoreano(a)	coreasur.jpg
-48	Costa de Marfil	Marfileño(a)	costamarfil.png
-49	Costa Rica	Costarricense	cr.png
-50	Croacia	Croata	croacia.jpg
-51	Cuba	Cubano(a)	cuba.png
-52	Dinamarca	Danés(a)	dinamarca.jpg
-53	Dominica	Dominiqués(a)	dominica.png
-54	Ecuador	Ecuatoriano(a)	ecuador.jpg
-55	Egipto	Egipcio(a)	egipto.png
-56	El Salvador	Salvadoreño(a)	elsalvador.png
-57	Emiratos Árabes Unidos	Emiratí	emiratos.png
-58	Eritrea	Eritreo(a)	eritrea.png
-59	Escocia	Escocés(a)	escocia.png
-60	Eslovaquia	Eslovaco(a)	eslovaquia.jpg
-61	Eslovenia	Esloveno(a)	eslovenia.jpg
-62	España	Español(a)	españa.jpg
-63	Estados Unidos	Estadounidense	eu.png
-64	Etiopía	Etíope	etiopia.png
-65	Filipinas	Filipino(a)	filipinas.png
-66	Finlandia	Finlandés(a)	finlandia.png
-67	Francia	Francés(a)	francia.jpg
-68	Gabón	Gabonés(a)	gabon.jpg
-69	Gales	Galés	gales.png
-70	Gambia	Gambiano(a)	gambia.png
-71	Ghana	Ghanés(a)	ghana.png
-72	Grecia	Griego(a)	greacia.png
-73	Guam	Guameño(a)	guam.png
-74	Guatemala	Guatemalteco(a)	guatemala.png
-75	Guyana	Guyanés(a)	guyana.png
-76	Haití	Haitiano(a)	haiti.png
-77	Holanda	Holandés(a)	holanda.jpg
-78	Hungría	Húngaro(a)	hungria.jpg
-79	India	Hindú	india.jpg
-80	Indonesia	Indonesio(a)	indonesia.jpg
-81	Inglaterra	Inglés(a)	inglaterra.png
-82	Irak	Iraquí	irak.png
-83	Irán	Iraní	iran.jpg
-84	Irlanda del norte	Norirlandés(a)	irlandanorte.jpg
-85	Irlanda	Irlandés(a)	irlanda.png
-86	Israel	Israelí	israel.png
-87	Italia	Italiano(a)	italia.png
-88	Jamaica	Jamaiquino(a)	jamaica.png
-89	Japón	Japonés(a)	japon.jpg
-90	Jordania	Jordano(a)	jordania.png
-91	Kazajistán	Kazajo	kazajistan.png
-92	Kenia	Keniano(a)	kenia.png
-93	Kuwait	Kuwaití	kuwait.png
-94	Laos	Laosiano(a)	laos.jpg
-95	Líbano	Libanés(a)	libano.png
-96	Liberia	Liberiano(a)	liberia.png
-97	Libia	Libio(a)	libia.jpg
-98	Lituania	Lituano(a)	Lituania.jpg
-99	Luxemburgo	Luxemburgués(a)	luxemburgo.jpg
-100	Macao	Macaense	macao.png
-101	Malasia	Malayo	malasia.png
-102	Maldivas	Maldivo(a)	maldivas.jpg
-103	Marruecos	Marroquí	marruecos.jpg
-104	México	Mexicano(a)	mexico.jpg
-105	Mongolia	Mongol	mongolia.jpg
-106	Mozambique	Mozambiqueño(a)	mozambique.png
-107	Namibia	Namibio(a)	namibia.png
-108	Nepal	Nepalí	nepal.png
-109	Nicaragua	Nicaragüense	nicaragua.png
-110	Nigeria	Nigeriano(a)	nigeria.png
-111	Noruega	Noruego(a)	noruega.png
-112	Nueva Zelanda	Neozelandés(a)	nz.png
-113	Omán	Omaní	oman.jpg
-114	Pakistán	Pakistaní	pakistan.png
-115	Panamá	Panameño(a)	panama.png
-116	Paraguay	Paraguayo(a)	paraguay.png
-117	Perú	Peruano(a)	peru.png
-118	Polonia	Polaco(a)	polinia.jpg
-119	Portugal	Portugués(a)	portugal.png
-120	Puerto Rico	Puertorriqueño(a)	puertorico.png
-121	Qatar	Catarí	qatar.png
-122	República Checa	Checo(a)	repcheca.png
-123	República Dominicana	Dominicano(a)	repdominicana.png
-124	Ruanda	Ruandés	ruanda.png
-125	Rumania	Rumano(a)	rumania.jpg
-126	Rusia	Ruso(a)	rusia.png
-127	Senegal	Senegalés(a)	senegal.png
-128	Serbia	Serbio(a)	serbia.png
-129	Sudáfrica	Sudafricano(a)	sudafrica.png
-130	Suecia	Sueco(a)	suecia.png
-131	Suiza	Suizo(a)	suiza.jpg
-132	Tahití	Tahitiano(a)	tahiti.jpg
-133	Togo	Togolés(a)	togo.png
-134	Túnez	tunecino(a)	tunez.png
-135	Turkmenistán	Turcomano(a)	turkm.png
-136	Panamá	Panameño(a)	panama.png
-137	Paraguay	Paraguayo(a)	paraguay.png
-138	Perú	Peruano(a)	peru.png
-139	Polonia	Polaco(a)	polinia.jpg
-140	Portugal	Portugués(a)	portugal.png
-141	Puerto Rico	Puertorriqueño(a)	puertorico.png
-142	Qatar	Catarí	qatar.png
-143	República Checa	Checo(a)	repcheca.png
-144	República Dominicana	Dominicano(a)	repdominicana.png
-145	Ruanda	Ruandés	ruanda.png
-146	Rumania	Rumano(a)	rumania.jpg
-147	Rusia	Ruso(a)	rusia.png
-148	Senegal	Senegalés(a)	senegal.png
-149	Serbia	Serbio(a)	serbia.png
-150	Sudáfrica	Sudafricano(a)	sudafrica.png
-151	Suecia	Sueco(a)	suecia.png
-152	Suiza	Suizo(a)	suiza.jpg
-153	Tahití	Tahitiano(a)	tahiti.jpg
-154	Togo	Togolés(a)	togo.png
-155	Túnez	tunecino(a)	tunez.png
-156	Turkmenistán	Turcomano(a)	turkm.png
-157	Turquía	Turco(a)	turquia.png
-158	Ucrania	Ucraniano(a)	ucrania.jpg
-159	Uruguay	Uruguayo(a)	uruguay.jpg
-160	Vietnam	Vietnamita	vn.png
-161	Yugoslavia	Yugoslavo(a)	yugoslavia.jpg
-162	Zaire	Zaireño	zaire.png
+COPY paises (id, pais, nacionalidad, imgbanderas, incidencias) FROM stdin;
+1	Afganistán	Afgano(a)	afganistán.jpg	\N
+2	Albania	Albanés(a)	albania.png	\N
+3	Alemania	Alemán(a)	alemania.jpg	\N
+4	Andorra	Andorrano(a)	andorra.jpg	\N
+5	Angola	Angoleño(a)	angola.png	\N
+6	Antigua y barbuda	Antiguano(a)	antiguabarbuda.png	\N
+7	Arabia Saudí	Árabe	arabiasaudita.png	\N
+8	Argelia	Argelino(a)	argelia.png	\N
+9	Argentina	Argentino(a)	argentina.png	\N
+10	Armenia	Armenio(a)	armenia.png	\N
+11	Australia	Australiano(a)	australia.png	\N
+12	Austria	Austriaco(a)	austria.jpg	\N
+13	Azerbaiyán	Azerbaiyano(a)	azerbaiyan.jpg	\N
+14	Bahamas	Bahameño(a)	bahamas.png	\N
+15	Bangladesh	Bangladesí	bangladesh.jpg	\N
+16	Barbados	Barbadense	barbados.png	\N
+17	Baréin	Bareiní	barein.png	\N
+18	Bélgica	Belga	belgica.jpg	\N
+19	Argentina	Argentino(a)	argentina.png	\N
+20	Armenia	Armenio(a)	armenia.png	\N
+21	Australia	Australiano(a)	australia.png	\N
+22	Austria	Austriaco(a)	austria.jpg	\N
+23	Azerbaiyán	Azerbaiyano(a)	azerbaiyan.jpg	\N
+24	Bahamas	Bahameño(a)	bahamas.png	\N
+25	Bangladesh	Bangladesí	bangladesh.jpg	\N
+26	Barbados	Barbadense	barbados.png	\N
+27	Baréin	Bareiní	barein.png	\N
+28	Belice	Beliceño(a)	belice.png	\N
+29	Benín	Beninés(a)	benin.png	\N
+30	Bielorrusia	Bielorruso(a)	bielorusia.png	\N
+31	Bolivia	Boliviano(a)	bolivia.png	\N
+32	Bosnia-Herzegovina	Bosnio(a)	bosnia.png	\N
+33	Botsuana	Botsuano(a)	botsuana.jpg	\N
+34	Bulgaria	Búlgaro(a)	bulgaria.png	\N
+35	Bután	Butanés(a)	butan.png	\N
+36	Camerún	Camerúnes(a)	camerun.png	\N
+37	Canadá	Canadiense	canada.jpg	\N
+38	Camboya	Camboyano(a)	camboya.png	\N
+39	Catar	Catarí	catar.png	\N
+40	Chad	Chadiano(a)	chad.png	\N
+41	Chile	Chileno(a)	chile.png	\N
+42	China	Chino(a)	china.jpg	\N
+43	Chipre	Chipriota	chipre.png	\N
+44	Colombia	Colombiano(a)	colombia.jpg	\N
+45	República del Congo	Congolés(a)	congo.png	\N
+46	Corea del norte	Norcoreano(a)	coreanorte.png	\N
+47	Corea del sur	Surcoreano(a)	coreasur.jpg	\N
+48	Costa de Marfil	Marfileño(a)	costamarfil.png	\N
+49	Costa Rica	Costarricense	cr.png	\N
+50	Croacia	Croata	croacia.jpg	\N
+51	Cuba	Cubano(a)	cuba.png	\N
+52	Dinamarca	Danés(a)	dinamarca.jpg	\N
+53	Dominica	Dominiqués(a)	dominica.png	\N
+54	Ecuador	Ecuatoriano(a)	ecuador.jpg	\N
+55	Egipto	Egipcio(a)	egipto.png	\N
+56	El Salvador	Salvadoreño(a)	elsalvador.png	\N
+57	Emiratos Árabes Unidos	Emiratí	emiratos.png	\N
+58	Eritrea	Eritreo(a)	eritrea.png	\N
+59	Escocia	Escocés(a)	escocia.png	\N
+60	Eslovaquia	Eslovaco(a)	eslovaquia.jpg	\N
+61	Eslovenia	Esloveno(a)	eslovenia.jpg	\N
+62	España	Español(a)	españa.jpg	\N
+63	Estados Unidos	Estadounidense	eu.png	\N
+64	Etiopía	Etíope	etiopia.png	\N
+65	Filipinas	Filipino(a)	filipinas.png	\N
+66	Finlandia	Finlandés(a)	finlandia.png	\N
+67	Francia	Francés(a)	francia.jpg	\N
+68	Gabón	Gabonés(a)	gabon.jpg	\N
+69	Gales	Galés	gales.png	\N
+70	Gambia	Gambiano(a)	gambia.png	\N
+71	Ghana	Ghanés(a)	ghana.png	\N
+72	Grecia	Griego(a)	greacia.png	\N
+73	Guam	Guameño(a)	guam.png	\N
+74	Guatemala	Guatemalteco(a)	guatemala.png	\N
+75	Guyana	Guyanés(a)	guyana.png	\N
+76	Haití	Haitiano(a)	haiti.png	\N
+77	Holanda	Holandés(a)	holanda.jpg	\N
+78	Hungría	Húngaro(a)	hungria.jpg	\N
+79	India	Hindú	india.jpg	\N
+80	Indonesia	Indonesio(a)	indonesia.jpg	\N
+81	Inglaterra	Inglés(a)	inglaterra.png	\N
+82	Irak	Iraquí	irak.png	\N
+83	Irán	Iraní	iran.jpg	\N
+84	Irlanda del norte	Norirlandés(a)	irlandanorte.jpg	\N
+85	Irlanda	Irlandés(a)	irlanda.png	\N
+86	Israel	Israelí	israel.png	\N
+87	Italia	Italiano(a)	italia.png	\N
+88	Jamaica	Jamaiquino(a)	jamaica.png	\N
+89	Japón	Japonés(a)	japon.jpg	\N
+90	Jordania	Jordano(a)	jordania.png	\N
+91	Kazajistán	Kazajo	kazajistan.png	\N
+92	Kenia	Keniano(a)	kenia.png	\N
+93	Kuwait	Kuwaití	kuwait.png	\N
+94	Laos	Laosiano(a)	laos.jpg	\N
+95	Líbano	Libanés(a)	libano.png	\N
+96	Liberia	Liberiano(a)	liberia.png	\N
+97	Libia	Libio(a)	libia.jpg	\N
+98	Lituania	Lituano(a)	Lituania.jpg	\N
+99	Luxemburgo	Luxemburgués(a)	luxemburgo.jpg	\N
+100	Macao	Macaense	macao.png	\N
+101	Malasia	Malayo	malasia.png	\N
+102	Maldivas	Maldivo(a)	maldivas.jpg	\N
+103	Marruecos	Marroquí	marruecos.jpg	\N
+104	México	Mexicano(a)	mexico.jpg	\N
+105	Mongolia	Mongol	mongolia.jpg	\N
+106	Mozambique	Mozambiqueño(a)	mozambique.png	\N
+107	Namibia	Namibio(a)	namibia.png	\N
+108	Nepal	Nepalí	nepal.png	\N
+109	Nicaragua	Nicaragüense	nicaragua.png	\N
+110	Nigeria	Nigeriano(a)	nigeria.png	\N
+111	Noruega	Noruego(a)	noruega.png	\N
+112	Nueva Zelanda	Neozelandés(a)	nz.png	\N
+113	Omán	Omaní	oman.jpg	\N
+114	Pakistán	Pakistaní	pakistan.png	\N
+115	Panamá	Panameño(a)	panama.png	\N
+116	Paraguay	Paraguayo(a)	paraguay.png	\N
+117	Perú	Peruano(a)	peru.png	\N
+118	Polonia	Polaco(a)	polinia.jpg	\N
+119	Portugal	Portugués(a)	portugal.png	\N
+120	Puerto Rico	Puertorriqueño(a)	puertorico.png	\N
+121	Qatar	Catarí	qatar.png	\N
+122	República Checa	Checo(a)	repcheca.png	\N
+123	República Dominicana	Dominicano(a)	repdominicana.png	\N
+124	Ruanda	Ruandés	ruanda.png	\N
+125	Rumania	Rumano(a)	rumania.jpg	\N
+126	Rusia	Ruso(a)	rusia.png	\N
+127	Senegal	Senegalés(a)	senegal.png	\N
+128	Serbia	Serbio(a)	serbia.png	\N
+129	Sudáfrica	Sudafricano(a)	sudafrica.png	\N
+130	Suecia	Sueco(a)	suecia.png	\N
+131	Suiza	Suizo(a)	suiza.jpg	\N
+132	Tahití	Tahitiano(a)	tahiti.jpg	\N
+133	Togo	Togolés(a)	togo.png	\N
+134	Túnez	tunecino(a)	tunez.png	\N
+135	Turkmenistán	Turcomano(a)	turkm.png	\N
+136	Panamá	Panameño(a)	panama.png	\N
+137	Paraguay	Paraguayo(a)	paraguay.png	\N
+138	Perú	Peruano(a)	peru.png	\N
+139	Polonia	Polaco(a)	polinia.jpg	\N
+140	Portugal	Portugués(a)	portugal.png	\N
+141	Puerto Rico	Puertorriqueño(a)	puertorico.png	\N
+142	Qatar	Catarí	qatar.png	\N
+143	República Checa	Checo(a)	repcheca.png	\N
+144	República Dominicana	Dominicano(a)	repdominicana.png	\N
+145	Ruanda	Ruandés	ruanda.png	\N
+146	Rumania	Rumano(a)	rumania.jpg	\N
+147	Rusia	Ruso(a)	rusia.png	\N
+148	Senegal	Senegalés(a)	senegal.png	\N
+149	Serbia	Serbio(a)	serbia.png	\N
+150	Sudáfrica	Sudafricano(a)	sudafrica.png	\N
+151	Suecia	Sueco(a)	suecia.png	\N
+152	Suiza	Suizo(a)	suiza.jpg	\N
+153	Tahití	Tahitiano(a)	tahiti.jpg	\N
+154	Togo	Togolés(a)	togo.png	\N
+155	Túnez	tunecino(a)	tunez.png	\N
+156	Turkmenistán	Turcomano(a)	turkm.png	\N
+157	Turquía	Turco(a)	turquia.png	\N
+158	Ucrania	Ucraniano(a)	ucrania.jpg	\N
+159	Uruguay	Uruguayo(a)	uruguay.jpg	\N
+160	Vietnam	Vietnamita	vn.png	\N
+161	Yugoslavia	Yugoslavo(a)	yugoslavia.jpg	\N
+162	Zaire	Zaireño	zaire.png	\N
+163	Brasil	Brasileño(a)	brasil.png	\N
 \.
 
 
@@ -1440,7 +1600,7 @@ COPY paises (id, pais, nacionalidad, imgbanderas) FROM stdin;
 -- Name: paises_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('paises_id_seq', 162, true);
+SELECT pg_catalog.setval('paises_id_seq', 163, true);
 
 
 --
@@ -1508,6 +1668,9 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 --
 
 COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) FROM stdin;
+1	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
+2	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
+3	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
 \.
 
 
@@ -1515,7 +1678,7 @@ COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_
 -- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('usuario_id_seq', 1, false);
+SELECT pg_catalog.setval('usuario_id_seq', 3, true);
 
 
 --
@@ -1732,6 +1895,14 @@ ALTER TABLE ONLY comentarios
 
 ALTER TABLE ONLY comentarios
     ADD CONSTRAINT comentarios_id_usuario_fkey FOREIGN KEY (id_usuario) REFERENCES usuario(id);
+
+
+--
+-- Name: escuela_id_inst_fkey; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY escuela
+    ADD CONSTRAINT escuela_id_inst_fkey FOREIGN KEY (id_inst) REFERENCES institucion(id);
 
 
 --

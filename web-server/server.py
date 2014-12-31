@@ -4,6 +4,7 @@
 import sys, os
 sys.path.append(os.path.dirname(__file__))
 from Modelo import Usuario
+from Modelo import Grupo
 from Controlador import Controller
 import atexit
 import threading
@@ -184,6 +185,9 @@ class Perfil(object):
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
         g.agrega()
+        g.set_id(control.get_id_grupo(nombre))
+        id_usr=control.get_id_usr(cherrypy.session.get('email'))
+        g.agrega_usuario(id_usr)
         return "Se agregó con exito"
 
     @cherrypy.tools.mako(filename='resultado_busqueda.html')

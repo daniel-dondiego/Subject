@@ -5,7 +5,6 @@ import sys
 sys.path.append("..")
 import Comandos
 import string
-import EnviaCorreos
 import cgi
 import shutil
 import tempfile
@@ -13,31 +12,40 @@ import os, sys, stat
 import time
 import psycopg2
 import psycopg2.extras
+import cherrypy
+
 class Controller(object):
 
     def verifica(self,usuario, rcontrasenia):
-        if(usuario.get_password() != rcontrasenia):
+        global usr
+        usr = usuario
+        if(usr.get_password() != rcontrasenia):
             return "Las contraseñas no coinciden"
-        if(len(usuario.get_password()) == 0):
-            return "Debe llenar el campo de la contrasenia."		
-        if (len(usuario.get_nombre()) == 0):
+        if(len(usr.get_password()) == 0):
+            return "Debe llenar el campo de la contraseña."		
+        if (len(usr.get_nombre()) == 0):
             return "Debe llenar el campo del nombre."
-        if(len(usuario.get_apellido()) == 0):
+        if(len(usr.get_apellido()) == 0):
 	    return "Debe llenar el campo del apellido."
-	if(len(usuario.get_f_nacimiento()) == 0):
+	if(len(usr.get_f_nacimiento()) == 0):
 	    return "Debe ingresar su fecha de nacimiento."
-	if(len(usuario.get_nick_name()) == 0):
+	if(len(usr.get_nick_name()) == 0):
 	    return "Debe llenar el campo del nombre."
-	if(len(usuario.get_genero()) == 0):
+	if(len(usr.get_genero()) == 0):
 	    return "Debe llenar el campo del genero."
-	#c_conf = EnviaCorreos.EnviaCorreos()
-	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
-    	id_escuela = Comandos.consulta('SELECT id FROM escuela WHERE nombre=\'%s\';' % (usuario.get_escuela()))
-    	id_nacionalidad = Comandos.consulta('SELECT id FROM paises WHERE pais=\'%s\';' % (usuario.get_nacionalidad()))
-    	Comandos.ejecuta_comando("""INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) VALUES (\'%s\',\'%s\',\'%s\',\'%s\',%d,%d,\'%s\',0,\'%s\',%d,\'a\');"""%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()), id_escuela[0][0],id_nacionalidad[0][0],str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
-    	if(usuario.get_genero() == 'm'):
-	    return "Bienvenido a Subject " + usuario.get_nombre()
-	return "Bienvenida a Subject " + usuario.get_nombre()
+        global codigo
+    	codigo = Comandos.genera_clave()
+    	Comandos.correo_de_confirmacion(usr.get_nick_name(),codigo)
+
+    def registra(self,cod):
+        if(cod == codigo):
+		Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) \
+			VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usr.get_nombre()),str(usr.get_apellido()),str(usr.get_genero()),str(usr.get_nick_name()),str(usr.get_f_nacimiento()),str(usr.get_foto()),hash(str(usr.get_password()))))
+		if(usr.get_genero() == 'm'):
+   			return "Bienvenido a Subject " + usr.get_nombre()
+		return "Bienvenida a Subject " + usr.get_nombre()
+	else:
+		return "No coinciden"
 
     def get_lista_paises(self):
         paises = Comandos.consulta('SELECT pais FROM paises;')
@@ -219,8 +227,8 @@ class Controller(object):
             savedFile = open('tmp/'+archivo.filename, 'wb')
             savedFile.write(allData)
             savedFile.close()
-            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
+            shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
             #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)            
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))

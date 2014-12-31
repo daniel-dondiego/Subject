@@ -887,12 +887,6 @@ ALTER TABLE ONLY usuario ALTER COLUMN id SET DEFAULT nextval('usuario_id_seq'::r
 --
 
 COPY archivos (id, url_archivo, id_usuario, id_grupo, tipo) FROM stdin;
-1	/static/img/archivos/coverse.jpg	4	\N	\N
-2	/static/img/archivos/pool.jpg	4	\N	\N
-3	/static/img/archivos/dr.jpg	4	\N	\N
-4	/static/img/archivos/marilyn.jpg	4	\N	\N
-5	/static/img/archivos/chab.jpg	4	\N	\N
-6	/static/img/fotos_perfil/chab.jpg	4	\N	imagen
 \.
 
 
@@ -1242,7 +1236,6 @@ SELECT pg_catalog.setval('escuela_id_seq', 19, true);
 --
 
 COPY grupo_usuario (id, id_grupo, id_usuario) FROM stdin;
-1	1	4
 \.
 
 
@@ -1258,7 +1251,6 @@ SELECT pg_catalog.setval('grupo_usuario_id_seq', 1, true);
 --
 
 COPY grupos (id, nombre, imagen, visibilidad, id_usuario) FROM stdin;
-1	Hola	\\x7374617469632f696d672f666f746f735f70657266696c2f61677265676172466f746f2e706e67	1	4
 \.
 
 
@@ -1634,12 +1626,6 @@ SELECT pg_catalog.setval('persona_carrera_id_seq', 1, false);
 --
 
 COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad, contenido, hora, calificacion, num_calif) FROM stdin;
-1	4	\N	1	1	2014-12-30	\N	hola	23:35:13	\N	\N
-2	4	\N	\N	12	2014-12-30	\N	angie es fea	23:36:13	\N	\N
-3	4	\N	2	29	2014-12-30	\N	Aldo anda con Paola	23:36:49	\N	\N
-4	4	\N	3	17	2014-12-30	\N	Angie anda con Garro	23:37:16	\N	\N
-5	4	\N	4	2	2014-12-30	\N	Angie anda con Lalo	23:38:25	\N	\N
-6	4	\N	5	10	2014-12-30	\N	Mi Mamá	23:41:08	\N	\N
 \.
 
 
@@ -1685,10 +1671,6 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 --
 
 COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) FROM stdin;
-1	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
-2	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
-3	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
-4	Claudita	Garcia	f	cristianobebe	3	104	1995-07-05	0	/static/img/fotos_perfil/chab.jpg	2932767675722745684	\\x61
 \.
 
 

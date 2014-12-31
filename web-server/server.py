@@ -110,6 +110,38 @@ class Perfil(object):
     Maneja los métodos y los archivos para mostrar un perfil
     """
 
+    @cherrypy.expose
+    def index(self):
+        email = authorized()
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
+
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    def get_contenido_perfil(self, funcion):
+        if funcion == 'get_datos':    
+            return {
+                'nombre':control.get_nombre(cherrypy.session.get('email')),
+                'edad'  :control.get_edad(cherrypy.session.get('email')),
+                'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
+            }
+        if funcion == 'get_publicaciones':
+            return control.get_publicaciones_perfil(cherrypy.session.get('email'))
+        if funcion == 'get_info':
+            return control.get_info_perfil(cherrypy.session.get('email'))
+        if funcion == 'get_archivos':
+            return "<p>Publicaciones<p>"
+        return "Error"
+
+    @cherrypy.expose
+    def publica(self, contentp, materia, archivo=None):
+        control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))
+        raise cherrypy.HTTPRedirect("/perfil")
+
+    @cherrypy.expose
+    def actualiza_foto(self, nueva_foto):
+        control.actualiza_foto(cherrypy.session.get('email'),nueva_foto)
+        raise cherrypy.HTTPRedirect("/perfil")
+
     @cherrypy.tools.mako(filename='interfaz_grupos.html')
     @cherrypy.expose
     def grupos(self):
@@ -143,7 +175,7 @@ class Perfil(object):
 
     @cherrypy.expose
     def crear_grupo(self):
-        return open("home/luis/proyecto/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
@@ -163,6 +195,8 @@ class Perfil(object):
             c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
         return {'cadena':buscador_personas,'resultados':c}
 
+<<<<<<< HEAD
+=======
     @cherrypy.expose
     def index(self):
         email = authorized()
@@ -190,6 +224,7 @@ class Perfil(object):
         control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))
         raise cherrypy.HTTPRedirect("/perfil")
 
+>>>>>>> 0dc08d89959dbf5140d8f83fa6116bd948470958
 root = Root()
 root.perfil = Perfil()
 cherrypy.server.max_request_body_size = 0

@@ -12,7 +12,6 @@ import os, sys, stat
 import time
 import psycopg2
 import psycopg2.extras
-import cherrypy
 
 class Controller(object):
 
@@ -39,13 +38,14 @@ class Controller(object):
 
     def registra(self,cod):
         if(cod == codigo):
-		Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) \
-			VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usr.get_nombre()),str(usr.get_apellido()),str(usr.get_genero()),str(usr.get_nick_name()),str(usr.get_f_nacimiento()),str(usr.get_foto()),hash(str(usr.get_password()))))
-		if(usr.get_genero() == 'm'):
-   			return "Bienvenido a Subject " + usr.get_nombre()
-		return "Bienvenida a Subject " + usr.get_nombre()
+		id_escuela = Comandos.consulta('SELECT id FROM escuela WHERE nombre=\'%s\';' % (usr.get_escuela()))
+        	id_nacionalidad = Comandos.consulta('SELECT id FROM paises WHERE pais=\'%s\';' % (usr.get_nacionalidad()))
+        	Comandos.ejecuta_comando("""INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) VALUES (\'%s\',\'%s\',\'%s\',\'%s\',%d,%d,\'%s\',0,\'%s\',%d,\'a\');"""%(str(usr.get_nombre()),str(usr.get_apellido()),str(usr.get_genero()),str(usr.get_nick_name()), id_escuela[0][0],id_nacionalidad[0][0],str(usr.get_f_nacimiento()),str(usr.get_foto()),hash(str(usr.get_password()))))
+        	if(usr.get_genero() == 'm'):
+            		return "Bienvenido a Subject " + usr.get_nombre()
+        	return "Bienvenida a Subject " + usr.get_nombre()
 	else:
-		return "No coinciden"
+	       return "No coinciden"
 
     def get_lista_paises(self):
         paises = Comandos.consulta('SELECT pais FROM paises;')
@@ -92,7 +92,7 @@ class Controller(object):
     def get_publicaciones_perfil(self,email):
         publicaciones =  """
             <div id="publicacion_nueva"> 
-                <form action="publica" method="POST" enctype="multipart/form-data">
+                <form action="publica" method="POST" enctype="multipart/form-data" id="new_public">
                     <TEXTAREA type="text" name="contentp" placeholder="Publicar algo..."></TEXTAREA>
                     <select name="materia" placeholder="Escoge una materia:">              
                         %s
@@ -120,7 +120,7 @@ class Controller(object):
                     <p>%s</p>
                 </div>
                 <div id="imagen_p">
-                    <img src="%s"/>
+                    %s
                 </div>
                 <div id="materia_p">
                     <p>%s</p>
@@ -161,22 +161,45 @@ class Controller(object):
             materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
             nombre = '%s %s'%(n[0][0],a[0][0])
             if not row['id_archivo'] is None:
+                tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
-                cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],arch[0][0],materia[0][0])
+                if(tipo[0][0] == 'imagen'):                    
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0])
+                else:
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0])
             else:
                 cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0])
         return publicaciones % (cad_materias,cadena)
 
-    def get_null(self):
-        co = Comandos.consulta('select id_archivo from publicaciones where id=3;')
-        return co
-
+    
+    def actualiza_foto(self, email, archivo):
+        size = 0
+        allData=''
+        while True:
+            data = archivo.file.read(8192)
+            allData+=data
+            if not data:
+                break
+            size += len(data)            
+        savedFile = open('tmp/'+archivo.filename, 'wb')
+        savedFile.write(allData)
+        savedFile.close()
+        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
+        os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
+        id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0],'imagen'))
+        Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
 
     def get_info_perfil(self, email):
         info = """
             <div id="info_p">
+                <h2>Informaci&oacute;n</h2>
                 <div id="nombre_i">
                     <p>Nombre: %s</p>
+                </div>
+                <div id="edad_i">
+                    <p>Edad: %s</p>
+                    <p>Fecha de nacimiento: %s</p>
                 </div>
                 <div id="genero">
                     <p>Sexo: %s</p>
@@ -190,31 +213,44 @@ class Controller(object):
                 <div id="pais">
                     <p>Pa&iacute;s de origen: %s</p>
                 </div>
-                <div id="edad_i">
-                    <p>Edad: %s</p>
-                    <p>Fecha de nacimiento: %s</p>
-                </div>
                 <div id="rating">
-                    <p>Raiting: %d</p>
+                    <p>Rating: %g</p>
                 </div>
                 <div id="foto_i">
                     <img src=\'%s\'/>
                 </div>
+                <form onsubmit="return Verify(this);" action="actualiza_foto" method="post" enctype="multipart/form-data"> 
+                    <div id="div_act_foto">
+                        <input type="file" name="nueva_foto"/>                    
+                        <input type="submit" value="Actualizar"/>
+                    </div>
+                </form>
             </div>
             """
         import Controller
         control = Controller.Controller()        
         nombre = control.get_nombre(email)
-        genero = Comandos.consulta('SELECT genero FROM usuario WHERE nick_name=\'%s\';' % (email))
-        correo = email
         edad = control.get_edad(email)
-        return info
+        f_nac = Comandos.consulta('SELECT f_nacimiento FROM usuario WHERE nick_name=\'%s\';' % (email))
+        g = Comandos.consulta('SELECT genero FROM usuario WHERE nick_name=\'%s\';' % (email))
+        if g[0][0] == 'm':
+            genero = "Masculino"
+        else:
+            genero = "Femenino"
+        id_escuela = Comandos.consulta('SELECT escuela FROM usuario WHERE nick_name=\'%s\';' % (email))
+        escuela = Comandos.consulta('SELECT nombre FROM escuela where id=\'%d\';' % (id_escuela[0][0]))
+        id_pais = Comandos.consulta('SELECT nacionalidad FROM usuario WHERE nick_name=\'%s\';' % (email))
+        pais = Comandos.consulta('SELECT pais FROM paises WHERE id=\'%d\';' % (id_pais[0][0]))
+        raiting = Comandos.consulta('SELECT rating FROM usuario WHERE nick_name=\'%s\';' % (email))
+        foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name=\'%s\';' % (email))
+        return (info % (str(nombre),str(edad),str(f_nac[0][0]),str(genero),str(email),str(escuela[0][0]),str(pais[0][0]),raiting[0][0],str(foto[0][0])))
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        
         id_materia = Comandos.consulta('SELECT id FROM materias WHERE materia = \'%s\';' % (materia))
         fecha = time.strftime('%Y-%m-%d')
-        hora = time.strftime('%X')        
+        hora = time.strftime('%X')   
+        #return str(archivo.type)
         if(len(archivo.filename) != 0):
             size = 0
             allData=''
@@ -227,10 +263,21 @@ class Controller(object):
             savedFile = open('tmp/'+archivo.filename, 'wb')
             savedFile.write(allData)
             savedFile.close()
+<<<<<<< HEAD
+            tipo=""
+            if(str(archivo.type) == 'application/pdf'):
+                tipo = 'pdf'
+            else:
+                tipo = 'imagen'
+            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
+            Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
+=======
             shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
             os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)
             #return "<img src=\"/static/img/archivos/%s\"/>" % (archivo.filename)            
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo) VALUES (\'%s\',%d,NULL);' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0]))            
+>>>>>>> 0dc08d89959dbf5140d8f83fa6116bd948470958
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return
@@ -265,33 +312,33 @@ class Controller(object):
             return Comandos.consulta(s)
         return []
 
-def cadena_valida(cadena):
-    '''
-    Regresa True si la cadena es valida (no contiene palabras reservadas) y
-    False en otro caso
-    cadena: la cadena a analizar
-    returns: si la cadena es valida
-    '''
-    baja = cadena.lower()
-    palabras_reservadas = ["drop", " or ", " or", "or ", " and ", " and", 
-                           "and ", "select", "*", "#", "$", "%", "&", "/", 
-                           "(", ")", "?", "\'", "\"", "!", "\\", "+",
-                           " - ", "- ", " -"] 
-    for palabra in palabras_reservadas:
-        if palabra in baja:
-            return False
-    return True
-
-def is_number(s):
-    '''
-    Regresa si una cadena es numero
-    Codigo obtenido de http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-in-python
-    s: la cadena que queremos saber si es numero
-    returns: si s es numero
-    '''
-    try:
-        float(s)
+    def cadena_valida(cadena):
+        '''
+        Regresa True si la cadena es valida (no contiene palabras reservadas) y
+        False en otro caso
+        cadena: la cadena a analizar
+        returns: si la cadena es valida
+        '''
+        baja = cadena.lower()
+        palabras_reservadas = ["drop", " or ", " or", "or ", " and ", " and", 
+                               "and ", "select", "*", "#", "$", "%", "&", "/", 
+                               "(", ")", "?", "\'", "\"", "!", "\\", "+",
+                               " - ", "- ", " -"] 
+        for palabra in palabras_reservadas:
+            if palabra in baja:
+                return False
         return True
-    except ValueError:
-       return False
+
+    def is_number(s):
+        '''
+        Regresa si una cadena es numero
+        Codigo obtenido de http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-in-python
+        s: la cadena que queremos saber si es numero
+        returns: si s es numero
+        '''
+        try:
+            float(s)
+            return True
+        except ValueError:
+            return False
     

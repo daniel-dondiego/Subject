@@ -85,8 +85,20 @@ class Controller(object):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 
+    '''
+    Regresa el id del usario a partir de el email de este ultimo
+    email:el email del usuario
+    '''
     def get_id_usr(self, email):
         i = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        return i[0][0]
+
+    '''
+    Regresa el id del grupo a partir del nombre de este ultimo
+    email: el nombre del grupo
+    '''
+    def get_id_grupo(self, nombre):
+        i = Comandos.consulta('SELECT id FROM grupos WHERE nombre = \'%s\';' % (nombre))
         return i[0][0]
 
     def get_publicaciones_perfil(self,email):

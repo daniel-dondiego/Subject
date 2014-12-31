@@ -180,7 +180,7 @@ class Perfil(object):
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
-        if not Controller.cadena_valida(nombre):
+        if not control.cadena_valida(nombre):
             return 'Nombre invalido'
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
@@ -198,33 +198,6 @@ class Perfil(object):
         for x in range (0,len(rows)):
             c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
         return {'cadena':buscador_personas,'resultados':c}
-
-    @cherrypy.expose
-    def index(self):
-        email = authorized()
-        return open("home/daniel/Subject/web-server/Vista/public_html/perfil.html")
-
-    @cherrypy.expose
-    @cherrypy.tools.json_out()
-    def get_contenido_perfil(self, funcion):
-        if funcion == 'get_datos':    
-            return {
-                'nombre':control.get_nombre(cherrypy.session.get('email')),
-                'edad'  :control.get_edad(cherrypy.session.get('email')),
-                'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
-            }
-        if funcion == 'get_publicaciones':
-            return control.get_publicaciones_perfil(cherrypy.session.get('email'))
-        if funcion == 'get_info':
-            return control.get_info_perfil(cherrypy.session.get('email'))
-        if funcion == 'get_archivos':
-            return "<p>Publicaciones<p>"
-        return "Error"
-
-    @cherrypy.expose
-    def publica(self, contentp, materia, archivo=None):
-        control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))
-        raise cherrypy.HTTPRedirect("/perfil")
 
 root = Root()
 root.perfil = Perfil()

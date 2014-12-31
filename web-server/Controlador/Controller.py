@@ -4,7 +4,6 @@
 import sys
 sys.path.append("..")
 import Comandos
-from Modelo import Publicacion
 import string
 import EnviaCorreos
 import cgi
@@ -33,25 +32,26 @@ class Controller(object):
 	    return "Debe llenar el campo del genero."
 	#c_conf = EnviaCorreos.EnviaCorreos()
 	#EnviaCorreos.correo_de_confirmacion(usuario.get_nick_name(),4321)
-	Comandos.ejecuta_comando('INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) \
-		VALUES (\'%s\',\'%s\',\'%s\',\'%s\',NULL,NULL,\'%s\',0,\'%s\',%d,\'a\');'%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()),str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
-	if(usuario.get_genero() == 'm'):
-   		return "Bienvenido a Subject " + usuario.get_nombre()
-       	return "Bienvenida a Subject " + usuario.get_nombre()
+    	id_escuela = Comandos.consulta('SELECT id FROM escuela WHERE nombre=\'%s\';' % (usuario.get_escuela()))
+    	id_nacionalidad = Comandos.consulta('SELECT id FROM paises WHERE pais=\'%s\';' % (usuario.get_nacionalidad()))
+    	Comandos.ejecuta_comando("""INSERT INTO usuario (nombre,apellido,genero,nick_name,escuela,nacionalidad,f_nacimiento,rating,foto,password,salt) VALUES (\'%s\',\'%s\',\'%s\',\'%s\',%d,%d,\'%s\',0,\'%s\',%d,\'a\');"""%(str(usuario.get_nombre()),str(usuario.get_apellido()),str(usuario.get_genero()),str(usuario.get_nick_name()), id_escuela[0][0],id_nacionalidad[0][0],str(usuario.get_f_nacimiento()),str(usuario.get_foto()),hash(str(usuario.get_password()))))
+    	if(usuario.get_genero() == 'm'):
+	    return "Bienvenido a Subject " + usuario.get_nombre()
+	return "Bienvenida a Subject " + usuario.get_nombre()
 
     def get_lista_paises(self):
         paises = Comandos.consulta('SELECT pais FROM paises;')
-        cad_paises = "<select name=\"escuela\">\n"
+        cad_paises = "<label for=\"pais\">Pa&iacute;s:</label>\n<select name=\"pais\">\n"
         for pais in paises:
             cad_paises += " <option value=\"%s\">%s</option>\n" %(pais[0],pais[0])
-        return "jajatl"#cad_paises + "</select>"
+        return cad_paises + "</select>"
                     
     def get_lista_escuelas(self):
         escuelas = Comandos.consulta('SELECT nombre FROM escuela;')
-        cad_escuelas = "<select name=\"pais\">\n"
+        cad_escuelas = "<label for=\"escuela\">Escuela:</label>\n<select name=\"escuela\">\n"
         for escuela in escuelas:
             cad_escuelas += "   <option value=\"%s\">%s</option>\n" %(escuela[0],escuela[0])
-        return "jajatl"#cad_escuelas + "\n</select>"
+        return cad_escuelas + "\n</select>"
 
     def login(self,email,password):
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	

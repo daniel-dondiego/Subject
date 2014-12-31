@@ -85,7 +85,7 @@ class Root(object):
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, escuela, pais, fdn):
-        if not Controller.cadena_valida(nombre) or not Controller.cadena_valida(apellido) or not Controller.cadena_valida(email):    
+        if not control.cadena_valida(nombre) or not control.cadena_valida(apellido) or not control.cadena_valida(email):    
             raise ValueError("El parametro " + value + " es invalido")
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png',escuela,contrasenia,pais,fdn,0.0)        
         control.verifica(usuario,rcontrasenia)

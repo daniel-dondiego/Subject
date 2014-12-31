@@ -39,11 +39,11 @@ class Root(object):
         email = cherrypy.session.get('email')
         if email != None:
             raise cherrypy.HTTPRedirect('/home')
-        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
         
     @cherrypy.expose
     def signin(self):
-        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -59,7 +59,7 @@ class Root(object):
     @cherrypy.expose
     def home(self):
         email = authorized()
-        return """<a href="/perfil">Perfil</a>"""      
+        return open('home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/home.html','r')     
 
     @cherrypy.expose
     def logout(self): 
@@ -68,11 +68,11 @@ class Root(object):
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def get_lista_paises(self):
@@ -84,9 +84,9 @@ class Root(object):
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, escuela, pais, fdn):
-        for value in locals().values():
-            if not Controller.cadena_valida(value):
-                raise ValueError("El parametro " + value + " es invalido")
+        #for value in locals().values():
+        #    if not control.cadena_valida(value):
+        #        raise ValueError("El parametro " + value + " es invalido")
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png',escuela,contrasenia,pais,fdn,0.0)        
         control.verifica(usuario,rcontrasenia)
         raise cherrypy.HTTPRedirect('/verifica_cuenta')
@@ -99,7 +99,7 @@ class Root(object):
 
     @cherrypy.expose
     def verifica_cuenta(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/verifica_cuenta.html")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html")
 
     @cherrypy.expose
     def verfica_codigo(self,codigo):
@@ -176,7 +176,7 @@ class Perfil(object):
 
     @cherrypy.expose
     def crear_grupo(self):
-        return open("home/daniel/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
@@ -196,36 +196,6 @@ class Perfil(object):
             c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
         return {'cadena':buscador_personas,'resultados':c}
 
-<<<<<<< HEAD
-=======
-    @cherrypy.expose
-    def index(self):
-        email = authorized()
-        return open("home/daniel/Subject/web-server/Vista/public_html/perfil.html")
-
-    @cherrypy.expose
-    @cherrypy.tools.json_out()
-    def get_contenido_perfil(self, funcion):
-        if funcion == 'get_datos':    
-            return {
-                'nombre':control.get_nombre(cherrypy.session.get('email')),
-                'edad'  :control.get_edad(cherrypy.session.get('email')),
-                'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
-            }
-        if funcion == 'get_publicaciones':
-            return control.get_publicaciones_perfil(cherrypy.session.get('email'))
-        if funcion == 'get_info':
-            return control.get_info_perfil(cherrypy.session.get('email'))
-        if funcion == 'get_archivos':
-            return "<p>Publicaciones<p>"
-        return "Error"
-
-    @cherrypy.expose
-    def publica(self, contentp, materia, archivo=None):
-        control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))
-        raise cherrypy.HTTPRedirect("/perfil")
-
->>>>>>> 0dc08d89959dbf5140d8f83fa6116bd948470958
 root = Root()
 root.perfil = Perfil()
 cherrypy.server.max_request_body_size = 0

@@ -179,7 +179,7 @@ class Perfil(object):
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
-        if not cadena_valida(nombre):
+        if not Controller.cadena_valida(nombre):
             return 'Nombre invalido'
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
@@ -195,8 +195,6 @@ class Perfil(object):
             c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
         return {'cadena':buscador_personas,'resultados':c}
 
-<<<<<<< HEAD
-=======
     @cherrypy.expose
     def index(self):
         email = authorized()
@@ -224,7 +222,6 @@ class Perfil(object):
         control.publica_como_usuario(contentp,materia,archivo,cherrypy.session.get('email'))
         raise cherrypy.HTTPRedirect("/perfil")
 
->>>>>>> 0dc08d89959dbf5140d8f83fa6116bd948470958
 root = Root()
 root.perfil = Perfil()
 cherrypy.server.max_request_body_size = 0

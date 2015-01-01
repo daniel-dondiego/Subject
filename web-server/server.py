@@ -155,7 +155,7 @@ class Perfil(object):
         rows = u.get_grupos()
         c=""
         for x in range (0,len(rows)):
-            c=c+"\n<li>"+rows[x][1]+"</li>"
+            c=c+"\n<li><a href=\"grupo?id=" + str(rows[x][0]) +"\"/a>"+rows[x][1]+"</li>"
         return {'grupos':c}
 	
     @cherrypy.tools.mako(filename='usuarios-grupo.html')
@@ -170,8 +170,9 @@ class Perfil(object):
 	
     @cherrypy.tools.mako(filename='grupo.html')
     @cherrypy.expose
-    def grupo(self, grupo):
-        g = grupo
+    def grupo(self, id):
+        g = grupo(id, 'Rifadores', 2,  -1, 'hola_mundo')
+        g.cambia_parametros()
         rows = g.get_publicaciones()
         c=""
         for x in range (0,len(rows)):

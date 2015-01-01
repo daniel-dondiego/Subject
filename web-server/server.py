@@ -40,11 +40,11 @@ class Root(object):
         email = cherrypy.session.get('email')
         if email != None:
             raise cherrypy.HTTPRedirect('/home')
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
+        return open("home/victor/Documents/Subject/web-server/Vista/index.html", "r")
         
     @cherrypy.expose
     def signin(self):
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
+        return open("home/victor/Documents/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -60,7 +60,7 @@ class Root(object):
     @cherrypy.expose
     def home(self):
         email = authorized()
-        return open('home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/home.html','r')     
+        return open('home/victor/Documents/Subject/web-server/Vista/public_html/home.html','r')     
 
     @cherrypy.expose
     def logout(self): 
@@ -69,11 +69,11 @@ class Root(object):
 
     @cherrypy.expose
     def new_user(self):
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/victor/Documents/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/victor/Documents/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def get_lista_paises(self):
@@ -99,7 +99,7 @@ class Root(object):
 
     @cherrypy.expose
     def verifica_cuenta(self):
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html")
+        return open("home/victor/Documents/Subject/web-server/Vista/public_html/verifica_cuenta.html")
 
     @cherrypy.expose
     def verfica_codigo(self,codigo):
@@ -114,7 +114,7 @@ class Perfil(object):
     @cherrypy.expose
     def index(self):
         email = authorized()
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
+        return open("home/victor/Documents/Subject/web-server/Vista/public_html/perfil.html")
 
     @cherrypy.expose
     def visita_perfil(self, usuario):
@@ -155,7 +155,7 @@ class Perfil(object):
         rows = u.get_grupos()
         c=""
         for x in range (0,len(rows)):
-            c=c+"\n<li><a href=\"grupo?id=" + str(rows[x][0]) +"\"/a>"+rows[x][1]+"</li>"
+            c=c+"\n<li><a href=\"grupo?id=" + str(rows[x][0]) +"\"/a>"+rows[x][4]+"</li>"
         return {'grupos':c}
 	
     @cherrypy.tools.mako(filename='usuarios-grupo.html')
@@ -171,7 +171,7 @@ class Perfil(object):
     @cherrypy.tools.mako(filename='grupo.html')
     @cherrypy.expose
     def grupo(self, id):
-        g = grupo(id, 'Rifadores', 2,  -1, 'hola_mundo')
+        g = Grupo.Grupo(id, 'Rifadores', 2,  -1, 'hola_mundo')
         g.cambia_parametros()
         rows = g.get_publicaciones()
         c=""
@@ -181,11 +181,11 @@ class Perfil(object):
 
     @cherrypy.expose
     def crear_grupo(self):
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/victor/Documents/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
-        if not control.cadena_valida(nombre):
+        if not control.cadena_valida(nombre) or Grupo.existe(nombre):
             return 'Nombre invalido'
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")

@@ -311,10 +311,10 @@ ALTER SEQUENCE grupo_usuario_id_seq OWNED BY grupo_usuario.id;
 
 CREATE TABLE grupos (
     id integer NOT NULL,
-    nombre text NOT NULL,
     imagen bytea,
     visibilidad integer NOT NULL,
-    id_usuario integer
+    id_usuario integer,
+    nombre text
 );
 
 
@@ -385,7 +385,8 @@ ALTER SEQUENCE institucion_id_seq OWNED BY institucion.id;
 CREATE TABLE likes (
     id integer NOT NULL,
     id_usuario integer,
-    id_publicacion integer
+    id_publicacion integer,
+    calificacion integer
 );
 
 
@@ -1250,7 +1251,7 @@ SELECT pg_catalog.setval('grupo_usuario_id_seq', 1, true);
 -- Data for Name: grupos; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY grupos (id, nombre, imagen, visibilidad, id_usuario) FROM stdin;
+COPY grupos (id, imagen, visibilidad, id_usuario, nombre) FROM stdin;
 \.
 
 
@@ -1326,7 +1327,7 @@ SELECT pg_catalog.setval('institucion_id_seq', 46, true);
 -- Data for Name: likes; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY likes (id, id_usuario, id_publicacion) FROM stdin;
+COPY likes (id, id_usuario, id_publicacion, calificacion) FROM stdin;
 \.
 
 
@@ -1671,6 +1672,58 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 --
 
 COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) FROM stdin;
+46	Alejandro	Bustos	\N	alejandro@loquesea.com	\N	\N	1996-01-07	45	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+5	Claudia	García	\N	clau@loquesea.com	\N	\N	1995-07-05	60	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+6	Victor	Zamora	\N	victor@loquesea.com	\N	\N	1994-08-01	2	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+7	Miguel	Mendoza	\N	migue@loquesea.com	\N	\N	1995-07-08	15	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+8	Daniel	Don Diego	\N	dondi@loquesea.com	\N	\N	1995-10-13	23	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+9	Luis	Soto	\N	luisito@loquesea.com	\N	\N	1995-09-23	40	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+10	Cristiano	Ronaldo	\N	cris@loquesea.com	\N	\N	1985-02-05	59	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+11	Claudia	de Ronaldo	\N	cyc@loquesea.com	\N	\N	1995-07-05	50	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+12	Angélica	González	\N	an@loquesea.com	\N	\N	1993-11-08	42	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+13	Mario	Medina	\N	mar@loquesea.com	\N	\N	1987-01-30	13	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+14	Fernanda	Romo	\N	fer@loquesea.com	\N	\N	1997-05-12	22	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+15	Paulina	Estrada	\N	pau@loquesea.com	\N	\N	1990-03-20	11	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+16	Jorge	Ramírez	\N	jorge@loquesea.com	\N	\N	1994-01-05	22	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+17	Teresa	Rodríguez	\N	tere@loquesea.com	\N	\N	1982-12-01	54	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+18	Joel	Fernández	\N	joe@loquesea.com	\N	\N	1976-07-13	32	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+19	Mónica	Suárez	\N	mon@loquesea.com	\N	\N	1983-10-25	44	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+20	César	Guzmán	\N	cesar@loquesea.com	\N	\N	1993-12-24	21	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+21	Lourdes	Mujica	\N	lulu@loquesea.com	\N	\N	1992-05-11	20	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+22	Carmen	López	\N	car@loquesea.com	\N	\N	1999-06-03	7	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+23	Lorena	Valle	\N	lore@loquesea.com	\N	\N	1989-12-07	12	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+24	Leonardo	López	\N	leo@loquesea.com	\N	\N	1998-08-20	23	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+25	Javier	Vargas	\N	javier@loquesea.com	\N	\N	1995-07-31	16	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+26	Rodrigo	Montiel	\N	rodri@loquesea.com	\N	\N	1992-05-17	19	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+27	Armando	Gutierrez	\N	armando@loquesea.com	\N	\N	1995-07-10	39	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+28	Flavia	García	\N	flavia@loquesea.com	\N	\N	1990-12-24	12	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+29	Bárbara	Gómez	\N	barbi@loquesea.com	\N	\N	1994-04-13	25	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+30	Uriel	Cortez	\N	uriel@loquesea.com	\N	\N	1995-11-21	44	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+31	Rebeca	Pérez	\N	rebe@loquesea.com	\N	\N	1995-05-11	44	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+32	David	Rodríguez	\N	david@loquesea.com	\N	\N	1996-05-23	12	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+33	Aldo	Carmona	\N	aldo@loquesea.com	\N	\N	1988-11-14	56	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+34	Amanda	Galicia	\N	amanda@loquesea.com	\N	\N	1997-09-28	1	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+35	Fernando	Cruz	\N	fernando@loquesea.com	\N	\N	1991-09-17	45	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+36	María	Solis	\N	maria@loquesea.com	\N	\N	1996-05-24	13	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+37	Erika	Benitez	\N	erika@loquesea.com	\N	\N	1993-02-25	5	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+38	Carolina	Colorado	\N	caro@loquesea.com	\N	\N	1993-09-26	14	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+39	Carlos	Olivera	\N	carlos@loquesea.com	\N	\N	1990-12-31	23	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+40	José	Lara	\N	jose@loquesea.com	\N	\N	1993-12-27	22	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+41	Mariana	Martínez	\N	mariana@loquesea.com	\N	\N	1995-07-18	13	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+42	Laura	Carrillo	\N	laura@loquesea.com	\N	\N	1995-04-23	20	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+43	Liliana	Aguilar	\N	liliana@loquesea.com	\N	\N	1990-10-10	24	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+44	Cecilia	Contreras	\N	cecilia@loquesea.com	\N	\N	1994-05-23	31	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+45	Manuel	Vargas	\N	manuel@loquesea.com	\N	\N	1996-06-15	22	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+47	Mauricio	García	\N	mau@loquesea.com	\N	\N	1996-01-07	43	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+48	Sebastian	Guerrero	\N	sebas@loquesea.com	\N	\N	1996-09-23	51	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+49	Claudio	Montoya	\N	claudio@loquesea.com	\N	\N	1995-07-13	54	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+50	Lucas	Loera	\N	lucas@loquesea.com	\N	\N	1994-09-21	32	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+51	Ramiro	Estrada	\N	ramiro@loquesea.com	\N	\N	1994-12-13	33	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+52	Josefina	Urrutia	\N	josefina@loquesea.com	\N	\N	1992-10-22	12	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+53	Julian	Blanco	\N	julian@loquesea.com	\N	\N	1995-11-25	13	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+54	Nube	García	\N	nube@loquesea.com	\N	\N	1995-04-08	55	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+55	Jimena	Robles	\N	jime@loquesea.com	\N	\N	1985-09-13	27	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
+56	Victor	Casillas	\N	vicc@loquesea.com	\N	\N	1995-11-23	34	/static/img/fotos_perfil/agregarFoto.png	659471584116336832	\\x363539343731353834313136333336383332
 \.
 
 
@@ -1678,7 +1731,7 @@ COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_
 -- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('usuario_id_seq', 4, true);
+SELECT pg_catalog.setval('usuario_id_seq', 56, true);
 
 
 --
@@ -1743,6 +1796,14 @@ ALTER TABLE ONLY escuela
 
 ALTER TABLE ONLY grupo_usuario
     ADD CONSTRAINT grupo_usuario_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: grupos_nombre_key; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY grupos
+    ADD CONSTRAINT grupos_nombre_key UNIQUE (nombre);
 
 
 --

@@ -205,13 +205,40 @@ button{
     color:#4B4B4B;
 }
 
+#contenido #result_div #result_item #img_result{
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+}
+
+#contenido #result_div #result_item img{
+    width: 100%;
+}  
+
 /* Para pantallas de 100px en adelante */
 @media screen and (min-width: 100px){
     #contenido{
         width: 330px;
     }
+}
 
-    #contenido #result_div #result_item img{
-      width: 100%;
+/* Para pantallas de 480px en adelante */
+@media screen and (min-width: 480px){
+    #contenido{
+        width: 430px;
+    }
+}
+
+/* Pantallas de 767 pixeles en adelante */
+@media screen and (min-width: 767px){
+    #contenido{
+        width: 530px;
+    }
+}
+
+/* Pantallas de 950px en adelante. */
+@media screen and (min-width: 950px){
+    #contenido{
+        width: 630px;
     }
 }

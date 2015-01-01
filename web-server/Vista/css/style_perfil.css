@@ -107,9 +107,22 @@ select:active {
   	overflow: hidden;
 }
 
+#contenido #nuevo_comentario input{
+	border-radius: 8px;
+  	border-color: #47C4FF;
+  	font-family: "Arial";
+  	resize: none;
+  	overflow: hidden;
+}
+
+#contenido #nuevo_comentario select{
+	display: none;
+}
+
 #contenido #publicacion_nueva input[type="file"]{
 	display: none;
 }
+
 
 .head #buscador input:focus{
 	width: 65%;
@@ -230,6 +243,7 @@ select:active {
   	-moz-box-shadow: 3px 5px 15px #2F2E2E;
   	border-radius: 8px;
 }
+
 
 body {
   	left: 0;
@@ -439,6 +453,15 @@ body {
 		font-family: "Arial";
 	}
 
+	#contenido #nuevo_comentario input{
+		margin-left: 4%;
+		margin-top: 5px;
+		width: 269px;
+		height: 50px;
+		font-size: 14px;
+		font-family: "Arial";
+	}
+
 	#contenido #publicacion_nueva select{
 		margin-left: 4%;
 		width: 120px;
@@ -590,6 +613,68 @@ body {
 		width: 162px;
 		margin-bottom: 5px;
 	}
+
+	#contenido #nuevo_comentario{
+		width: 400px;
+		height: 50px;
+	}
+
+	#contenido #califica{
+		margin-left: 470px;
+		margin-top: -105px;
+		width: 140px;
+		height: 50px;
+		
+	}
+
+	#contenido #califica #muy_malo{
+		width: 20px;
+		height: 20px;
+
+	}
+
+	#contenido #califica #malo{
+		margin-left: 20px;
+		margin-top: -20px;
+		width: 20px;
+		height: 20px;
+
+	}
+
+	#contenido #califica #regular{
+		margin-left: 40px;
+		margin-top: -20px;
+		width: 20px;
+		height: 20px;
+		
+	}
+
+	#contenido #califica #bueno{
+		margin-left: 60px;
+		margin-top: -20px;
+		width: 20px;
+		height: 20px;
+		
+	}
+
+	#contenido #califica #muy_bueno{
+		margin-left: 80px;
+		margin-top: -20px;
+		width: 20px;
+		height: 20px;
+		
+	}
+
+	#contenido #nuevo_comentario input{
+		margin-left: 15%;
+		margin-top: 10px;
+		width: 400px;
+		height: 20px;
+		font-size: 14px;
+		font-family: "Arial";
+	}
+
+
 
 	#contenido #nombre_p p{
 		margin-left: 25px;

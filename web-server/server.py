@@ -117,6 +117,10 @@ class Perfil(object):
         return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
 
     @cherrypy.expose
+    def visita_perfil(self, usuario):
+        return usuario
+
+    @cherrypy.expose
     @cherrypy.tools.json_out()
     def get_contenido_perfil(self, funcion):
         if funcion == 'get_datos':    
@@ -166,8 +170,8 @@ class Perfil(object):
 	
     @cherrypy.tools.mako(filename='grupo.html')
     @cherrypy.expose
-    def grupo(self):
-        g = Grupo.Grupo(1,'Rifadores',1,1,'src')
+    def grupo(self, grupo):
+        g = grupo
         rows = g.get_publicaciones()
         c=""
         for x in range (0,len(rows)):
@@ -193,11 +197,14 @@ class Perfil(object):
     @cherrypy.tools.mako(filename='resultado_busqueda.html')
     @cherrypy.expose
     def busqueda(self,buscador_personas):
-        rows=control.busca(buscador_personas)
-        c=""
-        for x in range (0,len(rows)):
-            c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
-        return {'cadena':buscador_personas,'resultados':c}
+        return control.busca(buscador_personas,cherrypy.session.get('email'))
+        
+
+    @cherrypy.expose
+    def comenta(self,comentario,id_publicacion):
+        id_usr=control.get_id_usr(cherrypy.session.get('email'))
+        control.comenta(comentario,id_usr,id_publicacion)
+        raise cherrypy.HTTPRedirect("/perfil")
 
 root = Root()
 root.perfil = Perfil()

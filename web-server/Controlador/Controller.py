@@ -21,7 +21,8 @@ class Controller(object):
         if(usr.get_password() != rcontrasenia):
             return "Las contraseñas no coinciden"
         if(len(usr.get_password()) == 0):
-            return "Debe llenar el campo de la contraseña."		
+            return "Debe llenar el campo de la contraseña."	      
+        global codigo
         if (len(usr.get_nombre()) == 0):
             return "Debe llenar el campo del nombre."
         if(len(usr.get_apellido()) == 0):
@@ -32,8 +33,8 @@ class Controller(object):
 	    return "Debe llenar el campo del nombre."
 	if(len(usr.get_genero()) == 0):
 	    return "Debe llenar el campo del genero."
-        global codigo
-    	codigo = Comandos.genera_clave()
+    	global codigo
+        codigo = Comandos.genera_clave()
     	Comandos.correo_de_confirmacion(usr.get_nick_name(),codigo)
 
     def registra(self,cod):
@@ -155,6 +156,31 @@ class Controller(object):
                 <div id="materia_p">
                     <p>%s</p>
                 </div>
+                <div id="nuevo_comentario">
+                <form action="comenta" method="POST" id="new_comment">
+                    <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
+                    <select name="id_publicacion">              
+                        <option value="%d">...</option>
+                    </select>
+                </form>  
+                <div id="califica">
+                    <div id="muy_malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="regular">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="muy_bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                </div> 
+                </div>
             </div>
             <div id="espacio_perfil"></div>
             """
@@ -176,11 +202,11 @@ class Controller(object):
                 tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 if(tipo[0][0] == 'imagen'):                    
-                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0])
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],row['id'])
                 else:
-                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0])
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],row['id'])
             else:
-                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0])
+                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],row['id'])
         return publicaciones % (cad_materias,cadena)
 
     
@@ -196,8 +222,8 @@ class Controller(object):
         savedFile = open('tmp/'+archivo.filename, 'wb')
         savedFile.write(allData)
         savedFile.close()
-        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
-        os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
+        shutil.move('/tmp/'+archivo.filename,'home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
+        os.chmod('home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0],'imagen'))
         Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
@@ -279,38 +305,71 @@ class Controller(object):
                 tipo = 'pdf'
             else:
                 tipo = 'imagen'
-            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
+            shutil.move('/tmp/'+archivo.filename,'home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
+            os.chmod('home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return
-        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
+        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora,calificacion,num_calif) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\',0,0);' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
         return
 
-    def busca(self, nombre):
+    def busca(self, buscador_personas, email):
         '''
         Busca a la persona en la base de datos
-        nombre: el nombre de la persona a buscar
+        buscador_personas: el nombre de la persona a buscar
         '''
-        if not self.cadena_valida(nombre):
+        if not self.cadena_valida(buscador_personas):
             return []
         i = 0
-        nombre_completo = nombre.split()
+        nombre_completo = buscador_personas.split()
         s = "SELECT * FROM usuario WHERE "
         for name in nombre_completo:
             if i != 0:
-                s += "OR "
+                s += "OR"
             s += "LOWER(nombre) LIKE LOWER(\'%" + name + "%\') OR LOWER(apellido) LIKE LOWER(\'%" + name + "%\') OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE LOWER(nombre) LIKE LOWER(\'%" + name + "%\'))) "
             i += 1
-        return Comandos.consulta(s)
+        rows=Comandos.consulta(s)
+        results_u="""
+        <form action="../perfil" method="post">
+                %s
+        </form>        
+        """
+        d_u=""" 
+        <form action="../perfil" method="post">   
+            <div id="result_item">
+                <div id="img_result">
+                    <img src="%s"/>
+                </div>
+                <button type="submit">%s %s</button>
+            </div>        
+        </form>
+        <div id="espacio_resultados"></div>
+        """
+        d="""
+        <form action="visita_perfil" method="post">            
+            <div id="result_item">
+                <img src="%s"/>
+                <button type="submit" name="usuario" value="%d">%s %s</button>
+            </div>
+            <div id="espacio_resultados"></div>
+         </form>
+         <div id="espacio_resultados"></div>
+        """
+        c=""
+        for x in range (0,len(rows)):
+            if(rows[x][4] == email):
+                 c+= d_u % (rows[x][9],rows[x][1],rows[x][2])
+            else:
+                c+= d % (rows[x][9],rows[x][0],rows[x][1],rows[x][2])
+                return {'cadena':buscador_personas,'resultados': c}
 
-    def get_grupos_usuario(id):
+    def get_grupos_usuario(self, id):
         '''
         Regresa los grupos de un usuario dado su id
         id: el id en la base del usuario
         '''
-        if is_number(id):
+        if self.is_number(id):
             s = "SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = "
             s += id + ')'
             return Comandos.consulta(s)
@@ -333,7 +392,7 @@ class Controller(object):
                 return False
         return True
 
-    def is_number(s):
+    def is_number(self, s):
         '''
         Regresa si una cadena es numero
         Codigo obtenido de http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-in-python
@@ -345,4 +404,8 @@ class Controller(object):
             return True
         except ValueError:
             return False
-    
+
+    def comenta(self,coment,id_usr,id_publicacion):
+        fecha = time.strftime('%Y-%m-%d')
+        hora = time.strftime('%X')
+        Comandos.ejecuta_comando('INSERT INTO comentarios(contenido,id_usuario,id_publicacion,fecha,hora) VALUES(\'%s\',%d,%d,\'%s\',\'%s\');'%(coment,id_usr,int(id_publicacion),fecha,hora))

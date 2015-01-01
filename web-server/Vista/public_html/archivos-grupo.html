@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Usuarios</title>
+  </head>
+  <body> 
+    <!-- Imagen del grupo -->
+    <img src=${imagen} alt="Imagen del grupo" style="width: 69px;height: 100px;display: block;margin-left: auto;margin-right: auto"/>
+    <h2 style="text-align: center">${nombre}</h2>
+    <!-- Barra de navegacion -->
+    <ul class="menu">
+       <li class="menu"><a href="/static/miembros.html">Miembros</a></li>
+      <li class="menu"><a href="/static/archivos.html">Archivos</a></li>
+      <!-- Archivos -->
+      <h4>Archivos</h4>
+      <ul>
+        ${archivos}
+      </ul>
+  </body>
+</html>

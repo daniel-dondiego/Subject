@@ -313,29 +313,38 @@ class Controller(object):
         Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
         return
 
-    def busca(self, nombre):
+    def busca(self, buscador_personas):
         '''
         Busca a la persona en la base de datos
-        nombre: el nombre de la persona a buscar
+        buscador_personas: el nombre de la persona a buscar
         '''
-        if not self.cadena_valida(nombre):
+        if not self.cadena_valida(buscador_personas):
             return []
         i = 0
-        nombre_completo = nombre.split()
+        nombre_completo = buscador_personas.split()
         s = "SELECT * FROM usuario WHERE "
         for name in nombre_completo:
             if i != 0:
-                s += "OR "
+                s += "OR"
             s += "LOWER(nombre) LIKE LOWER(\'%" + name + "%\') OR LOWER(apellido) LIKE LOWER(\'%" + name + "%\') OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE LOWER(nombre) LIKE LOWER(\'%" + name + "%\'))) "
             i += 1
-        return Comandos.consulta(s)
+        rows=Comandos.consulta(s)
+        results="""
+            <form action="visita_perfil" method="post">
+                %s
+            </form>
+        """
+        c=""
+        for x in range (0,len(rows)):
+            c+="""   <input type="image" src="%s" name="usuario" title="%s %s" value="%s"/>""" % (rows[x][9],rows[x][1],rows[x][2],rows[x][0])
+        return {'cadena':buscador_personas,'resultados': (results % c)}
 
-    def get_grupos_usuario(id):
+    def get_grupos_usuario(self, id):
         '''
         Regresa los grupos de un usuario dado su id
         id: el id en la base del usuario
         '''
-        if is_number(id):
+        if self.is_number(id):
             s = "SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = "
             s += id + ')'
             return Comandos.consulta(s)
@@ -358,7 +367,7 @@ class Controller(object):
                 return False
         return True
 
-    def is_number(s):
+    def is_number(self, s):
         '''
         Regresa si una cadena es numero
         Codigo obtenido de http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-in-python

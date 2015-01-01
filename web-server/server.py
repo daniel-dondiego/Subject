@@ -117,6 +117,10 @@ class Perfil(object):
         return open("home/daniel/Subject/web-server/Vista/public_html/perfil.html")
 
     @cherrypy.expose
+    def visita_perfil(self, usuario):
+        return usuario
+
+    @cherrypy.expose
     @cherrypy.tools.json_out()
     def get_contenido_perfil(self, funcion):
         if funcion == 'get_datos':    
@@ -193,11 +197,8 @@ class Perfil(object):
     @cherrypy.tools.mako(filename='resultado_busqueda.html')
     @cherrypy.expose
     def busqueda(self,buscador_personas):
-        rows=control.busca(buscador_personas)
-        c=""
-        for x in range (0,len(rows)):
-            c=c+"\n<li>"+rows[x][1]+" "+rows[x][2]+"</li>"
-        return {'cadena':buscador_personas,'resultados':c}
+        return control.busca(buscador_personas)
+        
 
     @cherrypy.expose
     def comenta(self,comentario,id_publicacion):

@@ -602,7 +602,9 @@ CREATE TABLE publicaciones (
     fecha date NOT NULL,
     visibilidad integer,
     contenido text,
-    hora time without time zone NOT NULL
+    hora time without time zone NOT NULL,
+    calificacion real,
+    num_calif integer
 );
 
 
@@ -892,7 +894,7 @@ COPY archivos (id, url_archivo, id_usuario, id_grupo, tipo) FROM stdin;
 -- Name: archivos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('archivos_id_seq', 1, false);
+SELECT pg_catalog.setval('archivos_id_seq', 6, true);
 
 
 --
@@ -1241,7 +1243,7 @@ COPY grupo_usuario (id, id_grupo, id_usuario) FROM stdin;
 -- Name: grupo_usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('grupo_usuario_id_seq', 1, false);
+SELECT pg_catalog.setval('grupo_usuario_id_seq', 1, true);
 
 
 --
@@ -1256,7 +1258,7 @@ COPY grupos (id, nombre, imagen, visibilidad, id_usuario) FROM stdin;
 -- Name: grupos_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('grupos_id_seq', 1, false);
+SELECT pg_catalog.setval('grupos_id_seq', 1, true);
 
 
 --
@@ -1623,7 +1625,7 @@ SELECT pg_catalog.setval('persona_carrera_id_seq', 1, false);
 -- Data for Name: publicaciones; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad, contenido, hora) FROM stdin;
+COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, visibilidad, contenido, hora, calificacion, num_calif) FROM stdin;
 \.
 
 
@@ -1631,7 +1633,7 @@ COPY publicaciones (id, id_usuario, id_grupo, id_archivo, id_materia, fecha, vis
 -- Name: publicaciones_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('publicaciones_id_seq', 1, false);
+SELECT pg_catalog.setval('publicaciones_id_seq', 6, true);
 
 
 --
@@ -1669,9 +1671,6 @@ SELECT pg_catalog.setval('siguea_id_seq', 1, false);
 --
 
 COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_nacimiento, rating, foto, password, salt) FROM stdin;
-1	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
-2	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
-3	Victor	Zamora	m	pacuuuuu3@yahoo.com	\N	\N	1994-08-19	0	/static/img/fotos_perfil/agregarFoto.png	12416037344	\\x61
 \.
 
 
@@ -1679,7 +1678,7 @@ COPY usuario (id, nombre, apellido, genero, nick_name, escuela, nacionalidad, f_
 -- Name: usuario_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('usuario_id_seq', 3, true);
+SELECT pg_catalog.setval('usuario_id_seq', 4, true);
 
 
 --

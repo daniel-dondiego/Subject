@@ -29,6 +29,19 @@ class Grupo(object):
         '''
         return self.__nombre
 
+    def cambia_parametros(self):
+        '''
+        'Construye' los parametros de un grupo a partir de su id
+        '''
+        busqueda = "SELECT * FROM grupos WHERE id = " + str(self.__id) 
+        rows = Comandos.consulta(busqueda)
+        if len(rows) == 0:
+            return
+        self.__nombre = rows[0][1]
+        self.__imagen = rows[0][2]
+        self.__visibilidad = rows[0][3]
+        self.__id_usuario = rows[0][4]
+
     def get_id(self):
         '''
         Regresa el id del grupo

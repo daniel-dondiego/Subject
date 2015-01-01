@@ -33,7 +33,8 @@ class Controller(object):
 	    return "Debe llenar el campo del nombre."
 	if(len(usr.get_genero()) == 0):
 	    return "Debe llenar el campo del genero."
-    	codigo = Comandos.genera_clave()
+    	global codigo
+        codigo = Comandos.genera_clave()
     	Comandos.correo_de_confirmacion(usr.get_nick_name(),codigo)
 
     def registra(self,cod):
@@ -221,8 +222,8 @@ class Controller(object):
         savedFile = open('tmp/'+archivo.filename, 'wb')
         savedFile.write(allData)
         savedFile.close()
-        shutil.move('/tmp/'+archivo.filename,'/home/victor/Documents/Subject/web-server/Vista/img/fotos_perfil')
-        os.chmod('/home/victor/Documents/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
+        shutil.move('/tmp/'+archivo.filename,'home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
+        os.chmod('home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0],'imagen'))
         Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
@@ -304,16 +305,16 @@ class Controller(object):
                 tipo = 'pdf'
             else:
                 tipo = 'imagen'
-            shutil.move('/tmp/'+archivo.filename,'/home/daniel/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
+            shutil.move('/tmp/'+archivo.filename,'home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
+            os.chmod('home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return
-        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
+        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora,calificacion,num_calif) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\',0,0);' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
         return
 
-    def busca(self, buscador_personas):
+    def busca(self, buscador_personas, email):
         '''
         Busca a la persona en la base de datos
         buscador_personas: el nombre de la persona a buscar
@@ -329,15 +330,39 @@ class Controller(object):
             s += "LOWER(nombre) LIKE LOWER(\'%" + name + "%\') OR LOWER(apellido) LIKE LOWER(\'%" + name + "%\') OR id IN(SELECT id_usuario FROM persona_carrera WHERE id_carrera_titulo IN (SELECT id FROM carrera WHERE LOWER(nombre) LIKE LOWER(\'%" + name + "%\'))) "
             i += 1
         rows=Comandos.consulta(s)
-        results="""
-            <form action="visita_perfil" method="post">
+        results_u="""
+        <form action="../perfil" method="post">
                 %s
-            </form>
+        </form>        
+        """
+        d_u=""" 
+        <form action="../perfil" method="post">   
+            <div id="result_item">
+                <div id="img_result">
+                    <img src="%s"/>
+                </div>
+                <button type="submit">%s %s</button>
+            </div>        
+        </form>
+        <div id="espacio_resultados"></div>
+        """
+        d="""
+        <form action="visita_perfil" method="post">            
+            <div id="result_item">
+                <img src="%s"/>
+                <button type="submit" name="usuario" value="%d">%s %s</button>
+            </div>
+            <div id="espacio_resultados"></div>
+         </form>
+         <div id="espacio_resultados"></div>
         """
         c=""
         for x in range (0,len(rows)):
-            c+="""   <input type="image" src="%s" name="usuario" title="%s %s" value="%s"/>""" % (rows[x][9],rows[x][1],rows[x][2],rows[x][0])
-        return {'cadena':buscador_personas,'resultados': (results % c)}
+            if(rows[x][4] == email):
+                 c+= d_u % (rows[x][9],rows[x][1],rows[x][2])
+            else:
+                c+= d % (rows[x][9],rows[x][0],rows[x][1],rows[x][2])
+                return {'cadena':buscador_personas,'resultados': c}
 
     def get_grupos_usuario(self, id):
         '''

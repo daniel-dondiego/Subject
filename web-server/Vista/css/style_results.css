@@ -1,10 +1,3 @@
-/*
- * Document   : style_home.css
- * Created on : 12/11/2014
- * Author     : Miguel,Daniel,Victor,Luis,Claudia
- * Description: css styles
- */
-
 .head{
  	width: 100%;
 	height: 50px;	
@@ -158,5 +151,94 @@ body {
 	margin: 0 auto;
 	padding: 10px 0px;
 	height: auto;
-	background-color: blue;
+}
+
+#contenido #result_div{
+    margin: 0 auto;
+    background-color: #F0F0F0;
+    -webkit-box-shadow: 3px 5px 15px #2F2E2E;
+    -moz-box-shadow: 3px 5px 15px #2F2E2E;
+    border-radius: 8px;
+    padding: 10px 10px;
+}
+
+#contenido #result_div #result_item {
+    margin: 0 auto;
+    height: auto;
+    width: 60%;
+}
+
+#espacio {
+    width: auto;
+    height: 50px;
+}
+
+button:hover {
+    outline: none;
+    border-color: #036CA1;
+    background-color: #138BC7;
+}
+
+button:active{
+    outline: none;
+    border-color: #036CA1;
+    background-color: #06567D;  
+}
+
+button{
+    border-radius: 8px;
+    background-color: #47C4FF;
+    font-family: "Arial";
+    font-weight: bold;
+    border-style: none;
+    color: white;
+    width: 100%;
+}
+
+#espacio_resultados{
+    height: 30px;
+    width: 100%;
+}
+
+#contenido h3{
+    text-align: center;
+    color:#4B4B4B;
+}
+
+#contenido #result_div #result_item #img_result{
+    margin: 0 auto;
+    width: 80%;
+    height: auto;
+}
+
+#contenido #result_div #result_item img{
+    width: 100%;
+}  
+
+/* Para pantallas de 100px en adelante */
+@media screen and (min-width: 100px){
+    #contenido{
+        width: 330px;
+    }
+}
+
+/* Para pantallas de 480px en adelante */
+@media screen and (min-width: 480px){
+    #contenido{
+        width: 430px;
+    }
+}
+
+/* Pantallas de 767 pixeles en adelante */
+@media screen and (min-width: 767px){
+    #contenido{
+        width: 530px;
+    }
+}
+
+/* Pantallas de 950px en adelante. */
+@media screen and (min-width: 950px){
+    #contenido{
+        width: 630px;
+    }
 }

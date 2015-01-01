@@ -1,0 +1,75 @@
+<!DOCTYPE html> 
+<html lang="en">
+  <head>
+    <title id="titulo"></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <style>
+      div {
+      border: solid blue;
+      background-color: #DCDCCA;
+      padding-left: 5px;
+      }
+    </style>
+  </head>
+  <body>    
+    <div>
+      <h1>Administrar</h1>
+      <p>
+	<select id="usuarios">		
+	  <optgroup label="Usuarios">
+	    <option hidden="hidden" disabled="disabled" selected="selected">Usuarios</option>
+	    <option value="Bloquear" id="bloquear">Bloquear</option>
+	    <option value="Eliminar" id="eliminar">Eliminar</option>
+	    <option value="Eliminargrupos" id="eliminargrupos">Eliminar grupos</option>
+	    <option value="Agregargrupos" id="agregargrupos">Agregar grupos</option>
+	  </optgroup>
+	</select>
+	<br> 
+	<button type="submit" onclick="usuarios()">Aceptar</button>
+      </p>
+      <p>
+	<select id="agregar"> 
+	  <optgroup label="Agregar">
+	    <option hidden="hidden" disabled="disabled" selected="selected">Agregar</option>
+	    <option value="Materias" id="materias">Materias</option>
+	    <option value="Temas" id="temas">Categorias</option>
+	    <option value="Escuelas" id="escuelas">Escuelas</option>
+	    <option value="Carreras" id="carreras">Carreras</option>
+	  </optgroup>
+	</select>
+	<br>
+	<button type="submit" onclick="agregar()">Aceptar</button>
+      </p>
+      <button type="reportes" id="acceso_reportes">Acceder a los reportes</button>    
+    </div>
+    <script>
+      function usuarios() {
+      var label = $('#usuarios option:selected');
+      var text = label.text();
+      if (text === "Bloquear")
+      document.location.href = "bloquear_usuario.html";
+      else if(text === "Eliminar")
+      document.location.href = "eliminar_usuario.html";
+      else if(text === "Eliminar grupos")
+      document.location.href = "eliminar_grupo.html";
+      else if(text === "Agregar grupos")
+      document.location.href = "crear_grupo.html";
+      }
+      function agregar() {
+      var label = $('#agregar option:selected');
+      var text = label.text();
+      if (text === "Materias")
+      document.location.href = "agregar_materia.html";
+      else if(text === "Categorias")
+      document.location.href = "agregar_categoria.html";
+      else if(text === "Escuelas")
+      document.location.href = "agregar_escuela.html";
+      else if(text === "Carreras")
+      document.location.href = "agregar_carrera.html";
+      }
+    </script>
+  </body>
+</html>
+

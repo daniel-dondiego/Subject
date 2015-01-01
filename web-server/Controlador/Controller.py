@@ -77,20 +77,43 @@ class Controller(object):
         apellido = Comandos.consulta('SELECT apellido FROM usuario WHERE nick_name = \'%s\';' % (email))        
         return ("%s %s" % (nombre[0][0],apellido[0][0]))
 
+    def get_nombre_u(self ,id):
+        nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id))
+        apellido = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id))        
+        return ("%s %s" % (nombre[0][0],apellido[0][0]))
+
     def get_edad(self, email):
         edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE nick_name = \'%s\';' % (email))
         print '%s años' % (edad[0][0])
+        return ('%d años' % (edad[0][0]))
+
+    def get_edad_u(self, id):
+        edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE id = %d;' % (id))
         return ('%d años' % (edad[0][0]))
 
     def get_foto_perfil(self, email):
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 
-    '''
-    Regresa el id del usario a partir de el email de este ultimo
-    email:el email del usuario
-    '''
+    def get_foto_perfil_u(self, id):
+        foto = Comandos.consulta('SELECT foto FROM usuario WHERE id = %d;' % (id))
+	return (''''<img src=\'%s\'/>''' % (foto[0][0]))
+
+    def get_escuela(self, email):
+        id_escuela = Comandos.consulta('SELECT escuela FROM usuario WHERE nick_name = \'%s\';' % (email))
+        escuela = Comandos.consulta('SELECT nombre FROM escuela WHERE id=%d;' % (id_escuela[0][0]))
+        return ('%s' % escuela[0][0])
+
+    def get_escuela_u(self, id):
+        id_escuela = Comandos.consulta('SELECT escuela FROM usuario WHERE id = %d;' % (id))
+        escuela = Comandos.consulta('SELECT nombre FROM escuela WHERE id=%d;' % (id_escuela[0][0]))
+        return ('%s' % escuela[0][0])
+
     def get_id_usr(self, email):
+        '''
+        Regresa el id del usario a partir de el email de este ultimo
+        email:el email del usuario
+        '''
         i = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         return i[0][0]
 
@@ -350,7 +373,7 @@ class Controller(object):
         <div id="espacio_resultados"></div>
         """
         d="""
-        <form action="visita_perfil" method="post">            
+        <form action="../visita_perfil" method="post">            
             <div id="result_item">
                 <img src="%s"/>
                 <button type="submit" name="usuario" value="%d">%s %s</button>
@@ -365,7 +388,7 @@ class Controller(object):
                  c+= d_u % (rows[x][9],rows[x][1],rows[x][2])
             else:
                 c+= d % (rows[x][9],rows[x][0],rows[x][1],rows[x][2])
-                return {'cadena':buscador_personas,'resultados': c}
+        return {'cadena':buscador_personas,'resultados': c}
 
     def get_grupos_usuario(self, id):
         '''

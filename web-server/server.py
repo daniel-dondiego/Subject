@@ -105,6 +105,21 @@ class Root(object):
     def verfica_codigo(self,codigo):
         return control.registra(codigo)
 
+    @cherrypy.tools.mako(filename='visita_perfil.html')
+    @cherrypy.expose
+    def visita_perfil(self, usuario):
+        return {'id' : usuario}
+
+    @cherrypy.expose
+    @cherrypy.tools.json_out()
+    def get_contenido_perfil_ext(self, id):
+        return {
+            'nombre' :control.get_nombre_u(int(id)),
+            'edad'   :control.get_edad_u(int(id)),
+            'foto'   :control.get_foto_perfil_u(int(id)),
+            'escuela':control.get_escuela_u(int(id))
+        }
+
 
 class Perfil(object):
     """
@@ -117,17 +132,14 @@ class Perfil(object):
         return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
 
     @cherrypy.expose
-    def visita_perfil(self, usuario):
-        return usuario
-
-    @cherrypy.expose
     @cherrypy.tools.json_out()
     def get_contenido_perfil(self, funcion):
         if funcion == 'get_datos':    
             return {
-                'nombre':control.get_nombre(cherrypy.session.get('email')),
-                'edad'  :control.get_edad(cherrypy.session.get('email')),
-                'foto'  :control.get_foto_perfil(cherrypy.session.get('email'))
+                'nombre' :control.get_nombre(cherrypy.session.get('email')),
+                'edad'   :control.get_edad(cherrypy.session.get('email')),
+                'foto'   :control.get_foto_perfil(cherrypy.session.get('email')),
+                'escuela':control.get_escuela(cherrypy.session.get('email'))
             }
         if funcion == 'get_publicaciones':
             return control.get_publicaciones_perfil(cherrypy.session.get('email'))

@@ -170,8 +170,8 @@ class Perfil(object):
 	
     @cherrypy.tools.mako(filename='grupo.html')
     @cherrypy.expose
-    def grupo(self):
-        g = Grupo.Grupo(1,'Rifadores',1,1,'src')
+    def grupo(self, grupo):
+        g = grupo
         rows = g.get_publicaciones()
         c=""
         for x in range (0,len(rows)):

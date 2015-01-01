@@ -37,10 +37,10 @@ class Grupo(object):
         rows = Comandos.consulta(busqueda)
         if len(rows) == 0:
             return
-        self.__nombre = rows[0][1]
-        self.__imagen = rows[0][2]
-        self.__visibilidad = rows[0][3]
-        self.__id_usuario = rows[0][4]
+        self.__nombre = rows[0][4]
+        self.__imagen = rows[0][1]
+        self.__visibilidad = rows[0][2]
+        self.__id_usuario = rows[0][3]
 
     def get_id(self):
         '''
@@ -158,3 +158,12 @@ class Grupo(object):
         s = 'INSERT INTO grupo_usuario (id_grupo, id_usuario) VALUES('
         s += str(self.__id) + ', ' + str(id_usuario) + ')'
         Comandos.ejecuta_comando(s)
+    
+    def existe(nombre):
+        '''
+        Nos dice si el grupo con nombre 'nombre' ya existe
+        nombre: el nombre del grupo que queremos saber si existe
+        '''
+        query = "SELECT * FROM grupos WHERE nombre = " + nombre
+        rows = Comandos.consulta(s)
+        return len(rows) != 0

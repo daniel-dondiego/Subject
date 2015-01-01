@@ -155,6 +155,7 @@ class Controller(object):
                 <div id="materia_p">
                     <p>%s</p>
                 </div>
+                %s
                 <div id="nuevo_comentario">
                 <form action="comenta" method="POST" id="new_comment">
                     <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
@@ -188,10 +189,12 @@ class Controller(object):
         for materia in materias:
             cad_materias += '<option value="%s">%s</option>\n' %(materia[0],materia[0])
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
-        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido,hora FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY hora DESC;' % (id_usuario[0][0]))
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido,hora FROM publicaciones WHERE id_usuario = \'%s\' ORDER BY id DESC;' % (id_usuario[0][0]))
         cadena = ""
         if rows == []:
             return publicaciones % (cad_materias,"")
+        import Controller
+        control = Controller.Controller()
         for row in rows:
             n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
             a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id_usuario[0][0]))
@@ -205,7 +208,7 @@ class Controller(object):
                 else:
                     cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],row['id'])
             else:
-                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],row['id'])
+                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
         return publicaciones % (cad_materias,cadena)
 
     
@@ -384,3 +387,26 @@ class Controller(object):
         fecha = time.strftime('%Y-%m-%d')
         hora = time.strftime('%X')
         Comandos.ejecuta_comando('INSERT INTO comentarios(contenido,id_usuario,id_publicacion,fecha,hora) VALUES(\'%s\',%d,%d,\'%s\',\'%s\');'%(coment,id_usr,int(id_publicacion),fecha,hora))
+
+    def get_comentarios_en_publicaciones(self,id_publicacion):
+        comentarios_usuario = """<div id="comentarios_usuario">
+            %s
+            </div>"""
+        comentario = ""
+        rows = Comandos.consulta('SELECT * FROM comentarios WHERE id_publicacion = %d;'%(id_publicacion))        
+        for row in rows:
+            nom = Comandos.consulta('SELECT nombre,apellido FROM usuario WHERE id = %d;'%row['id_usuario'])
+            nombre ="%s %s"%(nom[0][0],nom[0][1]) 
+            comentario += """<div id="comment">
+            <div id="nombre_usr">
+                <a href="../perfil"><p>%s</p></a>
+            </div>
+            <div id="fecha_comment">
+                <p>%s - %s</p>
+            </div>
+            <div id="contenido_comment">
+                <p>%s</p>
+            </div>
+            </div>\n"""%(nombre,row['fecha'],row['hora'],row['contenido'])
+        return comentarios_usuario%comentario
+        

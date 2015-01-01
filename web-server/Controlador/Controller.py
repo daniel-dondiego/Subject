@@ -21,7 +21,8 @@ class Controller(object):
         if(usr.get_password() != rcontrasenia):
             return "Las contraseñas no coinciden"
         if(len(usr.get_password()) == 0):
-            return "Debe llenar el campo de la contraseña."		
+            return "Debe llenar el campo de la contraseña."	      
+        global codigo
         if (len(usr.get_nombre()) == 0):
             return "Debe llenar el campo del nombre."
         if(len(usr.get_apellido()) == 0):
@@ -32,7 +33,6 @@ class Controller(object):
 	    return "Debe llenar el campo del nombre."
 	if(len(usr.get_genero()) == 0):
 	    return "Debe llenar el campo del genero."
-        global codigo
     	codigo = Comandos.genera_clave()
     	Comandos.correo_de_confirmacion(usr.get_nick_name(),codigo)
 
@@ -196,8 +196,8 @@ class Controller(object):
         savedFile = open('tmp/'+archivo.filename, 'wb')
         savedFile.write(allData)
         savedFile.close()
-        shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
-        os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
+        shutil.move('/tmp/'+archivo.filename,'/home/victor/Documents/Subject/web-server/Vista/img/fotos_perfil')
+        os.chmod('/home/victor/Documents/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0],'imagen'))
         Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
@@ -279,8 +279,8 @@ class Controller(object):
                 tipo = 'pdf'
             else:
                 tipo = 'imagen'
-            shutil.move('/tmp/'+archivo.filename,'/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('/home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
+            shutil.move('/tmp/'+archivo.filename,'/home/victor/Documents/Subject/web-server/Vista/img/archivos')
+            os.chmod('/home/victor/Documents/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))

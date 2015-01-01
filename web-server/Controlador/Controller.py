@@ -285,7 +285,7 @@ class Controller(object):
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
             return
-        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
+        Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_materia,fecha,visibilidad,contenido,hora,calificacion,num_calif) VALUES (%d,NULL,%d,\'%s\',NULL,\'%s\',\'%s\',0,0);' %(id_usuario[0][0],id_materia[0][0],fecha,contentp,hora))
         return
 
     def busca(self, buscador_personas):
@@ -305,13 +305,20 @@ class Controller(object):
             i += 1
         rows=Comandos.consulta(s)
         results="""
-            <form action="visita_perfil" method="post">
+        <form action="visita_perfil" method="post">
                 %s
-            </form>
+       </form>        
+        """
+        d="""            
+        <div id="result_item">
+            <img src="%s"/>
+            <button type="submit" name="usuario" value="%d">%s %s</button>
+        </div>
+        <div id="espacio_resultados"></div>
         """
         c=""
         for x in range (0,len(rows)):
-            c+="""   <input type="image" src="%s" name="usuario" title="%s %s" value="%s"/>""" % (rows[x][9],rows[x][1],rows[x][2],rows[x][0])
+            c+= d % (rows[x][9],rows[x][0],rows[x][1],rows[x][2])
         return {'cadena':buscador_personas,'resultados': (results % c)}
 
     def get_grupos_usuario(id):

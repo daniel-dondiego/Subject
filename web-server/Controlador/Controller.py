@@ -305,12 +305,12 @@ class Controller(object):
             i += 1
         return Comandos.consulta(s)
 
-    def get_grupos_usuario(id):
+    def get_grupos_usuario(self, id):
         '''
         Regresa los grupos de un usuario dado su id
         id: el id en la base del usuario
         '''
-        if is_number(id):
+        if self.is_number(id):
             s = "SELECT * FROM grupos WHERE id IN (SELECT id_grupo FROM grupo_usuario WHERE id_usuario = "
             s += id + ')'
             return Comandos.consulta(s)
@@ -333,7 +333,7 @@ class Controller(object):
                 return False
         return True
 
-    def is_number(s):
+    def is_number(self, s):
         '''
         Regresa si una cadena es numero
         Codigo obtenido de http://stackoverflow.com/questions/354038/how-do-i-check-if-a-string-is-a-number-in-python

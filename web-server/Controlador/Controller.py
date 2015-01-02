@@ -215,6 +215,18 @@ class Controller(object):
                 <div id="materia_p">
                     <p>%s</p>
                 </div>
+                <form action="califica_publicacion" method="POST" id="new_calificacion">
+                    <div id="califica">
+                    <input title="muy malo" id="muy_malo" type="radio" name="calificacion" value="1">
+                    <input title="malo" id="malo" type="radio" name="calificacion" value="2">
+                    <input title="regular" id="regular" type="radio" name="calificacion" value="3">
+                    <input title="bueno" id="bueno" type="radio" name="calificacion" value="4">
+                    <input title="muy bueno" id="muy_bueno" type="radio" name="calificacion" value="5">
+                    <input type="hidden" value="%d" name="id_publicacion">
+                    <br><br>
+                    <input type="submit" value="calificar">
+                    </div>
+                </form>
                 %s
                 <div id="nuevo_comentario">
                 <form action="comenta" method="POST" id="new_comment">
@@ -223,25 +235,10 @@ class Controller(object):
                         <option value="%d">...</option>
                     </select>
                 </form>  
-                <div id="califica">
-                    <div id="muy_malo">
-                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
-                    </div>
-                    <div id="malo">
-                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
-                    </div>
-                    <div id="regular">
-                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
-                    </div>
-                    <div id="bueno">
-                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
-                    </div>
-                    <div id="muy_bueno">
-                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
-                    </div>
-                </div> 
                 </div>
+
             </div>
+
             <div id="espacio_perfil"></div>
             """
         materias = Comandos.consulta('SELECT materia FROM materias;')
@@ -268,7 +265,7 @@ class Controller(object):
                 else:
                     cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],row['id'])
             else:
-                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
+                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],row['id'],control.get_comentarios_en_publicaciones(row['id']),row['id'])
         return publicaciones % (cad_materias,cadena)
 
     def get_publicaciones_perfil_u(self,id):
@@ -378,8 +375,8 @@ class Controller(object):
         savedFile = open('tmp/'+archivo.filename, 'wb')
         savedFile.write(allData)
         savedFile.close()
-        shutil.move('/tmp/'+archivo.filename,'home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil')
-        os.chmod('home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
+        shutil.move('/tmp/'+archivo.filename,'home/daniel/Subject/web-server/Vista/img/fotos_perfil')
+        os.chmod('home/daniel/Subject/web-server/Vista/img/fotos_perfil/%s'%(archivo.filename),stat.S_IRWXU)
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/fotos_perfil/%s'%(archivo.filename)),id_usuario[0][0],'imagen'))
         Comandos.ejecuta_comando('UPDATE usuario SET foto=\'%s\' WHERE nick_name=\'%s\';' % (('/static/img/fotos_perfil/%s'%(archivo.filename)), email))
@@ -512,8 +509,8 @@ class Controller(object):
                 tipo = 'pdf'
             else:
                 tipo = 'imagen'
-            shutil.move('/tmp/'+archivo.filename,'home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos')
-            os.chmod('home/miguel/Documentos/Modelado/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
+            shutil.move('/tmp/'+archivo.filename,'home/daniel/Subject/web-server/Vista/img/archivos')
+            os.chmod('home/daniel/Subject/web-server/Vista/img/archivos/%s'%(archivo.filename),stat.S_IRWXU)      
             Comandos.ejecuta_comando('INSERT INTO archivos (url_archivo,id_usuario,id_grupo,tipo) VALUES (\'%s\',%d,NULL,\'%s\');' % (('/static/img/archivos/%s'%(archivo.filename)),id_usuario[0][0],tipo))            
             id_archivo = Comandos.consulta('SELECT id FROM archivos WHERE url_archivo = \'%s\';' % (('/static/img/archivos/%s'%(archivo.filename))))
             Comandos.ejecuta_comando('INSERT INTO publicaciones (id_usuario,id_grupo,id_archivo,id_materia,fecha,visibilidad,contenido,hora) VALUES (%d,NULL,%d,%d,\'%s\',NULL,\'%s\',\'%s\');' %(id_usuario[0][0],id_archivo[0][0],id_materia[0][0],fecha,contentp,hora))
@@ -640,4 +637,34 @@ class Controller(object):
             </div>
             </div>\n"""%(nombre,row['fecha'],row['hora'],row['contenido'])
         return comentarios_usuario%comentario
-        
+
+    def califica_publicacion(self,id_usuario,id_publicacion,calificacion):
+        Comandos.ejecuta_comando('INSERT INTO likes (id_usuario,id_publicacion,calificacion) VALUES(%d,%d,%d);'%(id_usuario,id_publicacion,calificacion))
+        rows = Comandos.consulta('SELECT calificacion FROM likes WHERE id_publicacion = %d;'%(id_publicacion))
+        cal = 0.0
+        num_cal = 0
+        for row in rows:
+            cal += row['calificacion']
+            num_cal += 1
+        calificacion_final = 0
+        if num_cal != 0:
+            cal = float(cal)
+            calificacion_final = cal/num_cal
+        else:
+            calificacion_final = 0
+        Comandos.ejecuta_comando('UPDATE publicaciones SET calificacion=%f,num_calif=%d WHERE id = %d;'%(cal,num_cal,id_publicacion))
+        cons = Comandos.consulta('SELECT calificacion FROM publicaciones WHERE id_usuario = %d;'%(id_usuario))
+        rating = 0.0
+        numero_publicaciones = 0
+        for pub in cons:
+            rating += pub[0]
+            numero_publicaciones += 1
+        rating_final = 0
+        if numero_publicaciones != 0:
+            rating = float(rating)
+            rating_final = rating/numero_publicaciones
+        else:
+            rating_final = 0
+        Comandos.ejecuta_comando('UPDATE usuario SET rating=%f WHERE id = %d;'%(rating_final,id_usuario))
+                
+

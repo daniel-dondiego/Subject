@@ -60,6 +60,10 @@ class Controller(object):
             return "No coinciden"
 
     def get_lista_paises(self):
+        '''
+        Regresa la lista de paises
+        returns: la lista de paises
+        '''
         paises = Comandos.consulta('SELECT pais FROM paises;')
         cad_paises = "<label for=\"pais\">Pa&iacute;s:</label>\n<select name=\"pais\">\n"
         for pais in paises:

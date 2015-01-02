@@ -6,6 +6,7 @@ sys.path.append(os.path.dirname(__file__))
 from Modelo import Usuario
 from Modelo import Grupo
 from Controlador import Controller
+from Controlador import Reportes
 import atexit
 import threading
 import cherrypy
@@ -355,8 +356,17 @@ class Perfil(object):
             raise cherrypy.HTTPRedirect('/perfil');
         return {'id':id_visit}
 
+class Reporte(object):
+
+    @cherrypy.tools.mako(filename='reportes.html')
+    @cherrypy.expose
+    def index(self):
+        r=Reportes.Reportero()
+        return r.hacer_reporte()
+
 root = Root()
 root.perfil = Perfil()
+root.reportes=Reporte()
 cherrypy.server.max_request_body_size = 0
 cherrypy.server.socket_timeout = 60
 conf = os.path.join(os.path.dirname(__file__),'server.conf')

@@ -27,19 +27,19 @@ input[type="search"]:focus , TEXTAREA[type="text"]:focus, input[type="file"]{
     box-shadow: 0 0 10px #47C4FF;
 }
 
-input[type="submit"]:hover, input[type="file"] {
+input[type="submit"]:hover, input[type="file"]:hover, button:hover{
 	outline: none;
     border-color: #036CA1;
     background-color: #138BC7;
 }
 
-input[type="submit"]:active , input[type="file"]{
+input[type="submit"]:active , input[type="file"]:active,button:active{
 	outline: none;
     border-color: #036CA1;
     background-color: #06567D;	
 }
 
-input[type="submit"], input[type="file"]{
+input[type="submit"], input[type="file"],button{
 	border-radius: 8px;
   	background-color: #47C4FF;
   	font-family: "Arial";
@@ -397,7 +397,7 @@ body {
 		width: 200px;
 		height: 90px;
 		margin-left: 38%;
-		margin-top: -80px;
+		margin-top: -87px;
 		color: white;
 	}
 
@@ -407,6 +407,11 @@ body {
 	}
 
 	.header_perfil #datos_principales h3 {
+		margin-top: -10px;
+		font-family: 'Open Sans', sans-serif;
+	}
+
+	.header_perfil #datos_principales h5 {
 		margin-top: -10px;
 		font-family: 'Open Sans', sans-serif;
 	}
@@ -528,6 +533,11 @@ body {
 	#contenido #info_p #div_act_foto input[type="submit"]{
 		margin-left: 35%;
 	}
+
+	#follow_div #follow_button{
+		margin-left: 33px;
+	}
+
 }
 
 /* Para pantallas de 480px en adelante */
@@ -553,7 +563,7 @@ body {
 		width: 200px;
 		height: 90px;
 		margin-left: 34%;
-		margin-top: -100px;
+		margin-top: -110px;
 		color: white;
 	}
 
@@ -563,7 +573,7 @@ body {
 	}
 
 	.header_perfil #datos_principales h3 {
-		margin-top: -5px;
+		margin-top: -15px;
 		font-family: 'Open Sans', sans-serif;
 	}
 
@@ -669,8 +679,6 @@ body {
 		font-family: "Arial";
 	}
 
-
-
 	#contenido #nombre_p p{
 		margin-left: 25px;
 		color: #47C4FF;
@@ -708,6 +716,9 @@ body {
 		margin-left: 8%;
 	}
 
+	#follow_div #follow_button{
+		margin-left: 58px;
+	}
 }
 
 /* Para pantallas de 480px en adelante */
@@ -732,6 +743,13 @@ body {
 		margin-bottom: -10px;
 	}
 
+	.header_perfil #datos_principales{
+		width: 200px;
+		height: 90px;
+		margin-left: 24%;
+		margin-top: -110px;
+		color: white;
+	}
 
 	#contenido #publicacion_nueva input[type="submit"]{
 		width: 162px;
@@ -770,6 +788,10 @@ body {
 		margin-left: 13%;
 	}
 
+	#follow_div #follow_button{
+		margin-left: 75px;
+	}
+
 }
 
 /* Para pantallas de 950px en adelante */
@@ -796,6 +818,14 @@ body {
 		font-family: "Arial";
 	}
 
+	.header_perfil #datos_principales{
+		width: 200px;
+		height: 90px;
+		margin-left: 20%;
+		margin-top: -110px;
+		color: white;
+	}
+
 	#contenido #publicacion_nueva select{
 		margin-left: 17%;
 	}
@@ -818,5 +848,16 @@ body {
 
 	#contenido #info_p #div_act_foto input[type="file"]{
 		margin-left: 17%;
+	}
+
+	#follow_div #follow_button{
+		margin-left: 85px;
+	}
+}
+
+/* Para pantallas de 950px en adelante */
+@media screen and (min-width: 950px){
+	#follow_div #follow_button{
+		margin-left: 105px;
 	}
 }

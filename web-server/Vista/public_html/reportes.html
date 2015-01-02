@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<hmtl>
+	<head>
+		<title>Reportes</title>
+	</head>
+	<body>
+		<h1>Reportes de actividad en Subject</h1>
+		<h2>Usuarios</h2>
+			<h4>Usuarios registrados: ${usr_num} usuarios</h4>
+			<h4>Usuarios con mayor calificacion</h4>
+			<table border="1">
+				${usr_top}
+			</table>
+			<h4>Paises con mas usuarios</h4>
+			<img src="${usr_pais}"></img>
+			<h4>Escuelas con mas Usuarios</h4>
+			<img src="${usr_esc}"></img>
+		<h2>Publicaciones</h2>
+			<h4>Publicaciones: ${pub_num}</h4>
+			<h4>Mejor calificadas</h4>
+			<table border="1">
+				${pub_top}
+			</table>
+		<h2> Temas mas populares</h2>
+			${tem_top}
+		<h2>Grupos</h2>
+			<h4>Grupos registrados: ${gru_num}</h4>
+	<body>
+</html>

@@ -6,6 +6,7 @@ sys.path.append(os.path.dirname(__file__))
 from Modelo import Usuario
 from Modelo import Grupo
 from Controlador import Controller
+from Controlador import Reportes
 import atexit
 import threading
 import cherrypy
@@ -179,18 +180,32 @@ class Root(object):
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
-    def get_contenido_perfil_ext(self, id):
+    def get_contenido_perfil_ext(self, funcion, id):
         '''
         Regresa un diccionario para llenar una plantilla con la informacion del usuario
         returns: un diccionario con la informacion del usuario
         '''
-        return {
-            'nombre' :control.get_nombre_u(int(id)),
-            'edad'   :control.get_edad_u(int(id)),
-            'foto'   :control.get_foto_perfil_u(int(id)),
-            'escuela':control.get_escuela_u(int(id))
-        }
+        if funcion == 'get_datos':
+            return {
+                'nombre' :control.get_nombre_u(int(id)),
+                'edad'   :control.get_edad_u(int(id)),
+                'foto'   :control.get_foto_perfil_u(int(id)),
+                'escuela':control.get_escuela_u(int(id)),
+                'siguea' :control.siguea(cherrypy.session.get('email'),int(id))
+            }
+        if funcion == 'get_publicaciones':
+            return control.get_publicaciones_perfil_u(int(id))
+        if funcion == 'get_info':
+            return control.get_info_perfil_u(int(id))
+        return "Error"
 
+    @cherrypy.expose
+    def follow(self, id_seguido):
+        return control.follow(cherrypy.session.get('email'),int(id_seguido))
+
+    @cherrypy.expose
+    def unfollow(self, id_seguido):
+        return control.unfollow(cherrypy.session.get('email'),int(id_seguido))
 
 class Perfil(object):
     """
@@ -328,7 +343,7 @@ class Perfil(object):
         '''
         return control.busca(buscador_personas,cherrypy.session.get('email'))
         
-
+    @cherrypy.tools.mako(filename='visita_perfil.html')
     @cherrypy.expose
     def comenta(self,comentario,id_publicacion):
         '''
@@ -337,8 +352,18 @@ class Perfil(object):
         id_publicacion: el id de la publicacion a comentar
         '''
         id_usr=control.get_id_usr(cherrypy.session.get('email'))
-        control.comenta(comentario,id_usr,id_publicacion)
-        raise cherrypy.HTTPRedirect("/perfil")
+        id_visit = control.comenta(comentario,id_usr,id_publicacion)
+        if(control.get_nick(id_visit) == cherrypy.session.get('email')):
+            raise cherrypy.HTTPRedirect('/perfil');
+        return {'id':id_visit}
+
+class Reporte(object):
+
+    @cherrypy.tools.mako(filename='reportes.html')
+    @cherrypy.expose
+    def index(self):
+        r=Reportes.Reportero()
+        return r.hacer_reporte()
 
     @cherrypy.expose
     def califica_publicacion(self,calificacion,id_publicacion):
@@ -348,6 +373,7 @@ class Perfil(object):
 
 root = Root()
 root.perfil = Perfil()
+root.reportes=Reporte()
 cherrypy.server.max_request_body_size = 0
 cherrypy.server.socket_timeout = 60
 conf = os.path.join(os.path.dirname(__file__),'server.conf')

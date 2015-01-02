@@ -73,6 +73,10 @@ class Controller(object):
             cad_escuelas += "   <option value=\"%s\">%s</option>\n" %(escuela[0],escuela[0])
         return cad_escuelas + "\n</select>"
 
+    def get_nick(self, id):
+        n = Comandos.consulta('SELECT nick_name FROM usuario WHERE id = %d;' % (int(id)))
+        return n[0][0]
+
     def login(self,email,password):
         if not self.cadena_valida(email):
             return 0
@@ -127,6 +131,23 @@ class Controller(object):
         '''
         i = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
         return i[0][0]
+
+    def siguea(self, email, id_seguido):
+        id_seguidor = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        follow = Comandos.consulta('SELECT id_seguidor,id_seguido FROM siguea WHERE id_seguidor=%d AND id_seguido=%d;' % (id_seguidor[0][0],id_seguido))
+        if follow == []:
+            return "NO"
+        return "YES"
+
+    def follow(self,email,id_seguido):
+        id_seguidor = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        Comandos.ejecuta_comando('INSERT INTO siguea (id_seguidor,id_seguido) VALUES (%d,%d);' % (id_seguidor[0][0],id_seguido))
+        return "OK"
+
+    def unfollow(self,email,id_seguido):
+        id_seguidor = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))
+        Comandos.ejecuta_comando('DELETE FROM siguea WHERE id_seguido=%d AND id_seguidor=%d;' % (id_seguido,id_seguidor[0][0]))
+        return "OK"
 
     '''
     Regresa el id del grupo a partir del nombre de este ultimo
@@ -243,6 +264,100 @@ class Controller(object):
                 cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],row['id'],control.get_comentarios_en_publicaciones(row['id']),row['id'])
         return publicaciones % (cad_materias,cadena)
 
+    def get_publicaciones_perfil_u(self,id):
+        publicacion_cf = """ 
+            <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
+                <div id="nombre_p">
+                    <a href="../perfil"><p>%s</p></a>
+                </div>
+                <div id="fecha">
+                    <p>%s - %s</p>
+                </div>
+                <div id="contenido_p">
+                    <p>%s</p>
+                </div>
+                <div id="imagen_p">
+                    %s
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
+        publicacion_sf = """ 
+            <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
+                <div id="nombre_p">
+                    <a href="../perfil"><p>%s</p></a>
+                </div>
+                <div id="fecha">
+                    <p>%s - %s</p>
+                </div>
+                <div id="contenido_p">
+                    <p>%s</p>
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+                %s
+                <div id="nuevo_comentario">
+                <form action="perfil/comenta" method="POST" id="new_comment">
+                    <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
+                    <select name="id_publicacion">              
+                        <option value="%d">...</option>
+                    </select>
+                </form>  
+                <div id="califica">
+                    <div id="muy_malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="regular">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="muy_bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                </div> 
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
+        rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido,hora FROM publicaciones WHERE id_usuario = %d ORDER BY id DESC;' % (id))
+        cadena = ""
+        if rows == []:
+            return """"
+                    <div id="publicaciones_usuario">
+                        <div id="nombre_p">
+                            <p>No hay publicaciones :c</p>
+                        </div>
+                    </div>
+                    """        
+        import Controller
+        control = Controller.Controller()        
+        for row in rows:
+            n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id))
+            a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id))
+            materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (row['id_materia']))
+            nombre = '%s %s'%(n[0][0],a[0][0])
+            if not row['id_archivo'] is None:
+                tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (row['id_archivo']))
+                arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
+                if(tipo[0][0] == 'imagen'):                    
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],row['id'])
+                else:
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],row['id'])
+            else:
+                cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
+        return cadena
+
     
     def actualiza_foto(self, email, archivo):
         size = 0
@@ -316,6 +431,57 @@ class Controller(object):
         raiting = Comandos.consulta('SELECT rating FROM usuario WHERE nick_name=\'%s\';' % (email))
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name=\'%s\';' % (email))
         return (info % (str(nombre),str(edad),str(f_nac[0][0]),str(genero),str(email),str(escuela[0][0]),str(pais[0][0]),raiting[0][0],str(foto[0][0])))
+
+    def get_info_perfil_u(self, id):
+        info = """
+            <div id="info_p">
+                <h2>Informaci&oacute;n</h2>
+                <div id="nombre_i">
+                    <p>Nombre: %s</p>
+                </div>
+                <div id="edad_i">
+                    <p>Edad: %s</p>
+                    <p>Fecha de nacimiento: %s</p>
+                </div>
+                <div id="genero">
+                    <p>Sexo: %s</p>
+                </div>
+                <div id="correo">
+                    <p>Correo: %s</p>
+                </div>
+                <div id="escuela">
+                    <p>Escuela: %s</p>
+                </div>
+                <div id="pais">
+                    <p>Pa&iacute;s de origen: %s</p>
+                </div>
+                <div id="rating">
+                    <p>Rating: %g</p>
+                </div>
+                <div id="foto_i">
+                    <img src=\'%s\'/>
+                </div>
+            </div>
+            """
+        import Controller
+        control = Controller.Controller()        
+        nombre = control.get_nombre_u(id)
+        edad = control.get_edad_u(id)
+        f_nac = Comandos.consulta('SELECT f_nacimiento FROM usuario WHERE id=%d;' % (id))
+        g = Comandos.consulta('SELECT genero FROM usuario WHERE id=%d;' % (id))
+        if g[0][0] == 'm':
+            genero = "Masculino"
+        else:
+            genero = "Femenino"
+        id_escuela = Comandos.consulta('SELECT escuela FROM usuario WHERE id=%d;' % (id))
+        escuela = Comandos.consulta('SELECT nombre FROM escuela where id=%d;' % (id_escuela[0][0]))
+        id_pais = Comandos.consulta('SELECT nacionalidad FROM usuario WHERE id=%d;' % (id))
+        pais = Comandos.consulta('SELECT pais FROM paises WHERE id=%d;' % (id_pais[0][0]))
+        raiting = Comandos.consulta('SELECT rating FROM usuario WHERE id=%d;' % (id))
+        foto = Comandos.consulta('SELECT foto FROM usuario WHERE id=%d;' % (id))
+        return (info % (str(nombre),str(edad),str(f_nac[0][0]),str(genero),str(control.get_nick(id)),str(escuela[0][0]),str(pais[0][0]),raiting[0][0],str(foto[0][0])))
+
+
 
     def publica_como_usuario(self, contentp, materia, archivo, email):
         id_usuario = Comandos.consulta('SELECT id FROM usuario WHERE nick_name = \'%s\';' % (email))        
@@ -443,6 +609,8 @@ class Controller(object):
         fecha = time.strftime('%Y-%m-%d')
         hora = time.strftime('%X')
         Comandos.ejecuta_comando('INSERT INTO comentarios(contenido,id_usuario,id_publicacion,fecha,hora) VALUES(\'%s\',%d,%d,\'%s\',\'%s\');'%(coment,id_usr,int(id_publicacion),fecha,hora))
+        id_visit = Comandos.consulta('SELECT id_usuario FROM publicaciones WHERE id = %d;' % (int(id_publicacion)))
+        return id_visit[0][0]
 
     def get_comentarios_en_publicaciones(self,id_publicacion):
         comentarios_usuario = """<div id="comentarios_usuario">

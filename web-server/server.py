@@ -56,7 +56,7 @@ class Root(object):
         Abre la ventana de inicio de sesion
         returns: la ventana de inicio de sesion
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/index.html", "r")
+        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -96,7 +96,7 @@ class Root(object):
         Envia a la ventana de creacion de un nuevo usuario
         returns: la ventana de creacion de usuarios
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
@@ -104,7 +104,7 @@ class Root(object):
         Redirecciona a la ventana de contrasena olvidada
         returns: la ventana de contrasena olvidada
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def get_lista_paises(self):
@@ -158,7 +158,7 @@ class Root(object):
         Cambia a la ventana de verificar cuenta
         returns: la ventana para verificar cuenta
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/public_html/verifica_cuenta.html")
+        return open("home/daniel/Subject/web-server/Vista/public_html/verifica_cuenta.html")
 
     @cherrypy.expose
     def verfica_codigo(self,codigo):
@@ -295,7 +295,7 @@ class Perfil(object):
         Regresa la ventana para crear un grupo
         returns: la ventana de creacion de un grupo
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 	
 
     @cherrypy.expose

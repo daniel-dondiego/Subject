@@ -21,6 +21,10 @@ if cherrypy.__version__.startswith('3.0') and cherrypy.engine.state == 0:
 control = Controller.Controller()
 
 def authorized():
+    '''
+    Verifica si ya se ha iniciado sesion y si no es asi, redirecciona a la pagina principal
+    returns: el email del usuario
+    '''
     email = cherrypy.session.get('email')
     isvalid = cherrypy.session.get('isvalid')
     if not email:
@@ -37,6 +41,10 @@ class Root(object):
 
     @cherrypy.expose
     def index(self):
+        '''
+        Raiz de cherrypy
+        returns: abre el html de la raiz
+        '''
         email = cherrypy.session.get('email')
         if email != None:
             raise cherrypy.HTTPRedirect('/home')
@@ -44,10 +52,18 @@ class Root(object):
         
     @cherrypy.expose
     def signin(self):
+        '''
+        Abre la ventana de inicio de sesion
+        returns: la ventana de inicio de sesion
+        '''
         return open("home/victor/Documents/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
+        '''
+        Hace login
+        returns: Una cadena cuando el login falla
+        '''
         status = control.login(user,password)        
         if status == 1:            
             cherrypy.session['email'] = cherrypy.request.login = user            
@@ -59,24 +75,43 @@ class Root(object):
 
     @cherrypy.expose
     def home(self):
+        '''
+        Envia al usuario al home
+        returns: la ventana con la vista del home
+        '''
         email = authorized()
         return open('home/victor/Documents/Subject/web-server/Vista/public_html/home.html','r')     
 
     @cherrypy.expose
     def logout(self): 
+        '''
+        Cierra la sesion
+        '''
         cherrypy.session.clear()
         raise cherrypy.HTTPRedirect("/")   
 
     @cherrypy.expose
     def new_user(self):
+        '''
+        Envia a la ventana de creacion de un nuevo usuario
+        returns: la ventana de creacion de usuarios
+        '''
         return open("home/victor/Documents/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
+        '''
+        Redirecciona a la ventana de contrasena olvidada
+        returns: la ventana de contrasena olvidada
+        '''
         return open("home/victor/Documents/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def get_lista_paises(self):
+        '''
+        Regresa la lista de los paises
+        returns: la lista de paises
+        '''
         return control.get_lista_paises()
     
     @cherrypy.expose

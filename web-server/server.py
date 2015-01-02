@@ -6,6 +6,7 @@ sys.path.append(os.path.dirname(__file__))
 from Modelo import Usuario
 from Modelo import Grupo
 from Controlador import Controller
+from Controlador import Reportes
 import atexit
 import threading
 import cherrypy
@@ -48,7 +49,7 @@ class Root(object):
         email = cherrypy.session.get('email')
         if email != None:
             raise cherrypy.HTTPRedirect('/home')
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
+        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
         
     @cherrypy.expose
     def signin(self):
@@ -56,7 +57,7 @@ class Root(object):
         Abre la ventana de inicio de sesion
         returns: la ventana de inicio de sesion
         '''
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
+        return open("home/daniel/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.tools.mako(filename='index.html')
     @cherrypy.expose
@@ -81,7 +82,7 @@ class Root(object):
         returns: la ventana con la vista del home
         '''
         email = authorized()
-        return open('home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/home.html','r')     
+        return open('home/daniel/Subject/web-server/Vista/public_html/home.html','r')     
 
     @cherrypy.expose
     def logout(self): 
@@ -97,7 +98,7 @@ class Root(object):
         Envia a la ventana de creacion de un nuevo usuario
         returns: la ventana de creacion de usuarios
         '''
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/registrar.html","r")
 
     @cherrypy.expose
     def forgot_pass(self):
@@ -105,7 +106,7 @@ class Root(object):
         Redirecciona a la ventana de contrasena olvidada
         returns: la ventana de contrasena olvidada
         '''
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/forgotten-pass.html","r")
 
     @cherrypy.expose
     def get_lista_paises(self):
@@ -159,7 +160,7 @@ class Root(object):
         Cambia a la ventana de verificar cuenta
         returns: la ventana para verificar cuenta
         '''
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html", "r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/verifica_cuenta.html")
 
     @cherrypy.expose
     def verfica_codigo(self,codigo):
@@ -223,7 +224,7 @@ class Perfil(object):
         returns: la ventana del perfil
         '''
         email = authorized()
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/perfil.html")
+        return open("home/daniel/Subject/web-server/Vista/public_html/perfil.html")
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
@@ -314,7 +315,8 @@ class Perfil(object):
         Regresa la ventana para crear un grupo
         returns: la ventana de creacion de un grupo
         '''
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+        return open("home/daniel/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
+	
 
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
@@ -360,8 +362,23 @@ class Perfil(object):
             raise cherrypy.HTTPRedirect('/perfil');
         return {'id':id_visit}
 
+class Reporte(object):
+
+    @cherrypy.tools.mako(filename='reportes.html')
+    @cherrypy.expose
+    def index(self):
+        r=Reportes.Reportero()
+        return r.hacer_reporte()
+
+    @cherrypy.expose
+    def califica_publicacion(self,calificacion,id_publicacion):
+        id_usr=control.get_id_usr(cherrypy.session.get('email'))
+        control.califica_publicacion(id_usr,int(id_publicacion),int(calificacion))
+        raise cherrypy.HTTPRedirect("/perfil")
+
 root = Root()
 root.perfil = Perfil()
+root.reportes=Reporte()
 cherrypy.server.max_request_body_size = 0
 cherrypy.server.socket_timeout = 60
 conf = os.path.join(os.path.dirname(__file__),'server.conf')

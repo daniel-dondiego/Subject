@@ -50,15 +50,6 @@ $(document).ready(function() {
         Notifier.info('You have been informed!');
     });
 
-    $('#califica').click(function(){
-        alert('funciona');
-    });
-    //$('#muy_malo img').bind('mouseenter mouseleave', function() {
-    //$(this).attr({
-    //    src: $(this).attr('data-other-src') 
-    //    , 'data-other-src': $(this).attr('src') 
-    //})
-    //});
 
 });
 

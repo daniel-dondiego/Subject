@@ -116,10 +116,20 @@ class Root(object):
     
     @cherrypy.expose
     def get_lista_escuelas(self):
+        '''
+        Regresa una lista con todas las escuelas
+        returns: una lista de escuelas
+        '''
         return control.get_lista_escuelas()
 
     @cherrypy.expose
     def registrarse(self, nombre, apellido, email, contrasenia, rcontrasenia, genero, escuela, pais, fdn):
+        '''
+        Registra a un usuario en subject
+        nombre: el nombre del usuario
+        apellido: el apellido del usuario
+        email: el correo del usuario
+        '''
         if not control.cadena_valida(nombre) or not control.cadena_valida(apellido) or not control.cadena_valida(email):    
             raise ValueError("El parametro " + value + " es invalido")
         usuario = Usuario.Usuario(None,nombre,apellido,genero,email,'/static/img/fotos_perfil/agregarFoto.png',escuela,contrasenia,pais,fdn,0.0)        

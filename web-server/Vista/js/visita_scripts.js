@@ -12,7 +12,7 @@ $(document).ready(function(){
         	$('#follow_button').text('Follow');
         }else{
         	$('#follow_button').text('Unfollow')
-        	$('#follow_button').css('background-color','red');
+        	$('#follow_button').css('background-color','#E90000');
         }
     });
     request.fail(function(jqXHR, textStatus) {
@@ -62,7 +62,7 @@ $(document).ready(function(){
         		seguido.done(function(resp){
         			if(resp == 'OK'){
         				$('#follow_button').text('Unfollow');
-        				$('#follow_button').css('background-color','red');
+        				$('#follow_button').css('background-color','#E90000');
         			}else{
         				alert('No se pudo seguir en este momento.');
         				$('#follow_button').text('Follow');
@@ -76,7 +76,7 @@ $(document).ready(function(){
         		no_seguido.done(function(respo){        			
         			if(respo == 'OK'){
         				$('#follow_button').text('Follow');
-        				$('#follow_button').css('background-color','blue');
+        				$('#follow_button').css('background-color','#47C4FF');
         			}else{
         				alert('No se pudo dejar de seguir en este momento.');
         				$('#follow_button').text('Unfollow');

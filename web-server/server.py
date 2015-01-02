@@ -52,15 +52,11 @@ class Root(object):
         
     @cherrypy.expose
     def signin(self):
-<<<<<<< HEAD
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
-=======
         '''
         Abre la ventana de inicio de sesion
         returns: la ventana de inicio de sesion
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/index.html", "r")
->>>>>>> f659527db82fdbff0b0277dcc459659fd38560c9
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
 
     @cherrypy.expose
     def login(self, user, password):        
@@ -158,15 +154,11 @@ class Root(object):
 
     @cherrypy.expose
     def verifica_cuenta(self):
-<<<<<<< HEAD
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html")
-=======
         '''
         Cambia a la ventana de verificar cuenta
         returns: la ventana para verificar cuenta
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/public_html/verifica_cuenta.html")
->>>>>>> f659527db82fdbff0b0277dcc459659fd38560c9
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/verifica_cuenta.html", "r")
 
     @cherrypy.expose
     def verfica_codigo(self,codigo):
@@ -187,8 +179,11 @@ class Root(object):
 
     @cherrypy.expose
     @cherrypy.tools.json_out()
-<<<<<<< HEAD
     def get_contenido_perfil_ext(self, funcion, id):
+        '''
+        Regresa un diccionario para llenar una plantilla con la informacion del usuario
+        returns: un diccionario con la informacion del usuario
+        '''
         if funcion == 'get_datos':
             return {
                 'nombre' :control.get_nombre_u(int(id)),
@@ -201,22 +196,7 @@ class Root(object):
             return control.get_publicaciones_perfil_u(int(id))
         if funcion == 'get_info':
             return control.get_info_perfil_u(int(id))
-        #if funcion == 'get_archivos':
-        #    return "<p>Publicaciones<p>"
         return "Error"
-=======
-    def get_contenido_perfil_ext(self, id):
-        '''
-        Regresa un diccionario para llenar una plantilla con la informacion del usuario
-        returns: un diccionario con la informacion del usuario
-        '''
-        return {
-            'nombre' :control.get_nombre_u(int(id)),
-            'edad'   :control.get_edad_u(int(id)),
-            'foto'   :control.get_foto_perfil_u(int(id)),
-            'escuela':control.get_escuela_u(int(id))
-        }
->>>>>>> f659527db82fdbff0b0277dcc459659fd38560c9
 
     @cherrypy.expose
     def follow(self, id_seguido):
@@ -325,16 +305,11 @@ class Perfil(object):
 
     @cherrypy.expose
     def crear_grupo(self):
-<<<<<<< HEAD
-        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
-=======
         '''
         Regresa la ventana para crear un grupo
         returns: la ventana de creacion de un grupo
         '''
-        return open("home/victor/Documents/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
->>>>>>> f659527db82fdbff0b0277dcc459659fd38560c9
-	
+        return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/public_html/registrar_grupo.html","r")
 
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):

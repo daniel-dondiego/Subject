@@ -31,6 +31,11 @@ def consulta(consulta):
     return rows
 
 def correo_de_confirmacion(correo,clave):
+    '''
+    Envia un correo de confirmacion para validar el registro
+    correo: el correo del usuario
+    clave: la clave de validacion
+    '''
     TO = correo
     SUBJECT = "TERMINA TU REGISTRO!"
     TEXT = "tu clave de cuatro digitos es: %s" % str(clave)
@@ -57,6 +62,10 @@ def correo_de_confirmacion(correo,clave):
     server.quit()
 
 def genera_clave():
+    '''
+    Genera la clave de validacion del usuario
+    returns: una clave aleatoria para validar la cuenta
+    '''
     clave = ''
     for x in range(0,4):
         clave += str(random.randint(0,9))

@@ -197,9 +197,7 @@ class Controller(object):
                     <input title="regular" id="regular" type="radio" name="calificacion" value="3">
                     <input title="bueno" id="bueno" type="radio" name="calificacion" value="4">
                     <input title="muy bueno" id="muy_bueno" type="radio" name="calificacion" value="5">
-                    <select name="id_publicacion">              
-                        <option value="%d">...</option>
-                    </select>
+                    <input type="hidden" value="%d" name="id_publicacion">
                     <br><br>
                     <input type="submit" value="calificar">
                     </div>
@@ -468,7 +466,33 @@ class Controller(object):
             </div>\n"""%(nombre,row['fecha'],row['hora'],row['contenido'])
         return comentarios_usuario%comentario
 
-    def califica_publicacion(self,id_usuario):
-        pass
-        
+    def califica_publicacion(self,id_usuario,id_publicacion,calificacion):
+        Comandos.ejecuta_comando('INSERT INTO likes (id_usuario,id_publicacion,calificacion) VALUES(%d,%d,%d);'%(id_usuario,id_publicacion,calificacion))
+        rows = Comandos.consulta('SELECT calificacion FROM likes WHERE id_publicacion = %d;'%(id_publicacion))
+        cal = 0.0
+        num_cal = 0
+        for row in rows:
+            cal += row['calificacion']
+            num_cal += 1
+        calificacion_final = 0
+        if num_cal != 0:
+            cal = float(cal)
+            calificacion_final = cal/num_cal
+        else:
+            calificacion_final = 0
+        Comandos.ejecuta_comando('UPDATE publicaciones SET calificacion=%f,num_calif=%d WHERE id = %d;'%(cal,num_cal,id_publicacion))
+        cons = Comandos.consulta('SELECT calificacion FROM publicaciones WHERE id_usuario = %d;'%(id_usuario))
+        rating = 0.0
+        numero_publicaciones = 0
+        for pub in cons:
+            rating += pub[0]
+            numero_publicaciones += 1
+        rating_final = 0
+        if numero_publicaciones != 0:
+            rating = float(rating)
+            rating_final = rating/numero_publicaciones
+        else:
+            rating_final = 0
+        Comandos.ejecuta_comando('UPDATE usuario SET rating=%f WHERE id = %d;'%(rating_final,id_usuario))
+                
 

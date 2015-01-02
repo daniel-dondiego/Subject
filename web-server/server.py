@@ -343,8 +343,8 @@ class Perfil(object):
     @cherrypy.expose
     def califica_publicacion(self,calificacion,id_publicacion):
         id_usr=control.get_id_usr(cherrypy.session.get('email'))
-        #control.califica_publicacion()
-        return
+        control.califica_publicacion(id_usr,int(id_publicacion),int(calificacion))
+        raise cherrypy.HTTPRedirect("/perfil")
 
 root = Root()
 root.perfil = Perfil()

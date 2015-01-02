@@ -304,8 +304,8 @@ class Perfil(object):
         Registra un grupo
         nombre: el nombre del grupo a registrar
         visibilidad: la visibilidad del grupo
-        '''
         returns: un mensaje que nos dice si el registro fue exitoso
+        '''
         if not control.cadena_valida(nombre):
             return 'Nombre invalido'
         if Grupo.existe(nombre):

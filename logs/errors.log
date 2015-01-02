@@ -1446,3 +1446,69 @@
 [Thu Jan 01 17:20:07.779595 2015] [:error] [pid 14131:tid 140276877321984] [client 127.0.0.1:34547]     return id{
 [Thu Jan 01 17:20:07.779601 2015] [:error] [pid 14131:tid 140276877321984] [client 127.0.0.1:34547]              ^
 [Thu Jan 01 17:20:07.779606 2015] [:error] [pid 14131:tid 140276877321984] [client 127.0.0.1:34547] SyntaxError: invalid syntax
+[Thu Jan 01 17:54:38.109028 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037] mod_wsgi (pid=15165): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109100 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037] mod_wsgi (pid=15165): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109129 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037] Traceback (most recent call last):, referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109151 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 8, in <module>, referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109257 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037]     from Controlador import Controller, referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109304 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037]   File "/home/miguel/Documentos/Modelado/Subject/web-server/Controlador/Controller.py", line 260, referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109312 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037]     publicacion_sf =  """, referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109318 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037]                          ^, referer: http://subject/visita_perfil
+[Thu Jan 01 17:54:38.109323 2015] [:error] [pid 15165:tid 140276869764864] [client 127.0.0.1:35037] IndentationError: unindent does not match any outer indentation level, referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606144 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042] mod_wsgi (pid=15264): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module., referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606183 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042] mod_wsgi (pid=15264): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606211 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042] Traceback (most recent call last):, referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606239 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 8, in <module>, referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606332 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042]     from Controlador import Controller, referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606376 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042]   File "/home/miguel/Documentos/Modelado/Subject/web-server/Controlador/Controller.py", line 260, referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606384 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042]     publicacion_sf =""", referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606390 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042]                        ^, referer: http://subject/visita_perfil
+[Thu Jan 01 17:55:28.606396 2015] [:error] [pid 15264:tid 140276868253440] [client 127.0.0.1:35042] IndentationError: unindent does not match any outer indentation level, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:48.745690 2015] [:error] [pid 16846:tid 140276818892544] [client 127.0.0.1:35600] mod_wsgi (pid=16846, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/
+[Thu Jan 01 18:20:48.745748 2015] [:error] [pid 16846:tid 140276818892544] [client 127.0.0.1:35600] mod_wsgi (pid=16846): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/
+[Thu Jan 01 18:20:48.745872 2015] [:error] [pid 16846:tid 140276818892544] [client 127.0.0.1:35600]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 227, referer: http://subject/perfil/
+[Thu Jan 01 18:20:48.745889 2015] [:error] [pid 16846:tid 140276818892544] [client 127.0.0.1:35600]     raise cherrypy.HTTPRedirect("/perfil")\xc2\xbf, referer: http://subject/perfil/
+[Thu Jan 01 18:20:48.745899 2015] [:error] [pid 16846:tid 140276818892544] [client 127.0.0.1:35600]                                           ^, referer: http://subject/perfil/
+[Thu Jan 01 18:20:48.745909 2015] [:error] [pid 16846:tid 140276818892544] [client 127.0.0.1:35600] SyntaxError: invalid syntax, referer: http://subject/perfil/
+[Thu Jan 01 18:20:52.000098 2015] [:error] [pid 16846:tid 140276810499840] [client 127.0.0.1:35601] mod_wsgi (pid=16846, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/
+[Thu Jan 01 18:20:52.000176 2015] [:error] [pid 16846:tid 140276810499840] [client 127.0.0.1:35601] mod_wsgi (pid=16846): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/
+[Thu Jan 01 18:20:52.000289 2015] [:error] [pid 16846:tid 140276810499840] [client 127.0.0.1:35601]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 227, referer: http://subject/perfil/
+[Thu Jan 01 18:20:52.000302 2015] [:error] [pid 16846:tid 140276810499840] [client 127.0.0.1:35601]     raise cherrypy.HTTPRedirect("/perfil")\xc2\xbf, referer: http://subject/perfil/
+[Thu Jan 01 18:20:52.000310 2015] [:error] [pid 16846:tid 140276810499840] [client 127.0.0.1:35601]                                           ^, referer: http://subject/perfil/
+[Thu Jan 01 18:20:52.000319 2015] [:error] [pid 16846:tid 140276810499840] [client 127.0.0.1:35601] SyntaxError: invalid syntax, referer: http://subject/perfil/
+[Thu Jan 01 18:20:57.080352 2015] [:error] [pid 16845:tid 140276634965760] [client 127.0.0.1:35602] mod_wsgi (pid=16845, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:57.080460 2015] [:error] [pid 16845:tid 140276634965760] [client 127.0.0.1:35602] mod_wsgi (pid=16845): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:57.080709 2015] [:error] [pid 16845:tid 140276634965760] [client 127.0.0.1:35602]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 227, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:57.080746 2015] [:error] [pid 16845:tid 140276634965760] [client 127.0.0.1:35602]     raise cherrypy.HTTPRedirect("/perfil")\xc2\xbf, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:57.080764 2015] [:error] [pid 16845:tid 140276634965760] [client 127.0.0.1:35602]                                           ^, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:57.080781 2015] [:error] [pid 16845:tid 140276634965760] [client 127.0.0.1:35602] SyntaxError: invalid syntax, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:58.954747 2015] [:error] [pid 16846:tid 140276802107136] [client 127.0.0.1:35603] mod_wsgi (pid=16846, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:58.955532 2015] [:error] [pid 16846:tid 140276802107136] [client 127.0.0.1:35603] mod_wsgi (pid=16846): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:58.955668 2015] [:error] [pid 16846:tid 140276802107136] [client 127.0.0.1:35603]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 227, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:58.955686 2015] [:error] [pid 16846:tid 140276802107136] [client 127.0.0.1:35603]     raise cherrypy.HTTPRedirect("/perfil")\xc2\xbf, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:58.955698 2015] [:error] [pid 16846:tid 140276802107136] [client 127.0.0.1:35603]                                           ^, referer: http://subject/visita_perfil
+[Thu Jan 01 18:20:58.955708 2015] [:error] [pid 16846:tid 140276802107136] [client 127.0.0.1:35603] SyntaxError: invalid syntax, referer: http://subject/visita_perfil
+[Thu Jan 01 18:21:18.393859 2015] [:error] [pid 17106:tid 140276567824128] [client 127.0.0.1:35606] mod_wsgi (pid=17106, process='', application='subject|'): Failed to parse WSGI script file '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/busqueda?buscador_personas=da
+[Thu Jan 01 18:21:18.393960 2015] [:error] [pid 17106:tid 140276567824128] [client 127.0.0.1:35606] mod_wsgi (pid=17106): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'., referer: http://subject/perfil/busqueda?buscador_personas=da
+[Thu Jan 01 18:21:18.394068 2015] [:error] [pid 17106:tid 140276567824128] [client 127.0.0.1:35606]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 227, referer: http://subject/perfil/busqueda?buscador_personas=da
+[Thu Jan 01 18:21:18.394081 2015] [:error] [pid 17106:tid 140276567824128] [client 127.0.0.1:35606]     raise cherrypy.HTTPRedirect("/perfil")\xc2\xbf, referer: http://subject/perfil/busqueda?buscador_personas=da
+[Thu Jan 01 18:21:18.394090 2015] [:error] [pid 17106:tid 140276567824128] [client 127.0.0.1:35606]                                           ^, referer: http://subject/perfil/busqueda?buscador_personas=da
+[Thu Jan 01 18:21:18.394099 2015] [:error] [pid 17106:tid 140276567824128] [client 127.0.0.1:35606] SyntaxError: invalid syntax, referer: http://subject/perfil/busqueda?buscador_personas=da
+[Thu Jan 01 20:37:51.828278 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464] mod_wsgi (pid=21078): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module.
+[Thu Jan 01 20:37:51.828330 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464] mod_wsgi (pid=21078): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Thu Jan 01 20:37:51.828361 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464] Traceback (most recent call last):
+[Thu Jan 01 20:37:51.828393 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 8, in <module>
+[Thu Jan 01 20:37:51.828519 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464]     from Controlador import Controller
+[Thu Jan 01 20:37:51.828576 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464]   File "/home/miguel/Documentos/Modelado/Subject/web-server/Controlador/Controller.py", line 139
+[Thu Jan 01 20:37:51.828588 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464]     return "OK"
+[Thu Jan 01 20:37:51.828597 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464]          ^
+[Thu Jan 01 20:37:51.828605 2015] [:error] [pid 21078:tid 140276797216512] [client 127.0.0.1:37464] SyntaxError: invalid syntax
+[Thu Jan 01 20:37:51.922688 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465] mod_wsgi (pid=21077): Target WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py' cannot be loaded as Python module.
+[Thu Jan 01 20:37:51.922769 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465] mod_wsgi (pid=21077): Exception occurred processing WSGI script '/home/miguel/Documentos/Modelado/Subject/web-server/server.py'.
+[Thu Jan 01 20:37:51.922806 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465] Traceback (most recent call last):
+[Thu Jan 01 20:37:51.922839 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465]   File "/home/miguel/Documentos/Modelado/Subject/web-server/server.py", line 8, in <module>
+[Thu Jan 01 20:37:51.922992 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465]     from Controlador import Controller
+[Thu Jan 01 20:37:51.923055 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465]   File "/home/miguel/Documentos/Modelado/Subject/web-server/Controlador/Controller.py", line 139
+[Thu Jan 01 20:37:51.923070 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465]     return "OK"
+[Thu Jan 01 20:37:51.923092 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465]          ^
+[Thu Jan 01 20:37:51.923101 2015] [:error] [pid 21077:tid 140276685321984] [client 127.0.0.1:37465] SyntaxError: invalid syntax

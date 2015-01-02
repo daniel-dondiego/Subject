@@ -197,8 +197,10 @@ class Perfil(object):
 	
     @cherrypy.expose
     def registra_grupo(self,nombre,visibilidad):
-        if not control.cadena_valida(nombre) or Grupo.existe(nombre):
+        if not control.cadena_valida(nombre):
             return 'Nombre invalido'
+        if Grupo.existe(nombre):
+            return 'Ese nombre de grupo ya existe, favor de intentar con otro'
         id_usuario=control.get_id_usr(cherrypy.session.get('email'))
         g = Grupo.Grupo(0,nombre,id_usuario,visibilidad,"static/img/fotos_perfil/agregarFoto.png")
         g.agrega()

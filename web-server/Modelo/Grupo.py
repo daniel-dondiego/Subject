@@ -159,7 +159,7 @@ class Grupo(object):
         s += str(self.__id) + ', ' + str(id_usuario) + ')'
         Comandos.ejecuta_comando(s)
     
-def existe(self, nombre):
+def existe(nombre):
     '''
     Nos dice si el grupo con nombre 'nombre' ya existe
     nombre: el nombre del grupo que queremos saber si existe

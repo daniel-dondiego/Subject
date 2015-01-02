@@ -58,6 +58,7 @@ class Root(object):
         '''
         return open("home/miguel/Documentos/Modelado/Subject/web-server/Vista/index.html", "r")
 
+    @cherrypy.tools.mako(filename='index.html')
     @cherrypy.expose
     def login(self, user, password):        
         '''
@@ -71,7 +72,7 @@ class Root(object):
             cherrypy.session.acquire_lock()
             raise cherrypy.HTTPRedirect("/home")
         else:
-            return "Login failed"
+            return {'error': 'Datos incorrectos'}
 
     @cherrypy.expose
     def home(self):
@@ -205,6 +206,10 @@ class Root(object):
     @cherrypy.expose
     def unfollow(self, id_seguido):
         return control.unfollow(cherrypy.session.get('email'),int(id_seguido))
+
+    @cherrypy.expose
+    def get_publicaciones_inicio(self):
+        return  control.get_publicaciones_inicio(cherrypy.session.get('email'))
 
 class Perfil(object):
     """

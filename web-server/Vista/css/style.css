@@ -16,6 +16,15 @@ header{
 	height: auto;
 }
 
+#error{
+	color:red;
+	margin-left: 85%;
+	margin-top: -15px;
+	font-family: "Arial";
+	font-size: 10px;
+	font-weight: bold;
+}
+
 
 input[type="text"]:focus , input[type="password"]:focus{
 	outline: none;
@@ -473,6 +482,13 @@ svg.logo{
 		margin-left: 20%;
 	}
 
+	#error{
+		color:red;
+		margin-left: 85%;
+		margin-top: -30px;
+		font-family: "Arial";
+		font-size: 10px;
+	}
 }
 
 /* Pantallas de 950px en adelante. */

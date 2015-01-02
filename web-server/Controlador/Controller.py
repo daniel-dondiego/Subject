@@ -193,6 +193,32 @@ class Controller(object):
                 <div id="materia_p">
                     <p>%s</p>
                 </div>
+                %s
+                <div id="nuevo_comentario">
+                <form action="perfil/comenta" method="POST" id="new_comment">
+                    <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
+                    <select name="id_publicacion">              
+                        <option value="%d">...</option>
+                    </select>
+                </form>  
+                <div id="califica">
+                    <div id="muy_malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="regular">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="muy_bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                </div> 
+                </div>
             </div>
             <div id="espacio_perfil"></div>
             """
@@ -239,7 +265,7 @@ class Controller(object):
                 </div>
             </div>
             <div id="espacio_perfil"></div>
-            """
+            """        
         materias = Comandos.consulta('SELECT materia FROM materias;')
         cad_materias = ""
         for materia in materias:
@@ -260,12 +286,137 @@ class Controller(object):
                 tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 if(tipo[0][0] == 'imagen'):                    
-                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],row['id'])
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
                 else:
-                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],row['id'])
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
             else:
                 cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
         return publicaciones % (cad_materias,cadena)
+
+    def get_publicaciones_inicio(self, email):
+        publicacion_cf = """ 
+            <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
+                <div id="nombre_p">
+                    <a href="../perfil"><p>%s</p></a>
+                </div>
+                <div id="fecha">
+                    <p>%s - %s</p>
+                </div>
+                <div id="contenido_p">
+                    <p>%s</p>
+                </div>
+                <div id="imagen_p">
+                    %s
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+                %s
+                <div id="nuevo_comentario">
+                <form action="perfil/comenta" method="POST" id="new_comment">
+                    <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
+                    <select name="id_publicacion">              
+                        <option value="%d">...</option>
+                    </select>
+                </form>  
+                <div id="califica">
+                    <div id="muy_malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="regular">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="muy_bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                </div> 
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
+        publicacion_sf = """ 
+            <div id="publicaciones_usuario">
+                <p id="id_p">%s</p>
+                <div id="nombre_p">
+                    <a href="../perfil"><p>%s</p></a>
+                </div>
+                <div id="fecha">
+                    <p>%s - %s</p>
+                </div>
+                <div id="contenido_p">
+                    <p>%s</p>
+                </div>
+                <div id="materia_p">
+                    <p>%s</p>
+                </div>
+                %s
+                <div id="nuevo_comentario">
+                <form action="perfil/comenta" method="POST" id="new_comment">
+                    <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
+                    <select name="id_publicacion">              
+                        <option value="%d">...</option>
+                    </select>
+                </form>  
+                <div id="califica">
+                    <div id="muy_malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="regular">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="muy_bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                </div> 
+                </div>
+            </div>
+            <div id="espacio_perfil"></div>
+            """
+        id_usr = Comandos.consulta('SELECT id FROM usuario WHERE nick_name=\'%s\';' % (email))
+        rowss = Comandos.consulta('SELECT id_seguido FROM siguea WHERE id_seguidor = %d;' % id_usr[0][0])
+        if rowss == []:
+            return """"
+                    <div id="publicaciones_usuario">
+                        <div id="nombre_p">
+                            <p>No hay publicaciones :c</p>
+                        </div>
+                    </div>
+                    """ 
+        import Controller
+        control = Controller.Controller() 
+        cadena = ""              
+        for row in rowss:
+            rows = Comandos.consulta('SELECT id,id_materia,fecha,id_archivo,id_usuario,contenido,hora FROM publicaciones WHERE id_usuario = %d ORDER BY id DESC;' % (row[0]))
+            for roww in rows:
+                n = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (roww[0][0]))
+                a = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (roww[0][0]))
+                materia = Comandos.consulta('SELECT materia FROM materias WHERE id = %d;' % (roww['id_materia']))
+                nombre = '%s %s'%(n[0][0],a[0][0])
+                if not roww['id_archivo'] is None:
+                    tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (roww['id_archivo']))
+                    arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (roww['id_archivo']))
+                    if(tipo[0][0] == 'imagen'):                    
+                        cadena += publicacion_cf % (roww['id'],nombre,roww['fecha'],roww['hora'],roww['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],roww['id'])
+                    else:
+                        cadena += publicacion_cf % (roww['id'],nombre,roww['fecha'],roww['hora'],roww['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],roww['id'])
+                else:
+                    cadena += publicacion_sf % (roww['id'],nombre,roww['fecha'],roww['hora'],roww['contenido'],materia[0][0],control.get_comentarios_en_publicaciones(roww['id']),roww['id'])
+        return cadena
+
+
 
     def get_publicaciones_perfil_u(self,id):
         publicacion_cf = """ 
@@ -285,6 +436,32 @@ class Controller(object):
                 </div>
                 <div id="materia_p">
                     <p>%s</p>
+                </div>
+                %s
+                <div id="nuevo_comentario">
+                <form action="perfil/comenta" method="POST" id="new_comment">
+                    <input type="text" name="comentario" placeholder="Escribe un comentario..."/>
+                    <select name="id_publicacion">              
+                        <option value="%d">...</option>
+                    </select>
+                </form>  
+                <div id="califica">
+                    <div id="muy_malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="malo">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="regular">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                    <div id="muy_bueno">
+                        <img data-other-src="/static/img/star.png" src="/static/img/no-star.png"/>
+                    </div>
+                </div> 
                 </div>
             </div>
             <div id="espacio_perfil"></div>
@@ -354,9 +531,9 @@ class Controller(object):
                 tipo = Comandos.consulta('SELECT tipo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 arch = Comandos.consulta('SELECT url_archivo FROM archivos WHERE id = %d;' % (row['id_archivo']))
                 if(tipo[0][0] == 'imagen'):                    
-                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],row['id'])
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<img src=\"%s\"/>'%arch[0][0],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
                 else:
-                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],row['id'])
+                    cadena += publicacion_cf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],'<a href=\"%s\">Archivo PDF.</a>'%arch[0][0],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
             else:
                 cadena += publicacion_sf % (row['id'],nombre,row['fecha'],row['hora'],row['contenido'],materia[0][0],control.get_comentarios_en_publicaciones(row['id']),row['id'])
         return cadena

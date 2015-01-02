@@ -71,6 +71,10 @@ class Controller(object):
         return cad_paises + "</select>"
                     
     def get_lista_escuelas(self):
+        '''
+        Regresa la lista de escuelas
+        returns: la lista de escuelas
+        '''
         escuelas = Comandos.consulta('SELECT nombre FROM escuela;')
         cad_escuelas = "<label for=\"escuela\">Escuela:</label>\n<select name=\"escuela\">\n"
         for escuela in escuelas:
@@ -78,10 +82,21 @@ class Controller(object):
         return cad_escuelas + "\n</select>"
 
     def get_nick(self, id):
+        '''
+        Regresa el correo del usuario con el id dado
+        id: el id del usuario
+        returns: el correo del usuario
+        '''
         n = Comandos.consulta('SELECT nick_name FROM usuario WHERE id = %d;' % (int(id)))
         return n[0][0]
 
     def login(self,email,password):
+        '''
+        Inicia sesion
+        email: el email del usuario
+        password: la contrasenia del usuario
+        returns: 1 si el inicio fue correcto, 0 si no lo fue y un mensaje de error si el usuario no existe
+        '''
         if not self.cadena_valida(email):
             return 0
         l = Comandos.consulta('SELECT password FROM usuario WHERE nick_name = '+ '\''+email+'\''+';');	    	
@@ -92,29 +107,59 @@ class Controller(object):
         return 1
 
     def get_nombre(self ,email):
+        '''
+        Regresa el nombre del usuario con el email dado
+        email: el email del usuario
+        returns: el nombre del usuario
+        '''
         nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE nick_name = \'%s\';' % (email))
         apellido = Comandos.consulta('SELECT apellido FROM usuario WHERE nick_name = \'%s\';' % (email))        
         return ("%s %s" % (nombre[0][0],apellido[0][0]))
 
     def get_nombre_u(self ,id):
+        '''
+        Regresa el nombre del usuario con el id dado
+        id: el id del usuario
+        returns: el nombre del usuario
+        '''
         nombre = Comandos.consulta('SELECT nombre FROM usuario WHERE id = %d;' % (id))
         apellido = Comandos.consulta('SELECT apellido FROM usuario WHERE id = %d;' % (id))        
         return ("%s %s" % (nombre[0][0],apellido[0][0]))
 
     def get_edad(self, email):
+        '''
+        Regresa la edad del usuario con el email dado
+        email: el email del usuario
+        returns: la edad del usuario
+        '''
         edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE nick_name = \'%s\';' % (email))
         print '%s años' % (edad[0][0])
         return ('%d años' % (edad[0][0]))
 
     def get_edad_u(self, id):
+        '''
+        Regresa la edad del usuario con el id dado
+        id: el id del usuario
+        returns: la edad del usuario
+        '''
         edad = Comandos.consulta('SELECT date_part(\'year\',age(f_nacimiento)) AS edad FROM usuario WHERE id = %d;' % (id))
         return ('%d años' % (edad[0][0]))
 
     def get_foto_perfil(self, email):
+        '''
+        Regresa la foto de perfil del usuario con el email dado
+        email: el email del usuario
+        returns: la foto de perfil del usuario
+        '''
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE nick_name = \'%s\';' % (email))
         return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 
     def get_foto_perfil_u(self, id):
+        '''
+        Regresa la foto de perfil del usuario con el id dado
+        id: el id del usuario
+        returns: la foto de perfil del usuario
+        '''
         foto = Comandos.consulta('SELECT foto FROM usuario WHERE id = %d;' % (id))
 	return (''''<img src=\'%s\'/>''' % (foto[0][0]))
 

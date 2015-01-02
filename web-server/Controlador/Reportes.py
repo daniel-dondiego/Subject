@@ -18,12 +18,32 @@ class Reportero(object):
     def escuela_por_id(self,id_escuela):
         q="SELECT nombre FROM escuela WHERE id="+str(id_escuela)+";"
         id_res=Comandos.consulta(q);
-        return id_res[0][0]
+        return id_res[0]
     
     def pais_por_id(self,id_pais):
         q="SELECT pais FROM paises WHERE id="+str(id_pais)+";"
         id_res=Comandos.consulta(q);
-        return id_res[0][0]
+        return id_res[0]
+    
+    def materia_por_id(self,id_mat):
+        q="SELECT materia FROM materias WHERE id="+str(id_mat)+";"
+        id_res=Comandos.consulta(q)
+        return id_res[0]
+    
+    def grafica_top_materias(self,rows):
+        values=[]
+        labels=[]
+        for x in range(len(rows)):
+            values.append(rows[x][1])
+            labels.append(self.materia_por_id(rows[x][0]))
+        fig = pl.figure(figsize=(5,5))
+        ax = pl.subplot(111)
+        width=0.5
+        ax.bar(range(len(labels)), values, width=width)
+        ax.set_xticks(np.arange(len(labels)) + width/2)
+        ax.set_xticklabels(labels, rotation=20)
+        pl.savefig("/home/luis/proyecto/Subject/web-server/Vista/img/archivos/grafica_top_materias.png")
+        pl.clf()
     
     def grafica_usr_pais(self,rows):
         labels=[]
@@ -81,7 +101,8 @@ class Reportero(object):
     def top_materia_publicacion(self):
         q="SELECT id_materia, count(*) as num FROM publicaciones GROUP BY id_materia ORDER BY num LIMIT 10;"
         top=Comandos.consulta(q);
-        return len(top)
+        self.grafica_top_materias(top)
+        return "../static/img/archivos/grafica_top_materias.png"
 
     def top_escuela_usuarios(self):
         q="SELECT escuela, count(*) as num FROM usuario GROUP BY escuela ORDER BY num LIMIT 7;"

@@ -16,6 +16,7 @@ $(document).ready(function() {
     /* Obtiene las publicaciones cuando se cargar el perfil por primera vez */
     var publicaciones_inicio = $.ajax({'url':'/perfil/get_contenido_perfil','data':{'funcion':'get_publicaciones'}});
     publicaciones_inicio.done(function(response){
+        alert(response);
         $('#contenido').html(response);
     });
     publicaciones_inicio.fail(function(jqXHR, textStatus){

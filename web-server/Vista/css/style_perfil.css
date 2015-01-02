@@ -617,11 +617,12 @@ body {
 	#contenido #nuevo_comentario{
 		width: 400px;
 		height: 50px;
+		margin-top: 10%;
 	}
 
 	#contenido #califica{
-		margin-left: 470px;
-		margin-top: -105px;
+		margin-left: 75%;
+		margin-top: -13%;
 		width: 140px;
 		height: 50px;
 		
@@ -634,32 +635,26 @@ body {
 	}
 
 	#contenido #califica #malo{
-		margin-left: 20px;
-		margin-top: -20px;
 		width: 20px;
 		height: 20px;
 
 	}
 
 	#contenido #califica #regular{
-		margin-left: 40px;
-		margin-top: -20px;
 		width: 20px;
 		height: 20px;
 		
 	}
 
 	#contenido #califica #bueno{
-		margin-left: 60px;
-		margin-top: -20px;
+	
 		width: 20px;
 		height: 20px;
 		
 	}
 
 	#contenido #califica #muy_bueno{
-		margin-left: 80px;
-		margin-top: -20px;
+	
 		width: 20px;
 		height: 20px;
 		
